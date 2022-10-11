@@ -6,11 +6,9 @@ import * as fd from 'src/functions/Form_Design';
 import formValidate from 'src/functions/Form_Validate';
 import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
-import { environment } from 'src/environments/environment';
 import axios from 'axios';
 
 declare var workflowCockpit: any;
-const STEP = environment.tarefa();
 
 @Component({
   selector: 'app-root',
@@ -66,17 +64,14 @@ export class AppComponent {
         return Promise.reject(error);
       }
     );
+
+    this.vp.overlay = false;
+    this.activeMenu = fd.showMenus(1, [1,2,3,4,5,6]);
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {
     const r = await wc.loadData(this.vp, info);
-    /*if (STEP === environment.s2_analise_marke)
-    this.vp.processInstanceId = data.processInstanceId!;*/
-    this.activeMenu = fd.showMenus(
-      r.initial,
-      r.tabs,
-      STEP === '' //environment.s1_solicitacao_interna
-    );
+    this.activeMenu = fd.showMenus(r.initial, r.tabs);
     this.vp = r.vp;
   };
 

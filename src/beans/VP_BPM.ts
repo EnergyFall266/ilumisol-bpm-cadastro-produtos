@@ -27,6 +27,8 @@ export class VP_BPM {
    * Dados básicos
    */
 
+  public t1_mandatory_to_readonly: boolean = false;
+
   //Coluna 1
   public t1_c1_segmento_options: SelectItem[] = [
     { label: 'Lojas Agro', value: 'Lojas Agro' },
@@ -138,18 +140,23 @@ export class VP_BPM {
 
   //Coluna 4
   public t1_c4_classe_toxicologica: string = '';
+
   public t1_c4_classe_risco: string = '';
+
   public t1_c4_numero_risco: string = '';
+
   public t1_c4_numero_mapa: string = '';
 
-  public t1_c3_quimico_arr: wsb.GrupoQuimico[] = [];
-  public t1_c3_quimico_obj?: wsb.GrupoQuimico;
-  public t1_c3_quimico_cod: string = '';
-  public t1_c3_quimico_des: string = '';
+  public t1_c4_quimico_arr: wsb.GrupoQuimico[] = [];
+  public t1_c4_quimico_obj?: wsb.GrupoQuimico;
+  public t1_c4_quimico_cod: string = '';
+  public t1_c4_quimico_des: string = '';
 
   /**
    * Dados de fornecedor
    */
+
+  public t2_mandatory_to_readonly: boolean = true;
 
   public t2_fornecedor_arr: wsb.Marca[] = [];
   public t2_fornecedor_obj?: wsb.Marca;
@@ -162,8 +169,10 @@ export class VP_BPM {
   public t2_codigo_produto: string = '';
 
   /**
-   * Depósito
+   * Dados de depósito
    */
+
+  public t3_mandatory_to_readonly: boolean = true;
 
   public t3_c1_destino: string = '';
   public t3_c1_quan_estoque_rep: number = 0;
@@ -183,17 +192,20 @@ export class VP_BPM {
    * Observações e Anexos
    */
 
+  public t4_mandatory_to_readonly: boolean = true;
+
   public t4_observacoes: string = '';
 
-  public t4_anexo_optional_to_disabled: boolean = true;
   public t4_anexo_files: File[] = [];
   public t4_anexo_ged_arr: Anexo[] = [];
   public t4_anexo_pasta_id: string = '';
-  public t4_anexo_pasta_nome: string = 'Anexo Solicitação';
+  public t4_anexo_pasta_nome: string = 'Anexo solicitação';
 
   /**
    * Dados do cadastro
    */
+
+  public t5_mandatory_to_readonly: boolean = true;
 
   //Coluna 1
   public t5_c1_descricao: string = '';
@@ -219,24 +231,24 @@ export class VP_BPM {
   public t5_c2_medida_2_cod: string = '';
   public t5_c2_medida_2_des: string = '';
 
-  public t5_c2_medida_2_tipo_con_arr: wsb.TipoConversao[] = [];
-  public t5_c2_medida_2_tipo_con_obj?: wsb.TipoConversao;
-  public t5_c2_medida_2_tipo_con_cod: string = '';
-  public t5_c2_medida_2_tipo_con_des: string = '';
+  public t5_c2_medida_2_tip_con_arr: wsb.TipoConversao[] = [];
+  public t5_c2_medida_2_tip_con_obj?: wsb.TipoConversao;
+  public t5_c2_medida_2_tip_con_cod: string = '';
+  public t5_c2_medida_2_tip_con_des: string = '';
 
-  public t5_c2_medida_2_tipo_val: number = 0;
+  public t5_c2_medida_2_val_con: number = 0;
 
   public t5_c2_medida_3_arr: wsb.UnidadeMedida[] = [];
   public t5_c2_medida_3_obj?: wsb.UnidadeMedida;
   public t5_c2_medida_3_cod: string = '';
   public t5_c2_medida_3_des: string = '';
 
-  public t5_c2_medida_3_tipo_con_arr: wsb.TipoConversao[] = [];
-  public t5_c2_medida_3_tipo_con_obj?: wsb.TipoConversao;
-  public t5_c2_medida_3_tipo_con_cod: string = '';
-  public t5_c2_medida_3_tipo_con_des: string = '';
+  public t5_c2_medida_3_tip_con_arr: wsb.TipoConversao[] = [];
+  public t5_c2_medida_3_tip_con_obj?: wsb.TipoConversao;
+  public t5_c2_medida_3_tip_con_cod: string = '';
+  public t5_c2_medida_3_tip_con_des: string = '';
 
-  public t5_c2_medida_3_tipo_val: number = 0;
+  public t5_c2_medida_3_val_con: number = 0;
 
   //Coluna 3
   public t5_c3_peso_bruto: number = 0;
@@ -245,15 +257,19 @@ export class VP_BPM {
 
   public t5_c3_observacao: string = '';
 
-  public t5_c3_anexo_optional_to_disabled: boolean = true;
   public t5_c3_anexo_files: File[] = [];
   public t5_c3_anexo_ged_arr: Anexo[] = [];
   public t5_c3_anexo_pasta_id: string = '';
-  public t5_c3_anexo_pasta_nome: string = 'Anexo Solicitação';
+  public t5_c3_anexo_pasta_nome: string = 'Anexo cadastro';
+
+  //Coluna 4
+  public t5_c4_recusa: string = '';
 
   /**
    * Dados fiscais e contábeis
    */
+
+  public t6_mandatory_to_readonly: boolean = true;
 
   //Coluna 1
   public t6_c1_tipo_prod_arr: wsb.TipoProduto[] = [];
@@ -328,4 +344,51 @@ export class VP_BPM {
   public t6_c2_cof_situ_com_obj?: wsb.SituacaoTributaria;
   public t6_c2_cof_situ_com_cod: string = '';
   public t6_c2_cof_situ_com_des: string = '';
+
+  public t6_c2_produto_fornecedor_chk: boolean = false;
+  public t6_c2_produto_fornecedor_txt: string = '';
+
+  public t6_c2_funrural: number = 0;
+
+  public t6_c2_gilrat: number = 0;
+
+  //Coluna 3
+  public t6_c3_senart: number = 0;
+
+  public t6_c3_enquadra_espe_arr: wsb.Enquadramento[] = [];
+  public t6_c3_enquadra_espe_obj?: wsb.Enquadramento;
+  public t6_c3_enquadra_espe_cod: string = '';
+  public t6_c3_enquadra_espe_des: string = '';
+
+  public t6_c3_desoneracao_arr: wsb.Desoneracao[] = [];
+  public t6_c3_desoneracao_obj?: wsb.Desoneracao;
+  public t6_c3_desoneracao_cod: string = '';
+  public t6_c3_desoneracao_des: string = '';
+
+  public t6_c3_substituicao: string = '';
+
+  public t6_c3_anp_arr: wsb.ProdutoANP[] = [];
+  public t6_c3_anp_obj?: wsb.ProdutoANP;
+  public t6_c3_anp_cod: string = '';
+  public t6_c3_anp_des: string = '';
+
+  public t6_c3_pauta_arr: wsb.PautaFiscal[] = [];
+  public t6_c3_pauta_obj?: wsb.PautaFiscal;
+  public t6_c3_pauta_cod: string = '';
+  public t6_c3_pauta_des: string = '';
+
+  public t6_c3_cbenef_arr: wsb.CBenef[] = [];
+  public t6_c3_cbenef_obj?: wsb.CBenef;
+  public t6_c3_cbenef_cod: string = '';
+  public t6_c3_cbenef_des: string = '';
+
+  //Coluna 4
+  public t6_c4_observacoes: string = '';
+
+  public t6_c4_recusa: string = '';
+
+  public t6_c4_anexo_files: File[] = [];
+  public t6_c4_anexo_ged_arr: Anexo[] = [];
+  public t6_c4_anexo_pasta_id: string = '';
+  public t6_c4_anexo_pasta_nome: string = 'Anexo fiscal/cotábil';
 }

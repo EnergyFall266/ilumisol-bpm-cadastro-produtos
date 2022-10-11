@@ -200,6 +200,14 @@ export interface NaturezaReceita {}
 
 export interface Enquadramento {}
 
+export interface Desoneracao {}
+
+export interface ProdutoANP {}
+
+export interface PautaFiscal {}
+
+export interface CBenef {}
+
 interface CamposUsuario {
   valor?: string;
   campo?: string;

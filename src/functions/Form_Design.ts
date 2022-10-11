@@ -35,32 +35,27 @@ const Menus: MenuItem[] = [
 
 type panelType = { [k: string]: boolean };
 const Panels: panelType = {
-  t1_Basicos: false,
-  t2_Fornecedor: true,
-  t3_Deposito: true,
-  t4_ObsAnexo: true,
-  t5_FiscCont: true,
+  t1_basicos: false,
+  t2_fornecedor: true,
+  t3_deposito: true,
+  t4_obs_ane: true,
+  t5_cadastro: true,
+  t6_fis_con: true,
 };
 
-function showMenus(
-  inicial: number,
-  panels: number[],
-  disabled: boolean
-): MenuItem {
-  for (const i of panels) {
-    Menus[i - 1].visible = true;
-    if (i !== 1) Menus[i - 1].disabled = disabled;
-  }
+function showMenus(inicial: number, panels: number[]): MenuItem {
+  for (const i of panels) Menus[i - 1].visible = true;
   return showPanel(inicial);
 }
 
 function showPanel(panel: number): MenuItem {
   Object.keys(Panels).forEach((k) => (Panels[k] = true));
-  if (panel === 1) Panels['t1_Basicos'] = false;
-  if (panel === 2) Panels['t2_Fornecedor'] = false;
-  if (panel === 3) Panels['t3_Deposito'] = false;
-  if (panel === 4) Panels['t4_ObsAnexo'] = false;
-  if (panel === 5) Panels['t5_FiscCont'] = false;
+  if (panel === 1) Panels['t1_basicos'] = false;
+  if (panel === 2) Panels['t2_fornecedor'] = false;
+  if (panel === 3) Panels['t3_deposito'] = false;
+  if (panel === 4) Panels['t4_obs_ane'] = false;
+  if (panel === 5) Panels['t5_cadastro'] = false;
+  if (panel === 6) Panels['t6_fis_con'] = false;
   return Menus[panel - 1];
 }
 
