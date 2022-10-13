@@ -9,7 +9,17 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T2FornecedorComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
+  public showModalFor: boolean = false;
+
   constructor() {}
 
   public ngOnInit(): void {}
+
+  public fornecedorInput() {
+    this.showModalFor = true;
+  }
+
+  public fornecedorSelect() {
+    this.showModalFor = false;
+  }
 }

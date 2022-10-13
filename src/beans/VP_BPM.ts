@@ -23,6 +23,11 @@ export class VP_BPM {
   public ged_pasta_pai_id: string = '';
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
 
+  public check_options: SelectItem[] = [
+    { label: 'Sim', value: 'Sim' },
+    { label: 'Não', value: 'Não' },
+  ];
+
   /**
    * Dados básicos
    */
@@ -38,15 +43,13 @@ export class VP_BPM {
   ];
   public t1_c1_segmento: string = '';
 
-  public t1_c1_substituto_cadastrado_chk: boolean = false;
-  public t1_c1_substituto_cadastrado_txt: string = '';
+  public t1_c1_substituto_cadastrado: string = '';
 
   public t1_c1_item_substituido_arr: wsb.Item[] = [];
   public t1_c1_item_substituido_obj?: wsb.Item;
   public t1_c1_item_substituido_cod: string = '';
 
-  public t1_c1_similar_existe_chk: boolean = false;
-  public t1_c1_similar_existe_txt: string = '';
+  public t1_c1_similar_existe: string = '';
 
   public t1_c1_item_similar_arr: wsb.Item[] = [];
   public t1_c1_item_similar_obj?: wsb.Item;
@@ -69,8 +72,7 @@ export class VP_BPM {
   public t1_c1_medida_cod: string = '';
   public t1_c1_medida_des: string = '';
 
-  public t1_c1_cotado_chk: boolean = false;
-  public t1_c1_cotado_txt: string = '';
+  public t1_c1_cotado: string = '';
 
   //Coluna 2
   public t1_c2_marca_arr: wsb.Marca[] = [];
@@ -84,6 +86,7 @@ export class VP_BPM {
   public t1_c2_clafiscal_des: string = '';
 
   public t1_c2_barras: string = '';
+
   public t1_c2_barras_justificativa: string = '';
 
   public t1_c2_agrupamento_arr: wsb.AgrupamentoComercial[] = [];
@@ -98,33 +101,30 @@ export class VP_BPM {
   public t1_c2_mercadoria_cod: string = '';
   public t1_c2_mercadoria_des: string = '';
 
-  public t1_c2_integra_agrosys_chk: boolean = false;
-  public t1_c2_integra_agrosys_txt: string = '';
+  public t1_c2_integra_agrosys: string = '';
 
   public t1_c2_agrosys_arr: wsb.Agrosys[] = [];
   public t1_c2_agrosys_obj?: wsb.Agrosys;
   public t1_c2_agrosys_cod: string = '';
-  public t1_c2_agrosys_des: string = '';
 
   public t1_c2_multinivel_arr: wsb.AgrAprMultinivel[] = [];
   public t1_c2_multinivel_obj?: wsb.AgrAprMultinivel;
   public t1_c2_multinivel_cod: string = '';
-  public t1_c2_multinivel_des: string = '';
 
   //Coluna 3
   public t1_c3_requisitado: string = 'NÃO';
+
   public t1_c3_vendido: string = 'SIM';
+
   public t1_c3_comprado: string = 'SIM';
+
   public t1_c3_orcamento: string = 'NÃO';
 
-  public t1_c3_vendido_upl_chk: boolean = false;
-  public t1_c3_vendido_upl_txt: string = '';
+  public t1_c3_vendido_upl: string = '';
 
-  public t1_c3_receita_chk: boolean = false;
-  public t1_c3_receita_txt: string = '';
+  public t1_c3_receita: string = '';
 
-  public t1_c3_venda_virtual_chk: boolean = false;
-  public t1_c3_venda_virtual_txt: string = '';
+  public t1_c3_venda_virtual: string = '';
 
   public t1_c3_categoria_arr: wsb.CategoriaVenda[] = [];
   public t1_c3_categoria_obj?: wsb.CategoriaVenda;
@@ -156,7 +156,7 @@ export class VP_BPM {
    * Dados de fornecedor
    */
 
-  public t2_mandatory_to_readonly: boolean = true;
+  public t2_mandatory_to_readonly: boolean = false;
 
   public t2_fornecedor_arr: wsb.Marca[] = [];
   public t2_fornecedor_obj?: wsb.Marca;

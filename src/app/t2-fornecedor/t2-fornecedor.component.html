@@ -1,1 +1,88 @@
-<p>t2-fornecedor works!</p>
+<div class="grid mt-1">
+  <div class="col-3">
+    <div class="grid">
+      <span class="col-12"
+        >Fornecedor
+        <span style="color: red" [hidden]="vp.t2_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t2_fornecedor_des"
+            (click)="fornecedorInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t2_mandatory_to_readonly ? 'none' : ''"
+            (click)="fornecedorInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Fornecedores"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalFor"
+  >
+    <p-table
+      #tableFornecedor
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t2_fornecedor_arr"
+      [(selection)]="vp.t2_fornecedor_obj"
+      (onRowSelect)="fornecedorSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableFornecedor.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-for>
+        <tr [pSelectableRow]="for">
+          <td>{{ for.c }}</td>
+          <td>{{ for.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+</div>

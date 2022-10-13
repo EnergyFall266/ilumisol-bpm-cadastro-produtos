@@ -1,1 +1,321 @@
-<p>t1-c3 works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Pode ser requisitado?</span>
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="true"
+          [(ngModel)]="vp.t1_c3_requisitado"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Pode ser vendido?</span>
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="true"
+          [(ngModel)]="vp.t1_c3_vendido"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Pode ser comprado?</span>
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="true"
+          [(ngModel)]="vp.t1_c3_comprado"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Permite gerar orçamento?</span>
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="true"
+          [(ngModel)]="vp.t1_c3_orcamento"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Pode ser vendido UPL?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c3_vendido_upl"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Emite receita agronômica?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c3_receita"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Venda virtual?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c3_venda_virtual"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Categoria de venda
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c3_categoria_des"
+            (click)="categoriaInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="categoriaInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Categorias"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalCat"
+  >
+    <p-table
+      #tableCategoria
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c3_categoria_arr"
+      [(selection)]="vp.t1_c3_categoria_obj"
+      (onRowSelect)="categoriaSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableCategoria.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cat>
+        <tr [pSelectableRow]="cat">
+          <td>{{ cat.c }}</td>
+          <td>{{ cat.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Subcategoria de venda
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c3_subcategoria_des"
+            (click)="subCategoriaInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="subCategoriaInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Subcategorias"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalSub"
+  >
+    <p-table
+      #tableSubCategoria
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c3_subcategoria_arr"
+      [(selection)]="vp.t1_c3_subcategoria_obj"
+      (onRowSelect)="subCategoriaSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableSubCategoria.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sub>
+        <tr [pSelectableRow]="sub">
+          <td>{{ sub.c }}</td>
+          <td>{{ sub.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Número ONU
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t1_mandatory_to_readonly"
+          [(ngModel)]="vp.t1_c2_barras"
+        />
+      </div>
+    </div>
+  </div>
+</div>

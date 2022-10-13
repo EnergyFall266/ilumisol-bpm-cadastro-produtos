@@ -9,7 +9,17 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T1C4Component implements OnInit {
   @Input() vp!: VP_BPM;
 
+  public showModalQui: boolean = false;
+
   constructor() {}
 
   public ngOnInit(): void {}
+
+  public quimicoInput() {
+    this.showModalQui = true;
+  }
+
+  public quimicoSelect() {
+    this.showModalQui = false;
+  }
 }

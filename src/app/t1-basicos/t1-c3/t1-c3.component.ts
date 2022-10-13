@@ -9,7 +9,26 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T1C3Component implements OnInit {
   @Input() vp!: VP_BPM;
 
+  public showModalCat: boolean = false;
+  public showModalSub: boolean = false;
+
   constructor() {}
 
   public ngOnInit(): void {}
+
+  public categoriaInput() {
+    this.showModalCat = true;
+  }
+
+  public categoriaSelect() {
+    this.showModalCat = false;
+  }
+
+  public subCategoriaInput() {
+    this.showModalSub = true;
+  }
+
+  public subCategoriaSelect() {
+    this.showModalSub = false;
+  }
 }

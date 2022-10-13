@@ -9,12 +9,12 @@
       >
       <div class="col-12 py-0">
         <p-dropdown
-          [options]="vp.t1_c1_segmento_options"
-          [(ngModel)]="vp.t1_c1_segmento"
-          placeholder="Selecione"
           class="w-12"
           [styleClass]="'w-12'"
           [panelStyleClass]="'col-12'"
+          [options]="vp.t1_c1_segmento_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c1_segmento"
           [readonly]="vp.t1_mandatory_to_readonly"
         ></p-dropdown>
       </div>
@@ -23,18 +23,509 @@
 
   <div class="col-12">
     <div class="grid">
-      <span class="col-12 pb-0" style="width: auto">Soma frete líquido</span>
-      <div class="col-12 flex">
-        <p-inputSwitch
-          [(ngModel)]="vp.t1_c1_substituto_cadastrado_chk"
+      <span class="col-12"
+        >Substituto de item já cadastrado?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c1_substituto_cadastrado"
           [readonly]="vp.t1_mandatory_to_readonly"
-        ></p-inputSwitch>
-        <span class="ml-1 p-1" [hidden]="vp.t1_c1_substituto_cadastrado_chk"
-          >Não</span
-        >
-        <span class="ml-1 p-1" [hidden]="!vp.t1_c1_substituto_cadastrado_chk"
-          >Sim</span
-        >
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código do item a ser substituido
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c1_item_substituido_cod"
+            (click)="substituidoInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="substituidoInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Itens para substituir"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalSub"
+  >
+    <p-table
+      #tableSubstituido
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c1_item_substituido_arr"
+      [(selection)]="vp.t1_c1_item_substituido_obj"
+      (onRowSelect)="substituidoSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableSubstituido.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sub>
+        <tr [pSelectableRow]="sub">
+          <td>{{ sub.c }}</td>
+          <td>{{ sub.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Substituto de item já cadastrado?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c1_similar_existe"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código do item similar
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c1_item_similar_cod"
+            (click)="similarInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="similarInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Itens similares"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalSim"
+  >
+    <p-table
+      #tableSimilar
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c1_item_substituido_arr"
+      [(selection)]="vp.t1_c1_item_substituido_obj"
+      (onRowSelect)="similarSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableSimilar.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sim>
+        <tr [pSelectableRow]="sim">
+          <td>{{ sim.c }}</td>
+          <td>{{ sim.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Origem
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c1_origem_des"
+            (click)="origemInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="origemInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Origens"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalOri"
+  >
+    <p-table
+      #tableOrigem
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c1_origem_arr"
+      [(selection)]="vp.t1_c1_origem_obj"
+      (onRowSelect)="origemSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableOrigem.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ori>
+        <tr [pSelectableRow]="ori">
+          <td>{{ ori.c }}</td>
+          <td>{{ ori.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Familia
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c1_familia_des"
+            (click)="familiaInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="familiaInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Famílias"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalFam"
+  >
+    <p-table
+      #tableFamilia
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c1_familia_arr"
+      [(selection)]="vp.t1_c1_familia_obj"
+      (onRowSelect)="familiaSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableFamilia.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-fam>
+        <tr [pSelectableRow]="fam">
+          <td>{{ fam.c }}</td>
+          <td>{{ fam.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Descrição
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t1_mandatory_to_readonly"
+          [(ngModel)]="vp.t1_c1_descricao"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Unidade de medida
+        <span style="color: red" [hidden]="vp.t1_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c1_medida_des"
+            (click)="unidadeInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="unidadeInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Unidades de medida"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalUni"
+  >
+    <p-table
+      #tableUnidade
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c1_medida_arr"
+      [(selection)]="vp.t1_c1_medida_obj"
+      (onRowSelect)="unidadeSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableUnidade.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ori>
+        <tr [pSelectableRow]="ori">
+          <td>{{ ori.c }}</td>
+          <td>{{ ori.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Substituto de item já cadastrado?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c1_cotado"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
       </div>
     </div>
   </div>
