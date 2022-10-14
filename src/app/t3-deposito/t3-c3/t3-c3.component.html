@@ -2,8 +2,8 @@
   <div class="col-12">
     <div class="grid">
       <span class="col-12"
-        >Peso Bruto
-        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+        >Estq. Mínimo em dias
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
@@ -17,16 +17,16 @@
           mode="decimal"
           [minFractionDigits]="2"
           [maxFractionDigits]="2"
-          [showButtons]="!vp.t5_mandatory_to_readonly"
+          [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t5_mandatory_to_readonly"
+          [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t5_c3_peso_bruto"
+          [(ngModel)]="vp.t3_c3_estoque_min"
         >
         </p-inputNumber>
       </div>
@@ -36,8 +36,8 @@
   <div class="col-12">
     <div class="grid">
       <span class="col-12"
-        >Peso Líquido
-        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+        >Estq. Máximo em dias
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
@@ -51,34 +51,18 @@
           mode="decimal"
           [minFractionDigits]="2"
           [maxFractionDigits]="2"
-          [showButtons]="!vp.t5_mandatory_to_readonly"
+          [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t5_mandatory_to_readonly"
+          [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t5_c3_peso_liquido"
+          [(ngModel)]="vp.t3_c3_estoque_max"
         >
         </p-inputNumber>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12">Observação cadastros</span>
-      <div class="col-12 py-0">
-        <textarea
-          pInputTextarea
-          class="col-12"
-          style="resize: none"
-          rows="5"
-          [readonly]="vp.t5_mandatory_to_readonly"
-          [(ngModel)]="vp.t5_c3_observacao"
-        ></textarea>
       </div>
     </div>
   </div>

@@ -174,7 +174,7 @@ export interface GrupoQuimico {}
 
 export interface Fornecedor {}
 
-export interface Destino {}
+export interface Deposito {}
 
 export interface MascaraDerivacao {}
 

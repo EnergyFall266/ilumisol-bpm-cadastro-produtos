@@ -2,8 +2,8 @@
   <div class="col-12">
     <div class="grid">
       <span class="col-12"
-        >Peso Bruto
-        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+        >Qtda. Estoque min.
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
@@ -17,16 +17,16 @@
           mode="decimal"
           [minFractionDigits]="2"
           [maxFractionDigits]="2"
-          [showButtons]="!vp.t5_mandatory_to_readonly"
+          [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t5_mandatory_to_readonly"
+          [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t5_c3_peso_bruto"
+          [(ngModel)]="vp.t3_c2_quan_estoque_min"
         >
         </p-inputNumber>
       </div>
@@ -36,8 +36,8 @@
   <div class="col-12">
     <div class="grid">
       <span class="col-12"
-        >Peso Líquido
-        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+        >Qtda. Estoque max.
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
@@ -51,16 +51,16 @@
           mode="decimal"
           [minFractionDigits]="2"
           [maxFractionDigits]="2"
-          [showButtons]="!vp.t5_mandatory_to_readonly"
+          [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t5_mandatory_to_readonly"
+          [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t5_c3_peso_liquido"
+          [(ngModel)]="vp.t3_c2_quan_estoque_max"
         >
         </p-inputNumber>
       </div>
@@ -69,16 +69,34 @@
 
   <div class="col-12">
     <div class="grid">
-      <span class="col-12">Observação cadastros</span>
+      <span class="col-12"
+        >Qtda. max. de vendas
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
       <div class="col-12 py-0">
-        <textarea
-          pInputTextarea
-          class="col-12"
-          style="resize: none"
-          rows="5"
-          [readonly]="vp.t5_mandatory_to_readonly"
-          [(ngModel)]="vp.t5_c3_observacao"
-        ></textarea>
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [showButtons]="!vp.t3_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t3_mandatory_to_readonly"
+          placeholder="0,00"
+          [(ngModel)]="vp.t3_c2_quan_max_vendas"
+        >
+        </p-inputNumber>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ export class VP_BPM {
    * Dados básicos
    */
 
-  public t1_mandatory_to_readonly: boolean = false;
+  public t1_mandatory_to_readonly: boolean = true;
 
   //Coluna 1
   public t1_c1_segmento_options: SelectItem[] = [
@@ -156,16 +156,19 @@ export class VP_BPM {
    * Dados de fornecedor
    */
 
-  public t2_mandatory_to_readonly: boolean = false;
+  public t2_mandatory_to_readonly: boolean = true;
 
-  public t2_fornecedor_arr: wsb.Marca[] = [];
-  public t2_fornecedor_obj?: wsb.Marca;
+  public t2_fornecedor_arr: wsb.Fornecedor[] = [];
+  public t2_fornecedor_obj?: wsb.Fornecedor;
   public t2_fornecedor_cod: string = '';
   public t2_fornecedor_des: string = '';
 
-  public t2_quantidade_multipla: number = 0;
-  public t2_quantidade_maxima: number = 0;
-  public t2_quantidade_minima: number = 0;
+  public t2_quantidade_multipla?: number;
+
+  public t2_quantidade_maxima?: number;
+
+  public t2_quantidade_minima?: number;
+
   public t2_codigo_produto: string = '';
 
   /**
@@ -174,19 +177,32 @@ export class VP_BPM {
 
   public t3_mandatory_to_readonly: boolean = true;
 
-  public t3_c1_destino: string = '';
-  public t3_c1_quan_estoque_rep: number = 0;
-  public t3_c1_quan_min_vendas: number = 0;
+  //Coluna 1
+  public t3_c1_destino_arr: wsb.Deposito[] = [];
+  public t3_c1_destino_obj?: wsb.Deposito;
+  public t3_c1_destino_cod: string = '';
+  public t3_c1_destino_des: string = '';
 
-  public t3_c2_quan_estoque_min: number = 0;
-  public t3_c2_quan_estoque_max: number = 0;
-  public t3_c2_quan_max_vendas: number = 0;
+  public t3_c1_quan_estoque_rep?: number;
 
-  public t3_c3_estoque_min: number = 0;
-  public t3_c3_estoque_max: number = 0;
+  public t3_c1_quan_min_vendas?: number;
 
-  public t3_c4_quan_mul_ven: number = 0;
-  public t3_c4_quan_mul_com: number = 0;
+  //Coluna 2
+  public t3_c2_quan_estoque_min?: number;
+
+  public t3_c2_quan_estoque_max?: number;
+
+  public t3_c2_quan_max_vendas?: number;
+
+  //Coluna 3
+  public t3_c3_estoque_min?: number;
+
+  public t3_c3_estoque_max?: number;
+
+  //Coluna 4
+  public t3_c4_quan_mul_ven?: number;
+
+  public t3_c4_quan_mul_com?: number;
 
   /**
    * Observações e Anexos
@@ -231,29 +247,29 @@ export class VP_BPM {
   public t5_c2_medida_2_cod: string = '';
   public t5_c2_medida_2_des: string = '';
 
+  public t5_c2_medida_3_arr: wsb.UnidadeMedida[] = [];
+  public t5_c2_medida_3_obj?: wsb.UnidadeMedida;
+  public t5_c2_medida_3_cod: string = '';
+  public t5_c2_medida_3_des: string = '';
+
   public t5_c2_medida_2_tip_con_arr: wsb.TipoConversao[] = [];
   public t5_c2_medida_2_tip_con_obj?: wsb.TipoConversao;
   public t5_c2_medida_2_tip_con_cod: string = '';
   public t5_c2_medida_2_tip_con_des: string = '';
 
-  public t5_c2_medida_2_val_con: number = 0;
-
-  public t5_c2_medida_3_arr: wsb.UnidadeMedida[] = [];
-  public t5_c2_medida_3_obj?: wsb.UnidadeMedida;
-  public t5_c2_medida_3_cod: string = '';
-  public t5_c2_medida_3_des: string = '';
+  public t5_c2_medida_2_val_con?: number;
 
   public t5_c2_medida_3_tip_con_arr: wsb.TipoConversao[] = [];
   public t5_c2_medida_3_tip_con_obj?: wsb.TipoConversao;
   public t5_c2_medida_3_tip_con_cod: string = '';
   public t5_c2_medida_3_tip_con_des: string = '';
 
-  public t5_c2_medida_3_val_con: number = 0;
+  public t5_c2_medida_3_val_con?: number;
 
   //Coluna 3
-  public t5_c3_peso_bruto: number = 0;
+  public t5_c3_peso_bruto?: number;
 
-  public t5_c3_peso_liquido: number = 0;
+  public t5_c3_peso_liquido?: number;
 
   public t5_c3_observacao: string = '';
 
@@ -269,25 +285,25 @@ export class VP_BPM {
    * Dados fiscais e contábeis
    */
 
-  public t6_mandatory_to_readonly: boolean = true;
+  public t6_mandatory_to_readonly: boolean = false;
 
   //Coluna 1
-  public t6_c1_tipo_prod_arr: wsb.TipoProduto[] = [];
-  public t6_c1_tipo_prod_obj?: wsb.TipoProduto;
-  public t6_c1_tipo_prod_cod: string = '';
-  public t6_c1_tipo_prod_des: string = '';
+  public t6_c1_c1_tipo_prod_arr: wsb.TipoProduto[] = [];
+  public t6_c1_c1_tipo_prod_obj?: wsb.TipoProduto;
+  public t6_c1_c1_tipo_prod_cod: string = '';
+  public t6_c1_c1_tipo_prod_des: string = '';
 
-  public t6_c1_icms_especial_arr: wsb.ICMS[] = [];
-  public t6_c1_icms_especial_obj?: wsb.ICMS;
-  public t6_c1_icms_especial_cod: string = '';
+  public t6_c1_c2_icms_especial_arr: wsb.ICMS[] = [];
+  public t6_c1_c2_icms_especial_obj?: wsb.ICMS;
+  public t6_c1_c2_icms_especial_cod: string = '';
 
-  public t6_c1_reducao_icms_arr: wsb.ICMS[] = [];
-  public t6_c1_reducao_icms_obj?: wsb.ICMS;
-  public t6_c1_reducao_icms_cod: string = '';
+  public t6_c1_c2_reducao_icms_arr: wsb.ICMS[] = [];
+  public t6_c1_c2_reducao_icms_obj?: wsb.ICMS;
+  public t6_c1_c2_reducao_icms_cod: string = '';
 
-  public t6_c1_icms_substituido_arr: wsb.ICMS[] = [];
-  public t6_c1_icms_substituido_obj?: wsb.ICMS;
-  public t6_c1_icms_substituido_cod: string = '';
+  public t6_c1_c2_icms_substituido_arr: wsb.ICMS[] = [];
+  public t6_c1_c2_icms_substituido_obj?: wsb.ICMS;
+  public t6_c1_c2_icms_substituido_cod: string = '';
 
   public t6_c1_pis_subs_arr: wsb.Pis[] = [];
   public t6_c1_pis_subs_obj?: wsb.Pis;

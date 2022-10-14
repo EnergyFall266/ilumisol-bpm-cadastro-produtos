@@ -1,1 +1,275 @@
-<p>t5-c1 works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Descrição p/nota fiscal</span>
+      <div class="col-12 py-0 mb-0">
+        <textarea
+          pInputTextarea
+          class="col-12"
+          style="resize: none"
+          rows="9"
+          [readonly]="vp.t5_mandatory_to_readonly"
+          [(ngModel)]="vp.t5_c4_recusa"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Máscara Derivação
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c1_mascara_des"
+            (click)="mascaraInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="mascaraInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Máscaras"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalMas"
+  >
+    <p-table
+      #tableMascara
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c1_mascara_arr"
+      [(selection)]="vp.t5_c1_mascara_obj"
+      (onRowSelect)="mascaraSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableMascara.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-mas>
+        <tr [pSelectableRow]="mas">
+          <td>{{ mas.c }}</td>
+          <td>{{ mas.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Agrup. Estoques
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c1_agru_estoques_des"
+            (click)="estoquesInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="estoquesInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Agrup. Estoques"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalEst"
+  >
+    <p-table
+      #tableEstoques
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c1_agru_estoques_arr"
+      [(selection)]="vp.t5_c1_agru_estoques_obj"
+      (onRowSelect)="estoquesSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableEstoques.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-est>
+        <tr [pSelectableRow]="est">
+          <td>{{ est.c }}</td>
+          <td>{{ est.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Agrup. Custos
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c1_agru_custos_des"
+            (click)="custosInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="custosInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Agrup. Custos"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalCus"
+  >
+    <p-table
+      #tableCustos
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c1_agru_custos_arr"
+      [(selection)]="vp.t5_c1_agru_custos_obj"
+      (onRowSelect)="custosSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableCustos.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cus>
+        <tr [pSelectableRow]="cus">
+          <td>{{ cus.c }}</td>
+          <td>{{ cus.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+</div>

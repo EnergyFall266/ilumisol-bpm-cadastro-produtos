@@ -1,1 +1,17 @@
-<p>t4-obs-ane works!</p>
+<div class="grid mt-1">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12">Observação solicitação</span>
+      <div class="col-12 py-0">
+        <textarea
+          pInputTextarea
+          class="col-12"
+          style="resize: none"
+          rows="4"
+          [readonly]="vp.t4_mandatory_to_readonly"
+          [(ngModel)]="vp.t4_observacoes"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>

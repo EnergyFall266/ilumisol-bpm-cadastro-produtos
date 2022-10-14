@@ -1,1 +1,403 @@
-<p>t5-c2 works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Unidade de medida 2 para uso gerencial
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c2_medida_2_des"
+            (click)="uni2Input()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="uni2Input()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Unidades de medida"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalUn2"
+  >
+    <p-table
+      #tableUni2
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c2_medida_2_arr"
+      [(selection)]="vp.t5_c2_medida_2_obj"
+      (onRowSelect)="uni2Select()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableUni2.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-un2>
+        <tr [pSelectableRow]="un2">
+          <td>{{ un2.c }}</td>
+          <td>{{ un2.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Unidade de medida 3 para uso gerencial
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c2_medida_3_des"
+            (click)="uni3Input()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="uni3Input()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Unidades de medida"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalUn3"
+  >
+    <p-table
+      #tableUni3
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c2_medida_3_arr"
+      [(selection)]="vp.t5_c2_medida_3_obj"
+      (onRowSelect)="uni2Select()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableUni3.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-un3>
+        <tr [pSelectableRow]="un3">
+          <td>{{ un3.c }}</td>
+          <td>{{ un3.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Tipo Conversão Unidade Medida 2
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c2_medida_2_tip_con_des"
+            (click)="tcu2Input()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="tcu2Input()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Tipos de conversão"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalTc2"
+  >
+    <p-table
+      #tableTcu2
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c2_medida_2_tip_con_arr"
+      [(selection)]="vp.t5_c2_medida_2_tip_con_obj"
+      (onRowSelect)="tcu2Select()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableTcu2.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tc2>
+        <tr [pSelectableRow]="tc2">
+          <td>{{ tc2.c }}</td>
+          <td>{{ tc2.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Valor Conversão Unidade Medida 2
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="currency"
+          currency="BRL"
+          [showButtons]="!vp.t5_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t5_mandatory_to_readonly"
+          placeholder="R$ 0,00"
+          [(ngModel)]="vp.t5_c2_medida_2_val_con"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Tipo Conversão Unidade Medida 3
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t5_c2_medida_3_tip_con_des"
+            (click)="tcu3Input()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t5_mandatory_to_readonly ? 'none' : ''"
+            (click)="tcu3Input()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Tipos de conversão"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalTc3"
+  >
+    <p-table
+      #tableTcu3
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t5_c2_medida_3_tip_con_arr"
+      [(selection)]="vp.t5_c2_medida_3_tip_con_obj"
+      (onRowSelect)="tcu3Select()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableTcu3.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tc3>
+        <tr [pSelectableRow]="tc3">
+          <td>{{ tc3.c }}</td>
+          <td>{{ tc3.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Valor Conversão Unidade Medida 3
+        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="currency"
+          currency="BRL"
+          [showButtons]="!vp.t5_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t5_mandatory_to_readonly"
+          placeholder="R$ 0,00"
+          [(ngModel)]="vp.t5_c2_medida_3_val_con"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+</div>

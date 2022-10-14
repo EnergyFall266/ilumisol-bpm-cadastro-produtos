@@ -11,7 +11,7 @@ declare var rollbackData: any;
 async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   var rld: ResponseLoadData = { initial: 1, tabs: [1, 2, 3], vp };
 
-  rld.vp.user_fullName = (await info.getUserData()).username;
+  rld.vp.user_fullName = (await info.getUserData()).fullname;
 
   const ptd = await info.getPlatformData();
   rld.vp.token = `bearer ${ptd.token.access_token}`;

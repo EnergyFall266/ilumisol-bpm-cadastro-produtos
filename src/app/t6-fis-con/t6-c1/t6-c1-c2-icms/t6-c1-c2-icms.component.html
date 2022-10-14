@@ -1,0 +1,205 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código ICMS Especial
+        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t6_c1_c2_icms_especial_cod"
+            (click)="especialInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
+            (click)="especialInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Códigos"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalEsp"
+  >
+    <p-table
+      #tableEspecial
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t6_c1_c2_icms_especial_arr"
+      [(selection)]="vp.t6_c1_c2_icms_especial_obj"
+      (onRowSelect)="especialSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableEspecial.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-esp>
+        <tr [pSelectableRow]="esp">
+          <td>{{ esp.c }}</td>
+          <td>{{ esp.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código Redução ICMS
+        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t6_c1_c2_reducao_icms_cod"
+            (click)="reducaoInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
+            (click)="reducaoInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Reduções"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalRed"
+  >
+    <p-table
+      #tableReducao
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t6_c1_c2_reducao_icms_arr"
+      [(selection)]="vp.t6_c1_c2_reducao_icms_obj"
+      (onRowSelect)="reducaoSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableReducao.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-red>
+        <tr [pSelectableRow]="red">
+          <td>{{ red.c }}</td>
+          <td>{{ red.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código ICMS Substituído
+        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t6_c1_c2_icms_especial_cod"
+            (click)="especialInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
+            (click)="especialInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

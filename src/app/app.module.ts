@@ -39,6 +39,10 @@ import { T1C1Component } from './t1-basicos/t1-c1/t1-c1.component';
 import { T1C2Component } from './t1-basicos/t1-c2/t1-c2.component';
 import { T1C3Component } from './t1-basicos/t1-c3/t1-c3.component';
 import { T1C4Component } from './t1-basicos/t1-c4/t1-c4.component';
+import { T3C1Component } from './t3-deposito/t3-c1/t3-c1.component';
+import { T3C2Component } from './t3-deposito/t3-c2/t3-c2.component';
+import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
+import { T3C3Component } from './t3-deposito/t3-c3/t3-c3.component';
 import { T5C1Component } from './t5-cadastro/t5-c1/t5-c1.component';
 import { T5C2Component } from './t5-cadastro/t5-c2/t5-c2.component';
 import { T5C3Component } from './t5-cadastro/t5-c3/t5-c3.component';
@@ -46,6 +50,8 @@ import { T6C1Component } from './t6-fis-con/t6-c1/t6-c1.component';
 import { T6C2Component } from './t6-fis-con/t6-c2/t6-c2.component';
 import { T6C3Component } from './t6-fis-con/t6-c3/t6-c3.component';
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
+import { T6C1C1TipoComponent } from './t6-fis-con/t6-c1/t6-c1-c1-tipo/t6-c1-c1-tipo.component';
+import { T6C1C2IcmsComponent } from './t6-fis-con/t6-c1/t6-c1-c2-icms/t6-c1-c2-icms.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -63,6 +69,10 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T1C2Component,
     T1C3Component,
     T1C4Component,
+    T3C1Component,
+    T3C2Component,
+    T3C4Component,
+    T3C3Component,
     T5C1Component,
     T5C2Component,
     T5C3Component,
@@ -70,6 +80,8 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C2Component,
     T6C3Component,
     T6C4Component,
+    T6C1C1TipoComponent,
+    T6C1C2IcmsComponent,
   ],
   imports: [
     BrowserModule,
