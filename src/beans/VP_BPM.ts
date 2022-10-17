@@ -305,68 +305,62 @@ export class VP_BPM {
   public t6_c1_c2_icms_substituido_obj?: wsb.ICMS;
   public t6_c1_c2_icms_substituido_cod: string = '';
 
-  public t6_c1_pis_subs_arr: wsb.Pis[] = [];
-  public t6_c1_pis_subs_obj?: wsb.Pis;
-  public t6_c1_pis_subs_cod: string = '';
+  public t6_c1_c3_cof_subs_arr: wsb.Cofins[] = [];
+  public t6_c1_c3_cof_subs_obj?: wsb.Cofins;
+  public t6_c1_c3_cof_subs_cod: string = '';
 
-  public t6_c1_cof_subs_cofi_arr: wsb.Cofins[] = [];
-  public t6_c1_cof_subs_obj?: wsb.Cofins;
-  public t6_c1_cof_subs_cod: string = '';
+  public t6_c1_c3_pis_subs_arr: wsb.Pis[] = [];
+  public t6_c1_c3_pis_subs_obj?: wsb.Pis;
+  public t6_c1_c3_pis_subs_cod: string = '';
 
-  public t6_c1_pis_recu_chk: boolean = false;
-  public t6_c1_pis_recu_txt: string = '';
+  public t6_c1_pis_recu: string = '';
 
-  public t6_c1_cof_recu_chk: boolean = false;
-  public t6_c1_cof_recu_txt: string = '';
+  public t6_c1_cof_recu: string = '';
 
-  public t6_c1_pis_trib_chk: boolean = false;
-  public t6_c1_pis_trib_txt: string = '';
+  public t6_c1_pis_trib: string = '';
 
-  public t6_c1_cof_tributa_chk: boolean = false;
-  public t6_c1_cof_tributa_txt: string = '';
+  public t6_c1_cof_trib: string = '';
 
   //Coluna 2
-  public t6_c2_pis_situ_ven_arr: wsb.SituacaoTributaria[] = [];
-  public t6_c2_pis_situ_ven_obj?: wsb.SituacaoTributaria;
-  public t6_c2_pis_situ_ven_cod: string = '';
-  public t6_c2_pis_situ_ven_des: string = '';
+  public t6_c2_c1_pis_ven_arr: wsb.SituacaoTributaria[] = [];
+  public t6_c2_c1_pis_ven_obj?: wsb.SituacaoTributaria;
+  public t6_c2_c1_pis_ven_cod: string = '';
+  public t6_c2_c1_pis_ven_des: string = '';
 
-  public t6_c2_pis_natu_arr: wsb.NaturezaReceita[] = [];
-  public t6_c2_pis_natu_obj?: wsb.NaturezaReceita;
-  public t6_c2_pis_natu_cod: string = '';
-  public t6_c2_pis_natu_des: string = '';
+  public t6_c2_c1_pis_nat_arr: wsb.NaturezaReceita[] = [];
+  public t6_c2_c1_pis_nat_obj?: wsb.NaturezaReceita;
+  public t6_c2_c1_pis_nat_cod: string = '';
+  public t6_c2_c1_pis_nat_des: string = '';
 
-  public t6_c2_cof_situ_ven_arr: wsb.SituacaoTributaria[] = [];
-  public t6_c2_cof_situ_ven_obj?: wsb.SituacaoTributaria;
-  public t6_c2_cof_situ_ven_cod: string = '';
-  public t6_c2_cof_situ_ven_des: string = '';
+  public t6_c2_c2_cof_ven_arr: wsb.SituacaoTributaria[] = [];
+  public t6_c2_c2_cof_ven_obj?: wsb.SituacaoTributaria;
+  public t6_c2_c2_cof_ven_cod: string = '';
+  public t6_c2_c2_cof_ven_des: string = '';
 
-  public t6_c2_cof_natu_arr: wsb.NaturezaReceita[] = [];
-  public t6_c2_cof_natu_obj?: wsb.NaturezaReceita;
-  public t6_c2_cof_natu_cod: string = '';
-  public t6_c2_cof_natu_des: string = '';
+  public t6_c2_c2_cof_nat_arr: wsb.NaturezaReceita[] = [];
+  public t6_c2_c2_cof_nat_obj?: wsb.NaturezaReceita;
+  public t6_c2_c2_cof_nat_cod: string = '';
+  public t6_c2_c2_cof_nat_des: string = '';
 
-  public t6_c2_enquadramento_arr: wsb.Enquadramento[] = [];
-  public t6_c2_enquadramento_obj?: wsb.Enquadramento;
-  public t6_c2_enquadramento_cod: string = '';
-  public t6_c2_enquadramento_des: string = '';
+  public t6_c2_c3_enqua_arr: wsb.Enquadramento[] = [];
+  public t6_c2_c3_enqua_obj?: wsb.Enquadramento;
+  public t6_c2_c3_enqua_cod: string = '';
 
-  public t6_c2_pis_situ_com_arr: wsb.SituacaoTributaria[] = [];
-  public t6_c2_pis_situ_com_obj?: wsb.SituacaoTributaria;
-  public t6_c2_pis_situ_com_cod: string = '';
-  public t6_c2_pis_situ_com_des: string = '';
+  public t6_c2_c4_pis_com_arr: wsb.SituacaoTributaria[] = [];
+  public t6_c2_c4_pis_com_obj?: wsb.SituacaoTributaria;
+  public t6_c2_c4_pis_com_cod: string = '';
+  public t6_c2_c4_pis_com_des: string = '';
 
-  public t6_c2_cof_situ_com_arr: wsb.SituacaoTributaria[] = [];
-  public t6_c2_cof_situ_com_obj?: wsb.SituacaoTributaria;
-  public t6_c2_cof_situ_com_cod: string = '';
-  public t6_c2_cof_situ_com_des: string = '';
+  public t6_c2_c4_cof_com_arr: wsb.SituacaoTributaria[] = [];
+  public t6_c2_c4_cof_com_obj?: wsb.SituacaoTributaria;
+  public t6_c2_c4_cof_com_cod: string = '';
+  public t6_c2_c4_cof_com_des: string = '';
 
-  public t6_c2_produto_fornecedor_chk: boolean = false;
-  public t6_c2_produto_fornecedor_txt: string = '';
+  public t6_c2_usa_pro_for: string = '';
 
-  public t6_c2_funrural: number = 0;
+  public t6_c2_funrural?: number;
 
-  public t6_c2_gilrat: number = 0;
+  public t6_c2_gilrat?: number;
 
   //Coluna 3
   public t6_c3_senart: number = 0;

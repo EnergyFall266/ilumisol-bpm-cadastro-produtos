@@ -1,1 +1,109 @@
-<p>t6-c2 works!</p>
+<div class="grid">
+  <div class="col-12 pb-0">
+    <app-t6-c2-c1-pisvn [vp]="vp"></app-t6-c2-c1-pisvn>
+  </div>
+
+  <div class="col-12 pb-0">
+    <app-t6-c2-c2-cofvn [vp]="vp"></app-t6-c2-c2-cofvn>
+  </div>
+
+  <div class="col-12 pb-0">
+    <app-t6-c2-c3-enqua [vp]="vp"></app-t6-c2-c3-enqua>
+  </div>
+
+  <div class="col-12 pb-0">
+    <app-t6-c2-c4-compras [vp]="vp"></app-t6-c2-c4-compras>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Usa Produto x Fornecedor
+        <span [hidden]="vp.t6_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t6_c2_usa_pro_for"
+          [readonly]="vp.t6_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >% Funrural
+        <span [hidden]="vp.t6_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          suffix=" %"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [showButtons]="!vp.t6_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t6_mandatory_to_readonly"
+          placeholder="0,00 %"
+          [(ngModel)]="vp.t6_c2_funrural"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >% Gilrat
+        <span [hidden]="vp.t6_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          suffix=" %"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [showButtons]="!vp.t6_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t6_mandatory_to_readonly"
+          placeholder="0,00 %"
+          [(ngModel)]="vp.t6_c2_gilrat"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+</div>
