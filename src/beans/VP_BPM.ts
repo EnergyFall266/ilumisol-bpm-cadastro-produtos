@@ -221,7 +221,7 @@ export class VP_BPM {
    * Dados do cadastro
    */
 
-  public t5_mandatory_to_readonly: boolean = true;
+  public t5_mandatory_to_readonly: boolean = false;
 
   //Coluna 1
   public t5_c1_descricao: string = '';
@@ -285,7 +285,7 @@ export class VP_BPM {
    * Dados fiscais e contábeis
    */
 
-  public t6_mandatory_to_readonly: boolean = false;
+  public t6_mandatory_to_readonly: boolean = true;
 
   //Coluna 1
   public t6_c1_c1_tipo_prod_arr: wsb.TipoProduto[] = [];
@@ -363,34 +363,37 @@ export class VP_BPM {
   public t6_c2_gilrat?: number;
 
   //Coluna 3
-  public t6_c3_senart: number = 0;
+  public t6_c3_senart?: number;
 
-  public t6_c3_enquadra_espe_arr: wsb.Enquadramento[] = [];
-  public t6_c3_enquadra_espe_obj?: wsb.Enquadramento;
-  public t6_c3_enquadra_espe_cod: string = '';
-  public t6_c3_enquadra_espe_des: string = '';
+  public t6_c3_c1_enq_esp_arr: wsb.Enquadramento[] = [];
+  public t6_c3_c1_enq_esp_obj?: wsb.Enquadramento;
+  public t6_c3_c1_enq_esp_cod: string = '';
+  public t6_c3_c1_enq_esp_des: string = '';
 
-  public t6_c3_desoneracao_arr: wsb.Desoneracao[] = [];
-  public t6_c3_desoneracao_obj?: wsb.Desoneracao;
-  public t6_c3_desoneracao_cod: string = '';
-  public t6_c3_desoneracao_des: string = '';
+  public t6_c3_c2_motivo_arr: wsb.Desoneracao[] = [];
+  public t6_c3_c2_motivo_obj?: wsb.Desoneracao;
+  public t6_c3_c2_motivo_cod: string = '';
+  public t6_c3_c2_motivo_des: string = '';
 
   public t6_c3_substituicao: string = '';
 
-  public t6_c3_anp_arr: wsb.ProdutoANP[] = [];
-  public t6_c3_anp_obj?: wsb.ProdutoANP;
-  public t6_c3_anp_cod: string = '';
-  public t6_c3_anp_des: string = '';
+  public t6_c3_c3_anp_cod?: number;
 
-  public t6_c3_pauta_arr: wsb.PautaFiscal[] = [];
-  public t6_c3_pauta_obj?: wsb.PautaFiscal;
-  public t6_c3_pauta_cod: string = '';
-  public t6_c3_pauta_des: string = '';
+  public t6_c3_c3_anp_des: string = '';
 
-  public t6_c3_cbenef_arr: wsb.CBenef[] = [];
-  public t6_c3_cbenef_obj?: wsb.CBenef;
-  public t6_c3_cbenef_cod: string = '';
-  public t6_c3_cbenef_des: string = '';
+  public t6_c3_cal_fun: string = '';
+
+  public t6_c3_cal_sen: string = '';
+
+  public t6_c3_c4_pauta_arr: wsb.PautaFiscal[] = [];
+  public t6_c3_c4_pauta_obj?: wsb.PautaFiscal;
+  public t6_c3_c4_pauta_cod: string = '';
+  public t6_c3_c4_pauta_des: string = '';
+
+  public t6_c3_c5_benef_arr: wsb.CBenef[] = [];
+  public t6_c3_c5_benef_obj?: wsb.CBenef;
+  public t6_c3_c5_benef_cod: string = '';
+  public t6_c3_c5_benef_des: string = '';
 
   //Coluna 4
   public t6_c4_observacoes: string = '';

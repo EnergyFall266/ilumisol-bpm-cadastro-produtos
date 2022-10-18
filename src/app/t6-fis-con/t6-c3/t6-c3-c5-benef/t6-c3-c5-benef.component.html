@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="grid">
       <span class="col-12"
-        >Código de enquadramento
+        >Código cBenef
         <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
           >*</span
         ></span
@@ -15,8 +15,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t6_c2_c3_enqua_cod"
-            (click)="enquaInput()"
+            [(ngModel)]="vp.t6_c3_c5_benef_des"
+            (click)="benefInput()"
           />
           <button
             pButton
@@ -25,30 +25,30 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
-            (click)="enquaInput()"
+            (click)="benefInput()"
           ></button>
         </div>
       </div>
     </div>
   </div>
   <p-dialog
-    header="Enquadramentos"
+    header="Códigos"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalEnq"
+    [(visible)]="showModalBen"
   >
     <p-table
-      #tableEnqua
+      #tableBenef
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c2_c3_enqua_arr"
-      [(selection)]="vp.t6_c2_c3_enqua_obj"
-      (onRowSelect)="enquaSelect()"
+      [value]="vp.t6_c3_c1_enq_esp_arr"
+      [(selection)]="vp.t6_c3_c1_enq_esp_obj"
+      (onRowSelect)="benefSelect()"
       dataKey=""
       [globalFilterFields]="['', '']"
     >
@@ -61,7 +61,7 @@
               class="col-12"
               pInputText
               (input)="
-                tableEnqua.filterGlobal($any($event.target).value, 'contains')
+                tableBenef.filterGlobal($any($event.target).value, 'contains')
               "
               placeholder="Buscar"
             />
@@ -74,10 +74,10 @@
           <th>Descrição</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-enq>
-        <tr [pSelectableRow]="enq">
-          <td>{{ enq.c }}</td>
-          <td>{{ enq.d }}</td>
+      <ng-template pTemplate="body" let-ben>
+        <tr [pSelectableRow]="ben">
+          <td>{{ ben.c }}</td>
+          <td>{{ ben.d }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

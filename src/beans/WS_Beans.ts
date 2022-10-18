@@ -202,8 +202,6 @@ export interface Enquadramento {}
 
 export interface Desoneracao {}
 
-export interface ProdutoANP {}
-
 export interface PautaFiscal {}
 
 export interface CBenef {}
