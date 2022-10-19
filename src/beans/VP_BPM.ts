@@ -32,7 +32,7 @@ export class VP_BPM {
    * Dados básicos
    */
 
-  public t1_mandatory_to_readonly: boolean = true;
+  public t1_mandatory_to_readonly: boolean = false;
 
   //Coluna 1
   public t1_c1_segmento_options: SelectItem[] = [
@@ -226,57 +226,57 @@ export class VP_BPM {
   //Coluna 1
   public t5_c1_descricao: string = '';
 
-  public t5_c1_mascara_arr: wsb.MascaraDerivacao[] = [];
-  public t5_c1_mascara_obj?: wsb.MascaraDerivacao;
-  public t5_c1_mascara_cod: string = '';
-  public t5_c1_mascara_des: string = '';
+  public t5_c1_c1_mascara_arr: wsb.MascaraDerivacao[] = [];
+  public t5_c1_c1_mascara_obj?: wsb.MascaraDerivacao;
+  public t5_c1_c1_mascara_cod: string = '';
+  public t5_c1_c1_mascara_des: string = '';
 
-  public t5_c1_agru_estoques_arr: wsb.AgrupEstoques[] = [];
-  public t5_c1_agru_estoques_obj?: wsb.AgrupEstoques;
-  public t5_c1_agru_estoques_cod: string = '';
-  public t5_c1_agru_estoques_des: string = '';
+  public t5_c1_c2_agr_est_arr: wsb.AgrupEstoques[] = [];
+  public t5_c1_c2_agr_est_obj?: wsb.AgrupEstoques;
+  public t5_c1_c2_agr_est_cod: string = '';
+  public t5_c1_c2_agr_est_des: string = '';
 
-  public t5_c1_agru_custos_arr: wsb.AgrupCustos[] = [];
-  public t5_c1_agru_custos_obj?: wsb.AgrupCustos;
-  public t5_c1_agru_custos_cod: string = '';
-  public t5_c1_agru_custos_des: string = '';
+  public t5_c1_c2_agr_cus_arr: wsb.AgrupCustos[] = [];
+  public t5_c1_c2_agr_cus_obj?: wsb.AgrupCustos;
+  public t5_c1_c2_agr_cus_cod: string = '';
+  public t5_c1_c2_agr_cus_des: string = '';
 
   //Coluna 2
-  public t5_c2_medida_2_arr: wsb.UnidadeMedida[] = [];
-  public t5_c2_medida_2_obj?: wsb.UnidadeMedida;
-  public t5_c2_medida_2_cod: string = '';
-  public t5_c2_medida_2_des: string = '';
+  public t5_c2_c1_med_2_arr: wsb.UnidadeMedida[] = [];
+  public t5_c2_c1_med_2_obj?: wsb.UnidadeMedida;
+  public t5_c2_c1_med_2_cod: string = '';
+  public t5_c2_c1_med_2_des: string = '';
 
-  public t5_c2_medida_3_arr: wsb.UnidadeMedida[] = [];
-  public t5_c2_medida_3_obj?: wsb.UnidadeMedida;
-  public t5_c2_medida_3_cod: string = '';
-  public t5_c2_medida_3_des: string = '';
+  public t5_c2_c1_med_3_arr: wsb.UnidadeMedida[] = [];
+  public t5_c2_c1_med_3_obj?: wsb.UnidadeMedida;
+  public t5_c2_c1_med_3_cod: string = '';
+  public t5_c2_c1_med_3_des: string = '';
 
-  public t5_c2_medida_2_tip_con_arr: wsb.TipoConversao[] = [];
-  public t5_c2_medida_2_tip_con_obj?: wsb.TipoConversao;
-  public t5_c2_medida_2_tip_con_cod: string = '';
-  public t5_c2_medida_2_tip_con_des: string = '';
+  public t5_c2_c2_med_2_tip_arr: wsb.TipoConversao[] = [];
+  public t5_c2_c2_med_2_tip_obj?: wsb.TipoConversao;
+  public t5_c2_c2_med_2_tip_cod: string = '';
+  public t5_c2_c2_med_2_tip_des: string = '';
 
-  public t5_c2_medida_2_val_con?: number;
+  public t5_c2_c2_med_2_val?: number;
 
-  public t5_c2_medida_3_tip_con_arr: wsb.TipoConversao[] = [];
-  public t5_c2_medida_3_tip_con_obj?: wsb.TipoConversao;
-  public t5_c2_medida_3_tip_con_cod: string = '';
-  public t5_c2_medida_3_tip_con_des: string = '';
+  public t5_c2_c3_med_3_tip_arr: wsb.TipoConversao[] = [];
+  public t5_c2_c3_med_3_tip_obj?: wsb.TipoConversao;
+  public t5_c2_c3_med_3_tip_cod: string = '';
+  public t5_c2_c3_med_3_tip_des: string = '';
 
-  public t5_c2_medida_3_val_con?: number;
+  public t5_c2_c3_med_3_val?: number;
 
   //Coluna 3
-  public t5_c3_peso_bruto?: number;
+  public t5_c3_c1_peso_bruto?: number;
 
-  public t5_c3_peso_liquido?: number;
+  public t5_c3_c1_peso_liquido?: number;
 
   public t5_c3_observacao: string = '';
 
-  public t5_c3_anexo_files: File[] = [];
-  public t5_c3_anexo_ged_arr: Anexo[] = [];
-  public t5_c3_anexo_pasta_id: string = '';
-  public t5_c3_anexo_pasta_nome: string = 'Anexo cadastro';
+  public t5_c3_c2_anexo_files: File[] = [];
+  public t5_c3_c2_anexo_ged_arr: Anexo[] = [];
+  public t5_c3_c2_anexo_pasta_id: string = '';
+  public t5_c3_c2_anexo_pasta_nome: string = 'Anexo cadastro';
 
   //Coluna 4
   public t5_c4_recusa: string = '';
@@ -396,12 +396,12 @@ export class VP_BPM {
   public t6_c3_c5_benef_des: string = '';
 
   //Coluna 4
-  public t6_c4_observacoes: string = '';
+  public t6_c4_c1_observacoes: string = '';
 
-  public t6_c4_recusa: string = '';
+  public t6_c4_c1_recusa: string = '';
 
-  public t6_c4_anexo_files: File[] = [];
-  public t6_c4_anexo_ged_arr: Anexo[] = [];
-  public t6_c4_anexo_pasta_id: string = '';
-  public t6_c4_anexo_pasta_nome: string = 'Anexo fiscal/cotábil';
+  public t6_c4_c2_anexo_files: File[] = [];
+  public t6_c4_c2_anexo_ged_arr: Anexo[] = [];
+  public t6_c4_c2_anexo_pasta_id: string = '';
+  public t6_c4_c2_anexo_pasta_nome: string = 'Anexo fiscal/cotábil';
 }

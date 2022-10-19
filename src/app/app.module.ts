@@ -43,8 +43,15 @@ import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
 import { T4ObsAneComponent } from './t4-obs-ane/t4-obs-ane.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T5C1Component } from './t5-cadastro/t5-c1/t5-c1.component';
+import { T5C1C1MascaraComponent } from './t5-cadastro/t5-c1/t5-c1-c1-mascara/t5-c1-c1-mascara.component';
+import { T5C1C2AgrupComponent } from './t5-cadastro/t5-c1/t5-c1-c2-agrup/t5-c1-c2-agrup.component';
 import { T5C2Component } from './t5-cadastro/t5-c2/t5-c2.component';
+import { T5C2C1GerencialComponent } from './t5-cadastro/t5-c2/t5-c2-c1-gerencial/t5-c2-c1-gerencial.component';
+import { T5C2C2Medida2Component } from './t5-cadastro/t5-c2/t5-c2-c2-medida2/t5-c2-c2-medida2.component';
+import { T5C2C3Medida3Component } from './t5-cadastro/t5-c2/t5-c2-c3-medida3/t5-c2-c3-medida3.component';
 import { T5C3Component } from './t5-cadastro/t5-c3/t5-c3.component';
+import { T5C3C1PesosComponent } from './t5-cadastro/t5-c3/t5-c3-c1-pesos/t5-c3-c1-pesos.component';
+import { T5C3C2AnexoComponent } from './t5-cadastro/t5-c3/t5-c3-c2-anexo/t5-c3-c2-anexo.component';
 import { T6FisConComponent } from './t6-fis-con/t6-fis-con.component';
 import { T6C1Component } from './t6-fis-con/t6-c1/t6-c1.component';
 import { T6C1C1TipoComponent } from './t6-fis-con/t6-c1/t6-c1-c1-tipo/t6-c1-c1-tipo.component';
@@ -59,11 +66,23 @@ import { T6C3Component } from './t6-fis-con/t6-c3/t6-c3.component';
 import { T6C3C1EnquaComponent } from './t6-fis-con/t6-c3/t6-c3-c1-enqua/t6-c3-c1-enqua.component';
 import { T6C3C2MotivComponent } from './t6-fis-con/t6-c3/t6-c3-c2-motiv/t6-c3-c2-motiv.component';
 import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp.component';
-import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C3C4PautaComponent } from './t6-fis-con/t6-c3/t6-c3-c4-pauta/t6-c3-c4-pauta.component';
 import { T6C3C5BenefComponent } from './t6-fis-con/t6-c3/t6-c3-c5-benef/t6-c3-c5-benef.component';
-import { T5C3C1PesosComponent } from './t5-cadastro/t5-c3/t5-c3-c1-pesos/t5-c3-c1-pesos.component';
-import { T5C3C2AnexoComponent } from './t5-cadastro/t5-c3/t5-c3-c2-anexo/t5-c3-c2-anexo.component';
+import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
+import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
+import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
+import { T1C1C1SubComponent } from './t1-basicos/t1-c1/t1-c1-c1-sub/t1-c1-c1-sub.component';
+import { T1C1C2SimComponent } from './t1-basicos/t1-c1/t1-c1-c2-sim/t1-c1-c2-sim.component';
+import { T1C1C3OriComponent } from './t1-basicos/t1-c1/t1-c1-c3-ori/t1-c1-c3-ori.component';
+import { T1C1C4FamComponent } from './t1-basicos/t1-c1/t1-c1-c4-fam/t1-c1-c4-fam.component';
+import { T1C1C5MedComponent } from './t1-basicos/t1-c1/t1-c1-c5-med/t1-c1-c5-med.component';
+import { T1C2C1MarcaComponent } from './t1-basicos/t1-c2/t1-c2-c1-marca/t1-c2-c1-marca.component';
+import { T1C2C2FiscalComponent } from './t1-basicos/t1-c2/t1-c2-c2-fiscal/t1-c2-c2-fiscal.component';
+import { T1C2C3BarrasComponent } from './t1-basicos/t1-c2/t1-c2-c3-barras/t1-c2-c3-barras.component';
+import { T1C2C4ComercialComponent } from './t1-basicos/t1-c2/t1-c2-c4-comercial/t1-c2-c4-comercial.component';
+import { T1C2C5MercadoriaComponent } from './t1-basicos/t1-c2/t1-c2-c5-mercadoria/t1-c2-c5-mercadoria.component';
+import { T1C2C6AgrosysComponent } from './t1-basicos/t1-c2/t1-c2-c6-agrosys/t1-c2-c6-agrosys.component';
+import { T1C2C7MultinivelComponent } from './t1-basicos/t1-c2/t1-c2-c7-multinivel/t1-c2-c7-multinivel.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -85,8 +104,15 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T4ObsAneComponent,
     T5CadastroComponent,
     T5C1Component,
+    T5C1C1MascaraComponent,
+    T5C1C2AgrupComponent,
     T5C2Component,
+    T5C2C1GerencialComponent,
+    T5C2C2Medida2Component,
+    T5C2C3Medida3Component,
     T5C3Component,
+    T5C3C1PesosComponent,
+    T5C3C2AnexoComponent,
     T6FisConComponent,
     T6C1Component,
     T6C1C1TipoComponent,
@@ -101,11 +127,23 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C3C1EnquaComponent,
     T6C3C2MotivComponent,
     T6C3C3AnpComponent,
-    T6C4Component,
     T6C3C4PautaComponent,
     T6C3C5BenefComponent,
-    T5C3C1PesosComponent,
-    T5C3C2AnexoComponent,
+    T6C4Component,
+    T6C4C1ObsComponent,
+    T6C4C2AneComponent,
+    T1C1C1SubComponent,
+    T1C1C2SimComponent,
+    T1C1C3OriComponent,
+    T1C1C4FamComponent,
+    T1C1C5MedComponent,
+    T1C2C1MarcaComponent,
+    T1C2C2FiscalComponent,
+    T1C2C3BarrasComponent,
+    T1C2C4ComercialComponent,
+    T1C2C5MercadoriaComponent,
+    T1C2C6AgrosysComponent,
+    T1C2C7MultinivelComponent,
   ],
   imports: [
     BrowserModule,

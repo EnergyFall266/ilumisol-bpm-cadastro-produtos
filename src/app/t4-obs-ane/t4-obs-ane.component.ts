@@ -18,7 +18,6 @@ export class T4ObsAneComponent implements OnInit {
   public ngOnInit(): void {}
 
   public sn = gedf.simplifyName;
-  public fb = gedf.formatBytes;
   public ct = gedf.checkEnviadoTemplate;
 
   public escolherDocumentoFileUpload = (fu: FileUpload) =>
@@ -29,9 +28,8 @@ export class T4ObsAneComponent implements OnInit {
     this.vp.t4_anexo_files = [];
   };
 
-  public descarregarDocumentoGED = async (id: string) => {
+  public descarregarDocumentoGED = async (id: string) =>
     window.open(await gedf.requestDocumentDownload(id, this.vp.token));
-  };
 
   public excluirDocumentoGED = async (anexo: gedf.Anexo) => {
     if (await gedf.deleteDocument(anexo.gedId!, this.vp.token)) {
@@ -58,9 +56,7 @@ export class T4ObsAneComponent implements OnInit {
       );
   };
 
-  public enviarDocumentos = async (
-    anexosUploader: FileUpload
-  ): Promise<void> => {
+  public enviarDocumentos = async (fu: FileUpload): Promise<void> => {
     await this.prepararDocumentos().catch(this.printError);
     /*const p = await pegarPastas(this.vp, this.vp.t4_anexo_pasta_nome);
     if (p) {

@@ -1,1 +1,69 @@
-<p>t5-c3-c1-pesos works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Peso Bruto
+        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [showButtons]="!vp.t5_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t5_mandatory_to_readonly"
+          placeholder="0,00"
+          [(ngModel)]="vp.t5_c3_c1_peso_bruto"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Peso Líquido
+        <span [hidden]="vp.t5_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [showButtons]="!vp.t5_mandatory_to_readonly"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t5_mandatory_to_readonly"
+          placeholder="0,00"
+          [(ngModel)]="vp.t5_c3_c1_peso_liquido"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+</div>
