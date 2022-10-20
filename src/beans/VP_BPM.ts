@@ -43,98 +43,98 @@ export class VP_BPM {
   ];
   public t1_c1_segmento: string = '';
 
-  public t1_c1_substituto_cadastrado: string = '';
+  public t1_c1_c1_substituto_cad: string = '';
 
-  public t1_c1_item_substituido_arr: wsb.Item[] = [];
-  public t1_c1_item_substituido_obj?: wsb.Item;
-  public t1_c1_item_substituido_cod: string = '';
+  public t1_c1_c1_item_subs_arr: wsb.Item[] = [];
+  public t1_c1_c1_item_subs_obj?: wsb.Item;
+  public t1_c1_c1_item_subs_cod: string = '';
 
-  public t1_c1_similar_existe: string = '';
+  public t1_c1_c2_similar_exi: string = '';
 
-  public t1_c1_item_similar_arr: wsb.Item[] = [];
-  public t1_c1_item_similar_obj?: wsb.Item;
-  public t1_c1_item_similar_cod: string = '';
+  public t1_c1_c2_item_simi_arr: wsb.Item[] = [];
+  public t1_c1_c2_item_simi_obj?: wsb.Item;
+  public t1_c1_c2_item_simi_cod: string = '';
 
-  public t1_c1_origem_arr: wsb.Origem[] = [];
-  public t1_c1_origem_obj?: wsb.Origem;
-  public t1_c1_origem_cod: string = '';
-  public t1_c1_origem_des: string = '';
+  public t1_c1_c3_origem_arr: wsb.Origem[] = [];
+  public t1_c1_c3_origem_obj?: wsb.Origem;
+  public t1_c1_c3_origem_cod: string = '';
+  public t1_c1_c3_origem_des: string = '';
 
-  public t1_c1_familia_arr: wsb.Familia[] = [];
-  public t1_c1_familia_obj?: wsb.Familia;
-  public t1_c1_familia_cod: string = '';
-  public t1_c1_familia_des: string = '';
+  public t1_c1_c4_familia_arr: wsb.Familia[] = [];
+  public t1_c1_c4_familia_obj?: wsb.Familia;
+  public t1_c1_c4_familia_cod: string = '';
+  public t1_c1_c4_familia_des: string = '';
 
   public t1_c1_descricao: string = '';
 
-  public t1_c1_medida_arr: wsb.UnidadeMedida[] = [];
-  public t1_c1_medida_obj?: wsb.UnidadeMedida;
-  public t1_c1_medida_cod: string = '';
-  public t1_c1_medida_des: string = '';
+  public t1_c1_c5_medida_arr: wsb.UnidadeMedida[] = [];
+  public t1_c1_c5_medida_obj?: wsb.UnidadeMedida;
+  public t1_c1_c5_medida_cod: string = '';
+  public t1_c1_c5_medida_des: string = '';
 
   public t1_c1_cotado: string = '';
 
   //Coluna 2
-  public t1_c2_marca_arr: wsb.Marca[] = [];
-  public t1_c2_marca_obj?: wsb.Marca;
-  public t1_c2_marca_cod: string = '';
-  public t1_c2_marca_des: string = '';
+  public t1_c2_c1_marca_arr: wsb.Marca[] = [];
+  public t1_c2_c1_marca_obj?: wsb.Marca;
+  public t1_c2_c1_marca_cod: string = '';
+  public t1_c2_c1_marca_des: string = '';
 
-  public t1_c2_clafiscal_arr: wsb.ClassificacaoFiscal[] = [];
-  public t1_c2_clafiscal_obj?: wsb.ClassificacaoFiscal;
-  public t1_c2_clafiscal_cod: string = '';
-  public t1_c2_clafiscal_des: string = '';
+  public t1_c2_c2_clafiscal_arr: wsb.ClassificacaoFiscal[] = [];
+  public t1_c2_c2_clafiscal_obj?: wsb.ClassificacaoFiscal;
+  public t1_c2_c2_clafiscal_cod: string = '';
+  public t1_c2_c2_clafiscal_des: string = '';
 
-  public t1_c2_barras: string = '';
+  public t1_c2_c3_barras: string = '';
 
-  public t1_c2_barras_justificativa: string = '';
+  public t1_c2_c3_barras_justificativa: string = '';
 
-  public t1_c2_agrupamento_arr: wsb.AgrupamentoComercial[] = [];
-  public t1_c2_agrupamento_obj?: wsb.AgrupamentoComercial;
-  public t1_c2_agrupamento_cod: string = '';
-  public t1_c2_agrupamento_des: string = '';
+  public t1_c2_c4_agrupamento_arr: wsb.AgrupamentoComercial[] = [];
+  public t1_c2_c4_agrupamento_obj?: wsb.AgrupamentoComercial;
+  public t1_c2_c4_agrupamento_cod: string = '';
+  public t1_c2_c4_agrupamento_des: string = '';
 
   public t1_c2_especificacao: string = '';
 
-  public t1_c2_mercadoria_arr: wsb.OrigemFiscalMercadoria[] = [];
-  public t1_c2_mercadoria_obj?: wsb.OrigemFiscalMercadoria;
-  public t1_c2_mercadoria_cod: string = '';
-  public t1_c2_mercadoria_des: string = '';
+  public t1_c2_c5_mercadoria_arr: wsb.OrigemFiscalMercadoria[] = [];
+  public t1_c2_c5_mercadoria_obj?: wsb.OrigemFiscalMercadoria;
+  public t1_c2_c5_mercadoria_cod: string = '';
+  public t1_c2_c5_mercadoria_des: string = '';
 
-  public t1_c2_integra_agrosys: string = '';
+  public t1_c2_c6_integra_agrosys: string = '';
 
-  public t1_c2_agrosys_arr: wsb.Agrosys[] = [];
-  public t1_c2_agrosys_obj?: wsb.Agrosys;
-  public t1_c2_agrosys_cod: string = '';
+  public t1_c2_c6_agrosys_arr: wsb.Agrosys[] = [];
+  public t1_c2_c6_agrosys_obj?: wsb.Agrosys;
+  public t1_c2_c6_agrosys_cod: string = '';
 
-  public t1_c2_multinivel_arr: wsb.AgrAprMultinivel[] = [];
-  public t1_c2_multinivel_obj?: wsb.AgrAprMultinivel;
-  public t1_c2_multinivel_cod: string = '';
+  public t1_c2_c7_multinivel_arr: wsb.AgrAprMultinivel[] = [];
+  public t1_c2_c7_multinivel_obj?: wsb.AgrAprMultinivel;
+  public t1_c2_c7_multinivel_cod: string = '';
 
   //Coluna 3
-  public t1_c3_requisitado: string = 'NÃO';
+  public t1_c3_c1_requisitado: string = 'Não';
 
-  public t1_c3_vendido: string = 'SIM';
+  public t1_c3_c1_vendido: string = 'Sim';
 
-  public t1_c3_comprado: string = 'SIM';
+  public t1_c3_c1_comprado: string = 'Sim';
 
-  public t1_c3_orcamento: string = 'NÃO';
+  public t1_c3_c1_orcamento: string = 'Não';
 
   public t1_c3_vendido_upl: string = '';
 
   public t1_c3_receita: string = '';
 
-  public t1_c3_venda_virtual: string = '';
+  public t1_c3_c2_venda_virtual: string = '';
 
-  public t1_c3_categoria_arr: wsb.CategoriaVenda[] = [];
-  public t1_c3_categoria_obj?: wsb.CategoriaVenda;
-  public t1_c3_categoria_cod: string = '';
-  public t1_c3_categoria_des: string = '';
+  public t1_c3_c2_categoria_arr: wsb.CategoriaVenda[] = [];
+  public t1_c3_c2_categoria_obj?: wsb.CategoriaVenda;
+  public t1_c3_c2_categoria_cod: string = '';
+  public t1_c3_c2_categoria_des: string = '';
 
-  public t1_c3_subcategoria_arr: wsb.CategoriaVenda[] = [];
-  public t1_c3_subcategoria_obj?: wsb.CategoriaVenda;
-  public t1_c3_subcategoria_cod: string = '';
-  public t1_c3_subcategoria_des: string = '';
+  public t1_c3_c2_subcategoria_arr: wsb.CategoriaVenda[] = [];
+  public t1_c3_c2_subcategoria_obj?: wsb.CategoriaVenda;
+  public t1_c3_c2_subcategoria_cod: string = '';
+  public t1_c3_c2_subcategoria_des: string = '';
 
   public t1_c3_numero_onu: string = '';
 
@@ -156,7 +156,7 @@ export class VP_BPM {
    * Dados de fornecedor
    */
 
-  public t2_mandatory_to_readonly: boolean = true;
+  public t2_mandatory_to_readonly: boolean = false;
 
   public t2_fornecedor_arr: wsb.Fornecedor[] = [];
   public t2_fornecedor_obj?: wsb.Fornecedor;

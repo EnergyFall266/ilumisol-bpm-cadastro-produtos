@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_familia_des"
+            [(ngModel)]="vp.t1_c1_c4_familia_des"
             (click)="familiaInput()"
           />
           <button
@@ -46,8 +46,8 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t1_c1_familia_arr"
-      [(selection)]="vp.t1_c1_familia_obj"
+      [value]="vp.t1_c1_c4_familia_arr"
+      [(selection)]="vp.t1_c1_c4_familia_obj"
       (onRowSelect)="familiaSelect()"
       dataKey=""
       [globalFilterFields]="['', '']"

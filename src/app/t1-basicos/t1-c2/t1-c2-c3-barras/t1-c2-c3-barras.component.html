@@ -1,1 +1,43 @@
-<p>t1-c2-c3-barras works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código de barras livre
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t1_mandatory_to_readonly"
+          [(ngModel)]="vp.t1_c2_c3_barras"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Justificativa código de barras
+        <span
+          [hidden]="vp.t1_mandatory_to_readonly || vp.t1_c2_c3_barras == ''"
+          style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t1_mandatory_to_readonly"
+          [(ngModel)]="vp.t1_c2_c3_barras_justificativa"
+        />
+      </div>
+    </div>
+  </div>
+</div>

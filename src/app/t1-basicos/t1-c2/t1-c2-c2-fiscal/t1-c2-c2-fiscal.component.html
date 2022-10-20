@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_clafiscal_des"
+            [(ngModel)]="vp.t1_c2_c2_clafiscal_des"
             (click)="fiscalInput()"
           />
           <button
@@ -46,8 +46,8 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t1_c2_clafiscal_arr"
-      [(selection)]="vp.t1_c2_clafiscal_obj"
+      [value]="vp.t1_c2_c2_clafiscal_arr"
+      [(selection)]="vp.t1_c2_c2_clafiscal_obj"
       (onRowSelect)="fiscalSelect()"
       dataKey=""
       [globalFilterFields]="['', '']"

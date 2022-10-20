@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_medida_des"
+            [(ngModel)]="vp.t1_c1_c5_medida_des"
             (click)="unidadeInput()"
           />
           <button
@@ -46,8 +46,8 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t1_c1_medida_arr"
-      [(selection)]="vp.t1_c1_medida_obj"
+      [value]="vp.t1_c1_c5_medida_arr"
+      [(selection)]="vp.t1_c1_c5_medida_obj"
       (onRowSelect)="unidadeSelect()"
       dataKey=""
       [globalFilterFields]="['', '']"

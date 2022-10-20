@@ -1,1 +1,111 @@
-<p>t1-c2-c6-agrosys works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Integra agrosys?
+        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <p-dropdown
+          class="w-12"
+          [styleClass]="'w-12'"
+          [panelStyleClass]="'col-12'"
+          [options]="vp.check_options"
+          placeholder="Selecione"
+          [(ngModel)]="vp.t1_c2_c6_integra_agrosys"
+          [readonly]="vp.t1_mandatory_to_readonly"
+        ></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <span class="col-12"
+        >Código agrosys
+        <span
+          style="color: red"
+          [hidden]="
+            vp.t1_mandatory_to_readonly || vp.t1_c2_c6_integra_agrosys != 'Sim'
+          "
+          >*</span
+        ></span
+      >
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t1_c2_c6_agrosys_cod"
+            (click)="agrosysInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            (click)="agrosysInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Agrosys"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalAgr"
+  >
+    <p-table
+      #tableAgrosys
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t1_c2_c6_agrosys_arr"
+      [(selection)]="vp.t1_c2_c6_agrosys_obj"
+      (onRowSelect)="agrosysSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableAgrosys.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-agr>
+        <tr [pSelectableRow]="agr">
+          <td>{{ agr.c }}</td>
+          <td>{{ agr.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+</div>

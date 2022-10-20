@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_origem_des"
+            [(ngModel)]="vp.t1_c1_c3_origem_des"
             (click)="origemInput()"
           />
           <button
@@ -46,8 +46,8 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t1_c1_origem_arr"
-      [(selection)]="vp.t1_c1_origem_obj"
+      [value]="vp.t1_c1_c3_origem_arr"
+      [(selection)]="vp.t1_c1_c3_origem_obj"
       (onRowSelect)="origemSelect()"
       dataKey=""
       [globalFilterFields]="['', '']"
