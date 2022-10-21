@@ -1,10 +1,10 @@
 <div class="grid">
   <div
     class="col-12 pt-1"
-    [style.visibility]="
+    [style.display]="
       vp.t5_mandatory_to_readonly || vp.t5_c3_c2_anexo_ged_arr.length != 0
-        ? 'hidden'
-        : 'visible'
+        ? 'none'
+        : ''
     "
   >
     <div class="grid">
@@ -40,9 +40,7 @@
 
   <div
     class="col-12"
-    [style.visibility]="
-      vp.t5_c3_c2_anexo_ged_arr.length == 0 ? 'hidden' : 'visible'
-    "
+    [style.display]="vp.t5_c3_c2_anexo_ged_arr.length == 0 ? 'none' : ''"
   >
     <div class="grid">
       <span class="col-12">Anexo cadastro</span>

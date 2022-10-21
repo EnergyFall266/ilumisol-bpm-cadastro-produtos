@@ -175,7 +175,7 @@ export class VP_BPM {
    * Dados de depósito
    */
 
-  public t3_mandatory_to_readonly: boolean = true;
+  public t3_mandatory_to_readonly: boolean = false;
 
   //Coluna 1
   public t3_c1_destino_arr: wsb.Deposito[] = [];
@@ -208,7 +208,7 @@ export class VP_BPM {
    * Observações e Anexos
    */
 
-  public t4_mandatory_to_readonly: boolean = true;
+  public t4_mandatory_to_readonly: boolean = false;
 
   public t4_observacoes: string = '';
 
@@ -221,7 +221,9 @@ export class VP_BPM {
    * Dados do cadastro
    */
 
-  public t5_mandatory_to_readonly: boolean = false;
+  public t5_mandatory_to_readonly: boolean = true;
+
+  public t5_show_only_recusa: boolean = false;
 
   //Coluna 1
   public t5_c1_descricao: string = '';
@@ -286,6 +288,8 @@ export class VP_BPM {
    */
 
   public t6_mandatory_to_readonly: boolean = true;
+
+  public t6_show_only_recusa: boolean = false;
 
   //Coluna 1
   public t6_c1_c1_tipo_prod_arr: wsb.TipoProduto[] = [];

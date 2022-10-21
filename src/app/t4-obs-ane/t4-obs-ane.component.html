@@ -19,10 +19,10 @@
     <div class="grid">
       <div
         class="col-12"
-        [style.visibility]="
+        [style.display]="
           vp.t4_mandatory_to_readonly || vp.t4_anexo_ged_arr.length != 0
-            ? 'hidden'
-            : 'visible'
+            ? 'none'
+            : ''
         "
       >
         <div class="grid">
@@ -57,9 +57,7 @@
 
       <div
         class="col-12"
-        [style.visibility]="
-          vp.t4_anexo_ged_arr.length == 0 ? 'hidden' : 'visible'
-        "
+        [style.display]="vp.t4_anexo_ged_arr.length == 0 ? 'none' : ''"
       >
         <div class="grid">
           <span class="col-12">Anexo solicitação</span>

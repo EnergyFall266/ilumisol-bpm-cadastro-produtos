@@ -66,7 +66,7 @@ export class AppComponent {
     );
 
     this.vp.overlay = false;
-    this.activeMenu = fd.showMenus(2, [1,2,3,4,5,6]);
+    this.activeMenu = fd.showMenus(6, [1, 2, 3, 4, 5, 6]);
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {
@@ -75,11 +75,14 @@ export class AppComponent {
     this.vp = r.vp;
   };
 
-  private _saveData = (_data: Data, _info: Info): any => {
+  private _saveData = (data: any, info: any): any => {
+    console.dir(data);
+    console.dir(info);
     this.vp.alertas = formValidate(this.vp);
-    if (this.vp.alertas.length > 0)
+    throw Error('Os dados informados são inválidos.');
+    /*if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
-    else return wc.saveData(this.vp);
+    else return wc.saveData(this.vp);*/
   };
 
   private _rollback = wc.rollback;

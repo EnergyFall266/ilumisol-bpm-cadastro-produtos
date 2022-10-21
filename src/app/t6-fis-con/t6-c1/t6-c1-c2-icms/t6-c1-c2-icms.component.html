@@ -1,12 +1,7 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Código ICMS Especial
-        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
-          >*</span
-        ></span
-      >
+      <span class="col-12">Código ICMS Especial</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <input
@@ -88,12 +83,7 @@
 
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Código Redução ICMS
-        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
-          >*</span
-        ></span
-      >
+      <span class="col-12">Código Redução ICMS</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <input
@@ -172,12 +162,7 @@
 
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Código ICMS Substituído
-        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
-          >*</span
-        ></span
-      >
+      <span class="col-12">Código ICMS Substituído</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <input
@@ -186,8 +171,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t6_c1_c2_icms_especial_cod"
-            (click)="especialInput()"
+            [(ngModel)]="vp.t6_c1_c2_icms_substituido_cod"
+            (click)="substituidoInput()"
           />
           <button
             pButton
@@ -196,10 +181,64 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
-            (click)="especialInput()"
+            (click)="substituidoInput()"
           ></button>
         </div>
       </div>
     </div>
   </div>
+  <p-dialog
+    header="Códigos"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [(visible)]="showModalSub"
+  >
+    <p-table
+      #tableSubstituido
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [value]="vp.t6_c1_c2_icms_substituido_arr"
+      [(selection)]="vp.t6_c1_c2_icms_substituido_obj"
+      (onRowSelect)="substituidoSelect()"
+      dataKey=""
+      [globalFilterFields]="['', '']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableSubstituido.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sub>
+        <tr [pSelectableRow]="sub">
+          <td>{{ sub.c }}</td>
+          <td>{{ sub.d }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
 </div>
