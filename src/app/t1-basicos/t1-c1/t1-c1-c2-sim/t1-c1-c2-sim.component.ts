@@ -16,7 +16,11 @@ export class T1C1C2SimComponent implements OnInit {
   public ngOnInit(): void {}
 
   public similarInput() {
-    this.showModalSim = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalSim = true;
+      if (this.vp.t1_c1_c2_item_simi_arr.length == 0) {
+      }
+    }
   }
 
   public similarSelect() {

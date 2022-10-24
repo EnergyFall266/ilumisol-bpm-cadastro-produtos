@@ -102,7 +102,7 @@ export class T4ObsAneComponent implements OnInit {
           .sendDocument(
             this.vp.t4_anexo_pasta_id,
             a,
-            this.vp.user_fullName,
+            this.vp.user_fullname,
             this.vp.token
           )
           .then((s) => {

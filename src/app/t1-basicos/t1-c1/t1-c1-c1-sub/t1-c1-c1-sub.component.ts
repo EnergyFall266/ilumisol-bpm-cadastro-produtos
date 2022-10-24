@@ -16,7 +16,11 @@ export class T1C1C1SubComponent implements OnInit {
   public ngOnInit(): void {}
 
   public substituidoInput() {
-    this.showModalSub = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalSub = true;
+      if (this.vp.t1_c1_c1_item_subs_arr.length == 0) {
+      }
+    }
   }
 
   public substituidoSelect() {

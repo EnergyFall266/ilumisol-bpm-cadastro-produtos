@@ -20,8 +20,8 @@ export class T6C4C2AneComponent implements OnInit {
   public sn = gedf.simplifyName;
   public ct = gedf.checkEnviadoTemplate;
 
-  public escolherDocumentoFileUpload = (anexosUploader: FileUpload) =>
-    (this.vp.t6_c4_c2_anexo_files = anexosUploader.files);
+  public escolherDocumentoFileUpload = (fu: FileUpload) =>
+    (this.vp.t6_c4_c2_anexo_files = fu.files);
 
   public removerDocumentoFileUpload = (fu: FileUpload): void => {
     fu.clear();
@@ -106,7 +106,7 @@ export class T6C4C2AneComponent implements OnInit {
           .sendDocument(
             this.vp.t6_c4_c2_anexo_pasta_id,
             a,
-            this.vp.user_fullName,
+            this.vp.user_fullname,
             this.vp.token
           )
           .then((s) => {

@@ -1,7 +1,12 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12">Descrição p/nota fiscal</span>
+      <span class="col-12"
+        >Descrição p/nota fiscal
+        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
+          >*</span
+        ></span
+      >
       <div class="col-12 py-0 mb-0">
         <textarea
           pInputTextarea

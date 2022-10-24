@@ -105,7 +105,7 @@ export class T5C3C2AnexoComponent implements OnInit {
           .sendDocument(
             this.vp.t5_c3_c2_anexo_pasta_id,
             a,
-            this.vp.user_fullName,
+            this.vp.user_fullname,
             this.vp.token
           )
           .then((s) => {

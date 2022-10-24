@@ -16,7 +16,11 @@ export class T1C1C3OriComponent implements OnInit {
   public ngOnInit(): void {}
 
   public origemInput() {
-    this.showModalOri = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalOri = true;
+      if (this.vp.t1_c1_c3_origem_arr.length == 0) {
+      }
+    }
   }
 
   public origemSelect() {

@@ -8,7 +8,7 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class AppService {
   constructor(private vp: VP_BPM) {}
 
-  /*public async pegar_pastas() {
+  public async pegar_pastas() {
     const paiId: string = await checkFolder(
       this.vp.token,
       {
@@ -19,5 +19,5 @@ export class AppService {
       },
       ''
     );
-  }*/
+  }
 }

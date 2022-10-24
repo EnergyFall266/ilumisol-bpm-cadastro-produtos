@@ -16,7 +16,11 @@ export class T1C1C4FamComponent implements OnInit {
   public ngOnInit(): void {}
 
   public familiaInput() {
-    this.showModalFam = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalFam = true;
+      if (this.vp.t1_c1_c4_familia_arr.length == 0) {
+      }
+    }
   }
 
   public familiaSelect() {

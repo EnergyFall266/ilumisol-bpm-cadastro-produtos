@@ -16,7 +16,11 @@ export class T1C1C5MedComponent implements OnInit {
   public ngOnInit(): void {}
 
   public unidadeInput() {
-    this.showModalUni = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalUni = true;
+      if (this.vp.t1_c1_c5_medida_arr.length == 0) {
+      }
+    }
   }
 
   public unidadeSelect() {

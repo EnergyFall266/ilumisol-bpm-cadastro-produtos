@@ -18,7 +18,7 @@ export class VP_BPM {
   public date_max: Date = new Date(8640000000000000);
 
   public token: string = '';
-  public user_fullName: string = '';
+  public user_fullname: string = '';
 
   public ged_pasta_pai_id: string = '';
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
