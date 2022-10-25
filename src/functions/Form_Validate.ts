@@ -119,13 +119,13 @@ export default function formValidate(vp: VP_BPM): Message[] {
       }
 
       if (vp.t2_quantidade_multipla === undefined)
-        m.push(getMsgS('Dados do fornecedor - Quantidade múltipla fornecedor'));
+        m.push(getMsgC('Dados do fornecedor - Quantidade múltipla fornecedor'));
 
       if (vp.t2_quantidade_maxima === undefined)
-        m.push(getMsgS('Dados do fornecedor - Quantidade máxima fornecedor'));
+        m.push(getMsgC('Dados do fornecedor - Quantidade máxima fornecedor'));
 
       if (vp.t2_quantidade_minima === undefined)
-        m.push(getMsgS('Dados do fornecedor - Quantidade mínima fornecedor'));
+        m.push(getMsgC('Dados do fornecedor - Quantidade mínima fornecedor'));
       break;
 
     case environment.s2_dad_cad:

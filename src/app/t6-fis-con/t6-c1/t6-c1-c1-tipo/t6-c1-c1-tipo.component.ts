@@ -16,7 +16,11 @@ export class T6C1C1TipoComponent implements OnInit {
   public ngOnInit(): void {}
 
   public tipoInput() {
-    this.showModalTip = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalTip = true;
+      if (this.vp.t6_c1_c1_tipo_prod_arr.length == 0) {
+      }
+    }
   }
 
   public tipoSelect() {

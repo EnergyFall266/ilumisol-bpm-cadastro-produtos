@@ -16,7 +16,11 @@ export class T2FornecedorComponent implements OnInit {
   public ngOnInit(): void {}
 
   public fornecedorInput() {
-    this.showModalFor = true;
+    if (!this.vp.t2_mandatory_to_readonly) {
+      this.showModalFor = true;
+      if (this.vp.t2_fornecedor_arr.length == 0) {
+      }
+    }
   }
 
   public fornecedorSelect() {

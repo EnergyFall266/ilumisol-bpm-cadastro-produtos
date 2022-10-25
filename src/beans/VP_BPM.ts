@@ -287,7 +287,7 @@ export class VP_BPM {
    * Dados fiscais e contábeis
    */
 
-  public t6_mandatory_to_readonly: boolean = true;
+  public t6_mandatory_to_readonly: boolean = false;
 
   public t6_show_only_recusa: boolean = false;
 

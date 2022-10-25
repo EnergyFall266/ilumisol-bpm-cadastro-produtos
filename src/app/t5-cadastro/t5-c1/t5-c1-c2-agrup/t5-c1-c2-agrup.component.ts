@@ -17,7 +17,11 @@ export class T5C1C2AgrupComponent implements OnInit {
   public ngOnInit(): void {}
 
   public estoquesInput() {
-    this.showModalEst = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalEst = true;
+      if (this.vp.t5_c1_c2_agr_est_arr.length == 0) {
+      }
+    }
   }
 
   public estoquesSelect() {
@@ -25,7 +29,11 @@ export class T5C1C2AgrupComponent implements OnInit {
   }
 
   public custosInput() {
-    this.showModalCus = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalCus = true;
+      if (this.vp.t5_c1_c2_agr_cus_arr.length == 0) {
+      }
+    }
   }
 
   public custosSelect() {

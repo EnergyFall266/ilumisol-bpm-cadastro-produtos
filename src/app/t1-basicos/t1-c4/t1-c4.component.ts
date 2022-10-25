@@ -16,7 +16,11 @@ export class T1C4Component implements OnInit {
   public ngOnInit(): void {}
 
   public quimicoInput() {
-    this.showModalQui = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalQui = true;
+      if (this.vp.t1_c4_quimico_arr.length == 0) {
+      }
+    }
   }
 
   public quimicoSelect() {

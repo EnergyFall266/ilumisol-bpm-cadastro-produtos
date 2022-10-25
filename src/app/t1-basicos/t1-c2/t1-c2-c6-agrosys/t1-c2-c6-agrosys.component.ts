@@ -16,7 +16,11 @@ export class T1C2C6AgrosysComponent implements OnInit {
   public ngOnInit(): void {}
 
   public agrosysInput() {
-    this.showModalAgr = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalAgr = true;
+      if (this.vp.t1_c2_c6_agrosys_arr.length == 0) {
+      }
+    }
   }
 
   public agrosysSelect() {

@@ -17,7 +17,11 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   public ngOnInit(): void {}
 
   public cofinsInput() {
-    this.showModalCof = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalCof = true;
+      if (this.vp.t6_c1_c3_cof_subs_arr.length == 0) {
+      }
+    }
   }
 
   public cofinsSelect() {
@@ -25,7 +29,11 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   }
 
   public pisInput() {
-    this.showModalPis = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalPis = true;
+      if (this.vp.t6_c1_c3_pis_subs_arr.length == 0) {
+      }
+    }
   }
 
   public pisSelect() {

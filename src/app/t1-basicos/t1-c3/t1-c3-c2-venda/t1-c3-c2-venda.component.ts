@@ -17,7 +17,11 @@ export class T1C3C2VendaComponent implements OnInit {
   public ngOnInit(): void {}
 
   public categoriaInput() {
-    this.showModalCat = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalCat = true;
+      if (this.vp.t1_c3_c2_categoria_arr.length == 0) {
+      }
+    }
   }
 
   public categoriaSelect() {
@@ -25,7 +29,11 @@ export class T1C3C2VendaComponent implements OnInit {
   }
 
   public subCategoriaInput() {
-    this.showModalSub = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalSub = true;
+      if (this.vp.t1_c3_c2_subcategoria_arr.length == 0) {
+      }
+    }
   }
 
   public subCategoriaSelect() {

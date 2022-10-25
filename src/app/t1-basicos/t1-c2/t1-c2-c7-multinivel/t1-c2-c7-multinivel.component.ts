@@ -16,7 +16,11 @@ export class T1C2C7MultinivelComponent implements OnInit {
   public ngOnInit(): void {}
 
   public multinivelInput() {
-    this.showModalMul = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalMul = true;
+      if (this.vp.t1_c2_c7_multinivel_arr.length == 0) {
+      }
+    }
   }
 
   public multinivelSelect() {

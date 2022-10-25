@@ -16,7 +16,11 @@ export class T5C1C1MascaraComponent implements OnInit {
   public ngOnInit(): void {}
 
   public mascaraInput() {
-    this.showModalMas = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalMas = true;
+      if (this.vp.t5_c1_c1_mascara_arr.length == 0) {
+      }
+    }
   }
 
   public mascaraSelect() {

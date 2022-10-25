@@ -16,7 +16,11 @@ export class T1C2C2FiscalComponent implements OnInit {
   public ngOnInit(): void {}
 
   public fiscalInput() {
-    this.showModalFis = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalFis = true;
+      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0) {
+      }
+    }
   }
 
   public fiscalSelect() {

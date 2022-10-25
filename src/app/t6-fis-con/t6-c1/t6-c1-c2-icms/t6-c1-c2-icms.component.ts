@@ -18,7 +18,11 @@ export class T6C1C2IcmsComponent implements OnInit {
   public ngOnInit(): void {}
 
   public especialInput() {
-    this.showModalEsp = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalEsp = true;
+      if (this.vp.t6_c1_c2_icms_especial_arr.length == 0) {
+      }
+    }
   }
 
   public especialSelect() {
@@ -26,7 +30,11 @@ export class T6C1C2IcmsComponent implements OnInit {
   }
 
   public reducaoInput() {
-    this.showModalRed = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalRed = true;
+      if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0) {
+      }
+    }
   }
 
   public reducaoSelect() {
@@ -34,7 +42,11 @@ export class T6C1C2IcmsComponent implements OnInit {
   }
 
   public substituidoInput() {
-    this.showModalSub = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalSub = true;
+      if (this.vp.t6_c1_c2_icms_substituido_arr.length == 0) {
+      }
+    }
   }
 
   public substituidoSelect() {

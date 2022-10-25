@@ -17,7 +17,11 @@ export class T5C2C1GerencialComponent implements OnInit {
   public ngOnInit(): void {}
 
   public uni2Input() {
-    this.showModalUn2 = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalUn2 = true;
+      if (this.vp.t5_c2_c1_med_2_arr.length == 0) {
+      }
+    }
   }
 
   public uni2Select() {
@@ -25,7 +29,11 @@ export class T5C2C1GerencialComponent implements OnInit {
   }
 
   public uni3Input() {
-    this.showModalUn3 = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalUn3 = true;
+      if (this.vp.t5_c2_c1_med_3_arr.length == 0) {
+      }
+    }
   }
 
   public uni3Select() {

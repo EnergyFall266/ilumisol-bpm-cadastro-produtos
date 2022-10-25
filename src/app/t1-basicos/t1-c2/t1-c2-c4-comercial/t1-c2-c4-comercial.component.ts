@@ -16,7 +16,11 @@ export class T1C2C4ComercialComponent implements OnInit {
   public ngOnInit(): void {}
 
   public comercialInput() {
-    this.showModalCom = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalCom = true;
+      if (this.vp.t1_c2_c4_agrupamento_arr.length == 0) {
+      }
+    }
   }
 
   public comercialSelect() {

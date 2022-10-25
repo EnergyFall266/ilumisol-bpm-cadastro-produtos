@@ -16,7 +16,11 @@ export class T1C2C1MarcaComponent implements OnInit {
   public ngOnInit(): void {}
 
   public marcaInput() {
-    this.showModalMar = true;
+    if (!this.vp.t1_mandatory_to_readonly) {
+      this.showModalMar = true;
+      if (this.vp.t1_c2_c1_marca_arr.length == 0) {
+      }
+    }
   }
 
   public marcaSelect() {

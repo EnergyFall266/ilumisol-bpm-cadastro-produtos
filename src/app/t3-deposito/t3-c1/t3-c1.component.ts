@@ -16,7 +16,11 @@ export class T3C1Component implements OnInit {
   public ngOnInit(): void {}
 
   public depositoInput() {
-    this.showModalDep = true;
+    if (!this.vp.t3_mandatory_to_readonly) {
+      this.showModalDep = true;
+      if (this.vp.t3_c1_destino_arr.length == 0) {
+      }
+    }
   }
 
   public depositoSelect() {

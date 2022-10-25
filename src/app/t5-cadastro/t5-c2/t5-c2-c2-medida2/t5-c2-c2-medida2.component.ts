@@ -16,7 +16,11 @@ export class T5C2C2Medida2Component implements OnInit {
   public ngOnInit(): void {}
 
   public tcu2Input() {
-    this.showModalTc2 = true;
+    if (!this.vp.t5_mandatory_to_readonly) {
+      this.showModalTc2 = true;
+      if (this.vp.t5_c2_c2_med_2_tip_arr.length == 0) {
+      }
+    }
   }
 
   public tcu2Select() {
