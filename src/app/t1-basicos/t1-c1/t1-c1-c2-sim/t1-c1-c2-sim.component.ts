@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 
 @Component({
@@ -11,7 +12,7 @@ export class T1C1C2SimComponent implements OnInit {
 
   public showModalSim: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 

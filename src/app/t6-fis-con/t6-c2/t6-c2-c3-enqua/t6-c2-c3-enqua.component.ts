@@ -16,7 +16,11 @@ export class T6C2C3EnquaComponent implements OnInit {
   public ngOnInit(): void {}
 
   public enquaInput() {
-    this.showModalEnq = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalEnq = true;
+      if (this.vp.t6_c2_c3_enqua_arr.length == 0) {
+      }
+    }
   }
 
   public enquaSelect() {

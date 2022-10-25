@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 
 @Component({
@@ -12,7 +13,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   public showModalCof: boolean = false;
   public showModalPis: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 

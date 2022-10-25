@@ -17,7 +17,11 @@ export class T6C2C2CofvnComponent implements OnInit {
   public ngOnInit(): void {}
 
   public situacaoInput() {
-    this.showModalSit = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalSit = true;
+      if (this.vp.t6_c2_c2_cof_ven_arr.length == 0) {
+      }
+    }
   }
 
   public situacaoSelect() {
@@ -25,7 +29,11 @@ export class T6C2C2CofvnComponent implements OnInit {
   }
 
   public naturezaInput() {
-    this.showModalNat = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalNat = true;
+      if (this.vp.t6_c2_c2_cof_nat_arr.length == 0) {
+      }
+    }
   }
 
   public naturezaSelect() {

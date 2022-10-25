@@ -17,7 +17,11 @@ export class T6C2C4ComprasComponent implements OnInit {
   public ngOnInit(): void {}
 
   public pisInput() {
-    this.showModalPis = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalPis = true;
+      if (this.vp.t6_c2_c4_pis_com_arr.length == 0) {
+      }
+    }
   }
 
   public pisSelect() {
@@ -25,7 +29,11 @@ export class T6C2C4ComprasComponent implements OnInit {
   }
 
   public cofInput() {
-    this.showModalCof = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalCof = true;
+      if (this.vp.t6_c2_c4_cof_com_arr.length == 0) {
+      }
+    }
   }
 
   public cofSelect() {

@@ -1,69 +1,126 @@
 import { AxiosRequestConfig } from 'axios';
 
-export const axios_header_token: AxiosRequestConfig<string> = {
+export const ws_beans_header: AxiosRequestConfig<string> = {
   headers: {
     Authorization: '',
     'Content-Type': 'application/json',
   },
 };
 
-export interface Item {}
+export interface G5Response {
+  produtos?:
+    | ExportaProdutos[]
+    | ExportaProdutos
+    | ExportaProAgs[]
+    | ExportaProAgs;
+  origem?: ExportaOrigens[] | ExportaOrigens;
+  unidadesMedida?: ExportaUniMeds[] | ExportaUniMeds;
+  fornecedores?: ExportaFornecedores[] | ExportaFornecedores;
+  marcas?: ExportaMarcas[] | ExportaMarcas;
+  classificacoes?: ExportaClaFis[] | ExportaClaFis;
+  agrupamentos?: ExportaAgrupamentos[] | ExportaAgrupamentos;
+  lista?: ExportaValorLista[] | ExportaValorLista;
+  depositos?: ExportaDepositos[] | ExportaDepositos;
+  categorias?: ExportaCategorias[] | ExportaCategorias;
+  subCategorias?: ExportaSubCategorias[] | ExportaSubCategorias;
+  grupos?: ExportaGrupoQuimico[] | ExportaGrupoQuimico;
+  mascaras?: ExportaMascaraDerivacao[] | ExportaMascaraDerivacao;
+  ICMS?: ExportaICMSEsp[] | ExportaICMSEsp;
+  reducao?: ExportaReducaoICMS[] | ExportaReducaoICMS;
+  substituicoes?: ExportaSubstituicao[] | ExportaSubstituicao;
+}
 
-export interface Origem {}
+export interface ExportaProdutos {
+  codPro: string;
+  desPro: string;
+}
 
-export interface Familia {
+export interface ExportaOrigens {
+  codOri: string;
+  desOri: string;
+}
+
+export interface ExportaFamilias {
   codFam: string;
   desFam: string;
   codOri: string;
 }
 
-export interface UnidadeMedida {}
+export interface ExportaUniMeds {
+  uniMed: string;
+  desMed: string;
+}
 
-export interface Marca {}
+export interface ExportaFornecedores {
+  codFor: string;
+  NomFor: string;
+}
 
-export interface ClassificacaoFiscal {}
+export interface ExportaMarcas {
+  codMar: string;
+  NomMar: string;
+}
 
-export interface AgrupamentoComercial {}
+export interface ExportaClaFis {
+  fiscal: string;
+  desClf: string;
+}
 
-export interface OrigemFiscalMercadoria {}
+export interface ExportaAgrupamentos {
+  codAgp: string;
+  desAgp: string;
+}
 
-export interface Agrosys {}
+export interface ExportaValorLista {
+  ChvLis: string;
+  desLis: string;
+}
 
-export interface AgrAprMultinivel {}
+export interface ExportaProAgs {
+  proAgs: string;
+}
 
-export interface CategoriaVenda {}
+export interface ExportaDepositos {
+  codDep: string;
+  desDep: string;
+}
 
-export interface GrupoQuimico {}
+export interface ExportaCategorias {
+  codCtg: string;
+  desCtg: string;
+}
 
-export interface Fornecedor {}
+export interface ExportaSubCategorias {
+  codSct: string;
+  desSct: string;
+}
 
-export interface Deposito {}
+export interface ExportaGrupoQuimico {
+  codQui: string;
+  desQui: string;
+}
 
-export interface MascaraDerivacao {}
+export interface ExportaMascaraDerivacao {
+  codMdp: string;
+  desMdp: string;
+}
 
-export interface AgrupEstoques {}
+export interface ExportaICMSEsp {
+  codTic: string;
+  desTic: string;
+}
 
-export interface AgrupCustos {}
+export interface ExportaReducaoICMS {
+  codTrd: string;
+  desTrd: string;
+}
 
-export interface TipoConversao {}
-
-export interface TipoProduto {}
-
-export interface ICMS {}
-
-export interface ReducaoICMS {}
-
-export interface Cofins {}
-
-export interface Pis {}
-
-export interface SituacaoTributaria {}
+export interface ExportaSubstituicao {
+  codTst: string;
+  desTst: string;
+}
 
 export interface NaturezaReceita {}
-
-export interface Enquadramento {}
-
-export interface Desoneracao {}
 
 export interface PautaFiscal {}
 

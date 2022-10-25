@@ -16,7 +16,11 @@ export class T6C3C2MotivComponent implements OnInit {
   public ngOnInit(): void {}
 
   public motivoInput() {
-    this.showModalMot = true;
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalMot = true;
+      if (this.vp.t6_c3_c2_motivo_arr.length == 0) {
+      }
+    }
   }
 
   public motivoSelect() {

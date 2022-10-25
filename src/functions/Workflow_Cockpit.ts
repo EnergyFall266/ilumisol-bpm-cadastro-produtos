@@ -1,7 +1,7 @@
 import { AppService } from 'src/app/app.service';
 import { ResponseLoadData, VP_BPM } from 'src/beans/VP_BPM';
 import { Info } from 'src/beans/Workflow';
-import { axios_header_token } from 'src/beans/WS_Beans';
+import { ws_beans_header } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import getFormPresentation from './Form_Presentation';
 
@@ -17,7 +17,7 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
 
   const ptd = await info.getPlatformData();
   rld.vp.token = `bearer ${ptd.token.access_token}`;
-  axios_header_token.headers!['Authorization'] = rld.vp.token;
+  ws_beans_header.headers!['Authorization'] = rld.vp.token;
 
   const ipv = await info.getInfoFromProcessVariables();
   if (STEP !== environment.s1_sol_cad) {
@@ -27,7 +27,7 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   }
   rld = getFormPresentation(rld);
 
-  const ap: AppService = new AppService(rld.vp);
+  const ap: AppService = new AppService();
   /*rld.vp = await getAllDocuments(rld.vp);*/
 
   return rld;
