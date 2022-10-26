@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaValorLista } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t5-c2-c2-medida2',
@@ -11,19 +13,24 @@ export class T5C2C2Medida2Component implements OnInit {
 
   public showModalTc2: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public tcu2Input() {
+  public async tcu2Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.showModalTc2 = true;
       if (this.vp.t5_c2_c2_med_2_tip_arr.length == 0) {
+        this.vp.t5_c2_c2_med_2_tip_arr = (await this.ap.exportaServico(
+          'ExportaValorLista',
+          'LTipCnv'
+        )) as ExportaValorLista[];
       }
     }
   }
 
   public tcu2Select() {
+    this.vp.t5_c2_c2_med_2_tip_cod = this.vp.t5_c2_c2_med_2_tip_obj!.chvLis;
     this.showModalTc2 = false;
   }
 }

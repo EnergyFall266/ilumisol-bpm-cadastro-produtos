@@ -65,7 +65,7 @@ export interface ExportaMarcas {
 }
 
 export interface ExportaClaFis {
-  fiscal: string;
+  codClf: string;
   desClf: string;
 }
 
@@ -75,7 +75,7 @@ export interface ExportaAgrupamentos {
 }
 
 export interface ExportaValorLista {
-  ChvLis: string;
+  chvLis: string;
   desLis: string;
 }
 
