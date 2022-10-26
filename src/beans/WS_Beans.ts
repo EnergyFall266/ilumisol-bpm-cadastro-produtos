@@ -56,12 +56,12 @@ export interface ExportaUniMeds {
 
 export interface ExportaFornecedores {
   codFor: string;
-  NomFor: string;
+  nomFor: string;
 }
 
 export interface ExportaMarcas {
   codMar: string;
-  NomMar: string;
+  nomMar: string;
 }
 
 export interface ExportaClaFis {

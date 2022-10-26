@@ -66,7 +66,7 @@ export class AppComponent {
     );
 
     this.vp.overlay = false;
-    this.activeMenu = fd.showMenus(6, [1, 2, 3, 4, 5, 6]);
+    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5, 6]);
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {
