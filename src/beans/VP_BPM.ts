@@ -128,12 +128,12 @@ export class VP_BPM {
 
   public t1_c3_c2_categoria_arr: wsb.ExportaCategorias[] = [];
   public t1_c3_c2_categoria_obj?: wsb.ExportaCategorias;
-  public t1_c3_c2_categoria_cod: string = '';
+  public t1_c3_c2_categoria_cod: number = -1;
   public t1_c3_c2_categoria_des: string = '';
 
   public t1_c3_c2_subcategoria_arr: wsb.ExportaSubCategorias[] = [];
   public t1_c3_c2_subcategoria_obj?: wsb.ExportaSubCategorias;
-  public t1_c3_c2_subcategoria_cod: string = '';
+  public t1_c3_c2_subcategoria_cod: number = -1;
   public t1_c3_c2_subcategoria_des: string = '';
 
   public t1_c3_numero_onu: string = '';
@@ -149,7 +149,7 @@ export class VP_BPM {
 
   public t1_c4_quimico_arr: wsb.ExportaGrupoQuimico[] = [];
   public t1_c4_quimico_obj?: wsb.ExportaGrupoQuimico;
-  public t1_c4_quimico_cod: string = '';
+  public t1_c4_quimico_cod: number = -1;
   public t1_c4_quimico_des: string = '';
 
   /**
@@ -160,7 +160,7 @@ export class VP_BPM {
 
   public t2_fornecedor_arr: wsb.ExportaFornecedores[] = [];
   public t2_fornecedor_obj?: wsb.ExportaFornecedores;
-  public t2_fornecedor_cod: string = '';
+  public t2_fornecedor_cod: number = -1;
   public t2_fornecedor_des: string = '';
 
   public t2_quantidade_multipla?: number;

@@ -20,13 +20,25 @@ export class T1C1C4FamComponent implements OnInit {
   public async familiaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.showModalFam = true;
-      if (this.vp.t1_c1_c4_familia_arr.length == 0)
-        this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
-          'ExportaFamilias',
-          this.vp.t1_c1_c4_familia_cod != '' ? this.vp.t1_c1_c4_familia_cod : ''
-        )) as ExportaFamilias[];
+      if (this.vp.t1_c1_c4_familia_arr.length == 0) await this.buscarFamilias();
+      else
+        for (const f of this.vp.t1_c1_c4_familia_arr)
+          if (f.codOri != this.vp.t1_c1_c3_origem_cod) {
+            this.vp.t1_c1_c4_familia_arr = [];
+            this.vp.t1_c1_c4_familia_obj = undefined;
+            this.vp.t1_c1_c4_familia_cod = '';
+            this.vp.t1_c1_c4_familia_des = '';
+            await this.buscarFamilias();
+            break;
+          }
     }
   }
+
+  private buscarFamilias = async () =>
+    (this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
+      'ExportaFamilias',
+      this.vp.t1_c1_c3_origem_cod
+    )) as ExportaFamilias[]);
 
   public familiaSelect() {
     this.vp.t1_c1_c4_familia_cod = this.vp.t1_c1_c4_familia_obj!.codFam;

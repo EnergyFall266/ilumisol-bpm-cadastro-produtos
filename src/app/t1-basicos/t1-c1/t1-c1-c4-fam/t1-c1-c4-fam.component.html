@@ -46,11 +46,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="this.vp.t1_c1_c4_familia_arr.length == 0"
       [value]="vp.t1_c1_c4_familia_arr"
       [(selection)]="vp.t1_c1_c4_familia_obj"
       (onRowSelect)="familiaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codFam"
+      [globalFilterFields]="['codFam', 'desFam', 'codOri']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -72,12 +73,14 @@
         <tr>
           <th>Código</th>
           <th>Descrição</th>
+          <th>Código de Origem</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-fam>
         <tr [pSelectableRow]="fam">
-          <td>{{ fam.c }}</td>
-          <td>{{ fam.d }}</td>
+          <td>{{ fam.codFam }}</td>
+          <td>{{ fam.desFam }}</td>
+          <td>{{ fam.codOri }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

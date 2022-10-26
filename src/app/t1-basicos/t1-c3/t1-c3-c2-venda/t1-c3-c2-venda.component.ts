@@ -40,7 +40,7 @@ export class T1C3C2VendaComponent implements OnInit {
       if (this.vp.t1_c3_c2_subcategoria_arr.length == 0)
         this.vp.t1_c3_c2_subcategoria_arr = (await this.ap.exportaServico(
           'ExportaSubCategorias',
-          this.vp.t1_c3_c2_categoria_cod != ''
+          this.vp.t1_c3_c2_categoria_cod != -1
             ? this.vp.t1_c3_c2_categoria_cod
             : ''
         )) as ExportaSubCategorias[];

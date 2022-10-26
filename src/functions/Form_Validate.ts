@@ -48,7 +48,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
         if (vp.t2_fornecedor_des == '')
           m.push(getMsgS('Dados do fornecedor - Fornecedor'));
 
-        if (vp.t2_fornecedor_cod == '')
+        if (vp.t2_fornecedor_cod == -1)
           m.push(getMsgC('Dados do fornecedor - Código produto fornecedor'));
 
         if (vp.t1_c2_c1_marca_cod == '')
@@ -111,10 +111,10 @@ export default function formValidate(vp: VP_BPM): Message[] {
       if (vp.t1_c3_c2_venda_virtual == '')
         m.push(getMsgS('Dados básicos - Venda virtual?'));
       else if (vp.t1_c3_c2_venda_virtual == 'Sim') {
-        if (vp.t1_c3_c2_categoria_cod == '')
+        if (vp.t1_c3_c2_categoria_cod == -1)
           m.push(getMsgS('Dados básicos - Categoria de venda on-line'));
 
-        if (vp.t1_c3_c2_subcategoria_cod == '')
+        if (vp.t1_c3_c2_subcategoria_cod == -1)
           m.push(getMsgS('Dados básicos - Subcategoria de venda on-line'));
       }
 

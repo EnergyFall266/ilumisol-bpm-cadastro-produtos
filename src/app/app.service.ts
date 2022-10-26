@@ -22,7 +22,7 @@ export class AppService {
     );
   }
 
-  public async exportaServico(port: string, body: string = '') {
+  public async exportaServico(port: string, body: string | number = '') {
     var r;
     if (port == 'ExportaFamilias' && body != '')
       r = await wsG5Exporta(port, `{ "codOri": "${body}" }`);
@@ -31,27 +31,15 @@ export class AppService {
     else if (port == 'ExportaValorLista')
       r = await wsG5Exporta(port, `{ "nomLis": "${body}" }`);
     else if (port == 'ExportaSubCategorias' && body != '')
-      r = await wsG5Exporta(port, `{ "codCtg": "${body}" }`);
+      r = await wsG5Exporta(port, `{ "codCtg": ${body} }`);
     else r = await wsG5Exporta(port);
 
     if ((port == 'ExportaProdutos' || port == 'ExportaProAgs') && r.produtos)
       return Array.isArray(r.produtos) ? r.produtos : [r.produtos];
     else if (port == 'ExportaOrigens' && r.origens)
       return Array.isArray(r.origens) ? r.origens : [r.origens];
-    else if (port == 'ExportaValorLista' && r.lista)
-      return Array.isArray(r.lista) ? r.lista : [r.lista];
-    else if (port == 'ExportaICMSEsp' && r.ICMS)
-      return Array.isArray(r.ICMS) ? r.ICMS : [r.ICMS];
-    else if (port == 'ExportaReducaoICMS' && r.reducao)
-      return Array.isArray(r.reducao) ? r.reducao : [r.reducao];
-    else if (port == 'ExportaSubstituicao' && r.substituicoes)
-      return Array.isArray(r.substituicoes)
-        ? r.substituicoes
-        : [r.substituicoes];
-    else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
-      return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
-    else if (port == 'ExportaAgrupamentos' && r.agrupamentos)
-      return Array.isArray(r.agrupamentos) ? r.agrupamentos : [r.agrupamentos];
+    else if (port == 'ExportaFamilias' && r.familias)
+      return Array.isArray(r.familias) ? r.familias : [r.familias];
     else if (port == 'ExportaUniMeds' && r.unidadesMedida)
       return Array.isArray(r.unidadesMedida)
         ? r.unidadesMedida
@@ -78,6 +66,16 @@ export class AppService {
       return Array.isArray(r.fornecedores) ? r.fornecedores : [r.fornecedores];
     else if (port == 'ExportaDepositos' && r.depositos)
       return Array.isArray(r.depositos) ? r.depositos : [r.depositos];
+    else if (port == 'ExportaICMSEsp' && r.ICMS)
+      return Array.isArray(r.ICMS) ? r.ICMS : [r.ICMS];
+    else if (port == 'ExportaReducaoICMS' && r.reducao)
+      return Array.isArray(r.reducao) ? r.reducao : [r.reducao];
+    else if (port == 'ExportaSubstituicao' && r.substituicoes)
+      return Array.isArray(r.substituicoes)
+        ? r.substituicoes
+        : [r.substituicoes];
+    else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
+      return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
     return [];
   }
 }

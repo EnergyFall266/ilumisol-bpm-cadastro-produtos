@@ -17,7 +17,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_c1_item_subs_cod"
+            [(ngModel)]="vp.t1_c2_c1_marca_des"
             (click)="marcaInput()"
           />
           <button
@@ -48,11 +48,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="this.vp.t1_c2_c1_marca_arr.length == 0"
       [value]="vp.t1_c2_c1_marca_arr"
       [(selection)]="vp.t1_c2_c1_marca_obj"
       (onRowSelect)="marcaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codMar"
+      [globalFilterFields]="['codMar', 'nomMar']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -78,8 +79,8 @@
       </ng-template>
       <ng-template pTemplate="body" let-mar>
         <tr [pSelectableRow]="mar">
-          <td>{{ mar.c }}</td>
-          <td>{{ mar.d }}</td>
+          <td>{{ mar.codMar }}</td>
+          <td>{{ mar.nomMar }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

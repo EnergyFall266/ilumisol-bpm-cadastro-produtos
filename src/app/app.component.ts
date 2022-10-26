@@ -44,7 +44,7 @@ export class AppComponent {
   }
 
   public ngOnInit(): void {
-    axios.interceptors.request.use(
+    /*axios.interceptors.request.use(
       (config) => {
         this.vp.overlay = true;
         return config;
@@ -63,7 +63,7 @@ export class AppComponent {
         this.vp.overlay = false;
         return Promise.reject(error);
       }
-    );
+    );*/
 
     this.vp.overlay = false;
     this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5, 6]);

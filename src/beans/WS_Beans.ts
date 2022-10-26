@@ -2,6 +2,9 @@ import { AxiosRequestConfig } from 'axios';
 
 export const ws_beans_header: AxiosRequestConfig<string> = {
   headers: {
+    user: 'weliton.ribeiro',
+    pass: '102030',
+    encryptionType: '0',
     Authorization: '',
     'Content-Type': 'application/json',
   },
@@ -55,7 +58,7 @@ export interface ExportaUniMeds {
 }
 
 export interface ExportaFornecedores {
-  codFor: string;
+  codFor: number;
   nomFor: string;
 }
 
@@ -89,17 +92,17 @@ export interface ExportaDepositos {
 }
 
 export interface ExportaCategorias {
-  codCtg: string;
+  codCtg: number;
   desCtg: string;
 }
 
 export interface ExportaSubCategorias {
-  codSct: string;
+  codSct: number;
   desSct: string;
 }
 
 export interface ExportaGrupoQuimico {
-  codQui: string;
+  codQui: number;
   desQui: string;
 }
 
@@ -121,6 +124,11 @@ export interface ExportaReducaoICMS {
 export interface ExportaSubstituicao {
   codTst: string;
   desTst: string;
+}
+
+export interface ExportaEnquadramento {
+  codEnq: number;
+  enqDsc: string;
 }
 
 export interface NaturezaReceita {}
