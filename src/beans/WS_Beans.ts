@@ -56,16 +56,16 @@ export interface ExportaUniMeds {
 
 export interface ExportaFornecedores {
   codFor: string;
-  NomFor: string;
+  nomFor: string;
 }
 
 export interface ExportaMarcas {
   codMar: string;
-  NomMar: string;
+  nomMar: string;
 }
 
 export interface ExportaClaFis {
-  fiscal: string;
+  codClf: string;
   desClf: string;
 }
 
@@ -75,7 +75,7 @@ export interface ExportaAgrupamentos {
 }
 
 export interface ExportaValorLista {
-  ChvLis: string;
+  chvLis: string;
   desLis: string;
 }
 

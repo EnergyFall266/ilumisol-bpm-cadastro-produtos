@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaUniMeds } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t1-c1-c5-med',
@@ -11,19 +13,23 @@ export class T1C1C5MedComponent implements OnInit {
 
   public showModalUni: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public unidadeInput() {
+  public async unidadeInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.showModalUni = true;
-      if (this.vp.t1_c1_c5_medida_arr.length == 0) {
-      }
+      if (this.vp.t1_c1_c5_medida_arr.length == 0)
+        this.vp.t1_c1_c5_medida_arr = (await this.ap.exportaServico(
+          'ExportaUniMeds'
+        )) as ExportaUniMeds[];
     }
   }
 
   public unidadeSelect() {
+    this.vp.t1_c1_c5_medida_cod = this.vp.t1_c1_c5_medida_obj!.uniMed;
+    this.vp.t1_c1_c5_medida_des = this.vp.t1_c1_c5_medida_obj!.desMed;
     this.showModalUni = false;
   }
 }

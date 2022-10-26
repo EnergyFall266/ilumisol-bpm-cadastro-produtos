@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaClaFis } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t1-c2-c2-fiscal',
@@ -11,19 +13,23 @@ export class T1C2C2FiscalComponent implements OnInit {
 
   public showModalFis: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public fiscalInput() {
+  public async fiscalInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.showModalFis = true;
-      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0) {
-      }
+      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0)
+        this.vp.t1_c2_c2_clafiscal_arr = (await this.ap.exportaServico(
+          'ExportaClaFis'
+        )) as ExportaClaFis[];
     }
   }
 
   public fiscalSelect() {
+    this.vp.t1_c2_c2_clafiscal_cod = this.vp.t1_c2_c2_clafiscal_obj!.codClf;
+    this.vp.t1_c2_c2_clafiscal_des = this.vp.t1_c2_c2_clafiscal_obj!.desClf;
     this.showModalFis = false;
   }
 }

@@ -58,7 +58,7 @@ export class T4ObsAneComponent implements OnInit {
 
   public enviarDocumentos = async (fu: FileUpload): Promise<void> => {
     await this.prepararDocumentos().catch(this.printError);
-    /*const p = await pegarPastas(this.vp, this.vp.t4_anexo_pasta_nome);
+    /*const p = await pegarPastasGED(this.vp, this.vp.t4_anexo_pasta_nome);
     if (p) {
       this.vp.ged_pasta_pai_id = p.paiId;
       this.vp.ged_pasta_protocolo_id = p.proId;

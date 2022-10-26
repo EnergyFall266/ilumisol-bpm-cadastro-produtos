@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaOrigens } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t1-c1-c3-ori',
@@ -11,19 +13,23 @@ export class T1C1C3OriComponent implements OnInit {
 
   public showModalOri: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public origemInput() {
+  public async origemInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.showModalOri = true;
-      if (this.vp.t1_c1_c3_origem_arr.length == 0) {
-      }
+      if (this.vp.t1_c1_c3_origem_arr.length == 0)
+        this.vp.t1_c1_c3_origem_arr = (await this.ap.exportaServico(
+          'ExportaOrigens'
+        )) as ExportaOrigens[];
     }
   }
 
   public origemSelect() {
+    this.vp.t1_c1_c3_origem_cod = this.vp.t1_c1_c3_origem_obj!.codOri;
+    this.vp.t1_c1_c3_origem_des = this.vp.t1_c1_c3_origem_obj!.desOri;
     this.showModalOri = false;
   }
 }

@@ -59,7 +59,7 @@ export class T5C3C2AnexoComponent implements OnInit {
 
   public enviarDocumentos = async (fu: FileUpload): Promise<void> => {
     await this.preparar_documentos().catch(this.print_error);
-    /*const p = await pegarPastas(this.vp, this.vp.t5_c3_anexo_pasta_nome);
+    /*const p = await pegarPastasGED(this.vp, this.vp.t5_c3_anexo_pasta_nome);
     if (p) {
       this.vp.ged_pasta_pai_id = p.paiId;
       this.vp.ged_pasta_protocolo_id = p.proId;

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaProdutos } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t1-c1-c2-sim',
@@ -16,15 +17,18 @@ export class T1C1C2SimComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public similarInput() {
+  public async similarInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.showModalSim = true;
-      if (this.vp.t1_c1_c2_item_simi_arr.length == 0) {
-      }
+      if (this.vp.t1_c1_c2_item_simi_arr.length == 0)
+        this.vp.t1_c1_c1_item_subs_arr = (await this.ap.exportaServico(
+          'ExportaProdutos'
+        )) as ExportaProdutos[];
     }
   }
 
   public similarSelect() {
+    this.vp.t1_c1_c2_item_simi_cod = this.vp.t1_c1_c2_item_simi_obj!.codPro;
     this.showModalSim = false;
   }
 }
