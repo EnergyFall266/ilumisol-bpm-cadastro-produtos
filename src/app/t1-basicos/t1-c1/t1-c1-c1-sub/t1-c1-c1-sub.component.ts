@@ -22,7 +22,7 @@ export class T1C1C1SubComponent implements OnInit {
       this.showModalSub = true;
       if (this.vp.t1_c1_c1_item_subs_arr.length == 0)
         this.vp.t1_c1_c1_item_subs_arr = (await this.ap.exportaServico(
-          'ExportaProdutos'
+          'ExportaProdutos', this.vp
         )) as ExportaProdutos[];
     }
   }

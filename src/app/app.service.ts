@@ -22,14 +22,17 @@ export class AppService {
     );
   }
 
-  public async exportaServico(port: string) {
-    const r = await wsG5Exporta(port);
+  public async exportaServico(port: string, vp: VP_BPM) {
+    var r;
+    if (port == 'ExportaFamilias' && vp.t1_c1_c3_origem_cod != '')
+      r = await wsG5Exporta(port, `{ "codOri": "${vp.t1_c1_c3_origem_cod}" }`);
+    else r = await wsG5Exporta(port);
 
     if ((port == 'ExportaProdutos' || port == 'ExportaProAgs') && r.produtos)
       return Array.isArray(r.produtos) ? r.produtos : [r.produtos];
 
-    if (port == 'ExportaOrigens' && r.origem)
-      return Array.isArray(r.origem) ? r.origem : [r.origem];
+    if (port == 'ExportaOrigens' && r.origens)
+      return Array.isArray(r.origens) ? r.origens : [r.origens];
 
     return [];
   }

@@ -221,7 +221,7 @@ export class VP_BPM {
    * Dados do cadastro
    */
 
-  public t5_mandatory_to_readonly: boolean = true;
+  public t5_mandatory_to_readonly: boolean = false;
 
   public t5_show_only_recusa: boolean = false;
 

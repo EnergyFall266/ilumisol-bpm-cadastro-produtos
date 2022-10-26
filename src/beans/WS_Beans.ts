@@ -8,12 +8,15 @@ export const ws_beans_header: AxiosRequestConfig<string> = {
 };
 
 export interface G5Response {
+  msgRet: string;
+  erroExecucao?: ErroExecucao;
   produtos?:
     | ExportaProdutos[]
     | ExportaProdutos
     | ExportaProAgs[]
     | ExportaProAgs;
-  origem?: ExportaOrigens[] | ExportaOrigens;
+  origens?: ExportaOrigens[] | ExportaOrigens;
+  familias?: ExportaFamilias[] | ExportaFamilias;
   unidadesMedida?: ExportaUniMeds[] | ExportaUniMeds;
   fornecedores?: ExportaFornecedores[] | ExportaFornecedores;
   marcas?: ExportaMarcas[] | ExportaMarcas;
@@ -125,3 +128,8 @@ export interface NaturezaReceita {}
 export interface PautaFiscal {}
 
 export interface CBenef {}
+
+export interface ErroExecucao {
+  'xsi:nil': boolean;
+  'xmlns:xsi': string;
+}
