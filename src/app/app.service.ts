@@ -38,8 +38,20 @@ export class AppService {
       return Array.isArray(r.produtos) ? r.produtos : [r.produtos];
     else if (port == 'ExportaOrigens' && r.origens)
       return Array.isArray(r.origens) ? r.origens : [r.origens];
-    else if (port == 'ExportaFamilias' && r.familias)
-      return Array.isArray(r.familias) ? r.familias : [r.familias];
+    else if (port == 'ExportaValorLista' && r.lista)
+      return Array.isArray(r.lista) ? r.lista : [r.lista];
+    else if (port == 'ExportaICMSEsp' && r.ICMS)
+      return Array.isArray(r.ICMS) ? r.ICMS : [r.ICMS];
+    else if (port == 'ExportaReducaoICMS' && r.reducao)
+      return Array.isArray(r.reducao) ? r.reducao : [r.reducao];
+    else if (port == 'ExportaSubstituicao' && r.substituicoes)
+      return Array.isArray(r.substituicoes)
+        ? r.substituicoes
+        : [r.substituicoes];
+    else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
+      return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
+    else if (port == 'ExportaAgrupamentos' && r.agrupamentos)
+      return Array.isArray(r.agrupamentos) ? r.agrupamentos : [r.agrupamentos];
     else if (port == 'ExportaUniMeds' && r.unidadesMedida)
       return Array.isArray(r.unidadesMedida)
         ? r.unidadesMedida

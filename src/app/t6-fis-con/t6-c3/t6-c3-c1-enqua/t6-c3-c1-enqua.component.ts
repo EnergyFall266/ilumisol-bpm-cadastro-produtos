@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaValorLista } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t6-c3-c1-enqua',
@@ -11,19 +13,24 @@ export class T6C3C1EnquaComponent implements OnInit {
 
   public showModalEnq: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public enquaInput() {
+  public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.showModalEnq = true;
       if (this.vp.t6_c3_c1_enq_esp_arr.length == 0) {
+        this.vp.t6_c3_c1_enq_esp_arr = (await this.ap.exportaServico(
+          'ExportaValorLista',
+          'LProEpe'
+        )) as ExportaValorLista[];
       }
     }
   }
 
   public enquaSelect() {
+    this.vp.t6_c3_c1_enq_esp_cod = this.vp.t6_c3_c1_enq_esp_obj!.chvLis;
     this.showModalEnq = false;
   }
 }

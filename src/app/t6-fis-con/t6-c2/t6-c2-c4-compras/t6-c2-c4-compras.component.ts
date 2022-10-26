@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { ExportaValorLista } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t6-c2-c4-compras',
@@ -12,31 +14,41 @@ export class T6C2C4ComprasComponent implements OnInit {
   public showModalPis: boolean = false;
   public showModalCof: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public pisInput() {
+  public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.showModalPis = true;
       if (this.vp.t6_c2_c4_pis_com_arr.length == 0) {
+        this.vp.t6_c2_c4_pis_com_arr = (await this.ap.exportaServico(
+          'ExportaValorLista',
+          'LCstImp'
+        )) as ExportaValorLista[];
       }
     }
   }
 
   public pisSelect() {
+    this.vp.t6_c2_c4_pis_com_cod = this.vp.t6_c2_c4_pis_com_obj!.chvLis;
     this.showModalPis = false;
   }
 
-  public cofInput() {
+  public async cofInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.showModalCof = true;
       if (this.vp.t6_c2_c4_cof_com_arr.length == 0) {
+        this.vp.t6_c2_c4_cof_com_arr = (await this.ap.exportaServico(
+          'ExportaValorLista',
+          'LCstImp'
+        )) as ExportaValorLista[];
       }
     }
   }
 
   public cofSelect() {
+    this.vp.t6_c2_c4_cof_com_cod = this.vp.t6_c2_c4_cof_com_obj!.chvLis;
     this.showModalCof = false;
   }
 }

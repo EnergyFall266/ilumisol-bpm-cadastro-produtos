@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 
 @Component({
@@ -9,17 +10,21 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T6C3C4PautaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalPau: boolean = false;
+  public showModalPat: boolean = false;
 
-  constructor() {}
+  constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
-  public pautaInput() {
-    this.showModalPau = true;
+  public async pautaInput() {
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.showModalPat = true;
+      if (this.vp.t6_c3_c4_pauta_arr.length == 0) {
+      }
+    }
   }
 
   public pautaSelect() {
-    this.showModalPau = false;
+    this.showModalPat = false;
   }
 }
