@@ -60,7 +60,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalSim"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableSimilar
@@ -68,11 +69,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t1_c1_c2_item_simi_arr"
       [(selection)]="vp.t1_c1_c2_item_simi_obj"
       (onRowSelect)="similarSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codPro"
+      [globalFilterFields]="['codPro', 'desPro']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -92,14 +94,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codPro">
+            Código <p-sortIcon field="codPro"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desPro">
+            Descrição <p-sortIcon field="desPro"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-sim>
         <tr [pSelectableRow]="sim">
-          <td>{{ sim.c }}</td>
-          <td>{{ sim.d }}</td>
+          <td>{{ sim.codPro }}</td>
+          <td>{{ sim.desPro }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

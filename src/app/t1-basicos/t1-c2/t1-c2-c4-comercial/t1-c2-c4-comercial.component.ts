@@ -11,7 +11,8 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
 export class T1C2C4ComercialComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalCom: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,18 +20,21 @@ export class T1C2C4ComercialComponent implements OnInit {
 
   public async comercialInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalCom = true;
-      if (this.vp.t1_c2_c4_agrupamento_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c4_agrupamento_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c2_c4_agrupamento_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'C'
         )) as ExportaAgrupamentos[];
+        this.buscando = false;
+      }
     }
   }
 
   public comercialSelect() {
     this.vp.t1_c2_c4_agrupamento_cod = this.vp.t1_c2_c4_agrupamento_obj!.codAgp;
     this.vp.t1_c2_c4_agrupamento_des = this.vp.t1_c2_c4_agrupamento_obj!.desAgp;
-    this.showModalCom = false;
+    this.mostrar_modal = false;
   }
 }

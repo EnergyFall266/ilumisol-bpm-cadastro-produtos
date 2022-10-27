@@ -11,7 +11,8 @@ import { ExportaProdutos } from 'src/beans/WS_Beans';
 export class T1C1C1SubComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalSub: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,16 +20,19 @@ export class T1C1C1SubComponent implements OnInit {
 
   public async substituidoInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalSub = true;
-      if (this.vp.t1_c1_c1_item_subs_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c1_c1_item_subs_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c1_c1_item_subs_arr = (await this.ap.exportaServico(
           'ExportaProdutos'
         )) as ExportaProdutos[];
+        this.buscando = false;
+      }
     }
   }
 
   public substituidoSelect() {
     this.vp.t1_c1_c1_item_subs_cod = this.vp.t1_c1_c1_item_subs_obj!.codPro;
-    this.showModalSub = false;
+    this.mostrar_modal = false;
   }
 }

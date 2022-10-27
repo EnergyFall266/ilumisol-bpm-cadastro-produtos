@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalFam"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableFamilia
@@ -46,7 +47,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="this.vp.t1_c1_c4_familia_arr.length == 0"
+      [loading]="buscando"
       [value]="vp.t1_c1_c4_familia_arr"
       [(selection)]="vp.t1_c1_c4_familia_obj"
       (onRowSelect)="familiaSelect()"
@@ -71,8 +72,12 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codFam">
+            Código <p-sortIcon field="codFam"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desFam">
+            Descrição <p-sortIcon field="desFam"></p-sortIcon>
+          </th>
           <th>Código de Origem</th>
         </tr>
       </ng-template>

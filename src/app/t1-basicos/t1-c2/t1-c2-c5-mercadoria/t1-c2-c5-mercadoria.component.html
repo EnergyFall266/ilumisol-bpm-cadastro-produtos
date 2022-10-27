@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_c4_familia_des"
+            [(ngModel)]="vp.t1_c2_c5_mercadoria_des"
             (click)="mercadoriaInput()"
           />
           <button
@@ -33,12 +33,13 @@
   </div>
   <p-dialog
     header="Origens"
-    [styleClass]="'w-6'"
+    [styleClass]="'w-8'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalMer"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableMercadoria
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t1_c2_c5_mercadoria_arr"
       [(selection)]="vp.t1_c2_c5_mercadoria_obj"
       (onRowSelect)="mercadoriaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -73,14 +75,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-mer>
         <tr [pSelectableRow]="mer">
-          <td>{{ mer.c }}</td>
-          <td>{{ mer.d }}</td>
+          <td>{{ mer.chvLis }}</td>
+          <td>{{ mer.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

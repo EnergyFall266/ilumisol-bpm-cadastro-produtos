@@ -11,7 +11,8 @@ import { ExportaFamilias } from 'src/beans/WS_Beans';
 export class T1C1C4FamComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalFam: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,7 +20,7 @@ export class T1C1C4FamComponent implements OnInit {
 
   public async familiaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalFam = true;
+      this.mostrar_modal = true;
       if (this.vp.t1_c1_c4_familia_arr.length == 0) await this.buscarFamilias();
       else
         for (const f of this.vp.t1_c1_c4_familia_arr)
@@ -34,15 +35,18 @@ export class T1C1C4FamComponent implements OnInit {
     }
   }
 
-  private buscarFamilias = async () =>
-    (this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
+  private async buscarFamilias() {
+    this.buscando = true;
+    this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
       'ExportaFamilias',
       this.vp.t1_c1_c3_origem_cod
-    )) as ExportaFamilias[]);
+    )) as ExportaFamilias[];
+    this.buscando = false;
+  }
 
   public familiaSelect() {
     this.vp.t1_c1_c4_familia_cod = this.vp.t1_c1_c4_familia_obj!.codFam;
     this.vp.t1_c1_c4_familia_des = this.vp.t1_c1_c4_familia_obj!.desFam;
-    this.showModalFam = false;
+    this.mostrar_modal = false;
   }
 }

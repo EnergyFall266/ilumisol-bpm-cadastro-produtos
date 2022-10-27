@@ -11,7 +11,7 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C3C1EnquaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalEnq: boolean = false;
+  public mostrar_modalEnq: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,7 +19,7 @@ export class T6C3C1EnquaComponent implements OnInit {
 
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalEnq = true;
+      this.mostrar_modalEnq = true;
       if (this.vp.t6_c3_c1_enq_esp_arr.length == 0) {
         this.vp.t6_c3_c1_enq_esp_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
@@ -31,6 +31,6 @@ export class T6C3C1EnquaComponent implements OnInit {
 
   public enquaSelect() {
     this.vp.t6_c3_c1_enq_esp_cod = this.vp.t6_c3_c1_enq_esp_obj!.chvLis;
-    this.showModalEnq = false;
+    this.mostrar_modalEnq = false;
   }
 }

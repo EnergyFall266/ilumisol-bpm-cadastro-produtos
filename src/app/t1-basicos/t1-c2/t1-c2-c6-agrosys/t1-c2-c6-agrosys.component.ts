@@ -11,7 +11,8 @@ import { ExportaProAgs } from 'src/beans/WS_Beans';
 export class T1C2C6AgrosysComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalAgr: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,16 +20,19 @@ export class T1C2C6AgrosysComponent implements OnInit {
 
   public async agrosysInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalAgr = true;
-      if (this.vp.t1_c2_c6_agrosys_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c6_agrosys_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c2_c6_agrosys_arr = (await this.ap.exportaServico(
           'ExportaProAgs'
         )) as ExportaProAgs[];
+        this.buscando = false;
+      }
     }
   }
 
   public agrosysSelect() {
     this.vp.t1_c2_c6_agrosys_cod = this.vp.t1_c2_c6_agrosys_obj!.proAgs;
-    this.showModalAgr = false;
+    this.mostrar_modal = false;
   }
 }

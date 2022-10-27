@@ -30,7 +30,7 @@ export class AppService {
       r = await wsG5Exporta(port, `{ "tipAgp": "${body}" }`);
     else if (port == 'ExportaValorLista')
       r = await wsG5Exporta(port, `{ "nomLis": "${body}" }`);
-    else if (port == 'ExportaSubCategorias' && body != '')
+    else if (port == 'ExportaSubCategorias' && body != -1)
       r = await wsG5Exporta(port, `{ "codCtg": ${body} }`);
     else r = await wsG5Exporta(port);
 

@@ -10,7 +10,7 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T6C3C4PautaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalPat: boolean = false;
+  public mostrar_modalPat: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -18,13 +18,13 @@ export class T6C3C4PautaComponent implements OnInit {
 
   public async pautaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalPat = true;
+      this.mostrar_modalPat = true;
       if (this.vp.t6_c3_c4_pauta_arr.length == 0) {
       }
     }
   }
 
   public pautaSelect() {
-    this.showModalPat = false;
+    this.mostrar_modalPat = false;
   }
 }

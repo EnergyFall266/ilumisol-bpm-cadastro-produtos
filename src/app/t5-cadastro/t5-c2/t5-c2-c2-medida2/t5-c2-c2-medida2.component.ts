@@ -11,7 +11,7 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T5C2C2Medida2Component implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalTc2: boolean = false;
+  public mostrar_modalTc2: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,7 +19,7 @@ export class T5C2C2Medida2Component implements OnInit {
 
   public async tcu2Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.showModalTc2 = true;
+      this.mostrar_modalTc2 = true;
       if (this.vp.t5_c2_c2_med_2_tip_arr.length == 0) {
         this.vp.t5_c2_c2_med_2_tip_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
@@ -31,6 +31,6 @@ export class T5C2C2Medida2Component implements OnInit {
 
   public tcu2Select() {
     this.vp.t5_c2_c2_med_2_tip_cod = this.vp.t5_c2_c2_med_2_tip_obj!.chvLis;
-    this.showModalTc2 = false;
+    this.mostrar_modalTc2 = false;
   }
 }

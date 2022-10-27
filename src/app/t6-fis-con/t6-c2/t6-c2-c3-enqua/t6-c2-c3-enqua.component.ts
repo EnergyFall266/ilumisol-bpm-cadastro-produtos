@@ -11,7 +11,7 @@ import { AppService } from 'src/app/app.service';
 export class T6C2C3EnquaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalEnq: boolean = false;
+  public mostrar_modalEnq: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,13 +19,13 @@ export class T6C2C3EnquaComponent implements OnInit {
 
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalEnq = true;
+      this.mostrar_modalEnq = true;
       if (this.vp.t6_c2_c3_enqua_arr.length == 0) {
       }
     }
   }
 
   public enquaSelect() {
-    this.showModalEnq = false;
+    this.mostrar_modalEnq = false;
   }
 }

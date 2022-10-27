@@ -11,7 +11,8 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T1C2C5MercadoriaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalMer: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,18 +20,21 @@ export class T1C2C5MercadoriaComponent implements OnInit {
 
   public async mercadoriaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalMer = true;
-      if (this.vp.t1_c2_c5_mercadoria_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c5_mercadoria_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c2_c5_mercadoria_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LOriMer'
         )) as ExportaValorLista[];
+        this.buscando = false;
+      }
     }
   }
 
   public mercadoriaSelect() {
     this.vp.t1_c2_c5_mercadoria_cod = this.vp.t1_c2_c5_mercadoria_obj!.chvLis;
     this.vp.t1_c2_c5_mercadoria_des = this.vp.t1_c2_c5_mercadoria_obj!.desLis;
-    this.showModalMer = false;
+    this.mostrar_modal = false;
   }
 }

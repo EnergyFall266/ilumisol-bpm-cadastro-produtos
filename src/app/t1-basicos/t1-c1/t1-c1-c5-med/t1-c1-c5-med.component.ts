@@ -11,7 +11,8 @@ import { ExportaUniMeds } from 'src/beans/WS_Beans';
 export class T1C1C5MedComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalUni: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +20,20 @@ export class T1C1C5MedComponent implements OnInit {
 
   public async unidadeInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalUni = true;
-      if (this.vp.t1_c1_c5_medida_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c1_c5_medida_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c1_c5_medida_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
         )) as ExportaUniMeds[];
+        this.buscando = false;
+      }
     }
   }
 
   public unidadeSelect() {
     this.vp.t1_c1_c5_medida_cod = this.vp.t1_c1_c5_medida_obj!.uniMed;
     this.vp.t1_c1_c5_medida_des = this.vp.t1_c1_c5_medida_obj!.desMed;
-    this.showModalUni = false;
+    this.mostrar_modal = false;
   }
 }

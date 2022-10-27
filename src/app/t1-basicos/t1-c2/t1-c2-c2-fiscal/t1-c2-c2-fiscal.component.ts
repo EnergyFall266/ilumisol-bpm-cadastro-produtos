@@ -11,7 +11,8 @@ import { ExportaClaFis } from 'src/beans/WS_Beans';
 export class T1C2C2FiscalComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalFis: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +20,20 @@ export class T1C2C2FiscalComponent implements OnInit {
 
   public async fiscalInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalFis = true;
-      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c2_c2_clafiscal_arr = (await this.ap.exportaServico(
           'ExportaClaFis'
         )) as ExportaClaFis[];
+        this.buscando = false;
+      }
     }
   }
 
   public fiscalSelect() {
     this.vp.t1_c2_c2_clafiscal_cod = this.vp.t1_c2_c2_clafiscal_obj!.codClf;
     this.vp.t1_c2_c2_clafiscal_des = this.vp.t1_c2_c2_clafiscal_obj!.desClf;
-    this.showModalFis = false;
+    this.mostrar_modal = false;
   }
 }

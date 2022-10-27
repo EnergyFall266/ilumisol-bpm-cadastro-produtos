@@ -11,7 +11,7 @@ import { ExportaDepositos } from 'src/beans/WS_Beans';
 export class T3C1Component implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalDep: boolean = false;
+  public mostrar_modalDep: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,7 +19,7 @@ export class T3C1Component implements OnInit {
 
   public async depositoInput() {
     if (!this.vp.t3_mandatory_to_readonly) {
-      this.showModalDep = true;
+      this.mostrar_modalDep = true;
       if (this.vp.t3_c1_destino_arr.length == 0)
         this.vp.t3_c1_destino_arr = (await this.ap.exportaServico(
           'ExportaDepositos'
@@ -30,6 +30,6 @@ export class T3C1Component implements OnInit {
   public depositoSelect() {
     this.vp.t2_fornecedor_cod = this.vp.t2_fornecedor_obj!.codFor;
     this.vp.t2_fornecedor_des = this.vp.t2_fornecedor_obj!.nomFor;
-    this.showModalDep = false;
+    this.mostrar_modalDep = false;
   }
 }

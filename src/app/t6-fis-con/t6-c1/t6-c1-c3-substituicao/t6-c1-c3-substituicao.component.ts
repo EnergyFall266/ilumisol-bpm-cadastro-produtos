@@ -11,8 +11,8 @@ import { ExportaSubstituicao } from 'src/beans/WS_Beans';
 export class T6C1C3SubstituicaoComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalCof: boolean = false;
-  public showModalPis: boolean = false;
+  public mostrar_modalCof: boolean = false;
+  public mostrar_modalPis: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,7 +20,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
 
   public async cofinsInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalCof = true;
+      this.mostrar_modalCof = true;
       if (this.vp.t6_c1_c3_cof_subs_arr.length == 0) {
         this.vp.t6_c1_c3_cof_subs_arr = (await this.ap.exportaServico(
           'ExportaSubstituicao'
@@ -31,12 +31,12 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
 
   public cofinsSelect() {
     this.vp.t6_c1_c3_cof_subs_cod = this.vp.t6_c1_c3_cof_subs_obj!.codTst;
-    this.showModalCof = false;
+    this.mostrar_modalCof = false;
   }
 
   public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalPis = true;
+      this.mostrar_modalPis = true;
       if (this.vp.t6_c1_c3_pis_subs_arr.length == 0) {
         this.vp.t6_c1_c3_pis_subs_arr = (await this.ap.exportaServico(
           'ExportaSubstituicao'
@@ -47,6 +47,6 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
 
   public pisSelect() {
     this.vp.t6_c1_c3_pis_subs_cod = this.vp.t6_c1_c3_pis_subs_obj!.codTst;
-    this.showModalPis = false;
+    this.mostrar_modalPis = false;
   }
 }

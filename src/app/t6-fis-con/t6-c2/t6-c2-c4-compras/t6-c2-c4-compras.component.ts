@@ -11,8 +11,8 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C2C4ComprasComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalPis: boolean = false;
-  public showModalCof: boolean = false;
+  public mostrar_modalPis: boolean = false;
+  public mostrar_modalCof: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,7 +20,7 @@ export class T6C2C4ComprasComponent implements OnInit {
 
   public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalPis = true;
+      this.mostrar_modalPis = true;
       if (this.vp.t6_c2_c4_pis_com_arr.length == 0) {
         this.vp.t6_c2_c4_pis_com_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
@@ -32,12 +32,12 @@ export class T6C2C4ComprasComponent implements OnInit {
 
   public pisSelect() {
     this.vp.t6_c2_c4_pis_com_cod = this.vp.t6_c2_c4_pis_com_obj!.chvLis;
-    this.showModalPis = false;
+    this.mostrar_modalPis = false;
   }
 
   public async cofInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalCof = true;
+      this.mostrar_modalCof = true;
       if (this.vp.t6_c2_c4_cof_com_arr.length == 0) {
         this.vp.t6_c2_c4_cof_com_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
@@ -49,6 +49,6 @@ export class T6C2C4ComprasComponent implements OnInit {
 
   public cofSelect() {
     this.vp.t6_c2_c4_cof_com_cod = this.vp.t6_c2_c4_cof_com_obj!.chvLis;
-    this.showModalCof = false;
+    this.mostrar_modalCof = false;
   }
 }

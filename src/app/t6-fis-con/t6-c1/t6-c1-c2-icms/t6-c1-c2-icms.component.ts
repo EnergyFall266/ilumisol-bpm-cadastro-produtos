@@ -15,9 +15,9 @@ import {
 export class T6C1C2IcmsComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalEsp: boolean = false;
-  public showModalRed: boolean = false;
-  public showModalSub: boolean = false;
+  public mostrar_modalEsp: boolean = false;
+  public mostrar_modalRed: boolean = false;
+  public mostrar_modalSub: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -25,7 +25,7 @@ export class T6C1C2IcmsComponent implements OnInit {
 
   public async especialInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalEsp = true;
+      this.mostrar_modalEsp = true;
       if (this.vp.t6_c1_c2_icms_especial_arr.length == 0) {
         this.vp.t6_c1_c2_icms_especial_arr = (await this.ap.exportaServico(
           'ExportaICMSEsp'
@@ -37,12 +37,12 @@ export class T6C1C2IcmsComponent implements OnInit {
   public especialSelect() {
     this.vp.t6_c1_c2_icms_especial_cod =
       this.vp.t6_c1_c2_icms_especial_obj!.codTic;
-    this.showModalEsp = false;
+    this.mostrar_modalEsp = false;
   }
 
   public async reducaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalRed = true;
+      this.mostrar_modalRed = true;
       if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0) {
         this.vp.t6_c1_c2_reducao_icms_arr = (await this.ap.exportaServico(
           'ExportaReducaoICMS'
@@ -54,12 +54,12 @@ export class T6C1C2IcmsComponent implements OnInit {
   public reducaoSelect() {
     this.vp.t6_c1_c2_reducao_icms_cod =
       this.vp.t6_c1_c2_reducao_icms_obj!.codTrd;
-    this.showModalRed = false;
+    this.mostrar_modalRed = false;
   }
 
   public async substituidoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalSub = true;
+      this.mostrar_modalSub = true;
       if (this.vp.t6_c1_c2_icms_substituido_arr.length == 0) {
         this.vp.t6_c1_c2_icms_substituido_arr = (await this.ap.exportaServico(
           'ExportaSubstituicao'
@@ -71,6 +71,6 @@ export class T6C1C2IcmsComponent implements OnInit {
   public substituidoSelect() {
     this.vp.t6_c1_c2_icms_substituido_cod =
       this.vp.t6_c1_c2_icms_substituido_obj!.codTst;
-    this.showModalSub = false;
+    this.mostrar_modalSub = false;
   }
 }

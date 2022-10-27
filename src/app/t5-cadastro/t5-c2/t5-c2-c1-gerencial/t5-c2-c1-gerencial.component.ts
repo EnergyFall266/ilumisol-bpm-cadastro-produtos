@@ -11,8 +11,8 @@ import { ExportaUniMeds } from 'src/beans/WS_Beans';
 export class T5C2C1GerencialComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalUn2: boolean = false;
-  public showModalUn3: boolean = false;
+  public mostrar_modalUn2: boolean = false;
+  public mostrar_modalUn3: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,7 +20,7 @@ export class T5C2C1GerencialComponent implements OnInit {
 
   public async uni2Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.showModalUn2 = true;
+      this.mostrar_modalUn2 = true;
       if (this.vp.t5_c2_c1_med_2_arr.length == 0) {
         this.vp.t5_c2_c1_med_2_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
@@ -31,12 +31,12 @@ export class T5C2C1GerencialComponent implements OnInit {
 
   public uni2Select() {
     this.vp.t5_c2_c1_med_2_cod = this.vp.t5_c2_c1_med_2_obj!.desMed;
-    this.showModalUn2 = false;
+    this.mostrar_modalUn2 = false;
   }
 
   public async uni3Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.showModalUn3 = true;
+      this.mostrar_modalUn3 = true;
       if (this.vp.t5_c2_c1_med_3_arr.length == 0) {
         this.vp.t5_c2_c1_med_3_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
@@ -47,6 +47,6 @@ export class T5C2C1GerencialComponent implements OnInit {
 
   public uni3Select() {
     this.vp.t5_c2_c1_med_3_cod = this.vp.t5_c2_c1_med_3_obj!.desMed;
-    this.showModalUn3 = false;
+    this.mostrar_modalUn3 = false;
   }
 }

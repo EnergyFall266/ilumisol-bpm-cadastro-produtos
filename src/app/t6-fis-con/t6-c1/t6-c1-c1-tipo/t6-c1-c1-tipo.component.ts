@@ -11,7 +11,7 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C1C1TipoComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalTip: boolean = false;
+  public mostrar_modalTip: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,7 +19,7 @@ export class T6C1C1TipoComponent implements OnInit {
 
   public async tipoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalTip = true;
+      this.mostrar_modalTip = true;
       if (this.vp.t6_c1_c1_tipo_prod_arr.length == 0) {
         this.vp.t6_c1_c1_tipo_prod_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
@@ -31,6 +31,6 @@ export class T6C1C1TipoComponent implements OnInit {
 
   public tipoSelect() {
     this.vp.t6_c1_c1_tipo_prod_cod = this.vp.t6_c1_c1_tipo_prod_obj!.chvLis;
-    this.showModalTip = false;
+    this.mostrar_modalTip = false;
   }
 }

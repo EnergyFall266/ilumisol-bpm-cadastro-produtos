@@ -11,7 +11,8 @@ import { ExportaOrigens } from 'src/beans/WS_Beans';
 export class T1C1C3OriComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalOri: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +20,20 @@ export class T1C1C3OriComponent implements OnInit {
 
   public async origemInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalOri = true;
-      if (this.vp.t1_c1_c3_origem_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c1_c3_origem_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c1_c3_origem_arr = (await this.ap.exportaServico(
           'ExportaOrigens'
         )) as ExportaOrigens[];
+        this.buscando = false;
+      }
     }
   }
 
   public origemSelect() {
     this.vp.t1_c1_c3_origem_cod = this.vp.t1_c1_c3_origem_obj!.codOri;
     this.vp.t1_c1_c3_origem_des = this.vp.t1_c1_c3_origem_obj!.desOri;
-    this.showModalOri = false;
+    this.mostrar_modal = false;
   }
 }

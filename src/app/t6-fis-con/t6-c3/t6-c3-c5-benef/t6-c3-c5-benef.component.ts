@@ -9,17 +9,17 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 export class T6C3C5BenefComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalBen: boolean = false;
+  public mostrar_modalBen: boolean = false;
 
   constructor() {}
 
   public ngOnInit(): void {}
 
   public benefInput() {
-    this.showModalBen = true;
+    this.mostrar_modalBen = true;
   }
 
   public benefSelect() {
-    this.showModalBen = false;
+    this.mostrar_modalBen = false;
   }
 }

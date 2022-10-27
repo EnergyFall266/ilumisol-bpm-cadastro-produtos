@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalUni"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableUnidade
@@ -46,7 +47,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="this.vp.t1_c1_c5_medida_arr.length == 0"
+      [loading]="buscando"
       [value]="vp.t1_c1_c5_medida_arr"
       [(selection)]="vp.t1_c1_c5_medida_obj"
       (onRowSelect)="unidadeSelect()"
@@ -71,8 +72,12 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="uniMed">
+            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMed">
+            Descrição <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-ori>

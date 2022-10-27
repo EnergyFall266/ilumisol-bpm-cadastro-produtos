@@ -99,6 +99,7 @@ export interface ExportaCategorias {
 export interface ExportaSubCategorias {
   codSct: number;
   desSct: string;
+  codCtg: number;
 }
 
 export interface ExportaGrupoQuimico {

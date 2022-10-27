@@ -32,13 +32,15 @@
     </div>
   </div>
   <p-dialog
+    #dialogOrigem
     header="Origens"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalOri"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableOrigem
@@ -46,7 +48,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="this.vp.t1_c1_c3_origem_arr.length == 0"
+      [loading]="buscando"
       [value]="vp.t1_c1_c3_origem_arr"
       [(selection)]="vp.t1_c1_c3_origem_obj"
       (onRowSelect)="origemSelect()"
@@ -71,8 +73,12 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codOri">
+            Código <p-sortIcon field="codOri"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desOri">
+            Descrição <p-sortIcon field="desOri"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-ori>

@@ -11,7 +11,8 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
 export class T1C2C7MultinivelComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalMul: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +20,20 @@ export class T1C2C7MultinivelComponent implements OnInit {
 
   public async multinivelInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalMul = true;
-      if (this.vp.t1_c2_c7_multinivel_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c7_multinivel_arr.length == 0) {
+        this.buscando = true;
         this.vp.t1_c2_c7_multinivel_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'A'
         )) as ExportaAgrupamentos[];
+        this.buscando = false;
+      }
     }
   }
 
   public multinivelSelect() {
     this.vp.t1_c2_c7_multinivel_cod = this.vp.t1_c2_c7_multinivel_obj!.codAgp;
-    this.showModalMul = false;
+    this.mostrar_modal = false;
   }
 }

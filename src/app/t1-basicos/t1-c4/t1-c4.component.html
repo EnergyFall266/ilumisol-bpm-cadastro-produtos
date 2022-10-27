@@ -70,7 +70,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c4_quimico_cod"
+            [(ngModel)]="vp.t1_c4_quimico_des"
             (click)="quimicoInput()"
           />
           <button
@@ -93,7 +93,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalQui"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableQuimico
@@ -101,11 +102,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t1_c4_quimico_arr"
       [(selection)]="vp.t1_c4_quimico_obj"
       (onRowSelect)="quimicoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codQui"
+      [globalFilterFields]="['codQui', 'desQui']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -125,14 +127,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codQui">
+            Código <p-sortIcon field="codQui"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desQui">
+            Descrição <p-sortIcon field="desQui"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-qui>
         <tr [pSelectableRow]="qui">
-          <td>{{ qui.c }}</td>
-          <td>{{ qui.d }}</td>
+          <td>{{ qui.codQui }}</td>
+          <td>{{ qui.desQui }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
