@@ -74,6 +74,10 @@ export class AppService {
       return Array.isArray(r.substituicoes)
         ? r.substituicoes
         : [r.substituicoes];
+    else if (port == 'ExportaEnquadramento' && r.enquadramentos)
+      return Array.isArray(r.enquadramentos)
+        ? r.enquadramentos
+        : [r.enquadramentos];
     else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
       return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
     return [];

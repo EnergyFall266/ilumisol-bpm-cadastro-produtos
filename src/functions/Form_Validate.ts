@@ -175,7 +175,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
       if (vp.t6_c2_c2_cof_nat_cod == '')
         m.push(getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins'));
 
-      if (vp.t6_c2_c3_enqua_cod == '')
+      if (vp.t6_c2_c3_enqua_cod === undefined)
         m.push(getMsgS('Dados fiscais e contábeis - Código de enquadramento'));
 
       if (vp.t6_c2_c4_pis_com_cod == '')

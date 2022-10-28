@@ -11,8 +11,9 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C2C4ComprasComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalPis: boolean = false;
-  public mostrar_modalCof: boolean = false;
+  public mostrar_modal_pis: boolean = false;
+  public mostrar_modal_cof: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,35 +21,36 @@ export class T6C2C4ComprasComponent implements OnInit {
 
   public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalPis = true;
-      if (this.vp.t6_c2_c4_pis_com_arr.length == 0) {
-        this.vp.t6_c2_c4_pis_com_arr = (await this.ap.exportaServico(
-          'ExportaValorLista',
-          'LCstImp'
-        )) as ExportaValorLista[];
-      }
+      this.mostrar_modal_pis = true;
+      if (this.vp.t6_c2_sit_tri_arr.length == 0) this.buscarSituacao();
     }
   }
 
   public pisSelect() {
     this.vp.t6_c2_c4_pis_com_cod = this.vp.t6_c2_c4_pis_com_obj!.chvLis;
-    this.mostrar_modalPis = false;
+    this.vp.t6_c2_c4_pis_com_des = this.vp.t6_c2_c4_pis_com_obj!.desLis;
+    this.mostrar_modal_pis = false;
   }
 
   public async cofInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalCof = true;
-      if (this.vp.t6_c2_c4_cof_com_arr.length == 0) {
-        this.vp.t6_c2_c4_cof_com_arr = (await this.ap.exportaServico(
-          'ExportaValorLista',
-          'LCstImp'
-        )) as ExportaValorLista[];
-      }
+      this.mostrar_modal_cof = true;
+      if (this.vp.t6_c2_sit_tri_arr.length == 0) this.buscarSituacao();
     }
   }
 
   public cofSelect() {
     this.vp.t6_c2_c4_cof_com_cod = this.vp.t6_c2_c4_cof_com_obj!.chvLis;
-    this.mostrar_modalCof = false;
+    this.vp.t6_c2_c4_cof_com_des = this.vp.t6_c2_c4_cof_com_obj!.desLis;
+    this.mostrar_modal_cof = false;
+  }
+
+  private async buscarSituacao() {
+    this.buscando = true;
+    this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
+      'ExportaValorLista',
+      'LCstImp'
+    )) as ExportaValorLista[];
+    this.buscando = false;
   }
 }

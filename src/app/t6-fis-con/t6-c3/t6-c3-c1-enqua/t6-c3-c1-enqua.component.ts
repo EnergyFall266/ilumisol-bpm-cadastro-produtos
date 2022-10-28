@@ -11,7 +11,8 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C3C1EnquaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalEnq: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,18 +20,21 @@ export class T6C3C1EnquaComponent implements OnInit {
 
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalEnq = true;
+      this.mostrar_modal = true;
       if (this.vp.t6_c3_c1_enq_esp_arr.length == 0) {
+        this.buscando = true;
         this.vp.t6_c3_c1_enq_esp_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LProEpe'
         )) as ExportaValorLista[];
+        this.buscando = false;
       }
     }
   }
 
   public enquaSelect() {
     this.vp.t6_c3_c1_enq_esp_cod = this.vp.t6_c3_c1_enq_esp_obj!.chvLis;
-    this.mostrar_modalEnq = false;
+    this.vp.t6_c3_c1_enq_esp_des = this.vp.t6_c3_c1_enq_esp_obj!.desLis;
+    this.mostrar_modal = false;
   }
 }

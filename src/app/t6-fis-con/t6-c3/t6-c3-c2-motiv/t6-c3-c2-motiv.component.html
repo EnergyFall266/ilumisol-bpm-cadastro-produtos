@@ -33,7 +33,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalMot"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableMotivo
@@ -41,11 +42,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t6_c3_c2_motivo_arr"
       [(selection)]="vp.t6_c3_c2_motivo_obj"
       (onRowSelect)="motivoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -65,14 +67,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-mot>
         <tr [pSelectableRow]="mot">
-          <td>{{ mot.c }}</td>
-          <td>{{ mot.d }}</td>
+          <td>{{ mot.chvLis }}</td>
+          <td>{{ mot.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

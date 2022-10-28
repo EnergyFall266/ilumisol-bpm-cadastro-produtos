@@ -33,12 +33,13 @@
   </div>
   <p-dialog
     header="Enquadramentos"
-    [styleClass]="'w-6'"
+    [styleClass]="'w-10'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalEnq"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableEnqua
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t6_c2_c3_enqua_arr"
       [(selection)]="vp.t6_c2_c3_enqua_obj"
       (onRowSelect)="enquaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codEnq"
+      [globalFilterFields]="['codEnq', 'enqDsc']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codEnq">
+            Código <p-sortIcon field="codEnq"></p-sortIcon>
+          </th>
+          <th pSortableColumn="enqDsc">
+            Descrição <p-sortIcon field="enqDsc"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-enq>
         <tr [pSelectableRow]="enq">
-          <td>{{ enq.c }}</td>
-          <td>{{ enq.d }}</td>
+          <td>{{ enq.codEnq }}</td>
+          <td>{{ enq.enqDsc }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

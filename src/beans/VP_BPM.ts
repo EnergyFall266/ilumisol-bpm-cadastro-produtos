@@ -45,15 +45,15 @@ export class VP_BPM {
   ];
   public t1_c1_segmento: string = '';
 
+  public t1_c1_item_arr: wsb.ExportaProdutos[] = [];
+
   public t1_c1_c1_substituto_cad: string = '';
 
-  public t1_c1_c1_item_subs_arr: wsb.ExportaProdutos[] = [];
   public t1_c1_c1_item_subs_obj?: wsb.ExportaProdutos;
   public t1_c1_c1_item_subs_cod: string = '';
 
   public t1_c1_c2_similar_exi: string = '';
 
-  public t1_c1_c2_item_simi_arr: wsb.ExportaProdutos[] = [];
   public t1_c1_c2_item_simi_obj?: wsb.ExportaProdutos;
   public t1_c1_c2_item_simi_cod: string = '';
 
@@ -324,32 +324,28 @@ export class VP_BPM {
   public t6_c1_cof_trib: string = '';
 
   //Coluna 2
-  //public t5_c2_tipo_conversao_arr: wsb.ExportaValorLista[] = [];
+  public t6_c2_sit_tri_arr: wsb.ExportaValorLista[] = [];
 
-  public t6_c2_c1_pis_ven_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c1_pis_ven_obj?: wsb.ExportaValorLista;
   public t6_c2_c1_pis_ven_cod: string = '';
   public t6_c2_c1_pis_ven_des: string = '';
 
   public t6_c2_c1_pis_nat_cod: string = '';
 
-  public t6_c2_c2_cof_ven_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c2_cof_ven_obj?: wsb.ExportaValorLista;
   public t6_c2_c2_cof_ven_cod: string = '';
   public t6_c2_c2_cof_ven_des: string = '';
 
   public t6_c2_c2_cof_nat_cod: string = '';
 
-  public t6_c2_c3_enqua_arr: wsb.ExportaValorLista[] = [];
-  public t6_c2_c3_enqua_obj?: wsb.ExportaValorLista;
-  public t6_c2_c3_enqua_cod: string = '';
+  public t6_c2_c3_enqua_arr: wsb.ExportaEnquadramento[] = [];
+  public t6_c2_c3_enqua_obj?: wsb.ExportaEnquadramento;
+  public t6_c2_c3_enqua_cod?: number;
 
-  public t6_c2_c4_pis_com_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c4_pis_com_obj?: wsb.ExportaValorLista;
   public t6_c2_c4_pis_com_cod: string = '';
   public t6_c2_c4_pis_com_des: string = '';
 
-  public t6_c2_c4_cof_com_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c4_cof_com_obj?: wsb.ExportaValorLista;
   public t6_c2_c4_cof_com_cod: string = '';
   public t6_c2_c4_cof_com_des: string = '';
@@ -383,15 +379,9 @@ export class VP_BPM {
 
   public t6_c3_cal_sen: string = '';
 
-  public t6_c3_c4_pauta_arr: wsb.PautaFiscal[] = [];
-  public t6_c3_c4_pauta_obj?: wsb.PautaFiscal;
-  public t6_c3_c4_pauta_cod: string = '';
-  public t6_c3_c4_pauta_des: string = '';
+  public t6_c3_c4_pauta: string = '';
 
-  public t6_c3_c5_benef_arr: wsb.CBenef[] = [];
-  public t6_c3_c5_benef_obj?: wsb.CBenef;
-  public t6_c3_c5_benef_cod: string = '';
-  public t6_c3_c5_benef_des: string = '';
+  public t6_c3_c5_benef: string = '';
 
   //Coluna 4
   public t6_c4_c1_observacoes: string = '';

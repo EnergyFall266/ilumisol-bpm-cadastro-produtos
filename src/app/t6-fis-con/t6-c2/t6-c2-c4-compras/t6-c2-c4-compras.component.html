@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalPis"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal_pis"
   >
     <p-table
       #tablePisCom
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c2_c4_pis_com_arr"
+      [loading]="buscando"
+      [value]="vp.t6_c2_sit_tri_arr"
       [(selection)]="vp.t6_c2_c4_pis_com_obj"
       (onRowSelect)="pisSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-pis>
         <tr [pSelectableRow]="pis">
-          <td>{{ pis.c }}</td>
-          <td>{{ pis.d }}</td>
+          <td>{{ pis.chvLis }}</td>
+          <td>{{ pis.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -122,7 +128,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalCof"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal_cof"
   >
     <p-table
       #tableCofCom
@@ -130,11 +137,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c2_c4_cof_com_arr"
+      [loading]="buscando"
+      [value]="vp.t6_c2_sit_tri_arr"
       [(selection)]="vp.t6_c2_c4_cof_com_obj"
       (onRowSelect)="cofSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -154,14 +162,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-cof>
         <tr [pSelectableRow]="cof">
-          <td>{{ cof.c }}</td>
-          <td>{{ cof.d }}</td>
+          <td>{{ cof.chvLis }}</td>
+          <td>{{ cof.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

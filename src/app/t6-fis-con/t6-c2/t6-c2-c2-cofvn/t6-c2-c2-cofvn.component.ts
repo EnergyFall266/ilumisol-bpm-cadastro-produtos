@@ -21,9 +21,9 @@ export class T6C2C2CofvnComponent implements OnInit {
   public async situacaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c2_c2_cof_ven_arr.length == 0) {
+      if (this.vp.t6_c2_sit_tri_arr.length == 0) {
         this.buscando = true;
-        this.vp.t6_c2_c2_cof_ven_arr = (await this.ap.exportaServico(
+        this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LCstImp'
         )) as ExportaValorLista[];

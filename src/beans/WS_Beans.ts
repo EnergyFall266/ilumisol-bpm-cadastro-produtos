@@ -34,6 +34,7 @@ export interface G5Response {
   ICMS?: ExportaICMSEsp[] | ExportaICMSEsp;
   reducao?: ExportaReducaoICMS[] | ExportaReducaoICMS;
   substituicoes?: ExportaSubstituicao[] | ExportaSubstituicao;
+  enquadramentos?: ExportaEnquadramento[] | ExportaEnquadramento;
 }
 
 export interface ExportaProdutos {
