@@ -33,7 +33,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalTc2"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableTcu2
@@ -41,11 +42,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t5_c2_c2_med_2_tip_arr"
+      [loading]="buscando"
+      [value]="vp.t5_c2_tipo_conversao_arr"
       [(selection)]="vp.t5_c2_c2_med_2_tip_obj"
       (onRowSelect)="tcu2Select()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -65,14 +67,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-tc2>
         <tr [pSelectableRow]="tc2">
-          <td>{{ tc2.c }}</td>
-          <td>{{ tc2.d }}</td>
+          <td>{{ tc2.chvLis }}</td>
+          <td>{{ tc2.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

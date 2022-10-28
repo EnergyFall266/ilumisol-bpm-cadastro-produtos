@@ -11,8 +11,8 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C2C2CofvnComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalSit: boolean = false;
-  public mostrar_modalNat: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,30 +20,21 @@ export class T6C2C2CofvnComponent implements OnInit {
 
   public async situacaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalSit = true;
+      this.mostrar_modal = true;
       if (this.vp.t6_c2_c2_cof_ven_arr.length == 0) {
+        this.buscando = true;
         this.vp.t6_c2_c2_cof_ven_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LCstImp'
         )) as ExportaValorLista[];
+        this.buscando = false;
       }
     }
   }
 
   public situacaoSelect() {
     this.vp.t6_c2_c2_cof_ven_cod = this.vp.t6_c2_c2_cof_ven_obj!.chvLis;
-    this.mostrar_modalSit = false;
-  }
-
-  public naturezaInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalNat = true;
-      if (this.vp.t6_c2_c2_cof_nat_arr.length == 0) {
-      }
-    }
-  }
-
-  public naturezaSelect() {
-    this.mostrar_modalNat = false;
+    this.vp.t6_c2_c2_cof_ven_des = this.vp.t6_c2_c2_cof_ven_obj!.desLis;
+    this.mostrar_modal = false;
   }
 }

@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalTip"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableTipo
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="buscando"
       [value]="vp.t6_c1_c1_tipo_prod_arr"
       [(selection)]="vp.t6_c1_c1_tipo_prod_obj"
       (onRowSelect)="tipoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-tip>
         <tr [pSelectableRow]="tip">
-          <td>{{ tip.c }}</td>
-          <td>{{ tip.d }}</td>
+          <td>{{ tip.chvLis }}</td>
+          <td>{{ tip.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

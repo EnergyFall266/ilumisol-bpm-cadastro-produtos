@@ -132,8 +132,6 @@ export interface ExportaEnquadramento {
   enqDsc: string;
 }
 
-export interface NaturezaReceita {}
-
 export interface PautaFiscal {}
 
 export interface CBenef {}

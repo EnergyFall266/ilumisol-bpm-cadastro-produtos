@@ -11,7 +11,8 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T5C2C2Medida2Component implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalTc2: boolean = false;
+  public mostrar_modal: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,18 +20,21 @@ export class T5C2C2Medida2Component implements OnInit {
 
   public async tcu2Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.mostrar_modalTc2 = true;
-      if (this.vp.t5_c2_c2_med_2_tip_arr.length == 0) {
-        this.vp.t5_c2_c2_med_2_tip_arr = (await this.ap.exportaServico(
+      this.mostrar_modal = true;
+      if (this.vp.t5_c2_tipo_conversao_arr.length == 0) {
+        this.buscando = true;
+        this.vp.t5_c2_tipo_conversao_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LTipCnv'
         )) as ExportaValorLista[];
+        this.buscando = false;
       }
     }
   }
 
   public tcu2Select() {
     this.vp.t5_c2_c2_med_2_tip_cod = this.vp.t5_c2_c2_med_2_tip_obj!.chvLis;
-    this.mostrar_modalTc2 = false;
+    this.vp.t5_c2_c2_med_2_tip_des = this.vp.t5_c2_c2_med_2_tip_obj!.desLis;
+    this.mostrar_modal = false;
   }
 }

@@ -11,42 +11,57 @@ import { ExportaSubstituicao } from 'src/beans/WS_Beans';
 export class T6C1C3SubstituicaoComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalCof: boolean = false;
-  public mostrar_modalPis: boolean = false;
+  public mostrar_modal_icm: boolean = false;
+  public mostrar_modal_cof: boolean = false;
+  public mostrar_modal_pis: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
   public ngOnInit(): void {}
 
+  public async icmsInput() {
+    if (!this.vp.t6_mandatory_to_readonly) {
+      this.mostrar_modal_icm = true;
+      if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
+    }
+  }
+
+  public icmsSelect() {
+    this.vp.t6_c1_c2_icms_substituido_cod =
+      this.vp.t6_c1_c2_icms_substituido_obj!.codTst;
+    this.mostrar_modal_icm = false;
+  }
+
   public async cofinsInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalCof = true;
-      if (this.vp.t6_c1_c3_cof_subs_arr.length == 0) {
-        this.vp.t6_c1_c3_cof_subs_arr = (await this.ap.exportaServico(
-          'ExportaSubstituicao'
-        )) as ExportaSubstituicao[];
-      }
+      this.mostrar_modal_cof = true;
+      if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
     }
   }
 
   public cofinsSelect() {
     this.vp.t6_c1_c3_cof_subs_cod = this.vp.t6_c1_c3_cof_subs_obj!.codTst;
-    this.mostrar_modalCof = false;
+    this.mostrar_modal_cof = false;
   }
 
   public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.mostrar_modalPis = true;
-      if (this.vp.t6_c1_c3_pis_subs_arr.length == 0) {
-        this.vp.t6_c1_c3_pis_subs_arr = (await this.ap.exportaServico(
-          'ExportaSubstituicao'
-        )) as ExportaSubstituicao[];
-      }
+      this.mostrar_modal_pis = true;
+      if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
     }
   }
 
   public pisSelect() {
     this.vp.t6_c1_c3_pis_subs_cod = this.vp.t6_c1_c3_pis_subs_obj!.codTst;
-    this.mostrar_modalPis = false;
+    this.mostrar_modal_pis = false;
+  }
+
+  private async buscarSubstituicao() {
+    this.buscando = true;
+    this.vp.t6_c1_substituicao_arr = (await this.ap.exportaServico(
+      'ExportaSubstituicao'
+    )) as ExportaSubstituicao[];
+    this.buscando = false;
   }
 }

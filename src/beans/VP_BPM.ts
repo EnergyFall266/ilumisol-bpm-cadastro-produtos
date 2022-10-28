@@ -28,6 +28,8 @@ export class VP_BPM {
     { label: 'Não', value: 'Não' },
   ];
 
+  public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
+
   /**
    * Dados básicos
    */
@@ -67,7 +69,6 @@ export class VP_BPM {
 
   public t1_c1_descricao: string = '';
 
-  public t1_c1_c5_medida_arr: wsb.ExportaUniMeds[] = [];
   public t1_c1_c5_medida_obj?: wsb.ExportaUniMeds;
   public t1_c1_c5_medida_cod: string = '';
   public t1_c1_c5_medida_des: string = '';
@@ -244,24 +245,22 @@ export class VP_BPM {
   public t5_c1_c2_agr_cus_des: string = '';
 
   //Coluna 2
-  public t5_c2_c1_med_2_arr: wsb.ExportaUniMeds[] = [];
   public t5_c2_c1_med_2_obj?: wsb.ExportaUniMeds;
   public t5_c2_c1_med_2_cod: string = '';
   public t5_c2_c1_med_2_des: string = '';
 
-  public t5_c2_c1_med_3_arr: wsb.ExportaUniMeds[] = [];
   public t5_c2_c1_med_3_obj?: wsb.ExportaUniMeds;
   public t5_c2_c1_med_3_cod: string = '';
   public t5_c2_c1_med_3_des: string = '';
 
-  public t5_c2_c2_med_2_tip_arr: wsb.ExportaValorLista[] = [];
+  public t5_c2_tipo_conversao_arr: wsb.ExportaValorLista[] = [];
+
   public t5_c2_c2_med_2_tip_obj?: wsb.ExportaValorLista;
   public t5_c2_c2_med_2_tip_cod: string = '';
   public t5_c2_c2_med_2_tip_des: string = '';
 
   public t5_c2_c2_med_2_val?: number;
 
-  public t5_c2_c3_med_3_tip_arr: wsb.ExportaValorLista[] = [];
   public t5_c2_c3_med_3_tip_obj?: wsb.ExportaValorLista;
   public t5_c2_c3_med_3_tip_cod: string = '';
   public t5_c2_c3_med_3_tip_des: string = '';
@@ -305,15 +304,14 @@ export class VP_BPM {
   public t6_c1_c2_reducao_icms_obj?: wsb.ExportaReducaoICMS;
   public t6_c1_c2_reducao_icms_cod: string = '';
 
-  public t6_c1_c2_icms_substituido_arr: wsb.ExportaSubstituicao[] = [];
+  public t6_c1_substituicao_arr: wsb.ExportaSubstituicao[] = [];
+
   public t6_c1_c2_icms_substituido_obj?: wsb.ExportaSubstituicao;
   public t6_c1_c2_icms_substituido_cod: string = '';
 
-  public t6_c1_c3_cof_subs_arr: wsb.ExportaSubstituicao[] = [];
   public t6_c1_c3_cof_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c1_c3_cof_subs_cod: string = '';
 
-  public t6_c1_c3_pis_subs_arr: wsb.ExportaSubstituicao[] = [];
   public t6_c1_c3_pis_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c1_c3_pis_subs_cod: string = '';
 
@@ -326,25 +324,21 @@ export class VP_BPM {
   public t6_c1_cof_trib: string = '';
 
   //Coluna 2
+  //public t5_c2_tipo_conversao_arr: wsb.ExportaValorLista[] = [];
+
   public t6_c2_c1_pis_ven_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c1_pis_ven_obj?: wsb.ExportaValorLista;
   public t6_c2_c1_pis_ven_cod: string = '';
   public t6_c2_c1_pis_ven_des: string = '';
 
-  public t6_c2_c1_pis_nat_arr: wsb.NaturezaReceita[] = [];
-  public t6_c2_c1_pis_nat_obj?: wsb.NaturezaReceita;
   public t6_c2_c1_pis_nat_cod: string = '';
-  public t6_c2_c1_pis_nat_des: string = '';
 
   public t6_c2_c2_cof_ven_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c2_cof_ven_obj?: wsb.ExportaValorLista;
   public t6_c2_c2_cof_ven_cod: string = '';
   public t6_c2_c2_cof_ven_des: string = '';
 
-  public t6_c2_c2_cof_nat_arr: wsb.NaturezaReceita[] = [];
-  public t6_c2_c2_cof_nat_obj?: wsb.NaturezaReceita;
   public t6_c2_c2_cof_nat_cod: string = '';
-  public t6_c2_c2_cof_nat_des: string = '';
 
   public t6_c2_c3_enqua_arr: wsb.ExportaValorLista[] = [];
   public t6_c2_c3_enqua_obj?: wsb.ExportaValorLista;

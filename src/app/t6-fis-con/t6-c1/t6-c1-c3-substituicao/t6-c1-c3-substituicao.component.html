@@ -1,6 +1,94 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
+      <span class="col-12">Código ICMS Substituído</span>
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.t6_c1_c2_icms_substituido_cod"
+            (click)="icmsInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
+            (click)="icmsInput()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-dialog
+    header="Códigos"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal_icm"
+  >
+    <p-table
+      #tableSubstituido
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [loading]="buscando"
+      [value]="vp.t6_c1_substituicao_arr"
+      [(selection)]="vp.t6_c1_c2_icms_substituido_obj"
+      (onRowSelect)="icmsSelect()"
+      dataKey="codTst"
+      [globalFilterFields]="['codTst', 'desTst']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableSubstituido.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="codTst">
+            Código <p-sortIcon field="codTst"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desTst">
+            Descrição <p-sortIcon field="desTst"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-sub>
+        <tr [pSelectableRow]="sub">
+          <td>{{ sub.codTst }}</td>
+          <td>{{ sub.desTst }}</td>
+        </tr>
+      </ng-template>
+    </p-table></p-dialog
+  >
+
+  <div class="col-12">
+    <div class="grid">
       <span class="col-12">Código Substituição Cofins</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
@@ -33,7 +121,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalCof"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal_cof"
   >
     <p-table
       #tableSubCof
@@ -41,11 +130,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c1_c3_cof_subs_arr"
+      [loading]="buscando"
+      [value]="vp.t6_c1_substituicao_arr"
       [(selection)]="vp.t6_c1_c3_cof_subs_obj"
       (onRowSelect)="cofinsSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codTst"
+      [globalFilterFields]="['codTst', 'desTst']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -65,14 +155,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codTst">
+            Código <p-sortIcon field="codTst"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desTst">
+            Descrição <p-sortIcon field="desTst"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-cof>
         <tr [pSelectableRow]="cof">
-          <td>{{ cof.c }}</td>
-          <td>{{ cof.d }}</td>
+          <td>{{ cof.codTst }}</td>
+          <td>{{ cof.desTst }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -117,7 +211,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="mostrar_modalPis"
+    [closable]="!buscando"
+    [(visible)]="mostrar_modal_pis"
   >
     <p-table
       #tableSubPis
@@ -125,11 +220,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c1_c3_pis_subs_arr"
+      [loading]="buscando"
+      [value]="vp.t6_c1_substituicao_arr"
       [(selection)]="vp.t6_c1_c3_pis_subs_obj"
       (onRowSelect)="pisSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codTst"
+      [globalFilterFields]="['codTst', 'desTst']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -149,14 +245,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codTst">
+            Código <p-sortIcon field="codTst"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desTst">
+            Descrição <p-sortIcon field="desTst"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-pis>
         <tr [pSelectableRow]="pis">
-          <td>{{ pis.c }}</td>
-          <td>{{ pis.d }}</td>
+          <td>{{ pis.codTst }}</td>
+          <td>{{ pis.desTst }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

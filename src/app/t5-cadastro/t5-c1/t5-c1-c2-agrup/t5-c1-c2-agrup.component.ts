@@ -11,8 +11,9 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
 export class T5C1C2AgrupComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public mostrar_modalEst: boolean = false;
-  public mostrar_modalCus: boolean = false;
+  public mostrar_modal_est: boolean = false;
+  public mostrar_modal_cus: boolean = false;
+  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,35 +21,41 @@ export class T5C1C2AgrupComponent implements OnInit {
 
   public async estoquesInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.mostrar_modalEst = true;
+      this.mostrar_modal_est = true;
       if (this.vp.t5_c1_c2_agr_est_arr.length == 0) {
+        this.buscando = true;
         this.vp.t5_c1_c2_agr_est_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'E'
         )) as ExportaAgrupamentos[];
+        this.buscando = false;
       }
     }
   }
 
   public estoquesSelect() {
     this.vp.t5_c1_c2_agr_est_cod = this.vp.t5_c1_c2_agr_est_obj!.codAgp;
-    this.mostrar_modalEst = false;
+    this.vp.t5_c1_c2_agr_est_des = this.vp.t5_c1_c2_agr_est_obj!.desAgp;
+    this.mostrar_modal_est = false;
   }
 
   public async custosInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.mostrar_modalCus = true;
+      this.mostrar_modal_cus = true;
       if (this.vp.t5_c1_c2_agr_cus_arr.length == 0) {
+        this.buscando = true;
         this.vp.t5_c1_c2_agr_cus_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'U'
         )) as ExportaAgrupamentos[];
+        this.buscando = false;
       }
     }
   }
 
   public custosSelect() {
     this.vp.t5_c1_c2_agr_cus_cod = this.vp.t5_c1_c2_agr_cus_obj!.codAgp;
-    this.mostrar_modalCus = false;
+    this.vp.t5_c1_c2_agr_cus_des = this.vp.t5_c1_c2_agr_cus_obj!.desAgp;
+    this.mostrar_modal_cus = false;
   }
 }
