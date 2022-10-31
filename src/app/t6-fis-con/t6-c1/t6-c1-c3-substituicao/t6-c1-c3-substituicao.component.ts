@@ -14,7 +14,6 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   public mostrar_modal_icm: boolean = false;
   public mostrar_modal_cof: boolean = false;
   public mostrar_modal_pis: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -28,8 +27,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   }
 
   public icmsSelect() {
-    this.vp.t6_c1_c2_icms_substituido_cod =
-      this.vp.t6_c1_c2_icms_substituido_obj!.codTst;
+    this.vp.t6_c1_c3_icm_subs_cod = this.vp.t6_c1_c3_icm_subs_obj!.codTst;
     this.mostrar_modal_icm = false;
   }
 
@@ -57,11 +55,8 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
     this.mostrar_modal_pis = false;
   }
 
-  private async buscarSubstituicao() {
-    this.buscando = true;
-    this.vp.t6_c1_substituicao_arr = (await this.ap.exportaServico(
+  private buscarSubstituicao = async () =>
+    (this.vp.t6_c1_substituicao_arr = (await this.ap.exportaServico(
       'ExportaSubstituicao'
-    )) as ExportaSubstituicao[];
-    this.buscando = false;
-  }
+    )) as ExportaSubstituicao[]);
 }

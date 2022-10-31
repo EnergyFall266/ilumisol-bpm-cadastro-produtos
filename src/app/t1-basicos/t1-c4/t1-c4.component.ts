@@ -12,7 +12,6 @@ export class T1C4Component implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,13 +20,10 @@ export class T1C4Component implements OnInit {
   public async quimicoInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c4_quimico_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t1_c4_quimico_arr.length == 0)
         this.vp.t1_c4_quimico_arr = (await this.ap.exportaServico(
           'ExportaGrupoQuimico'
         )) as ExportaGrupoQuimico[];
-        this.buscando = false;
-      }
     }
   }
 

@@ -12,7 +12,6 @@ export class T1C1C4FamComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -35,14 +34,11 @@ export class T1C1C4FamComponent implements OnInit {
     }
   }
 
-  private async buscarFamilias() {
-    this.buscando = true;
-    this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
+  private buscarFamilias = async () =>
+    (this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
       'ExportaFamilias',
       this.vp.t1_c1_c3_origem_cod
-    )) as ExportaFamilias[];
-    this.buscando = false;
-  }
+    )) as ExportaFamilias[]);
 
   public familiaSelect() {
     this.vp.t1_c1_c4_familia_cod = this.vp.t1_c1_c4_familia_obj!.codFam;

@@ -33,7 +33,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal_est"
   >
     <p-table
@@ -42,7 +42,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c1_c2_agr_est_arr"
       [(selection)]="vp.t5_c1_c2_agr_est_obj"
       (onRowSelect)="estoquesSelect()"
@@ -121,7 +121,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal_cus"
   >
     <p-table
@@ -130,7 +130,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c1_c2_agr_cus_arr"
       [(selection)]="vp.t5_c1_c2_agr_cus_obj"
       (onRowSelect)="custosSelect()"

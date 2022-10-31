@@ -33,7 +33,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -42,7 +42,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c2_tipo_conversao_arr"
       [(selection)]="vp.t5_c2_c2_med_2_tip_obj"
       (onRowSelect)="tcu2Select()"

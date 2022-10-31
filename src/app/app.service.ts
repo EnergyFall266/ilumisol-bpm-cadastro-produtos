@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { checkFolder } from 'prisma_prismafunctions';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { environment } from 'src/environments/environment';
 import { wsG5Exporta } from 'src/functions/WS_Axios';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class AppService {
       {
         name: vp.ged_pasta_pai_nome,
         description: vp.ged_pasta_pai_nome,
-        permissions: [{}], //environment.gedpapel,
+        permissions: [environment.ged_papel],
         inheritedPermission: true,
       },
       ''

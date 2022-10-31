@@ -13,7 +13,6 @@ export class T6C1C2IcmsComponent implements OnInit {
 
   public mostrar_modal_esp: boolean = false;
   public mostrar_modal_red: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -22,13 +21,10 @@ export class T6C1C2IcmsComponent implements OnInit {
   public async especialInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_esp = true;
-      if (this.vp.t6_c1_c2_icms_especial_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t6_c1_c2_icms_especial_arr.length == 0)
         this.vp.t6_c1_c2_icms_especial_arr = (await this.ap.exportaServico(
           'ExportaICMSEsp'
         )) as ExportaICMSEsp[];
-        this.buscando = false;
-      }
     }
   }
 
@@ -41,13 +37,10 @@ export class T6C1C2IcmsComponent implements OnInit {
   public async reducaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_red = true;
-      if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0)
         this.vp.t6_c1_c2_reducao_icms_arr = (await this.ap.exportaServico(
           'ExportaReducaoICMS'
         )) as ExportaReducaoICMS[];
-        this.buscando = false;
-      }
     }
   }
 

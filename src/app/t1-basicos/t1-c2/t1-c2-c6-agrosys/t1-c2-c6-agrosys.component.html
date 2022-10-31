@@ -64,7 +64,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -73,7 +73,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c2_c6_agrosys_arr"
       [(selection)]="vp.t1_c2_c6_agrosys_obj"
       (onRowSelect)="agrosysSelect()"

@@ -13,7 +13,6 @@ export class T1C3C2VendaComponent implements OnInit {
 
   public mostrar_modal_cat: boolean = false;
   public mostrar_modal_sub: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -22,13 +21,10 @@ export class T1C3C2VendaComponent implements OnInit {
   public async categoriaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal_cat = true;
-      if (this.vp.t1_c3_c2_categoria_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t1_c3_c2_categoria_arr.length == 0)
         this.vp.t1_c3_c2_categoria_arr = (await this.ap.exportaServico(
           'ExportaCategorias'
         )) as ExportaCategorias[];
-        this.buscando = false;
-      }
     }
   }
 
@@ -56,14 +52,11 @@ export class T1C3C2VendaComponent implements OnInit {
     }
   }
 
-  private async buscarSubCategorias() {
-    this.buscando = true;
-    this.vp.t1_c3_c2_subcategoria_arr = (await this.ap.exportaServico(
+  private buscarSubCategorias = async () =>
+    (this.vp.t1_c3_c2_subcategoria_arr = (await this.ap.exportaServico(
       'ExportaSubCategorias',
       this.vp.t1_c3_c2_categoria_cod
-    )) as ExportaSubCategorias[];
-    this.buscando = false;
-  }
+    )) as ExportaSubCategorias[]);
 
   public subCategoriaSelect() {
     this.vp.t1_c3_c2_subcategoria_cod =

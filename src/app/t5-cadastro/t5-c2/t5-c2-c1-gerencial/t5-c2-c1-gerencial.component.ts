@@ -13,7 +13,6 @@ export class T5C2C1GerencialComponent implements OnInit {
 
   public mostrar_modal_2: boolean = false;
   public mostrar_modal_3: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -39,13 +38,10 @@ export class T5C2C1GerencialComponent implements OnInit {
     }
   }
 
-  private async buscarUnidades() {
-    this.buscando = true;
-    this.vp.unidades_medida_arr = (await this.ap.exportaServico(
+  private buscarUnidades = async () =>
+    (this.vp.unidades_medida_arr = (await this.ap.exportaServico(
       'ExportaUniMeds'
-    )) as ExportaUniMeds[];
-    this.buscando = false;
-  }
+    )) as ExportaUniMeds[]);
 
   public uni3Select() {
     this.vp.t5_c2_c1_med_3_cod = this.vp.t5_c2_c1_med_3_obj!.uniMed;

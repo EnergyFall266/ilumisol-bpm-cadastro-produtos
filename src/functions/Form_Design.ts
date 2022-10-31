@@ -51,11 +51,11 @@ function showMenus(inicial: number, panels: number[]): MenuItem {
 function showPanel(panel: number): MenuItem {
   Object.keys(Panels).forEach((k) => (Panels[k] = true));
   if (panel === 1) Panels['t1_basicos'] = false;
-  if (panel === 2) Panels['t2_fornecedor'] = false;
-  if (panel === 3) Panels['t3_deposito'] = false;
-  if (panel === 4) Panels['t4_obs_ane'] = false;
-  if (panel === 5) Panels['t5_cadastro'] = false;
-  if (panel === 6) Panels['t6_fis_con'] = false;
+  else if (panel === 2) Panels['t2_fornecedor'] = false;
+  else if (panel === 3) Panels['t3_deposito'] = false;
+  else if (panel === 4) Panels['t4_obs_ane'] = false;
+  else if (panel === 5) Panels['t5_cadastro'] = false;
+  else if (panel === 6) Panels['t6_fis_con'] = false;
   return Menus[panel - 1];
 }
 

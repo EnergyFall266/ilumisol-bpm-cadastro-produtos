@@ -12,7 +12,6 @@ export class T5C2C3Medida3Component implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,14 +20,11 @@ export class T5C2C3Medida3Component implements OnInit {
   public async tcu3Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t5_c2_tipo_conversao_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t5_c2_tipo_conversao_arr.length == 0)
         this.vp.t5_c2_tipo_conversao_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LTipCnv'
         )) as ExportaValorLista[];
-        this.buscando = false;
-      }
     }
   }
 

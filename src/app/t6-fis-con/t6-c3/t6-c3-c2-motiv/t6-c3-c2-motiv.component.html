@@ -33,7 +33,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -42,7 +42,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c3_c2_motivo_arr"
       [(selection)]="vp.t6_c3_c2_motivo_obj"
       (onRowSelect)="motivoSelect()"

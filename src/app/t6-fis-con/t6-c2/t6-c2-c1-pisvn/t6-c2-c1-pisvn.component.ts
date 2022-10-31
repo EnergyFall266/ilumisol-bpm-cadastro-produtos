@@ -12,7 +12,6 @@ export class T6C2C1PisvnComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,14 +20,11 @@ export class T6C2C1PisvnComponent implements OnInit {
   public async situacaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c2_sit_tri_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t6_c2_sit_tri_arr.length == 0)
         this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LCstImp'
         )) as ExportaValorLista[];
-        this.buscando = false;
-      }
     }
   }
 

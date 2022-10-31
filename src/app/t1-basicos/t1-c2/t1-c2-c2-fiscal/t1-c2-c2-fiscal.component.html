@@ -38,7 +38,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -47,7 +47,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c2_c2_clafiscal_arr"
       [(selection)]="vp.t1_c2_c2_clafiscal_obj"
       (onRowSelect)="fiscalSelect()"

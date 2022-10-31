@@ -7,7 +7,13 @@ export const environment = {
       return 'error';
     }
   },
-  urlpadrao: window.location.origin ?? '',
+  url_padrao: 'http://192.168.102.165:8080/', //window.location.origin ?? '',
+  ged_papel: {
+    active: true,
+    permissionLevel: 3,
+    subject: 'admin',
+    type: 'ROLE',
+  },
   s1_sol_cad: 's1_sol_cad',
   s2_dad_cad: 's2_dad_cad',
   s3_rev_inf: 's3_rev_inf',

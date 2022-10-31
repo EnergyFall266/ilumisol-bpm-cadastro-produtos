@@ -11,6 +11,7 @@ export interface ResponseLoadData {
 export class VP_BPM {
   //Variáveis ​​Gerais
   public overlay: boolean = true;
+  public buscandoWS: boolean = true;
 
   public alertas: Message[] = [];
 
@@ -22,6 +23,9 @@ export class VP_BPM {
 
   public ged_pasta_pai_id: string = '';
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
+
+  public ged_pasta_processo_id: string = '';
+  public ged_pasta_processo_nome: string = 'Fluxo ';
 
   public check_options: SelectItem[] = [
     { label: 'Sim', value: 'Sim' },
@@ -170,7 +174,7 @@ export class VP_BPM {
 
   public t2_quantidade_minima?: number;
 
-  public t2_codigo_produto: string = '';
+  public t2_produto_fornecedor: string = '';
 
   /**
    * Dados de depósito
@@ -306,8 +310,8 @@ export class VP_BPM {
 
   public t6_c1_substituicao_arr: wsb.ExportaSubstituicao[] = [];
 
-  public t6_c1_c2_icms_substituido_obj?: wsb.ExportaSubstituicao;
-  public t6_c1_c2_icms_substituido_cod: string = '';
+  public t6_c1_c3_icm_subs_obj?: wsb.ExportaSubstituicao;
+  public t6_c1_c3_icm_subs_cod: string = '';
 
   public t6_c1_c3_cof_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c1_c3_cof_subs_cod: string = '';

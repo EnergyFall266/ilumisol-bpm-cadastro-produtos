@@ -12,7 +12,6 @@ export class T1C1C1SubComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,13 +20,10 @@ export class T1C1C1SubComponent implements OnInit {
   public async substituidoInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c1_item_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t1_c1_item_arr.length == 0)
         this.vp.t1_c1_item_arr = (await this.ap.exportaServico(
           'ExportaProdutos'
         )) as ExportaProdutos[];
-        this.buscando = false;
-      }
     }
   }
 

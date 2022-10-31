@@ -13,7 +13,6 @@ export class T6C2C4ComprasComponent implements OnInit {
 
   public mostrar_modal_pis: boolean = false;
   public mostrar_modal_cof: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -45,12 +44,9 @@ export class T6C2C4ComprasComponent implements OnInit {
     this.mostrar_modal_cof = false;
   }
 
-  private async buscarSituacao() {
-    this.buscando = true;
-    this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
+  private buscarSituacao = async () =>
+    (this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
       'ExportaValorLista',
       'LCstImp'
-    )) as ExportaValorLista[];
-    this.buscando = false;
-  }
+    )) as ExportaValorLista[]);
 }

@@ -12,7 +12,6 @@ export class T1C2C5MercadoriaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,14 +20,11 @@ export class T1C2C5MercadoriaComponent implements OnInit {
   public async mercadoriaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c2_c5_mercadoria_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t1_c2_c5_mercadoria_arr.length == 0)
         this.vp.t1_c2_c5_mercadoria_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LOriMer'
         )) as ExportaValorLista[];
-        this.buscando = false;
-      }
     }
   }
 

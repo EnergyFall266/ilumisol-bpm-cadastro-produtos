@@ -12,7 +12,6 @@ export class T1C1C5MedComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,13 +20,10 @@ export class T1C1C5MedComponent implements OnInit {
   public async unidadeInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.unidades_medida_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.unidades_medida_arr.length == 0)
         this.vp.unidades_medida_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
         )) as ExportaUniMeds[];
-        this.buscando = false;
-      }
     }
   }
 

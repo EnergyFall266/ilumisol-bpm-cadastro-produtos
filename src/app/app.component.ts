@@ -44,29 +44,29 @@ export class AppComponent {
   }
 
   public ngOnInit(): void {
-    /*axios.interceptors.request.use(
+    axios.interceptors.request.use(
       (config) => {
-        this.vp.overlay = true;
+        this.vp.buscandoWS = true;
         return config;
       },
       (error) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
     );
     axios.interceptors.response.use(
       (response) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return response;
       },
       (error) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
-    );*/
+    );
 
     this.vp.overlay = false;
-    this.activeMenu = fd.showMenus(6, [1, 2, 3, 4, 5, 6]);
+    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5, 6]);
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {

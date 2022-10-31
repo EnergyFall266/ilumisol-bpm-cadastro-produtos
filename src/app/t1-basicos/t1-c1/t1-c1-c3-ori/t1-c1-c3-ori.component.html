@@ -39,7 +39,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -48,7 +48,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c1_c3_origem_arr"
       [(selection)]="vp.t1_c1_c3_origem_obj"
       (onRowSelect)="origemSelect()"

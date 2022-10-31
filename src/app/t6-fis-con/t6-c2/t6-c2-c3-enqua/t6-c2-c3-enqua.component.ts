@@ -12,7 +12,6 @@ export class T6C2C3EnquaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -21,13 +20,10 @@ export class T6C2C3EnquaComponent implements OnInit {
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c2_c3_enqua_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t6_c2_c3_enqua_arr.length == 0)
         this.vp.t6_c2_c3_enqua_arr = (await this.ap.exportaServico(
           'ExportaEnquadramento'
         )) as ExportaEnquadramento[];
-        this.buscando = false;
-      }
     }
   }
 

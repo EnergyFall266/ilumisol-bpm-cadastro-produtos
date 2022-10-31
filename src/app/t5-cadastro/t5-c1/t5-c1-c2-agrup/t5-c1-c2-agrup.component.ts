@@ -13,7 +13,6 @@ export class T5C1C2AgrupComponent implements OnInit {
 
   public mostrar_modal_est: boolean = false;
   public mostrar_modal_cus: boolean = false;
-  public buscando: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -22,14 +21,11 @@ export class T5C1C2AgrupComponent implements OnInit {
   public async estoquesInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_est = true;
-      if (this.vp.t5_c1_c2_agr_est_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t5_c1_c2_agr_est_arr.length == 0)
         this.vp.t5_c1_c2_agr_est_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'E'
         )) as ExportaAgrupamentos[];
-        this.buscando = false;
-      }
     }
   }
 
@@ -42,14 +38,11 @@ export class T5C1C2AgrupComponent implements OnInit {
   public async custosInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_cus = true;
-      if (this.vp.t5_c1_c2_agr_cus_arr.length == 0) {
-        this.buscando = true;
+      if (this.vp.t5_c1_c2_agr_cus_arr.length == 0)
         this.vp.t5_c1_c2_agr_cus_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'U'
         )) as ExportaAgrupamentos[];
-        this.buscando = false;
-      }
     }
   }
 

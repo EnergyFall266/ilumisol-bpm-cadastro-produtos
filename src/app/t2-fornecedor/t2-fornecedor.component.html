@@ -40,7 +40,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal"
   >
     <p-table
@@ -49,7 +49,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t2_fornecedor_arr"
       [(selection)]="vp.t2_fornecedor_obj"
       (onRowSelect)="fornecedorSelect()"
@@ -212,7 +212,7 @@
           type="text"
           class="col-12"
           [readonly]="vp.t2_mandatory_to_readonly"
-          [(ngModel)]="vp.t2_codigo_produto"
+          [(ngModel)]="vp.t2_produto_fornecedor"
         />
       </div>
     </div>

@@ -10,7 +10,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t6_c1_c2_icms_substituido_cod"
+            [(ngModel)]="vp.t6_c1_c3_icm_subs_cod"
             (click)="icmsInput()"
           />
           <button
@@ -33,7 +33,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal_icm"
   >
     <p-table
@@ -42,9 +42,9 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c1_substituicao_arr"
-      [(selection)]="vp.t6_c1_c2_icms_substituido_obj"
+      [(selection)]="vp.t6_c1_c3_icm_subs_obj"
       (onRowSelect)="icmsSelect()"
       dataKey="codTst"
       [globalFilterFields]="['codTst', 'desTst']"
@@ -121,7 +121,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal_cof"
   >
     <p-table
@@ -130,7 +130,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c1_substituicao_arr"
       [(selection)]="vp.t6_c1_c3_cof_subs_obj"
       (onRowSelect)="cofinsSelect()"
@@ -211,7 +211,7 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [closable]="!buscando"
+    [closable]="!vp.buscandoWS"
     [(visible)]="mostrar_modal_pis"
   >
     <p-table
@@ -220,7 +220,7 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [loading]="buscando"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c1_substituicao_arr"
       [(selection)]="vp.t6_c1_c3_pis_subs_obj"
       (onRowSelect)="pisSelect()"

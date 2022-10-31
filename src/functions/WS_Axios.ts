@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import * as wsb from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 
-const URL = environment.urlpadrao;
+const URL = environment.url_padrao;
 
 export const wsG5Exporta = async (port: string, body: string = '{}') =>
   (
@@ -15,3 +15,14 @@ export const wsG5Exporta = async (port: string, body: string = '{}') =>
       wsb.ws_beans_header
     )
   ).data;
+
+export const wsGetNextProcessInstanceId = async () =>
+  (
+    await axios.get<
+      AxiosResponse<{ processInstanceID: number }>,
+      AxiosResponse<{ processInstanceID: number }>
+    >(
+      'https://platform.senior.com.br/t/senior.com.br/bridge/1.0/rest/platform/workflow/queries/getNextProcessInstanceId',
+      wsb.ws_beans_header
+    )
+  ).data.processInstanceID;
