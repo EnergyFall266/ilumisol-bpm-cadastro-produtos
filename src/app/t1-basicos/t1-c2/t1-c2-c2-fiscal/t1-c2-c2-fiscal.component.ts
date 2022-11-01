@@ -20,10 +20,15 @@ export class T1C2C2FiscalComponent implements OnInit {
   public async fiscalInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0)
+      if (this.vp.t1_c2_c2_clafiscal_arr.length == 0) {
         this.vp.t1_c2_c2_clafiscal_arr = (await this.ap.exportaServico(
           'ExportaClaFis'
         )) as ExportaClaFis[];
+        if (this.vp.t1_c2_c2_clafiscal_cod != '')
+          this.vp.t1_c2_c2_clafiscal_obj = this.vp.t1_c2_c2_clafiscal_arr.find(
+            (x) => x.codClf == this.vp.t1_c2_c2_clafiscal_cod
+          );
+      }
     }
   }
 

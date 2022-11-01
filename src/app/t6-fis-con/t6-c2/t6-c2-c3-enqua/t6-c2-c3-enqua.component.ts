@@ -20,10 +20,15 @@ export class T6C2C3EnquaComponent implements OnInit {
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c2_c3_enqua_arr.length == 0)
+      if (this.vp.t6_c2_c3_enqua_arr.length == 0) {
         this.vp.t6_c2_c3_enqua_arr = (await this.ap.exportaServico(
           'ExportaEnquadramento'
         )) as ExportaEnquadramento[];
+        if (this.vp.t6_c2_c3_enqua_cod != -1)
+          this.vp.t6_c2_c3_enqua_obj = this.vp.t6_c2_c3_enqua_arr.find(
+            (x) => x.codEnq == this.vp.t6_c2_c3_enqua_cod
+          );
+      }
     }
   }
 

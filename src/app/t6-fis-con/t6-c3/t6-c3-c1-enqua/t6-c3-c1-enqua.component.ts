@@ -20,11 +20,16 @@ export class T6C3C1EnquaComponent implements OnInit {
   public async enquaInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c3_c1_enq_esp_arr.length == 0)
+      if (this.vp.t6_c3_c1_enq_esp_arr.length == 0) {
         this.vp.t6_c3_c1_enq_esp_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LProEpe'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c3_c1_enq_esp_cod != '')
+          this.vp.t6_c3_c1_enq_esp_obj = this.vp.t6_c3_c1_enq_esp_arr.find(
+            (x) => x.chvLis == this.vp.t6_c3_c1_enq_esp_cod
+          );
+      }
     }
   }
 

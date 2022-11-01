@@ -20,10 +20,15 @@ export class T5C1C1MascaraComponent implements OnInit {
   public async mascaraInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t5_c1_c1_mascara_arr.length == 0)
+      if (this.vp.t5_c1_c1_mascara_arr.length == 0) {
         this.vp.t5_c1_c1_mascara_arr = (await this.ap.exportaServico(
           'ExportaMascaraDerivacao'
         )) as ExportaMascaraDerivacao[];
+        if (this.vp.t5_c1_c1_mascara_cod != '')
+          this.vp.t5_c1_c1_mascara_obj = this.vp.t5_c1_c1_mascara_arr.find(
+            (x) => x.codMdp == this.vp.t5_c1_c1_mascara_cod
+          );
+      }
     }
   }
 

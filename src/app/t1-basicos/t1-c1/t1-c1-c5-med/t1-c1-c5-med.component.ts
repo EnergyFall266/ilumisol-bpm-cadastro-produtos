@@ -20,10 +20,15 @@ export class T1C1C5MedComponent implements OnInit {
   public async unidadeInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.unidades_medida_arr.length == 0)
+      if (this.vp.unidades_medida_arr.length == 0) {
         this.vp.unidades_medida_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
         )) as ExportaUniMeds[];
+        if (this.vp.t1_c1_c5_medida_cod != '')
+          this.vp.t1_c1_c5_medida_obj = this.vp.unidades_medida_arr.find(
+            (x) => x.uniMed == this.vp.t1_c1_c5_medida_cod
+          );
+      }
     }
   }
 

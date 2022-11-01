@@ -20,11 +20,16 @@ export class T6C2C1PisvnComponent implements OnInit {
   public async situacaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c2_sit_tri_arr.length == 0)
+      if (this.vp.t6_c2_sit_tri_arr.length == 0) {
         this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LCstImp'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c2_c1_pis_ven_cod != '')
+          this.vp.t6_c2_c1_pis_ven_obj = this.vp.t6_c2_sit_tri_arr.find(
+            (x) => x.chvLis == this.vp.t6_c2_c1_pis_ven_cod
+          );
+      }
     }
   }
 

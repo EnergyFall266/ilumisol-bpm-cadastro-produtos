@@ -21,11 +21,16 @@ export class T5C1C2AgrupComponent implements OnInit {
   public async estoquesInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_est = true;
-      if (this.vp.t5_c1_c2_agr_est_arr.length == 0)
+      if (this.vp.t5_c1_c2_agr_est_arr.length == 0) {
         this.vp.t5_c1_c2_agr_est_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'E'
         )) as ExportaAgrupamentos[];
+        if (this.vp.t5_c1_c2_agr_est_cod != '')
+          this.vp.t5_c1_c2_agr_est_obj = this.vp.t5_c1_c2_agr_est_arr.find(
+            (x) => x.codAgp == this.vp.t5_c1_c2_agr_est_cod
+          );
+      }
     }
   }
 
@@ -38,11 +43,16 @@ export class T5C1C2AgrupComponent implements OnInit {
   public async custosInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_cus = true;
-      if (this.vp.t5_c1_c2_agr_cus_arr.length == 0)
+      if (this.vp.t5_c1_c2_agr_cus_arr.length == 0) {
         this.vp.t5_c1_c2_agr_cus_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'U'
         )) as ExportaAgrupamentos[];
+        if (this.vp.t5_c1_c2_agr_cus_cod != '')
+          this.vp.t5_c1_c2_agr_cus_obj = this.vp.t5_c1_c2_agr_cus_arr.find(
+            (x) => x.codAgp == this.vp.t5_c1_c2_agr_cus_cod
+          );
+      }
     }
   }
 

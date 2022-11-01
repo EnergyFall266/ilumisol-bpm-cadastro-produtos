@@ -26,3 +26,15 @@ export const wsGetNextProcessInstanceId = async () =>
       wsb.ws_beans_header
     )
   ).data.processInstanceID;
+
+export const wsG5Cadastro = async (body: string) =>
+  (
+    await axios.post<
+      AxiosResponse<wsb.G5Response>,
+      AxiosResponse<wsb.G5Response>
+    >(
+      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm&port=CadastroProduto&useAlwaysArray=true`,
+      body,
+      wsb.ws_beans_header
+    )
+  ).data;

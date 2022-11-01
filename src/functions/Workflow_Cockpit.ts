@@ -4,6 +4,7 @@ import { Info } from 'src/beans/Workflow';
 import { ws_beans_header } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import getFormPresentation from './Form_Presentation';
+import getVP from './Get_VP_BPM';
 
 const STEP = environment.tarefa();
 
@@ -23,7 +24,7 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   if (STEP !== environment.s1_sol_cad) {
     var map: Map<any, any> = new Map();
     for (let i of ipv) map.set(i.key, i.value);
-    //rld.vp = getVP(rld.vp, map);
+    rld.vp = getVP(rld.vp, map);
   }
   rld = getFormPresentation(rld);
 

@@ -20,11 +20,17 @@ export class T5C2C2Medida2Component implements OnInit {
   public async tcu2Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t5_c2_tipo_conversao_arr.length == 0)
+      if (this.vp.t5_c2_tipo_conversao_arr.length == 0) {
         this.vp.t5_c2_tipo_conversao_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LTipCnv'
         )) as ExportaValorLista[];
+        if (this.vp.t5_c2_c2_med_2_tip_cod != '')
+          this.vp.t5_c2_c2_med_2_tip_obj =
+            this.vp.t5_c2_tipo_conversao_arr.find(
+              (x) => x.chvLis == this.vp.t5_c2_c2_med_2_tip_cod
+            );
+      }
     }
   }
 

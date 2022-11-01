@@ -20,11 +20,16 @@ export class T6C1C1TipoComponent implements OnInit {
   public async tipoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c1_c1_tipo_prod_arr.length == 0)
+      if (this.vp.t6_c1_c1_tipo_prod_arr.length == 0) {
         this.vp.t6_c1_c1_tipo_prod_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LProImp'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c1_c1_tipo_prod_cod != '')
+          this.vp.t6_c1_c1_tipo_prod_obj = this.vp.t6_c1_c1_tipo_prod_arr.find(
+            (x) => x.chvLis == this.vp.t6_c1_c1_tipo_prod_cod
+          );
+      }
     }
   }
 

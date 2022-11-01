@@ -20,11 +20,16 @@ export class T6C3C2MotivComponent implements OnInit {
   public async motivoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t6_c3_c2_motivo_arr.length == 0)
+      if (this.vp.t6_c3_c2_motivo_arr.length == 0) {
         this.vp.t6_c3_c2_motivo_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LMotDes'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c3_c2_motivo_cod != '')
+          this.vp.t6_c3_c2_motivo_obj = this.vp.t6_c3_c2_motivo_arr.find(
+            (x) => x.chvLis == this.vp.t6_c3_c2_motivo_cod
+          );
+      }
     }
   }
 

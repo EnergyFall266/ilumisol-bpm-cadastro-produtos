@@ -21,10 +21,15 @@ export class T1C3C2VendaComponent implements OnInit {
   public async categoriaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal_cat = true;
-      if (this.vp.t1_c3_c2_categoria_arr.length == 0)
+      if (this.vp.t1_c3_c2_categoria_arr.length == 0) {
         this.vp.t1_c3_c2_categoria_arr = (await this.ap.exportaServico(
           'ExportaCategorias'
         )) as ExportaCategorias[];
+        if (this.vp.t1_c3_c2_categoria_cod != -1)
+          this.vp.t1_c3_c2_categoria_obj = this.vp.t1_c3_c2_categoria_arr.find(
+            (x) => x.codCtg == this.vp.t1_c3_c2_categoria_cod
+          );
+      }
     }
   }
 
@@ -52,11 +57,17 @@ export class T1C3C2VendaComponent implements OnInit {
     }
   }
 
-  private buscarSubCategorias = async () =>
-    (this.vp.t1_c3_c2_subcategoria_arr = (await this.ap.exportaServico(
+  private async buscarSubCategorias() {
+    this.vp.t1_c3_c2_subcategoria_arr = (await this.ap.exportaServico(
       'ExportaSubCategorias',
       this.vp.t1_c3_c2_categoria_cod
-    )) as ExportaSubCategorias[]);
+    )) as ExportaSubCategorias[];
+    if (this.vp.t1_c3_c2_subcategoria_cod != -1)
+      this.vp.t1_c3_c2_subcategoria_obj =
+        this.vp.t1_c3_c2_subcategoria_arr.find(
+          (x) => x.codSct == this.vp.t1_c3_c2_subcategoria_cod
+        );
+  }
 
   public subCategoriaSelect() {
     this.vp.t1_c3_c2_subcategoria_cod =

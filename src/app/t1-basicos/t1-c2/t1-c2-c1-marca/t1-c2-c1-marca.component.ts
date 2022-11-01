@@ -20,10 +20,15 @@ export class T1C2C1MarcaComponent implements OnInit {
   public async marcaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c2_c1_marca_arr.length == 0)
+      if (this.vp.t1_c2_c1_marca_arr.length == 0) {
         this.vp.t1_c2_c1_marca_arr = (await this.ap.exportaServico(
           'ExportaMarcas'
         )) as ExportaMarcas[];
+        if (this.vp.t1_c2_c1_marca_cod != '')
+          this.vp.t1_c2_c1_marca_obj = this.vp.t1_c2_c1_marca_arr.find(
+            (x) => x.codMar == this.vp.t1_c2_c1_marca_cod
+          );
+      }
     }
   }
 

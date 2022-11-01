@@ -34,11 +34,16 @@ export class T1C1C4FamComponent implements OnInit {
     }
   }
 
-  private buscarFamilias = async () =>
-    (this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
+  private async buscarFamilias() {
+    this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
       'ExportaFamilias',
       this.vp.t1_c1_c3_origem_cod
-    )) as ExportaFamilias[]);
+    )) as ExportaFamilias[];
+    if (this.vp.t1_c1_c4_familia_cod != '')
+      this.vp.t1_c1_c4_familia_obj = this.vp.t1_c1_c4_familia_arr.find(
+        (x) => x.codFam == this.vp.t1_c1_c4_familia_cod
+      );
+  }
 
   public familiaSelect() {
     this.vp.t1_c1_c4_familia_cod = this.vp.t1_c1_c4_familia_obj!.codFam;

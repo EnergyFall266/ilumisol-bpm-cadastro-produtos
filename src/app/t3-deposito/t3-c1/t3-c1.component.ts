@@ -20,10 +20,15 @@ export class T3C1Component implements OnInit {
   public async depositoInput() {
     if (!this.vp.t3_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t3_c1_destino_arr.length == 0)
+      if (this.vp.t3_c1_destino_arr.length == 0) {
         this.vp.t3_c1_destino_arr = (await this.ap.exportaServico(
           'ExportaDepositos'
         )) as ExportaDepositos[];
+        if (this.vp.t3_c1_destino_cod != '')
+          this.vp.t3_c1_destino_obj = this.vp.t3_c1_destino_arr.find(
+            (x) => x.codDep == this.vp.t3_c1_destino_cod
+          );
+      }
     }
   }
 

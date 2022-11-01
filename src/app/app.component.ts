@@ -73,6 +73,7 @@ export class AppComponent {
     const r = await wc.loadData(this.vp, info);
     this.activeMenu = fd.showMenus(r.initial, r.tabs);
     this.vp = r.vp;
+    this.vp.overlay = false;
   };
 
   private _saveData = (data: any, info: any): any => {

@@ -55,8 +55,21 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
     this.mostrar_modal_pis = false;
   }
 
-  private buscarSubstituicao = async () =>
-    (this.vp.t6_c1_substituicao_arr = (await this.ap.exportaServico(
+  private async buscarSubstituicao() {
+    this.vp.t6_c1_substituicao_arr = (await this.ap.exportaServico(
       'ExportaSubstituicao'
-    )) as ExportaSubstituicao[]);
+    )) as ExportaSubstituicao[];
+    if (this.vp.t6_c1_c3_icm_subs_cod != '')
+      this.vp.t6_c1_c3_icm_subs_obj = this.vp.t6_c1_substituicao_arr.find(
+        (x) => x.codTst == this.vp.t6_c1_c3_icm_subs_cod
+      );
+    if (this.vp.t6_c1_c3_cof_subs_cod != '')
+      this.vp.t6_c1_c3_cof_subs_obj = this.vp.t6_c1_substituicao_arr.find(
+        (x) => x.codTst == this.vp.t6_c1_c3_cof_subs_cod
+      );
+    if (this.vp.t6_c1_c3_pis_subs_cod != '')
+      this.vp.t6_c1_c3_pis_subs_obj = this.vp.t6_c1_substituicao_arr.find(
+        (x) => x.codTst == this.vp.t6_c1_c3_pis_subs_cod
+      );
+  }
 }

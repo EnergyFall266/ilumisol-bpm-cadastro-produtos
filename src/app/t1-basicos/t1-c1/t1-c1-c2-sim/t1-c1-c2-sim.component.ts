@@ -20,10 +20,15 @@ export class T1C1C2SimComponent implements OnInit {
   public async similarInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c1_item_arr.length == 0)
+      if (this.vp.t1_c1_item_arr.length == 0) {
         this.vp.t1_c1_item_arr = (await this.ap.exportaServico(
           'ExportaProdutos'
         )) as ExportaProdutos[];
+        if (this.vp.t1_c1_c2_item_simi_cod != '')
+          this.vp.t1_c1_c2_item_simi_obj = this.vp.t1_c1_item_arr.find(
+            (x) => x.codPro == this.vp.t1_c1_c2_item_simi_cod
+          );
+      }
     }
   }
 

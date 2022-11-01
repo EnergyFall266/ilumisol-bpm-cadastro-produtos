@@ -44,9 +44,18 @@ export class T6C2C4ComprasComponent implements OnInit {
     this.mostrar_modal_cof = false;
   }
 
-  private buscarSituacao = async () =>
-    (this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
+  private async buscarSituacao() {
+    this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
       'ExportaValorLista',
       'LCstImp'
-    )) as ExportaValorLista[]);
+    )) as ExportaValorLista[];
+    if (this.vp.t6_c2_c4_pis_com_cod != '')
+      this.vp.t6_c2_c4_pis_com_obj = this.vp.t6_c2_sit_tri_arr.find(
+        (x) => x.chvLis == this.vp.t6_c2_c4_pis_com_cod
+      );
+    if (this.vp.t6_c2_c4_cof_com_cod != '')
+      this.vp.t6_c2_c4_cof_com_obj = this.vp.t6_c2_sit_tri_arr.find(
+        (x) => x.chvLis == this.vp.t6_c2_c4_cof_com_cod
+      );
+  }
 }

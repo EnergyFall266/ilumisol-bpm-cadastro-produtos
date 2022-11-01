@@ -20,11 +20,17 @@ export class T1C2C4ComercialComponent implements OnInit {
   public async comercialInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c2_c4_agrupamento_arr.length == 0)
+      if (this.vp.t1_c2_c4_agrupamento_arr.length == 0) {
         this.vp.t1_c2_c4_agrupamento_arr = (await this.ap.exportaServico(
           'ExportaAgrupamentos',
           'C'
         )) as ExportaAgrupamentos[];
+        if (this.vp.t1_c2_c4_agrupamento_cod != '')
+          this.vp.t1_c2_c4_agrupamento_obj =
+            this.vp.t1_c2_c4_agrupamento_arr.find(
+              (x) => x.codAgp == this.vp.t1_c2_c4_agrupamento_cod
+            );
+      }
     }
   }
 

@@ -38,14 +38,23 @@ export class T5C2C1GerencialComponent implements OnInit {
     }
   }
 
-  private buscarUnidades = async () =>
-    (this.vp.unidades_medida_arr = (await this.ap.exportaServico(
-      'ExportaUniMeds'
-    )) as ExportaUniMeds[]);
-
   public uni3Select() {
     this.vp.t5_c2_c1_med_3_cod = this.vp.t5_c2_c1_med_3_obj!.uniMed;
     this.vp.t5_c2_c1_med_3_des = this.vp.t5_c2_c1_med_3_obj!.desMed;
     this.mostrar_modal_3 = false;
+  }
+
+  private async buscarUnidades() {
+    this.vp.unidades_medida_arr = (await this.ap.exportaServico(
+      'ExportaUniMeds'
+    )) as ExportaUniMeds[];
+    if (this.vp.t5_c2_c1_med_2_cod != '')
+      this.vp.t5_c2_c1_med_2_obj = this.vp.unidades_medida_arr.find(
+        (x) => x.uniMed == this.vp.t5_c2_c1_med_2_cod
+      );
+    if (this.vp.t5_c2_c1_med_3_cod != '')
+      this.vp.t5_c2_c1_med_3_obj = this.vp.unidades_medida_arr.find(
+        (x) => x.uniMed == this.vp.t5_c2_c1_med_3_cod
+      );
   }
 }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { checkFolder } from 'prisma_prismafunctions';
 import { VP_BPM } from 'src/beans/VP_BPM';
+import { CadastroRoot } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
-import { wsG5Exporta } from 'src/functions/WS_Axios';
+import { wsG5Cadastro, wsG5Exporta } from 'src/functions/WS_Axios';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { wsG5Exporta } from 'src/functions/WS_Axios';
 export class AppService {
   constructor() {}
 
-  public async pegarPastasGED(vp: VP_BPM) {
+  public async pegarPastasGED(vp: VP_BPM, scf: string) {
     const paiId: string = await checkFolder(
       vp.token,
       {
@@ -21,6 +22,35 @@ export class AppService {
       },
       ''
     );
+    if (paiId == '') return;
+
+    const proId: string = await checkFolder(
+      vp.token,
+      {
+        name: vp.ged_pasta_processo_nome,
+        description: vp.ged_pasta_processo_nome,
+        parent: paiId,
+        permissions: [environment.ged_papel],
+        inheritedPermission: true,
+      },
+      paiId
+    );
+    if (proId == '') return;
+
+    const scfId: string = await checkFolder(
+      vp.token,
+      {
+        name: scf,
+        description: scf,
+        parent: proId,
+        permissions: [environment.ged_papel],
+        inheritedPermission: true,
+      },
+      proId
+    );
+    if (scfId == '') return;
+
+    return { paiId, proId, scfId };
   }
 
   public async exportaServico(port: string, body: string | number = '') {
@@ -82,5 +112,13 @@ export class AppService {
     else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
       return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
     return [];
+  }
+
+  public async cadastroService(vp: VP_BPM) {
+    const c: CadastroRoot = {
+      produto: {},
+    };
+
+    const r = wsG5Cadastro(JSON.stringify(c));
   }
 }
