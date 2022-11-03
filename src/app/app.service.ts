@@ -116,9 +116,128 @@ export class AppService {
 
   public async cadastroService(vp: VP_BPM) {
     const c: CadastroRoot = {
-      produto: {},
+      produto: {
+        //Dados básicos
+        codOri: vp.t1_c1_c3_origem_cod,
+        codFam: vp.t1_c1_c4_familia_cod,
+        desPro: vp.t1_c1_descricao,
+        uniMed: vp.t1_c1_c5_medida_cod,
+
+        codMar: vp.t1_c2_c1_marca_cod,
+        codClf: vp.t1_c2_c2_clafiscal_cod,
+        codAgc: vp.t1_c2_c4_agrupamento_cod,
+        oriMer: vp.t1_c2_c5_mercadoria_cod,
+        intAgs: vp.t1_c2_c6_integra_agrosys,
+        proAgs: vp.t1_c2_c6_agrosys_cod,
+        codAga: vp.t1_c2_c7_multinivel_cod,
+
+        indReq: vp.t1_c3_c1_requisitado[0],
+        indVen: vp.t1_c3_c1_vendido[0],
+        indCpr: vp.t1_c3_c1_comprado[0],
+        indOct: vp.t1_c3_c1_orcamento[0],
+        proUpl: vp.t1_c3_vendido_upl[0],
+        emiRec: vp.t1_c3_receita[0],
+        venVir: vp.t1_c3_c2_venda_virtual[0],
+        codCtg: vp.t1_c3_c2_categoria_cod,
+        codSct: vp.t1_c3_c2_subcategoria_cod,
+        nroOnu: vp.t1_c3_numero_onu,
+        codCto: vp.t1_c4_classe_toxicologica ?? 0,
+        codCri: vp.t1_c4_classe_risco,
+        codNri: vp.t1_c4_numero_risco,
+        nroMap: vp.t1_c4_numero_mapa,
+        codQui: vp.t1_c4_quimico_cod,
+
+        //Dados de depósito
+        qtdMin: vp.t3_c1_quan_min_vendas,
+        qtdMax: vp.t3_c2_quan_max_vendas,
+        qtdMve: vp.t3_c4_quan_mul_ven,
+        qtdMlt: vp.t3_c4_quan_mul_com,
+
+        //Dados do cadastro
+        desNfv: vp.t5_c1_descricao,
+        codMdp: vp.t5_c1_c1_mascara_cod,
+        codAge: vp.t5_c1_c2_agr_est_cod,
+        codAgu: vp.t5_c1_c2_agr_cus_cod,
+
+        uniMe2: vp.t5_c2_c1_med_2_cod,
+        uniMe3: vp.t5_c2_c1_med_3_cod,
+
+        pesBru: vp.t5_c3_c1_peso_bruto,
+        pesLiq: vp.t5_c3_c1_peso_liquido,
+
+        //Dados fiscais e contábeis
+        proImp: vp.t6_c1_c1_tipo_prod_cod,
+        codTic: vp.t6_c1_c2_icms_especial_cod,
+        codTrd: vp.t6_c1_c2_reducao_icms_cod,
+        codTst: vp.t6_c1_c3_icm_subs_cod,
+        codStc: vp.t6_c1_c3_cof_subs_cod,
+        codStp: vp.t6_c1_c3_pis_subs_cod,
+        recPis: vp.t6_c1_pis_recu[0],
+        recCof: vp.t6_c1_cof_recu[0],
+        triPis: vp.t6_c1_pis_trib[0],
+        triCof: vp.t6_c1_cof_trib[0],
+
+        cstPis: vp.t6_c2_c1_pis_ven_cod,
+        natPis: vp.t6_c2_c1_pis_nat_cod ?? 0,
+        cstCof: vp.t6_c2_c2_cof_ven_cod,
+        natCof: vp.t6_c2_c2_cof_nat_cod ?? 0,
+        codEnq: vp.t6_c2_c3_enqua_cod,
+        cstPic: vp.t6_c2_c4_pis_com_cod,
+        cstCoc: vp.t6_c2_c4_cof_com_cod,
+        indFpr: vp.t6_c2_usa_pro_for[0],
+        perFun: vp.t6_c2_funrural,
+        perGil: vp.t6_c2_gilrat,
+
+        perSen: vp.t6_c3_senart,
+        proEpe: vp.t6_c3_c1_enq_esp_cod,
+        motDes: vp.t6_c3_c2_motivo_cod,
+        codCes: vp.t6_c3_substituicao,
+        codAnp: vp.t6_c3_c3_anp_cod,
+        desAnp: vp.t6_c3_c3_anp_des,
+        calFun: vp.t6_c3_cal_fun[0],
+        calSen: vp.t6_c3_cal_sen[0],
+        claPro: 1,
+        tipPro: 'C',
+        numOri: 55,
+
+        //Derivação
+        derivacao: [
+          {
+            codBar: vp.t1_c2_c3_barras,
+            tipCn2: vp.t5_c2_c2_med_2_tip_cod,
+            vlrCn2: vp.t5_c2_c2_med_2_val ?? 0,
+            tipCn3: vp.t5_c2_c3_med_3_tip_cod,
+            vlrCn3: vp.t5_c2_c3_med_3_val ?? 0,
+          },
+        ],
+
+        //Fornecedor X Produto
+        ligProFor: [
+          {
+            codFor: vp.t2_fornecedor_cod,
+            proFor: vp.t2_produto_fornecedor,
+            qtdMlt: vp.t2_quantidade_multipla ?? 0,
+            qtdMax: vp.t2_quantidade_maxima ?? 0,
+            qtdMin: vp.t2_quantidade_minima ?? 0,
+            recIpi: 'S',
+            recIcm: 'S',
+          },
+        ],
+
+        //Produto X Depósito
+        ligProDep: [
+          {
+            codDep: vp.t3_c1_destino_cod,
+            estRep: vp.t3_c1_quan_estoque_rep ?? 0,
+            estMin: vp.t3_c2_quan_estoque_min ?? 0,
+            estMax: vp.t3_c2_quan_estoque_max ?? 0,
+            estMid: vp.t3_c3_estoque_min ?? 0,
+            estMad: vp.t3_c3_estoque_max ?? 0,
+          },
+        ],
+      },
     };
 
-    const r = wsG5Cadastro(JSON.stringify(c));
+    return wsG5Cadastro(JSON.stringify(c));
   }
 }

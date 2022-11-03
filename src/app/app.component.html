@@ -19,7 +19,10 @@
 
   <app-t1-basicos [hidden]="panel['t1_basicos']" [vp]="vp"></app-t1-basicos>
 
-  <app-t2-fornecedor [hidden]="panel['t2_fornecedor']" [vp]="vp"></app-t2-fornecedor>
+  <app-t2-fornecedor
+    [hidden]="panel['t2_fornecedor']"
+    [vp]="vp"
+  ></app-t2-fornecedor>
 
   <app-t3-deposito [hidden]="panel['t3_deposito']" [vp]="vp"></app-t3-deposito>
 
@@ -28,8 +31,23 @@
   <app-t5-cadastro [hidden]="panel['t5_cadastro']" [vp]="vp"></app-t5-cadastro>
 
   <app-t6-fis-con [hidden]="panel['t6_fis_con']" [vp]="vp"></app-t6-fis-con>
+
+  <div class="grid pt-2" [hidden]="!vp.hideButtonCadastro">
+    <div class="col-3">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-arrow-circle-down"
+        label="Impressão do formulário"
+        class="w-full"
+      ></button>
+    </div>
+  </div>
 </div>
 
 <div class="progress-spinner-parent" *ngIf="vp.overlay">
   <p-progressSpinner class="progress-spinner"></p-progressSpinner>
 </div>
+
+<p-toast></p-toast>

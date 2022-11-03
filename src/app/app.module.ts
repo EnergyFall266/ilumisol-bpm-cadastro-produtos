@@ -29,6 +29,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
 import { T1C1Component } from './t1-basicos/t1-c1/t1-c1.component';
 import { T1C1C1SubComponent } from './t1-basicos/t1-c1/t1-c1-c1-sub/t1-c1-c1-sub.component';
@@ -179,6 +180,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     InputSwitchModule,
     EditorModule,
     RippleModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

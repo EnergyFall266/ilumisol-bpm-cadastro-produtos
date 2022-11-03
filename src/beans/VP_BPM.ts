@@ -34,6 +34,8 @@ export class VP_BPM {
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
 
+  public hideButtonCadastro: boolean = true;
+
   /**
    * Dados básicos
    */
@@ -133,18 +135,18 @@ export class VP_BPM {
 
   public t1_c3_c2_categoria_arr: wsb.ExportaCategorias[] = [];
   public t1_c3_c2_categoria_obj?: wsb.ExportaCategorias;
-  public t1_c3_c2_categoria_cod: number = -1;
+  public t1_c3_c2_categoria_cod: number = 0;
   public t1_c3_c2_categoria_des: string = '';
 
   public t1_c3_c2_subcategoria_arr: wsb.ExportaSubCategorias[] = [];
   public t1_c3_c2_subcategoria_obj?: wsb.ExportaSubCategorias;
-  public t1_c3_c2_subcategoria_cod: number = -1;
+  public t1_c3_c2_subcategoria_cod: number = 0;
   public t1_c3_c2_subcategoria_des: string = '';
 
   public t1_c3_numero_onu: string = '';
 
   //Coluna 4
-  public t1_c4_classe_toxicologica: string = '';
+  public t1_c4_classe_toxicologica?: number;
 
   public t1_c4_classe_risco: string = '';
 
@@ -154,7 +156,7 @@ export class VP_BPM {
 
   public t1_c4_quimico_arr: wsb.ExportaGrupoQuimico[] = [];
   public t1_c4_quimico_obj?: wsb.ExportaGrupoQuimico;
-  public t1_c4_quimico_cod: number = -1;
+  public t1_c4_quimico_cod: number = 0;
   public t1_c4_quimico_des: string = '';
 
   /**
@@ -165,7 +167,7 @@ export class VP_BPM {
 
   public t2_fornecedor_arr: wsb.ExportaFornecedores[] = [];
   public t2_fornecedor_obj?: wsb.ExportaFornecedores;
-  public t2_fornecedor_cod: number = -1;
+  public t2_fornecedor_cod: number = 0;
   public t2_fornecedor_des: string = '';
 
   public t2_quantidade_multipla?: number;
@@ -297,7 +299,7 @@ export class VP_BPM {
   //Coluna 1
   public t6_c1_c1_tipo_prod_arr: wsb.ExportaValorLista[] = [];
   public t6_c1_c1_tipo_prod_obj?: wsb.ExportaValorLista;
-  public t6_c1_c1_tipo_prod_cod: string = '';
+  public t6_c1_c1_tipo_prod_cod: number = -1;
   public t6_c1_c1_tipo_prod_des: string = '';
 
   public t6_c1_c2_icms_especial_arr: wsb.ExportaICMSEsp[] = [];
@@ -334,13 +336,13 @@ export class VP_BPM {
   public t6_c2_c1_pis_ven_cod: string = '';
   public t6_c2_c1_pis_ven_des: string = '';
 
-  public t6_c2_c1_pis_nat_cod: string = '';
+  public t6_c2_c1_pis_nat_cod?: number;
 
   public t6_c2_c2_cof_ven_obj?: wsb.ExportaValorLista;
   public t6_c2_c2_cof_ven_cod: string = '';
   public t6_c2_c2_cof_ven_des: string = '';
 
-  public t6_c2_c2_cof_nat_cod: string = '';
+  public t6_c2_c2_cof_nat_cod?: number;
 
   public t6_c2_c3_enqua_arr: wsb.ExportaEnquadramento[] = [];
   public t6_c2_c3_enqua_obj?: wsb.ExportaEnquadramento;
@@ -365,12 +367,12 @@ export class VP_BPM {
 
   public t6_c3_c1_enq_esp_arr: wsb.ExportaValorLista[] = [];
   public t6_c3_c1_enq_esp_obj?: wsb.ExportaValorLista;
-  public t6_c3_c1_enq_esp_cod: string = '';
+  public t6_c3_c1_enq_esp_cod: number = -1;
   public t6_c3_c1_enq_esp_des: string = '';
 
   public t6_c3_c2_motivo_arr: wsb.ExportaValorLista[] = [];
   public t6_c3_c2_motivo_obj?: wsb.ExportaValorLista;
-  public t6_c3_c2_motivo_cod: string = '';
+  public t6_c3_c2_motivo_cod: number = -1;
   public t6_c3_c2_motivo_des: string = '';
 
   public t6_c3_substituicao: string = '';

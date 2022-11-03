@@ -137,7 +137,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
       break;
 
     case environment.s4_fis_con:
-      if (vp.t6_c1_c1_tipo_prod_cod == '')
+      if (vp.t6_c1_c1_tipo_prod_cod == -1)
         m.push(
           getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
         );
@@ -162,7 +162,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
           getMsgS('Dados fiscais e contábeis - Situação Tributária Pis Vendas')
         );
 
-      if (vp.t6_c2_c1_pis_nat_cod == '')
+      if (vp.t6_c2_c1_pis_nat_cod === undefined)
         m.push(getMsgS('Dados fiscais e contábeis - Natureza Receita Pis'));
 
       if (vp.t6_c2_c2_cof_ven_cod == '')
@@ -172,7 +172,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
           )
         );
 
-      if (vp.t6_c2_c2_cof_nat_cod == '')
+      if (vp.t6_c2_c2_cof_nat_cod === undefined)
         m.push(getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins'));
 
       if (vp.t6_c2_c3_enqua_cod === undefined)
@@ -202,7 +202,7 @@ export default function formValidate(vp: VP_BPM): Message[] {
       if (vp.t6_c3_senart === undefined)
         m.push(getMsgC('Dados fiscais e contábeis - % Senar / Senat'));
 
-      if (vp.t6_c3_c1_enq_esp_cod == '')
+      if (vp.t6_c3_c1_enq_esp_cod == -1)
         m.push(
           getMsgS(
             'Dados fiscais e contábeis - Enquadramento de produto específico'

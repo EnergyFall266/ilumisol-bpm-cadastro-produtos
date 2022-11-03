@@ -25,16 +25,16 @@ export class T6C3C2MotivComponent implements OnInit {
           'ExportaValorLista',
           'LMotDes'
         )) as ExportaValorLista[];
-        if (this.vp.t6_c3_c2_motivo_cod != '')
+        if (this.vp.t6_c3_c2_motivo_cod != -1)
           this.vp.t6_c3_c2_motivo_obj = this.vp.t6_c3_c2_motivo_arr.find(
-            (x) => x.chvLis == this.vp.t6_c3_c2_motivo_cod
+            (x) => Number(x.chvLis) == this.vp.t6_c3_c2_motivo_cod
           );
       }
     }
   }
 
   public motivoSelect() {
-    this.vp.t6_c3_c2_motivo_cod = this.vp.t6_c3_c2_motivo_obj!.chvLis;
+    this.vp.t6_c3_c2_motivo_cod = Number(this.vp.t6_c3_c2_motivo_obj!.chvLis);
     this.vp.t6_c3_c2_motivo_des = this.vp.t6_c3_c2_motivo_obj!.desLis;
     this.mostrar_modal = false;
   }
