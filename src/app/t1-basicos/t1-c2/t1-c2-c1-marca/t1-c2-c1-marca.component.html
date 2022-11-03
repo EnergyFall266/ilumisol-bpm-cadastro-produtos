@@ -17,7 +17,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_c1_item_subs_cod"
+            [(ngModel)]="vp.t1_c2_c1_marca_des"
             (click)="marcaInput()"
           />
           <button
@@ -40,7 +40,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalMar"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableMarca
@@ -48,11 +49,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c2_c1_marca_arr"
       [(selection)]="vp.t1_c2_c1_marca_obj"
       (onRowSelect)="marcaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codMar"
+      [globalFilterFields]="['codMar', 'nomMar']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -72,14 +74,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codMar">
+            Código <p-sortIcon field="codMar"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nomMar">
+            Nome <p-sortIcon field="nomMar"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-mar>
         <tr [pSelectableRow]="mar">
-          <td>{{ mar.c }}</td>
-          <td>{{ mar.d }}</td>
+          <td>{{ mar.codMar }}</td>
+          <td>{{ mar.nomMar }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

@@ -33,7 +33,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalEst"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_est"
   >
     <p-table
       #tableEstoques
@@ -41,11 +42,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c1_c2_agr_est_arr"
       [(selection)]="vp.t5_c1_c2_agr_est_obj"
       (onRowSelect)="estoquesSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codAgp"
+      [globalFilterFields]="['codAgp', 'desAgp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -68,14 +70,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codAgp">
+            Código <p-sortIcon field="codAgp"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desAgp">
+            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-est>
         <tr [pSelectableRow]="est">
-          <td>{{ est.c }}</td>
-          <td>{{ est.d }}</td>
+          <td>{{ est.codAgp }}</td>
+          <td>{{ est.desAgp }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -115,7 +121,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalCus"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_cus"
   >
     <p-table
       #tableCustos
@@ -123,11 +130,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c1_c2_agr_cus_arr"
       [(selection)]="vp.t5_c1_c2_agr_cus_obj"
       (onRowSelect)="custosSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codAgp"
+      [globalFilterFields]="['codAgp', 'desAgp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -147,14 +155,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codAgp">
+            Código <p-sortIcon field="codAgp"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desAgp">
+            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-cus>
         <tr [pSelectableRow]="cus">
-          <td>{{ cus.c }}</td>
-          <td>{{ cus.d }}</td>
+          <td>{{ cus.codAgp }}</td>
+          <td>{{ cus.desAgp }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

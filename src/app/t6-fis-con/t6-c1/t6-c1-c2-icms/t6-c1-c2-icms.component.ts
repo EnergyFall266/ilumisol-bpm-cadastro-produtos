@@ -1,11 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
-import {
-  ExportaICMSEsp,
-  ExportaReducaoICMS,
-  ExportaSubstituicao,
-} from 'src/beans/WS_Beans';
+import { ExportaICMSEsp, ExportaReducaoICMS } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t6-c1-c2-icms',
@@ -15,9 +11,8 @@ import {
 export class T6C1C2IcmsComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalEsp: boolean = false;
-  public showModalRed: boolean = false;
-  public showModalSub: boolean = false;
+  public mostrar_modal_esp: boolean = false;
+  public mostrar_modal_red: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -25,11 +20,16 @@ export class T6C1C2IcmsComponent implements OnInit {
 
   public async especialInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalEsp = true;
+      this.mostrar_modal_esp = true;
       if (this.vp.t6_c1_c2_icms_especial_arr.length == 0) {
         this.vp.t6_c1_c2_icms_especial_arr = (await this.ap.exportaServico(
           'ExportaICMSEsp'
         )) as ExportaICMSEsp[];
+        if (this.vp.t6_c1_c2_icms_especial_cod != '')
+          this.vp.t6_c1_c2_icms_especial_obj =
+            this.vp.t6_c1_c2_icms_especial_arr.find(
+              (x) => x.codTic == this.vp.t6_c1_c2_icms_especial_cod
+            );
       }
     }
   }
@@ -37,16 +37,21 @@ export class T6C1C2IcmsComponent implements OnInit {
   public especialSelect() {
     this.vp.t6_c1_c2_icms_especial_cod =
       this.vp.t6_c1_c2_icms_especial_obj!.codTic;
-    this.showModalEsp = false;
+    this.mostrar_modal_esp = false;
   }
 
   public async reducaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalRed = true;
+      this.mostrar_modal_red = true;
       if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0) {
         this.vp.t6_c1_c2_reducao_icms_arr = (await this.ap.exportaServico(
           'ExportaReducaoICMS'
         )) as ExportaReducaoICMS[];
+        if (this.vp.t6_c1_c2_reducao_icms_cod != '')
+          this.vp.t6_c1_c2_reducao_icms_obj =
+            this.vp.t6_c1_c2_reducao_icms_arr.find(
+              (x) => x.codTrd == this.vp.t6_c1_c2_reducao_icms_cod
+            );
       }
     }
   }
@@ -54,23 +59,6 @@ export class T6C1C2IcmsComponent implements OnInit {
   public reducaoSelect() {
     this.vp.t6_c1_c2_reducao_icms_cod =
       this.vp.t6_c1_c2_reducao_icms_obj!.codTrd;
-    this.showModalRed = false;
-  }
-
-  public async substituidoInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalSub = true;
-      if (this.vp.t6_c1_c2_icms_substituido_arr.length == 0) {
-        this.vp.t6_c1_c2_icms_substituido_arr = (await this.ap.exportaServico(
-          'ExportaSubstituicao'
-        )) as ExportaSubstituicao[];
-      }
-    }
-  }
-
-  public substituidoSelect() {
-    this.vp.t6_c1_c2_icms_substituido_cod =
-      this.vp.t6_c1_c2_icms_substituido_obj!.codTst;
-    this.showModalSub = false;
+    this.mostrar_modal_red = false;
   }
 }

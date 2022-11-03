@@ -11,7 +11,7 @@ import { ExportaMarcas } from 'src/beans/WS_Beans';
 export class T1C2C1MarcaComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalMar: boolean = false;
+  public mostrar_modal: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +19,22 @@ export class T1C2C1MarcaComponent implements OnInit {
 
   public async marcaInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
-      this.showModalMar = true;
-      if (this.vp.t1_c2_c1_marca_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t1_c2_c1_marca_arr.length == 0) {
         this.vp.t1_c2_c1_marca_arr = (await this.ap.exportaServico(
           'ExportaMarcas'
         )) as ExportaMarcas[];
+        if (this.vp.t1_c2_c1_marca_cod != '')
+          this.vp.t1_c2_c1_marca_obj = this.vp.t1_c2_c1_marca_arr.find(
+            (x) => x.codMar == this.vp.t1_c2_c1_marca_cod
+          );
+      }
     }
   }
 
   public marcaSelect() {
     this.vp.t1_c2_c1_marca_cod = this.vp.t1_c2_c1_marca_obj!.codMar;
     this.vp.t1_c2_c1_marca_des = this.vp.t1_c2_c1_marca_obj!.nomMar;
-    this.showModalMar = false;
+    this.mostrar_modal = false;
   }
 }

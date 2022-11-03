@@ -80,8 +80,6 @@ import { T6C3Component } from './t6-fis-con/t6-c3/t6-c3.component';
 import { T6C3C1EnquaComponent } from './t6-fis-con/t6-c3/t6-c3-c1-enqua/t6-c3-c1-enqua.component';
 import { T6C3C2MotivComponent } from './t6-fis-con/t6-c3/t6-c3-c2-motiv/t6-c3-c2-motiv.component';
 import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp.component';
-import { T6C3C4PautaComponent } from './t6-fis-con/t6-c3/t6-c3-c4-pauta/t6-c3-c4-pauta.component';
-import { T6C3C5BenefComponent } from './t6-fis-con/t6-c3/t6-c3-c5-benef/t6-c3-c5-benef.component';
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
@@ -143,8 +141,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C3C1EnquaComponent,
     T6C3C2MotivComponent,
     T6C3C3AnpComponent,
-    T6C3C4PautaComponent,
-    T6C3C5BenefComponent,
     T6C4Component,
     T6C4C1ObsComponent,
     T6C4C2AneComponent,

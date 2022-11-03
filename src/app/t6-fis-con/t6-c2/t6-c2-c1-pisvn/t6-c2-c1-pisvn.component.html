@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalSit"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tablePisVen
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t6_c2_c1_pis_ven_arr"
+      [loading]="vp.buscandoWS"
+      [value]="vp.t6_c2_sit_tri_arr"
       [(selection)]="vp.t6_c2_c1_pis_ven_obj"
       (onRowSelect)="situacaoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-sit>
         <tr [pSelectableRow]="sit">
-          <td>{{ sit.c }}</td>
-          <td>{{ sit.d }}</td>
+          <td>{{ sit.chvLis }}</td>
+          <td>{{ sit.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -87,83 +93,19 @@
     <div class="grid">
       <span class="col-12"
         >Natureza Receita Pis
-        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
+        <span [hidden]="vp.t6_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
       <div class="col-12 py-0">
-        <div class="p-inputgroup">
-          <input
-            pInputText
-            type="text"
-            class="col-12"
-            placeholder="Selecione"
-            [readonly]="true"
-            [(ngModel)]="vp.t6_c2_c1_pis_nat_des"
-            (click)="naturezaInput()"
-          />
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-search"
-            class="p-0"
-            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
-            (click)="naturezaInput()"
-          ></button>
-        </div>
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t2_mandatory_to_readonly"
+          [(ngModel)]="vp.t6_c2_c1_pis_nat_cod"
+        />
       </div>
     </div>
   </div>
-  <p-dialog
-    header="Naturezas"
-    [styleClass]="'w-6'"
-    [modal]="true"
-    [draggable]="false"
-    [resizable]="false"
-    [closeOnEscape]="true"
-    [(visible)]="showModalNat"
-  >
-    <p-table
-      #tablePisNat
-      selectionMode="single"
-      styleClass="p-datatable-sm"
-      [rows]="10"
-      [paginator]="true"
-      [value]="vp.t6_c2_c1_pis_nat_arr"
-      [(selection)]="vp.t6_c2_c1_pis_nat_obj"
-      (onRowSelect)="naturezaSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
-    >
-      <ng-template pTemplate="caption">
-        <div class="p-d-flex">
-          <span class="p-input-icon-left p-ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              class="col-12"
-              pInputText
-              (input)="
-                tablePisNat.filterGlobal($any($event.target).value, 'contains')
-              "
-              placeholder="Buscar"
-            />
-          </span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Código</th>
-          <th>Descrição</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-nat>
-        <tr [pSelectableRow]="nat">
-          <td>{{ nat.c }}</td>
-          <td>{{ nat.d }}</td>
-        </tr>
-      </ng-template>
-    </p-table></p-dialog
-  >
 </div>

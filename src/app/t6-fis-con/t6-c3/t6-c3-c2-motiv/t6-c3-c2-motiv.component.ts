@@ -11,7 +11,7 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C3C2MotivComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalMot: boolean = false;
+  public mostrar_modal: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,18 +19,23 @@ export class T6C3C2MotivComponent implements OnInit {
 
   public async motivoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalMot = true;
+      this.mostrar_modal = true;
       if (this.vp.t6_c3_c2_motivo_arr.length == 0) {
         this.vp.t6_c3_c2_motivo_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LMotDes'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c3_c2_motivo_cod != '')
+          this.vp.t6_c3_c2_motivo_obj = this.vp.t6_c3_c2_motivo_arr.find(
+            (x) => x.chvLis == this.vp.t6_c3_c2_motivo_cod
+          );
       }
     }
   }
 
   public motivoSelect() {
     this.vp.t6_c3_c2_motivo_cod = this.vp.t6_c3_c2_motivo_obj!.chvLis;
-    this.showModalMot = false;
+    this.vp.t6_c3_c2_motivo_des = this.vp.t6_c3_c2_motivo_obj!.desLis;
+    this.mostrar_modal = false;
   }
 }

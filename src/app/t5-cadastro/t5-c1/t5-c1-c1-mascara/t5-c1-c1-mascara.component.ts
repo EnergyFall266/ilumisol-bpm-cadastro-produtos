@@ -11,7 +11,7 @@ import { ExportaMascaraDerivacao } from 'src/beans/WS_Beans';
 export class T5C1C1MascaraComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalMas: boolean = false;
+  public mostrar_modal: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +19,22 @@ export class T5C1C1MascaraComponent implements OnInit {
 
   public async mascaraInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
-      this.showModalMas = true;
+      this.mostrar_modal = true;
       if (this.vp.t5_c1_c1_mascara_arr.length == 0) {
         this.vp.t5_c1_c1_mascara_arr = (await this.ap.exportaServico(
           'ExportaMascaraDerivacao'
         )) as ExportaMascaraDerivacao[];
+        if (this.vp.t5_c1_c1_mascara_cod != '')
+          this.vp.t5_c1_c1_mascara_obj = this.vp.t5_c1_c1_mascara_arr.find(
+            (x) => x.codMdp == this.vp.t5_c1_c1_mascara_cod
+          );
       }
     }
   }
 
   public mascaraSelect() {
     this.vp.t5_c1_c1_mascara_cod = this.vp.t5_c1_c1_mascara_obj!.codMdp;
-    this.showModalMas = false;
+    this.vp.t5_c1_c1_mascara_des = this.vp.t5_c1_c1_mascara_obj!.desMdp;
+    this.mostrar_modal = false;
   }
 }

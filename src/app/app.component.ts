@@ -46,21 +46,21 @@ export class AppComponent {
   public ngOnInit(): void {
     axios.interceptors.request.use(
       (config) => {
-        this.vp.overlay = true;
+        this.vp.buscandoWS = true;
         return config;
       },
       (error) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
     );
     axios.interceptors.response.use(
       (response) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return response;
       },
       (error) => {
-        this.vp.overlay = false;
+        this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
     );
@@ -73,6 +73,7 @@ export class AppComponent {
     const r = await wc.loadData(this.vp, info);
     this.activeMenu = fd.showMenus(r.initial, r.tabs);
     this.vp = r.vp;
+    this.vp.overlay = false;
   };
 
   private _saveData = (data: any, info: any): any => {

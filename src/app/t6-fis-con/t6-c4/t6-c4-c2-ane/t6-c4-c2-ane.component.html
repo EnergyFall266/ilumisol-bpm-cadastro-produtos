@@ -8,18 +8,17 @@
     "
   >
     <div class="grid">
-      <span class="col-12">Anexo cadastro</span>
+      <span class="col-12">Anexo fiscal/contábil</span>
       <div class="py-0 pl-2" style="max-width: 88%">
         <p-fileUpload
           #anexosT6
           styleClass="w-full"
           mode="basic"
           name="anexosT6_string[]"
-          [customUpload]="true"
           chooseLabel="Anexo"
           [chooseIcon]="'pi pi-search'"
+          [uploadIcon]="'pi pi-save'"
           (onSelect)="escolherDocumentoFileUpload(anexosT6)"
-          (uploadHandler)="enviarDocumentos(anexosT6)"
         ></p-fileUpload>
       </div>
       <div
@@ -43,7 +42,7 @@
     [style.display]="vp.t6_c4_c2_anexo_ged_arr.length == 0 ? 'none' : ''"
   >
     <div class="grid">
-      <span class="col-12">Anexo cadastro</span>
+      <span class="col-12">Anexo fiscal/contábil</span>
       <div
         class="col-12 py-0 flex align-items-center"
         *ngFor="let a of vp.t6_c4_c2_anexo_ged_arr"

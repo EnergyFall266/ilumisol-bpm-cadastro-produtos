@@ -33,7 +33,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalUn2"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_2"
   >
     <p-table
       #tableUni2
@@ -41,11 +42,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t5_c2_c1_med_2_arr"
+      [loading]="vp.buscandoWS"
+      [value]="vp.unidades_medida_arr"
       [(selection)]="vp.t5_c2_c1_med_2_obj"
       (onRowSelect)="uni2Select()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="uniMed"
+      [globalFilterFields]="['uniMed', 'desMed']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -65,14 +67,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="uniMed">
+            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMed">
+            Descrição <p-sortIcon field="desMed"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-un2>
         <tr [pSelectableRow]="un2">
-          <td>{{ un2.c }}</td>
-          <td>{{ un2.d }}</td>
+          <td>{{ un2.uniMed }}</td>
+          <td>{{ un2.desMed }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -112,7 +118,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalUn3"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_3"
   >
     <p-table
       #tableUni3
@@ -120,11 +127,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t5_c2_c1_med_3_arr"
+      [loading]="vp.buscandoWS"
+      [value]="vp.unidades_medida_arr"
       [(selection)]="vp.t5_c2_c1_med_3_obj"
-      (onRowSelect)="uni2Select()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      (onRowSelect)="uni3Select()"
+      dataKey="uniMed"
+      [globalFilterFields]="['uniMed', 'desMed']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -144,14 +152,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="uniMed">
+            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMed">
+            Descrição <p-sortIcon field="desMed"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-un3>
         <tr [pSelectableRow]="un3">
-          <td>{{ un3.c }}</td>
-          <td>{{ un3.d }}</td>
+          <td>{{ un3.uniMed }}</td>
+          <td>{{ un3.desMed }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

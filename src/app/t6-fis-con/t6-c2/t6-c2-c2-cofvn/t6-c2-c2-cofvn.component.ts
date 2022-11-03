@@ -11,8 +11,7 @@ import { ExportaValorLista } from 'src/beans/WS_Beans';
 export class T6C2C2CofvnComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalSit: boolean = false;
-  public showModalNat: boolean = false;
+  public mostrar_modal: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -20,30 +19,23 @@ export class T6C2C2CofvnComponent implements OnInit {
 
   public async situacaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalSit = true;
-      if (this.vp.t6_c2_c2_cof_ven_arr.length == 0) {
-        this.vp.t6_c2_c2_cof_ven_arr = (await this.ap.exportaServico(
+      this.mostrar_modal = true;
+      if (this.vp.t6_c2_sit_tri_arr.length == 0) {
+        this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(
           'ExportaValorLista',
           'LCstImp'
         )) as ExportaValorLista[];
+        if (this.vp.t6_c2_c2_cof_ven_cod != '')
+          this.vp.t6_c2_c2_cof_ven_obj = this.vp.t6_c2_sit_tri_arr.find(
+            (x) => x.chvLis == this.vp.t6_c2_c2_cof_ven_cod
+          );
       }
     }
   }
 
   public situacaoSelect() {
     this.vp.t6_c2_c2_cof_ven_cod = this.vp.t6_c2_c2_cof_ven_obj!.chvLis;
-    this.showModalSit = false;
-  }
-
-  public naturezaInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
-      this.showModalNat = true;
-      if (this.vp.t6_c2_c2_cof_nat_arr.length == 0) {
-      }
-    }
-  }
-
-  public naturezaSelect() {
-    this.showModalNat = false;
+    this.vp.t6_c2_c2_cof_ven_des = this.vp.t6_c2_c2_cof_ven_obj!.desLis;
+    this.mostrar_modal = false;
   }
 }

@@ -40,7 +40,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalFor"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableFornecedor
@@ -48,11 +49,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t2_fornecedor_arr"
       [(selection)]="vp.t2_fornecedor_obj"
       (onRowSelect)="fornecedorSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codFor"
+      [globalFilterFields]="['codFor', 'nomFor']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -75,14 +77,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codFor">
+            Código <p-sortIcon field="codFor"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nomFor">
+            Descrição <p-sortIcon field="nomFor"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-for>
         <tr [pSelectableRow]="for">
-          <td>{{ for.c }}</td>
-          <td>{{ for.d }}</td>
+          <td>{{ for.codFor }}</td>
+          <td>{{ for.nomFor }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -206,7 +212,7 @@
           type="text"
           class="col-12"
           [readonly]="vp.t2_mandatory_to_readonly"
-          [(ngModel)]="vp.t2_codigo_produto"
+          [(ngModel)]="vp.t2_produto_fornecedor"
         />
       </div>
     </div>

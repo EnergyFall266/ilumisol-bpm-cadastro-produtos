@@ -59,12 +59,13 @@
   </div>
   <p-dialog
     header="Agrosys"
-    [styleClass]="'w-6'"
+    [styleClass]="'w-5'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalAgr"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableAgrosys
@@ -72,11 +73,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c2_c6_agrosys_arr"
       [(selection)]="vp.t1_c2_c6_agrosys_obj"
       (onRowSelect)="agrosysSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="proAgs"
+      [globalFilterFields]="['proAgs']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -96,14 +98,14 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="proAgs">
+            Código <p-sortIcon field="proAgs"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-agr>
         <tr [pSelectableRow]="agr">
-          <td>{{ agr.c }}</td>
-          <td>{{ agr.d }}</td>
+          <td>{{ agr.proAgs }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

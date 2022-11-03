@@ -33,7 +33,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalEsp"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_esp"
   >
     <p-table
       #tableEspecial
@@ -41,11 +42,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c1_c2_icms_especial_arr"
       [(selection)]="vp.t6_c1_c2_icms_especial_obj"
       (onRowSelect)="especialSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codTic"
+      [globalFilterFields]="['codTic', 'desTic']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -68,14 +70,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codTic">
+            Código <p-sortIcon field="codTic"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desTic">
+            Descrição <p-sortIcon field="desTic"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-esp>
         <tr [pSelectableRow]="esp">
-          <td>{{ esp.c }}</td>
-          <td>{{ esp.d }}</td>
+          <td>{{ esp.codTic }}</td>
+          <td>{{ esp.desTic }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
@@ -115,7 +121,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalRed"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_red"
   >
     <p-table
       #tableReducao
@@ -123,11 +130,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t6_c1_c2_reducao_icms_arr"
       [(selection)]="vp.t6_c1_c2_reducao_icms_obj"
       (onRowSelect)="reducaoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codTrd"
+      [globalFilterFields]="['codTrd', 'desTrd']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -147,96 +155,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codTrd">
+            Código <p-sortIcon field="codTrd"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desTrd">
+            Descrição <p-sortIcon field="desTrd"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-red>
         <tr [pSelectableRow]="red">
-          <td>{{ red.c }}</td>
-          <td>{{ red.d }}</td>
-        </tr>
-      </ng-template>
-    </p-table></p-dialog
-  >
-
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12">Código ICMS Substituído</span>
-      <div class="col-12 py-0">
-        <div class="p-inputgroup">
-          <input
-            pInputText
-            type="text"
-            class="col-12"
-            placeholder="Selecione"
-            [readonly]="true"
-            [(ngModel)]="vp.t6_c1_c2_icms_substituido_cod"
-            (click)="substituidoInput()"
-          />
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-search"
-            class="p-0"
-            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
-            (click)="substituidoInput()"
-          ></button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p-dialog
-    header="Códigos"
-    [styleClass]="'w-6'"
-    [modal]="true"
-    [draggable]="false"
-    [resizable]="false"
-    [closeOnEscape]="true"
-    [(visible)]="showModalSub"
-  >
-    <p-table
-      #tableSubstituido
-      selectionMode="single"
-      styleClass="p-datatable-sm"
-      [rows]="10"
-      [paginator]="true"
-      [value]="vp.t6_c1_c2_icms_substituido_arr"
-      [(selection)]="vp.t6_c1_c2_icms_substituido_obj"
-      (onRowSelect)="substituidoSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
-    >
-      <ng-template pTemplate="caption">
-        <div class="p-d-flex">
-          <span class="p-input-icon-left p-ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              class="col-12"
-              pInputText
-              (input)="
-                tableSubstituido.filterGlobal(
-                  $any($event.target).value,
-                  'contains'
-                )
-              "
-              placeholder="Buscar"
-            />
-          </span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Código</th>
-          <th>Descrição</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-sub>
-        <tr [pSelectableRow]="sub">
-          <td>{{ sub.c }}</td>
-          <td>{{ sub.d }}</td>
+          <td>{{ red.codTrd }}</td>
+          <td>{{ red.desTrd }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

@@ -11,7 +11,7 @@ import { AppService } from '../app.service';
 export class T2FornecedorComponent implements OnInit {
   @Input() vp!: VP_BPM;
 
-  public showModalFor: boolean = false;
+  public mostrar_modal: boolean = false;
 
   constructor(private ap: AppService) {}
 
@@ -19,17 +19,22 @@ export class T2FornecedorComponent implements OnInit {
 
   public async fornecedorInput() {
     if (!this.vp.t2_mandatory_to_readonly) {
-      this.showModalFor = true;
-      if (this.vp.t2_fornecedor_arr.length == 0)
+      this.mostrar_modal = true;
+      if (this.vp.t2_fornecedor_arr.length == 0) {
         this.vp.t2_fornecedor_arr = (await this.ap.exportaServico(
           'ExportaFornecedores'
         )) as ExportaFornecedores[];
+        if (this.vp.t2_fornecedor_cod != -1)
+          this.vp.t2_fornecedor_obj = this.vp.t2_fornecedor_arr.find(
+            (x) => x.codFor == this.vp.t2_fornecedor_cod
+          );
+      }
     }
   }
 
   public fornecedorSelect() {
     this.vp.t2_fornecedor_cod = this.vp.t2_fornecedor_obj!.codFor;
     this.vp.t2_fornecedor_des = this.vp.t2_fornecedor_obj!.nomFor;
-    this.showModalFor = false;
+    this.mostrar_modal = false;
   }
 }

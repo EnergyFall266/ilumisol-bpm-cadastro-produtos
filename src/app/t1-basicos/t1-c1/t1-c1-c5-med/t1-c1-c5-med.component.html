@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalUni"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableUnidade
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
-      [value]="vp.t1_c1_c5_medida_arr"
+      [loading]="vp.buscandoWS"
+      [value]="vp.unidades_medida_arr"
       [(selection)]="vp.t1_c1_c5_medida_obj"
       (onRowSelect)="unidadeSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="uniMed"
+      [globalFilterFields]="['uniMed', 'desMed']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="uniMed">
+            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMed">
+            Descrição <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-ori>
         <tr [pSelectableRow]="ori">
-          <td>{{ ori.c }}</td>
-          <td>{{ ori.d }}</td>
+          <td>{{ ori.uniMed }}</td>
+          <td>{{ ori.desMed }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

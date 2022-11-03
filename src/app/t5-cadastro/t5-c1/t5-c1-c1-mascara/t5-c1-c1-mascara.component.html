@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalMas"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableMascara
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t5_c1_c1_mascara_arr"
       [(selection)]="vp.t5_c1_c1_mascara_obj"
       (onRowSelect)="mascaraSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codMdp"
+      [globalFilterFields]="['codMdp', 'desMdp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -70,14 +72,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codMdp">
+            Código <p-sortIcon field="codMdp"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMdp">
+            Descrição <p-sortIcon field="desMdp"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-mas>
         <tr [pSelectableRow]="mas">
-          <td>{{ mas.c }}</td>
-          <td>{{ mas.d }}</td>
+          <td>{{ mas.codMdp }}</td>
+          <td>{{ mas.desMdp }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

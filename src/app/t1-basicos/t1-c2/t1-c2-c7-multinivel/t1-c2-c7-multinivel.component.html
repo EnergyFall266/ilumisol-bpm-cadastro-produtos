@@ -38,7 +38,8 @@
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
-    [(visible)]="showModalMul"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
   >
     <p-table
       #tableMultinivel
@@ -46,11 +47,12 @@
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
+      [loading]="vp.buscandoWS"
       [value]="vp.t1_c2_c7_multinivel_arr"
       [(selection)]="vp.t1_c2_c7_multinivel_obj"
       (onRowSelect)="multinivelSelect()"
-      dataKey=""
-      [globalFilterFields]="['', '']"
+      dataKey="codAgp"
+      [globalFilterFields]="['codAgp', 'desAgp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -73,14 +75,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Código</th>
-          <th>Descrição</th>
+          <th pSortableColumn="codAgp">
+            Código <p-sortIcon field="codAgp"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desAgp">
+            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-sub>
         <tr [pSelectableRow]="sub">
-          <td>{{ sub.c }}</td>
-          <td>{{ sub.d }}</td>
+          <td>{{ sub.codAgp }}</td>
+          <td>{{ sub.desAgp }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog
