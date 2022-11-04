@@ -16,7 +16,6 @@ export class T6C4C2AneComponent implements OnInit {
   public ngOnInit(): void {}
 
   public sn = gedf.simplifyName;
-  public ct = gedf.checkEnviadoTemplate;
 
   public escolherDocumentoFileUpload = (fu: FileUpload) =>
     (this.vp.t6_c4_c2_anexo_files = fu.files);

@@ -33,6 +33,7 @@ export default function getFormPresentation(rld: ResponseLoadData) {
       } else {
         rld.initial = 6;
         rld.vp.t6_mandatory_to_readonly = false;
+        rld.vp.hideCadastro = false;
         rld.tabs.push(6);
       }
       break;

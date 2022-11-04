@@ -25,7 +25,7 @@ export class VP_BPM {
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
 
   public ged_pasta_processo_id: string = '';
-  public ged_pasta_processo_nome: string = 'Fluxo ';
+  public ged_pasta_processo_nome: string = '';
 
   public check_options: SelectItem[] = [
     { label: 'Sim', value: 'Sim' },
@@ -33,8 +33,6 @@ export class VP_BPM {
   ];
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
-
-  public hideButtonCadastro: boolean = true;
 
   /**
    * Dados básicos
@@ -398,4 +396,14 @@ export class VP_BPM {
   public t6_c4_c2_anexo_ged_arr: Anexo[] = [];
   public t6_c4_c2_anexo_pasta_id: string = '';
   public t6_c4_c2_anexo_pasta_nome: string = 'Anexo fiscal/cotábil';
+
+  /**
+   * Resposta do ws cadastro
+   */
+
+  public hideCadastro: boolean = true;
+  public disabledButtonCadastro: boolean = false;
+
+  public codigo_produto: string = '';
+  public mensagem_retorno: string = 'a';
 }

@@ -8,6 +8,7 @@ import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
 import { G5Response } from 'src/beans/WS_Beans';
+import { AppService } from './app.service';
 
 declare var workflowCockpit: any;
 
@@ -23,11 +24,11 @@ export class AppComponent {
   public menus: MenuItem[] = fd.Menus;
   public activeMenu: MenuItem = {};
   public panel = fd.Panels;
-  public hideButtons: boolean = false;
 
   public vp: VP_BPM = new VP_BPM();
 
   constructor(
+    private ap: AppService,
     private messageService: MessageService,
     public translate: TranslateService,
     public primeNGConfig: PrimeNGConfig
@@ -82,24 +83,41 @@ export class AppComponent {
     this.primeNGConfig.ripple = true;
   }
 
-  private _loadData = async (_data: Data, info: Info): Promise<void> => {
+  private _loadData = async (data: Data, info: Info): Promise<void> => {
     const r = await wc.loadData(this.vp, info);
     this.activeMenu = fd.showMenus(r.initial, r.tabs);
     this.vp = r.vp;
+    this.vp.ged_pasta_processo_nome = `Fluxo ${data.processInstanceId}`;
     this.vp.overlay = false;
   };
 
-  private _saveData = async (data: any, info: any): Promise<any> => {
-    this.vp.ged_pasta_processo_nome =
-      'Fluxo ' + (await data.processInstanceId!);
-    // this.vp.alertas = formValidate(this.vp);
-    // await wc.saveData(this.vp);
-    // throw Error('Os dados informados são inválidos.');
-    /*if (this.vp.alertas.length > 0)
+  private _saveData = async (data: Data, _info: Info): Promise<any> => {
+    this.vp.ged_pasta_processo_nome = `Fluxo ${data.processInstanceId}`;
+    this.vp.alertas = formValidate(this.vp);
+    if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
-    else return wc.saveData(this.vp);*/
-
     return wc.saveData(this.vp);
+  };
+
+  public cadastrarProduto = async () => {
+    this.vp.overlay = true;
+
+    this.vp.alertas = formValidate(this.vp);
+    if (this.vp.alertas.length == 0) {
+      const c = await this.ap.cadastroService(this.vp);
+      if (c.suc.produto) {
+        const p = Array.isArray(c.suc.produto)
+          ? c.suc.produto[0]
+          : c.suc.produto;
+        this.vp.mensagem_retorno = p.msgRetorno + '';
+        if (p.msgRetorno != 'OK')
+          this.vp.mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
+        this.vp.codigo_produto = p.retorno?.codPro + '';
+      }
+      this.vp.disabledButtonCadastro = true;
+    }
+
+    this.vp.overlay = false;
   };
 
   private _rollback = wc.rollback;

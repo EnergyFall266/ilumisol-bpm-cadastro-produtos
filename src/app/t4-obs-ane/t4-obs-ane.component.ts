@@ -16,7 +16,6 @@ export class T4ObsAneComponent implements OnInit {
   public ngOnInit(): void {}
 
   public sn = gedf.simplifyName;
-  public ct = gedf.checkEnviadoTemplate;
 
   public escolherDocumentoFileUpload = (fu: FileUpload) =>
     (this.vp.t4_anexo_files = fu.files);

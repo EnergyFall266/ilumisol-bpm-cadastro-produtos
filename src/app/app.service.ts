@@ -1,61 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Anexo } from 'prisma_prismafunctions';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import { CadastroRoot } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import { wsG5Cadastro, wsG5Exporta } from 'src/functions/WS_Axios';
-import * as gedf from 'prisma_prismafunctions';
-import { checkFolder } from 'prisma_prismafunctions';
+import * as ged from 'prisma_prismafunctions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-  public anexos_ged_temp: gedf.Anexo[] = [];
+  private anexos_ged_temp: ged.Anexo[] = [];
+
   constructor() {}
-
-  public async pegarPastasGED(vp: VP_BPM, scf: string) {
-    const paiId: string = await checkFolder(
-      vp.token,
-      {
-        name: vp.ged_pasta_pai_nome,
-        description: vp.ged_pasta_pai_nome,
-        permissions: [environment.ged_papel],
-        inheritedPermission: true,
-      },
-      ''
-    );
-    if (paiId == '') return;
-
-    const proId: string = await checkFolder(
-      vp.token,
-      {
-        name: vp.ged_pasta_processo_nome,
-        description: vp.ged_pasta_processo_nome,
-        parent: paiId,
-        permissions: [environment.ged_papel],
-        inheritedPermission: true,
-      },
-      paiId
-    );
-
-    if (proId == '') return;
-
-    const scfId: string = await checkFolder(
-      vp.token,
-      {
-        name: scf,
-        description: scf,
-        parent: proId,
-        permissions: [environment.ged_papel],
-        inheritedPermission: true,
-      },
-      proId
-    );
-    if (scfId == '') return;
-
-    return { paiId, proId, scfId };
-  }
 
   public async exportaServico(port: string, body: string | number = '') {
     var r;
@@ -116,6 +72,142 @@ export class AppService {
     else if (port == 'ExportaMascaraDerivacao' && r.mascaras)
       return Array.isArray(r.mascaras) ? r.mascaras : [r.mascaras];
     return [];
+  }
+
+  private sn = ged.simplifyName;
+  private ct = ged.checkEnviadoTemplate;
+
+  public enviarDocs = async (vp: VP_BPM, t: string) => {
+    if (t == 's') {
+      await this.prepararDocs(vp.t4_anexo_files, vp.t4_anexo_ged_arr);
+      var p = await this.pegarPastasGED(vp, vp.t4_anexo_pasta_nome);
+    } else if (t == 'c') {
+      await this.prepararDocs(
+        vp.t5_c3_c2_anexo_files,
+        vp.t5_c3_c2_anexo_ged_arr
+      );
+      var p = await this.pegarPastasGED(vp, vp.t5_c3_c2_anexo_pasta_nome);
+    } else if (t == 'f') {
+      await this.prepararDocs(
+        vp.t6_c4_c2_anexo_files,
+        vp.t6_c4_c2_anexo_ged_arr
+      );
+      var p = await this.pegarPastasGED(vp, vp.t6_c4_c2_anexo_pasta_nome);
+    }
+
+    if (p) {
+      vp.ged_pasta_pai_id = p.paiId;
+      vp.ged_pasta_processo_id = p.proId;
+      if (t == 's') vp.t4_anexo_pasta_id = p.scfId;
+      else if (t == 'c') vp.t5_c3_c2_anexo_pasta_id = p.scfId;
+      else if (t == 'f') vp.t6_c4_c2_anexo_pasta_id = p.scfId;
+
+      if (
+        this.anexos_ged_temp.length ==
+        (await this.processarDocsGED(vp, p.scfId))
+      ) {
+        if (t == 's') vp.t4_anexo_files = [];
+        else if (t == 'c') vp.t5_c3_c2_anexo_files = [];
+        else if (t == 'f') vp.t6_c4_c2_anexo_files = [];
+        this.anexos_ged_temp = [];
+      }
+    }
+
+    return vp;
+  };
+
+  private prepararDocs = async (files: File[], anexos_arr: ged.Anexo[]) => {
+    this.anexos_ged_temp = [];
+
+    for (const i in files) {
+      const f: File = files[i];
+      this.anexos_ged_temp.push({
+        arquivoFile: f,
+        simpleName: this.sn(f.name),
+        enviado: this.ct(anexos_arr, f.name),
+      });
+      const reader: FileReader = new FileReader();
+      reader.readAsArrayBuffer(f);
+      reader.onloadend = (e) =>
+        (this.anexos_ged_temp[i].byteArray = new Uint8Array(
+          e.target?.result as ArrayBuffer
+        ));
+    }
+  };
+
+  private async pegarPastasGED(vp: VP_BPM, scf: string) {
+    const paiId: string = await ged.checkFolder(
+      vp.token,
+      {
+        name: vp.ged_pasta_pai_nome,
+        description: vp.ged_pasta_pai_nome,
+        permissions: [environment.ged_papel],
+        inheritedPermission: true,
+      },
+      ''
+    );
+    if (paiId == '') return;
+
+    const proId: string = await ged.checkFolder(
+      vp.token,
+      {
+        name: vp.ged_pasta_processo_nome,
+        description: vp.ged_pasta_processo_nome,
+        parent: paiId,
+        permissions: [environment.ged_papel],
+        inheritedPermission: true,
+      },
+      paiId
+    );
+    if (proId == '') return;
+
+    const scfId: string = await ged.checkFolder(
+      vp.token,
+      {
+        name: scf,
+        description: scf,
+        parent: proId,
+        permissions: [environment.ged_papel],
+        inheritedPermission: true,
+      },
+      proId
+    );
+    if (scfId == '') return;
+
+    return { paiId, proId, scfId };
+  }
+
+  private processarDocsGED = async (vp: VP_BPM, pid: string) => {
+    var check_docs: number = 0;
+
+    for (const i in this.anexos_ged_temp) {
+      var a = this.anexos_ged_temp[i];
+      if (a.enviado) check_docs++;
+      else
+        await ged.sendDocument(pid, a, vp.user_fullname, vp.token).then((s) => {
+          this.anexos_ged_temp[i] = s;
+          check_docs++;
+        });
+    }
+
+    return check_docs;
+  };
+
+  public async getAllDocs(vp: VP_BPM) {
+    if (vp.t4_anexo_pasta_id != '')
+      vp.t4_anexo_ged_arr = (
+        await ged.folderList(0, vp.token, vp.t4_anexo_pasta_id)
+      ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
+    if (vp.t5_c3_c2_anexo_pasta_id != '')
+      vp.t5_c3_c2_anexo_ged_arr = (
+        await ged.folderList(0, vp.token, vp.t5_c3_c2_anexo_pasta_id)
+      ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
+    if (vp.t6_c4_c2_anexo_pasta_id != '')
+      vp.t6_c4_c2_anexo_ged_arr = (
+        await ged.folderList(0, vp.token, vp.t6_c4_c2_anexo_pasta_id)
+      ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
+
+    return vp;
   }
 
   public async cadastroService(vp: VP_BPM) {
@@ -242,80 +334,6 @@ export class AppService {
       },
     };
 
-    return wsG5Cadastro(JSON.stringify(c));
+    return await wsG5Cadastro(JSON.stringify(c));
   }
-
-  public sn = gedf.simplifyName;
-  public ct = gedf.checkEnviadoTemplate;
-
-  public enviarDocumentos = async (
-    vp: VP_BPM,
-    anexo_pasta_nome: string,
-    anexo_pasta_id: string,
-    anexo_files: File[],
-    anexo_ged_arr: Anexo[]
-  ): Promise<void> => {
-    await this.prepararDocumentos(anexo_files, anexo_ged_arr).catch(
-      this.printError
-    );
-    const p = await this.pegarPastasGED(vp, anexo_pasta_nome);
-    if (p) {
-      vp.ged_pasta_pai_id = p.paiId;
-      vp.ged_pasta_processo_id = p.proId;
-      anexo_pasta_id = p.scfId;
-      if (
-        this.anexos_ged_temp.length ==
-        (await this.processarDocumentosGED(vp, anexo_pasta_id))
-      )
-        anexo_files = [];
-    }
-  };
-
-  private prepararDocumentos = async (
-    anexo_files: File[],
-    anexo_ged_arr: Anexo[]
-  ): Promise<void> => {
-    this.anexos_ged_temp = [];
-
-    for (let i in anexo_files) {
-      let f: File = anexo_files[i];
-      this.anexos_ged_temp.push({
-        arquivoFile: f,
-        simpleName: this.sn(f.name),
-        enviado: this.ct(anexo_ged_arr, f.name),
-      });
-
-      const reader: FileReader = new FileReader();
-      reader.readAsArrayBuffer(f);
-      reader.onloadend = (e) => {
-        this.anexos_ged_temp[i].byteArray = new Uint8Array(
-          e.target?.result as ArrayBuffer
-        );
-      };
-    }
-  };
-
-  private processarDocumentosGED = async (
-    vp: VP_BPM,
-    anexo_pasta_id: string
-  ): Promise<number> => {
-    var checkDocuments: number = 0;
-
-    for (const i in this.anexos_ged_temp) {
-      var a = this.anexos_ged_temp[i];
-      if (a.enviado) checkDocuments++;
-      else
-        await gedf
-          .sendDocument(anexo_pasta_id, a, vp.user_fullname, vp.token)
-          .then((s) => {
-            this.anexos_ged_temp[i] = s;
-            checkDocuments++;
-          })
-          .catch(this.printError);
-    }
-    return checkDocuments;
-  };
-
-  private printError = (e: any): void =>
-    console.error({ title: 'Anexos print_error', error: e });
 }

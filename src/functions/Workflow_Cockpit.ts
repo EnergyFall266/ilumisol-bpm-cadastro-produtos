@@ -7,11 +7,12 @@ import getFormPresentation from './Form_Presentation';
 import getVP from './Get_VP_BPM';
 
 const STEP = environment.tarefa();
+const ap: AppService = new AppService();
 
 declare var removeData: any;
 declare var rollbackData: any;
 
-async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
+export async function loadData(vp: VP_BPM, info: Info) {
   var rld: ResponseLoadData = { initial: 1, tabs: [1, 2, 3], vp };
 
   rld.vp.user_fullname = (await info.getUserData()).fullname;
@@ -28,52 +29,28 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   }
   rld = getFormPresentation(rld);
 
-  const ap: AppService = new AppService();
-  /*rld.vp = await getAllDocuments(rld.vp);*/
+  rld.vp = await ap.getAllDocs(rld.vp);
 
   return rld;
 }
 
-async function saveData(vp: VP_BPM): Promise<any> {
-  const ap: AppService = new AppService();
-
+export async function saveData(vp: VP_BPM) {
   switch (STEP) {
-    case environment.s1_sol_cad:
-    case environment.s3_rev_inf:
-      await ap.enviarDocumentos(
-        vp,
-        vp.t4_anexo_pasta_nome,
-        vp.t4_anexo_pasta_id,
-        vp.t4_anexo_files,
-        vp.t4_anexo_ged_arr
-      );
-      break;
     case environment.s2_dad_cad:
-      await ap.enviarDocumentos(
-        vp,
-        vp.t5_c3_c2_anexo_pasta_nome,
-        vp.t5_c3_c2_anexo_pasta_id,
-        vp.t5_c3_c2_anexo_files,
-        vp.t5_c3_c2_anexo_ged_arr
-      );
+      if (vp.t5_c3_c2_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 'c');
       break;
     case environment.s4_fis_con:
-      await ap.enviarDocumentos(
-        vp,
-        vp.t6_c4_c2_anexo_pasta_nome,
-        vp.t6_c4_c2_anexo_pasta_id,
-        vp.t6_c4_c2_anexo_files,
-        vp.t6_c4_c2_anexo_ged_arr
-      );
+      if (vp.t6_c4_c2_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 'f');
+      break;
+    default:
+      if (vp.t4_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 's');
       break;
   }
 
   return { formData: vp };
 }
 
-function rollback(data: any, info: any): any {
+export function rollback(data: any, info: any) {
   if (info.isRequestNew()) return removeData(data.processInstanceId);
   return rollbackData(data.processInstanceId);
 }
-
-export { loadData, saveData, rollback };
