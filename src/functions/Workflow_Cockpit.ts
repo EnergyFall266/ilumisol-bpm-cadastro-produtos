@@ -34,12 +34,44 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   return rld;
 }
 
-function saveData(vp: VP_BPM): any {
+async function saveData(vp: VP_BPM): Promise<any> {
+  const ap: AppService = new AppService();
+
+  switch (STEP) {
+    case environment.s1_sol_cad:
+    case environment.s3_rev_inf:
+      await ap.enviarDocumentos(
+        vp,
+        vp.t4_anexo_pasta_nome,
+        vp.t4_anexo_pasta_id,
+        vp.t4_anexo_files,
+        vp.t4_anexo_ged_arr
+      );
+      break;
+    case environment.s2_dad_cad:
+      await ap.enviarDocumentos(
+        vp,
+        vp.t5_c3_c2_anexo_pasta_nome,
+        vp.t5_c3_c2_anexo_pasta_id,
+        vp.t5_c3_c2_anexo_files,
+        vp.t5_c3_c2_anexo_ged_arr
+      );
+      break;
+    case environment.s4_fis_con:
+      await ap.enviarDocumentos(
+        vp,
+        vp.t6_c4_c2_anexo_pasta_nome,
+        vp.t6_c4_c2_anexo_pasta_id,
+        vp.t6_c4_c2_anexo_files,
+        vp.t6_c4_c2_anexo_ged_arr
+      );
+      break;
+  }
+
   return { formData: vp };
 }
 
 function rollback(data: any, info: any): any {
-  console.log(data.error);
   if (info.isRequestNew()) return removeData(data.processInstanceId);
   return rollbackData(data.processInstanceId);
 }

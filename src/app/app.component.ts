@@ -89,12 +89,17 @@ export class AppComponent {
     this.vp.overlay = false;
   };
 
-  private _saveData = (data: any, info: any): any => {
-    this.vp.alertas = formValidate(this.vp);
-    throw Error('Os dados informados são inválidos.');
+  private _saveData = async (data: any, info: any): Promise<any> => {
+    this.vp.ged_pasta_processo_nome =
+      'Fluxo ' + (await data.processInstanceId!);
+    // this.vp.alertas = formValidate(this.vp);
+    // await wc.saveData(this.vp);
+    // throw Error('Os dados informados são inválidos.');
     /*if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
     else return wc.saveData(this.vp);*/
+
+    return wc.saveData(this.vp);
   };
 
   private _rollback = wc.rollback;
