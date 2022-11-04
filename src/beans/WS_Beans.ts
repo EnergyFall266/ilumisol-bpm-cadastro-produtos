@@ -11,8 +11,8 @@ export const ws_beans_header: AxiosRequestConfig<string> = {
 };
 
 export interface G5Response {
-  codRet: number;
-  msgRet: string;
+  codRet?: number;
+  msgRet?: string;
   erroExecucao?: ErroExecucao;
 
   produtos?:
@@ -38,7 +38,11 @@ export interface G5Response {
   substituicoes?: ExportaSubstituicao[] | ExportaSubstituicao;
   enquadramentos?: ExportaEnquadramento[] | ExportaEnquadramento;
 
-  produto?: Produto;
+  produto?: Produto | Produto[];
+
+  errorType?: string;
+  errorMessage?: string;
+  stackTrace?: string;
 }
 
 export interface ExportaProdutos {
@@ -184,7 +188,7 @@ interface Produto {
   uniMe2?: string;
   uniMe3?: string;
   pesBru?: number;
-  pedLiq?: number;
+  pesLiq?: number;
   proImp?: number;
   codTic?: string;
   codTrd?: string;
@@ -220,10 +224,11 @@ interface Produto {
   ligProFor?: LigProFor[];
   ligProDep?: LigProDep[];
   msgRetorno?: string;
+  retorno?: Retorno;
 }
 
 interface Derivacao {
-  codBar?: number;
+  codBar?: string | number;
   tipCn2?: string;
   vlrCn2?: number;
   tipCn3?: string;
@@ -247,4 +252,11 @@ interface LigProDep {
   estMax?: number;
   estMid?: number;
   estMad?: number;
+}
+
+interface Retorno {
+  codDer?: string;
+  desRet?: string;
+  codEmp?: number;
+  codPro?: string | number;
 }

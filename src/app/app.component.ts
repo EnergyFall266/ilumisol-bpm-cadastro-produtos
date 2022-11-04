@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { MenuItem, PrimeNGConfig } from 'primeng/api';
+import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import * as fd from 'src/functions/Form_Design';
 import formValidate from 'src/functions/Form_Validate';
 import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
+import { G5Response } from 'src/beans/WS_Beans';
 
 declare var workflowCockpit: any;
 
@@ -14,6 +15,7 @@ declare var workflowCockpit: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [MessageService],
 })
 export class AppComponent {
   public title = 'cadastro_produto';
@@ -26,6 +28,7 @@ export class AppComponent {
   public vp: VP_BPM = new VP_BPM();
 
   constructor(
+    private messageService: MessageService,
     public translate: TranslateService,
     public primeNGConfig: PrimeNGConfig
   ) {
@@ -60,6 +63,15 @@ export class AppComponent {
         return response;
       },
       (error) => {
+        if (error.response.data) {
+          const e = error.response.data as G5Response;
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Web service error',
+            detail: e.errorMessage,
+            sticky: true,
+          });
+        }
         this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
@@ -67,6 +79,7 @@ export class AppComponent {
 
     this.vp.overlay = false;
     this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5, 6]);
+    this.primeNGConfig.ripple = true;
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { Message } from 'primeng/api';
 import * as wsb from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 
@@ -16,25 +17,25 @@ export const wsG5Exporta = async (port: string, body: string = '{}') =>
     )
   ).data;
 
-export const wsGetNextProcessInstanceId = async () =>
-  (
-    await axios.get<
-      AxiosResponse<{ processInstanceID: number }>,
-      AxiosResponse<{ processInstanceID: number }>
-    >(
-      'https://platform.senior.com.br/t/senior.com.br/bridge/1.0/rest/platform/workflow/queries/getNextProcessInstanceId',
-      wsb.ws_beans_header
-    )
-  ).data.processInstanceID;
+export const wsG5Cadastro = async (body: string) => {
+  const r: { suc: wsb.G5Response; msg?: Message[] } = { suc: {} };
 
-export const wsG5Cadastro = async (body: string) =>
-  (
-    await axios.post<
-      AxiosResponse<wsb.G5Response>,
-      AxiosResponse<wsb.G5Response>
-    >(
+  await axios
+    .post<AxiosResponse<wsb.G5Response>, AxiosResponse<wsb.G5Response>>(
       `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm&port=CadastroProduto&useAlwaysArray=true`,
       body,
       wsb.ws_beans_header
     )
-  ).data;
+    .then((x) => (r.suc = x.data))
+    .catch((e) => {
+      r.msg = [
+        {
+          severity: 'error',
+          summary: 'Web service cadastro',
+          detail: (e.response.data as wsb.G5Response).errorMessage ?? '',
+        },
+      ];
+    });
+
+  return r;
+};

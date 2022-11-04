@@ -25,16 +25,16 @@ export class T6C3C1EnquaComponent implements OnInit {
           'ExportaValorLista',
           'LProEpe'
         )) as ExportaValorLista[];
-        if (this.vp.t6_c3_c1_enq_esp_cod != '')
+        if (this.vp.t6_c3_c1_enq_esp_cod != -1)
           this.vp.t6_c3_c1_enq_esp_obj = this.vp.t6_c3_c1_enq_esp_arr.find(
-            (x) => x.chvLis == this.vp.t6_c3_c1_enq_esp_cod
+            (x) => Number(x.chvLis) == this.vp.t6_c3_c1_enq_esp_cod
           );
       }
     }
   }
 
   public enquaSelect() {
-    this.vp.t6_c3_c1_enq_esp_cod = this.vp.t6_c3_c1_enq_esp_obj!.chvLis;
+    this.vp.t6_c3_c1_enq_esp_cod = Number(this.vp.t6_c3_c1_enq_esp_obj!.chvLis);
     this.vp.t6_c3_c1_enq_esp_des = this.vp.t6_c3_c1_enq_esp_obj!.desLis;
     this.mostrar_modal = false;
   }

@@ -25,16 +25,18 @@ export class T6C1C1TipoComponent implements OnInit {
           'ExportaValorLista',
           'LProImp'
         )) as ExportaValorLista[];
-        if (this.vp.t6_c1_c1_tipo_prod_cod != '')
+        if (this.vp.t6_c1_c1_tipo_prod_cod != 0)
           this.vp.t6_c1_c1_tipo_prod_obj = this.vp.t6_c1_c1_tipo_prod_arr.find(
-            (x) => x.chvLis == this.vp.t6_c1_c1_tipo_prod_cod
+            (x) => Number(x.chvLis) == this.vp.t6_c1_c1_tipo_prod_cod
           );
       }
     }
   }
 
   public tipoSelect() {
-    this.vp.t6_c1_c1_tipo_prod_cod = this.vp.t6_c1_c1_tipo_prod_obj!.chvLis;
+    this.vp.t6_c1_c1_tipo_prod_cod = Number(
+      this.vp.t6_c1_c1_tipo_prod_obj!.chvLis
+    );
     this.vp.t6_c1_c1_tipo_prod_des = this.vp.t6_c1_c1_tipo_prod_obj!.desLis;
     this.mostrar_modal = false;
   }

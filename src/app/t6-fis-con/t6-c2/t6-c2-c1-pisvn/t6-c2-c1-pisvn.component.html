@@ -98,13 +98,16 @@
         ></span
       >
       <div class="col-12 py-0">
-        <input
-          pInputText
-          type="text"
-          class="col-12"
-          [readonly]="vp.t2_mandatory_to_readonly"
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [useGrouping]="false"
+          [readonly]="vp.t6_mandatory_to_readonly"
           [(ngModel)]="vp.t6_c2_c1_pis_nat_cod"
-        />
+        >
+        </p-inputNumber>
       </div>
     </div>
   </div>
