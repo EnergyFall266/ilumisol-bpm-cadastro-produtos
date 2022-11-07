@@ -226,7 +226,7 @@ export class VP_BPM {
    * Dados do cadastro
    */
 
-  public t5_mandatory_to_readonly: boolean = false;
+  public t5_mandatory_to_readonly: boolean = true;
 
   public t5_show_only_recusa: boolean = false;
 
@@ -290,7 +290,7 @@ export class VP_BPM {
    * Dados fiscais e contábeis
    */
 
-  public t6_mandatory_to_readonly: boolean = false;
+  public t6_mandatory_to_readonly: boolean = true;
 
   public t6_show_only_recusa: boolean = false;
 
@@ -405,5 +405,5 @@ export class VP_BPM {
   public disabledButtonCadastro: boolean = false;
 
   public codigo_produto: string = '';
-  public mensagem_retorno: string = 'a';
+  public mensagem_retorno: string = '';
 }
