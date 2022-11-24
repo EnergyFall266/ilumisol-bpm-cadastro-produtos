@@ -7,7 +7,7 @@ export const environment = {
       return 'error';
     }
   },
-  url_padrao: 'http://192.168.102.165:8080/', //window.location.origin ?? '',
+  url_padrao: window.location.origin ?? '',
   ged_papel: {
     active: true,
     permissionLevel: 3,
