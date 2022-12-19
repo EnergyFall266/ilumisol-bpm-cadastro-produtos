@@ -64,10 +64,13 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t1_c2_c6_integra_agrosys = map.get('t1_c2_c6_integra_agrosys');
 
-  if (map.get('t1_c2_c6_agrosys_cod') !== undefined)
+  if (map.get('t1_c2_c6_agrosys_cod') !== undefined) {
     vp.t1_c2_c6_agrosys_cod = map.get('t1_c2_c6_agrosys_cod');
+    vp.t1_c2_c6_agrosys_des = map.get('t1_c2_c6_agrosys_des');
+  }
 
-  vp.t1_c2_c7_multinivel_cod = map.get('t1_c2_c7_multinivel_cod');
+  if (map.get('t1_c2_c7_multinivel_cod') !== undefined)
+    vp.t1_c2_c7_multinivel_cod = map.get('t1_c2_c7_multinivel_cod');
 
   //Coluna 3
   vp.t1_c3_vendido_upl = map.get('t1_c3_vendido_upl');
@@ -90,11 +93,15 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c3_numero_onu = map.get('t1_c3_numero_onu');
 
   //Coluna 4
-  if (map.get('t1_c4_classe_toxicologica') !== undefined)
-    vp.t1_c4_classe_toxicologica = map.get('t1_c4_classe_toxicologica');
+  if (map.get('t1_c4_c1_toxico_cod') !== undefined) {
+    vp.t1_c4_c1_toxico_cod = +map.get('t1_c4_c1_toxico_cod');
+    vp.t1_c4_c1_toxico_des = map.get('t1_c4_c1_toxico_des');
+  }
 
-  if (map.get('t1_c4_classe_risco') !== undefined)
-    vp.t1_c4_classe_risco = map.get('t1_c4_classe_risco');
+  if (map.get('t1_c4_c2_risco_cod') !== undefined) {
+    vp.t1_c4_c2_risco_cod = map.get('t1_c4_c2_risco_cod');
+    vp.t1_c4_c2_risco_des = map.get('t1_c4_c2_risco_des');
+  }
 
   if (map.get('t1_c4_numero_risco') !== undefined)
     vp.t1_c4_numero_risco = map.get('t1_c4_numero_risco');
@@ -103,8 +110,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c4_numero_mapa = map.get('t1_c4_numero_mapa');
 
   if (map.get('t1_c4_quimico_cod') !== undefined) {
-    vp.t1_c4_quimico_cod = +map.get('t1_c4_quimico_cod');
-    vp.t1_c4_quimico_des = map.get('t1_c4_quimico_des');
+    vp.t1_c4_c3_quimico_cod = +map.get('t1_c4_quimico_cod');
+    vp.t1_c4_c3_quimico_des = map.get('t1_c4_quimico_des');
   }
 
   /**

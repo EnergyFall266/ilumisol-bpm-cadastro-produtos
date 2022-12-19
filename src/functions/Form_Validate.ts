@@ -96,9 +96,6 @@ export default function formValidate(vp: VP_BPM): Message[] {
       if (vp.t3_c2_quan_max_vendas === undefined)
         m.push(getMsgC('Dados de depósito - Qtda. max. de vendas'));
 
-      if (vp.t1_c2_c7_multinivel_cod == '')
-        m.push(getMsgS('Dados básicos - Código Agr. Apr. Multinível'));
-
       if (vp.t1_c3_vendido_upl == '')
         m.push(getMsgS('Dados básicos - Pode ser vendido UPL?'));
 

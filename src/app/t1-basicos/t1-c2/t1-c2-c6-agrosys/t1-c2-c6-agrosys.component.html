@@ -41,7 +41,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_c6_agrosys_cod"
+            [(ngModel)]="vp.t1_c2_c6_agrosys_des"
             (click)="agrosysInput()"
           />
           <button
@@ -77,8 +77,8 @@
       [value]="vp.t1_c2_c6_agrosys_arr"
       [(selection)]="vp.t1_c2_c6_agrosys_obj"
       (onRowSelect)="agrosysSelect()"
-      dataKey="proAgs"
-      [globalFilterFields]="['proAgs']"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -98,14 +98,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="proAgs">
-            Código <p-sortIcon field="proAgs"></p-sortIcon>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-agr>
-        <tr [pSelectableRow]="agr">
-          <td>{{ agr.proAgs }}</td>
+      <ng-template pTemplate="body" let-tip>
+        <tr [pSelectableRow]="tip">
+          <td>{{ tip.chvLis }}</td>
+          <td>{{ tip.desLis }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

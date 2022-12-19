@@ -108,9 +108,10 @@ export class VP_BPM {
 
   public t1_c2_c6_integra_agrosys: string = '';
 
-  public t1_c2_c6_agrosys_arr: wsb.ExportaProAgs[] = [];
-  public t1_c2_c6_agrosys_obj?: wsb.ExportaProAgs;
+  public t1_c2_c6_agrosys_arr: wsb.ExportaValorLista[] = [];
+  public t1_c2_c6_agrosys_obj?: wsb.ExportaValorLista;
   public t1_c2_c6_agrosys_cod: string = '';
+  public t1_c2_c6_agrosys_des: string = '';
 
   public t1_c2_c7_multinivel_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c2_c7_multinivel_obj?: wsb.ExportaAgrupamentos;
@@ -144,18 +145,24 @@ export class VP_BPM {
   public t1_c3_numero_onu: string = '';
 
   //Coluna 4
-  public t1_c4_classe_toxicologica?: number;
+  public t1_c4_c1_toxico_arr: wsb.ExportaClasseToxicologica[] = [];
+  public t1_c4_c1_toxico_obj?: wsb.ExportaClasseToxicologica;
+  public t1_c4_c1_toxico_cod: number = -1;
+  public t1_c4_c1_toxico_des: string = '';
 
-  public t1_c4_classe_risco: string = '';
+  public t1_c4_c2_risco_arr: wsb.ExportaClasseRisco[] = [];
+  public t1_c4_c2_risco_obj?: wsb.ExportaClasseRisco;
+  public t1_c4_c2_risco_cod: string = '';
+  public t1_c4_c2_risco_des: string = '';
 
   public t1_c4_numero_risco: string = '';
 
   public t1_c4_numero_mapa: string = '';
 
-  public t1_c4_quimico_arr: wsb.ExportaGrupoQuimico[] = [];
-  public t1_c4_quimico_obj?: wsb.ExportaGrupoQuimico;
-  public t1_c4_quimico_cod: number = -1;
-  public t1_c4_quimico_des: string = '';
+  public t1_c4_c3_quimico_arr: wsb.ExportaGrupoQuimico[] = [];
+  public t1_c4_c3_quimico_obj?: wsb.ExportaGrupoQuimico;
+  public t1_c4_c3_quimico_cod: number = -1;
+  public t1_c4_c3_quimico_des: string = '';
 
   /**
    * Dados de fornecedor

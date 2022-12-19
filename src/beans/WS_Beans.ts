@@ -15,11 +15,7 @@ export interface G5Response {
   msgRet?: string;
   erroExecucao?: ErroExecucao;
 
-  produtos?:
-    | ExportaProdutos[]
-    | ExportaProdutos
-    | ExportaProAgs[]
-    | ExportaProAgs;
+  produtos?: ExportaProdutos[] | ExportaProdutos;
   origens?: ExportaOrigens[] | ExportaOrigens;
   familias?: ExportaFamilias[] | ExportaFamilias;
   unidadesMedida?: ExportaUniMeds[] | ExportaUniMeds;
@@ -31,6 +27,11 @@ export interface G5Response {
   depositos?: ExportaDepositos[] | ExportaDepositos;
   categorias?: ExportaCategorias[] | ExportaCategorias;
   subCategorias?: ExportaSubCategorias[] | ExportaSubCategorias;
+  classes?:
+    | ExportaClasseToxicologica[]
+    | ExportaClasseToxicologica
+    | ExportaClasseRisco[]
+    | ExportaClasseRisco;
   grupos?: ExportaGrupoQuimico[] | ExportaGrupoQuimico;
   mascaras?: ExportaMascaraDerivacao[] | ExportaMascaraDerivacao;
   ICMS?: ExportaICMSEsp[] | ExportaICMSEsp;
@@ -91,10 +92,6 @@ export interface ExportaValorLista {
   desLis: string;
 }
 
-export interface ExportaProAgs {
-  proAgs: string;
-}
-
 export interface ExportaDepositos {
   codDep: string;
   desDep: string;
@@ -139,6 +136,17 @@ export interface ExportaSubstituicao {
 export interface ExportaEnquadramento {
   codEnq: number;
   enqDsc: string;
+}
+
+export interface ExportaClasseToxicologica {
+  codCto: number;
+  desCto: string;
+  claCto: string;
+}
+
+export interface ExportaClasseRisco {
+  codCri: string;
+  desCri: string;
 }
 
 interface ErroExecucao {

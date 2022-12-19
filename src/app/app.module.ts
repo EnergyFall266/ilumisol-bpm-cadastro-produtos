@@ -84,6 +84,9 @@ import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
+import { T1C4C1ToxicologicaComponent } from './t1-basicos/t1-c4/t1-c4-c1-toxicologica/t1-c4-c1-toxicologica.component';
+import { T1C4C2RiscoComponent } from './t1-basicos/t1-c4/t1-c4-c2-risco/t1-c4-c2-risco.component';
+import { T1C4C3QuimicoComponent } from './t1-basicos/t1-c4/t1-c4-c3-quimico/t1-c4-c3-quimico.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -145,6 +148,9 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C4Component,
     T6C4C1ObsComponent,
     T6C4C2AneComponent,
+    T1C4C1ToxicologicaComponent,
+    T1C4C2RiscoComponent,
+    T1C4C3QuimicoComponent,
   ],
   imports: [
     BrowserModule,

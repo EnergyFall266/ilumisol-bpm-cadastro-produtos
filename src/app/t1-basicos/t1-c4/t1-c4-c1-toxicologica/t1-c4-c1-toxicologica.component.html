@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12">Código Agr. Apr. Multinível</span>
+      <span class="col-12">Classe toxicológica</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <input
@@ -10,8 +10,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_c7_multinivel_cod"
-            (click)="multinivelInput()"
+            [(ngModel)]="vp.t1_c4_c1_toxico_des"
+            (click)="toxicoInput()"
           />
           <button
             pButton
@@ -20,14 +20,14 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
-            (click)="multinivelInput()"
+            (click)="toxicoInput()"
           ></button>
         </div>
       </div>
     </div>
   </div>
   <p-dialog
-    header="Itens para substituir"
+    header="Classes"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
@@ -37,17 +37,17 @@
     [(visible)]="mostrar_modal"
   >
     <p-table
-      #tableMultinivel
+      #tableToxico
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t1_c2_c7_multinivel_arr"
-      [(selection)]="vp.t1_c2_c7_multinivel_obj"
-      (onRowSelect)="multinivelSelect()"
-      dataKey="codAgp"
-      [globalFilterFields]="['codAgp', 'desAgp']"
+      [value]="vp.t1_c4_c1_toxico_arr"
+      [(selection)]="vp.t1_c4_c1_toxico_obj"
+      (onRowSelect)="toxicoSelect()"
+      dataKey="codCto"
+      [globalFilterFields]="['codCto', 'desCto', 'claCto']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -58,10 +58,7 @@
               class="col-12"
               pInputText
               (input)="
-                tableMultinivel.filterGlobal(
-                  $any($event.target).value,
-                  'contains'
-                )
+                tableToxico.filterGlobal($any($event.target).value, 'contains')
               "
               placeholder="Buscar"
             />
@@ -70,18 +67,22 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="codAgp">
-            Código <p-sortIcon field="codAgp"></p-sortIcon>
+          <th pSortableColumn="codCto">
+            Código <p-sortIcon field="codCto"></p-sortIcon>
           </th>
-          <th pSortableColumn="desAgp">
-            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
+          <th pSortableColumn="desCto">
+            Descrição <p-sortIcon field="desCto"></p-sortIcon>
+          </th>
+          <th pSortableColumn="claCto">
+            Classe <p-sortIcon field="claCto"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-sub>
-        <tr [pSelectableRow]="sub">
-          <td>{{ sub.codAgp }}</td>
-          <td>{{ sub.desAgp }}</td>
+      <ng-template pTemplate="body" let-tox>
+        <tr [pSelectableRow]="tox">
+          <td>{{ tox.codCto }}</td>
+          <td>{{ tox.desCto }}</td>
+          <td>{{ tox.claCto }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

@@ -47,6 +47,40 @@ export async function saveData(vp: VP_BPM) {
       break;
   }
 
+  vp.unidades_medida_arr = [];
+  vp.t1_c1_item_arr = [];
+  vp.t1_c1_c3_origem_arr = [];
+  vp.t1_c1_c4_familia_arr = [];
+  vp.t1_c2_c1_marca_arr = [];
+  vp.t1_c2_c2_clafiscal_arr = [];
+  vp.t1_c2_c4_agrupamento_arr = [];
+  vp.t1_c2_c5_mercadoria_arr = [];
+  vp.t1_c2_c1_marca_arr = [];
+  vp.t1_c2_c2_clafiscal_arr = [];
+  vp.t1_c2_c4_agrupamento_arr = [];
+  vp.t1_c2_c5_mercadoria_arr = [];
+  vp.t1_c2_c6_agrosys_arr = [];
+  vp.t1_c2_c7_multinivel_arr = [];
+  vp.t1_c3_c2_categoria_arr = [];
+  vp.t1_c3_c2_subcategoria_arr = [];
+  vp.t1_c4_c1_toxico_arr = [];
+  vp.t1_c4_c2_risco_arr = [];
+  vp.t1_c4_c3_quimico_arr = [];
+  vp.t2_fornecedor_arr = [];
+  vp.t3_c1_destino_arr = [];
+  vp.t5_c1_c1_mascara_arr = [];
+  vp.t5_c1_c2_agr_est_arr = [];
+  vp.t5_c1_c2_agr_cus_arr = [];
+  vp.t5_c2_tipo_conversao_arr = [];
+  vp.t6_c1_c1_tipo_prod_arr = [];
+  vp.t6_c1_c2_icms_especial_arr = [];
+  vp.t6_c1_c2_reducao_icms_arr = [];
+  vp.t6_c1_substituicao_arr = [];
+  vp.t6_c2_sit_tri_arr = [];
+  vp.t6_c2_c3_enqua_arr = [];
+  vp.t6_c3_c1_enq_esp_arr = [];
+  vp.t6_c3_c2_motivo_arr = [];
+
   return { formData: vp };
 }
 

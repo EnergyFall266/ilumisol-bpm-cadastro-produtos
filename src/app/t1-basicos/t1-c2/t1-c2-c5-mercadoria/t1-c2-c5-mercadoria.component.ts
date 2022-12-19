@@ -21,10 +21,15 @@ export class T1C2C5MercadoriaComponent implements OnInit {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
       if (this.vp.t1_c2_c5_mercadoria_arr.length == 0) {
-        this.vp.t1_c2_c5_mercadoria_arr = (await this.ap.exportaServico(
-          'ExportaValorLista',
-          'LOriMer'
-        )) as ExportaValorLista[];
+        this.vp.t1_c2_c5_mercadoria_arr = (
+          (await this.ap.exportaServico(
+            'ExportaValorLista',
+            'LOriMer'
+          )) as ExportaValorLista[]
+        ).map<ExportaValorLista>((l) => ({
+          chvLis: l.chvLis + '',
+          desLis: l.desLis,
+        }));
         if (this.vp.t1_c2_c5_mercadoria_cod != '')
           this.vp.t1_c2_c5_mercadoria_obj =
             this.vp.t1_c2_c5_mercadoria_arr.find(

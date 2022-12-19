@@ -25,7 +25,7 @@ export class AppService {
       r = await wsG5Exporta(port, `{ "codCtg": ${body} }`);
     else r = await wsG5Exporta(port);
 
-    if ((port == 'ExportaProdutos' || port == 'ExportaProAgs') && r.produtos)
+    if (port == 'ExportaProdutos' && r.produtos)
       return Array.isArray(r.produtos) ? r.produtos : [r.produtos];
     else if (port == 'ExportaOrigens' && r.origens)
       return Array.isArray(r.origens) ? r.origens : [r.origens];
@@ -51,6 +51,11 @@ export class AppService {
       return Array.isArray(r.subCategorias)
         ? r.subCategorias
         : [r.subCategorias];
+    else if (
+      (port == 'ExportaClasseToxicologica' || port == 'ExportaClasseRisco') &&
+      r.classes
+    )
+      return Array.isArray(r.classes) ? r.classes : [r.classes];
     else if (port == 'ExportaGrupoQuimico' && r.grupos)
       return Array.isArray(r.grupos) ? r.grupos : [r.grupos];
     else if (port == 'ExportaFornecedores' && r.fornecedores)
@@ -237,11 +242,11 @@ export class AppService {
         codCtg: vp.t1_c3_c2_categoria_cod,
         codSct: vp.t1_c3_c2_subcategoria_cod,
         nroOnu: vp.t1_c3_numero_onu,
-        codCto: vp.t1_c4_classe_toxicologica ?? 0,
-        codCri: vp.t1_c4_classe_risco,
+        codCto: vp.t1_c4_c1_toxico_cod,
+        codCri: vp.t1_c4_c2_risco_cod,
         codNri: vp.t1_c4_numero_risco,
         nroMap: vp.t1_c4_numero_mapa,
-        codQui: vp.t1_c4_quimico_cod,
+        codQui: vp.t1_c4_c3_quimico_cod,
 
         //Dados de depósito
         qtdMin: vp.t3_c1_quan_min_vendas,
