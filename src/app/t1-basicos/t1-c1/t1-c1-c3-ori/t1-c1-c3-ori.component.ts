@@ -21,9 +21,12 @@ export class T1C1C3OriComponent implements OnInit {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
       if (this.vp.t1_c1_c3_origem_arr.length == 0) {
-        this.vp.t1_c1_c3_origem_arr = (await this.ap.exportaServico(
-          'ExportaOrigens'
-        )) as ExportaOrigens[];
+        this.vp.t1_c1_c3_origem_arr = (
+          (await this.ap.exportaServico('ExportaOrigens')) as ExportaOrigens[]
+        ).map<ExportaOrigens>((l) => ({
+          codOri: l.codOri + '',
+          desOri: l.desOri,
+        }));
         if (this.vp.t1_c1_c3_origem_cod != '')
           this.vp.t1_c1_c3_origem_obj = this.vp.t1_c1_c3_origem_arr.find(
             (x) => x.codOri == this.vp.t1_c1_c3_origem_cod

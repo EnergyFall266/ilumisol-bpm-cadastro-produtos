@@ -35,10 +35,16 @@ export class T1C1C4FamComponent implements OnInit {
   }
 
   private async buscarFamilias() {
-    this.vp.t1_c1_c4_familia_arr = (await this.ap.exportaServico(
-      'ExportaFamilias',
-      this.vp.t1_c1_c3_origem_cod
-    )) as ExportaFamilias[];
+    this.vp.t1_c1_c4_familia_arr = (
+      (await this.ap.exportaServico(
+        'ExportaFamilias',
+        this.vp.t1_c1_c3_origem_cod
+      )) as ExportaFamilias[]
+    ).map<ExportaFamilias>((l) => ({
+      codFam: l.codFam + '',
+      codOri: l.codOri + '',
+      desFam: l.desFam,
+    }));
     if (this.vp.t1_c1_c4_familia_cod != '')
       this.vp.t1_c1_c4_familia_obj = this.vp.t1_c1_c4_familia_arr.find(
         (x) => x.codFam == this.vp.t1_c1_c4_familia_cod
