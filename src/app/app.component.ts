@@ -79,6 +79,7 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
+    this.vp.overlay = false;
   }
 
   private _loadData = async (data: Data, info: Info): Promise<void> => {

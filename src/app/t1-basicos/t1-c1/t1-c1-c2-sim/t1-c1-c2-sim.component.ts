@@ -39,4 +39,9 @@ export class T1C1C2SimComponent implements OnInit {
     this.vp.t1_c1_c2_item_simi_cod = this.vp.t1_c1_c2_item_simi_obj!.codPro;
     this.mostrar_modal = false;
   }
+
+  public similarClear() {
+    this.vp.t1_c1_c2_item_simi_obj = undefined;
+    this.vp.t1_c1_c2_item_simi_cod = '';
+  }
 }

@@ -56,4 +56,10 @@ export class T1C1C4FamComponent implements OnInit {
     this.vp.t1_c1_c4_familia_des = this.vp.t1_c1_c4_familia_obj!.desFam;
     this.mostrar_modal = false;
   }
+
+  public familiaClear() {
+    this.vp.t1_c1_c4_familia_obj = undefined;
+    this.vp.t1_c1_c4_familia_cod = '';
+    this.vp.t1_c1_c4_familia_des = '';
+  }
 }

@@ -40,4 +40,10 @@ export class T1C1C3OriComponent implements OnInit {
     this.vp.t1_c1_c3_origem_des = this.vp.t1_c1_c3_origem_obj!.desOri;
     this.mostrar_modal = false;
   }
+
+  public origemClear() {
+    this.vp.t1_c1_c3_origem_obj = undefined;
+    this.vp.t1_c1_c3_origem_cod = '';
+    this.vp.t1_c1_c3_origem_des = '';
+  }
 }

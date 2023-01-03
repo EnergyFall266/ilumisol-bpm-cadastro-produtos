@@ -64,9 +64,6 @@ export default function formValidate(vp: VP_BPM): Message[] {
           m.push(getMsgC('Dados básicos - Justificativa código de barras'));
       }
 
-      if (vp.t1_c2_c4_agrupamento_cod == '')
-        m.push(getMsgS('Dados básicos - Agrupamento comercial'));
-
       if (vp.t1_c2_especificacao == '')
         m.push(getMsgC('Dados básicos - Especificação técnica'));
 
@@ -139,9 +136,6 @@ export default function formValidate(vp: VP_BPM): Message[] {
           getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
         );
 
-      if (vp.t6_c1_c3_pis_subs_cod == '')
-        m.push(getMsgS('Dados fiscais e contábeis - Código Substituição Pis'));
-
       if (vp.t6_c1_pis_recu == '')
         m.push(getMsgS('Dados fiscais e contábeis - Recupera Pis'));
 
@@ -171,9 +165,6 @@ export default function formValidate(vp: VP_BPM): Message[] {
 
       if (vp.t6_c2_c2_cof_nat_cod === undefined)
         m.push(getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins'));
-
-      if (vp.t6_c2_c3_enqua_cod === undefined)
-        m.push(getMsgS('Dados fiscais e contábeis - Código de enquadramento'));
 
       if (vp.t6_c2_c4_pis_com_cod == '')
         m.push(

@@ -39,4 +39,9 @@ export class T1C1C1SubComponent implements OnInit {
     this.vp.t1_c1_c1_item_subs_cod = this.vp.t1_c1_c1_item_subs_obj!.codPro;
     this.mostrar_modal = false;
   }
+
+  public substituidoClear() {
+    this.vp.t1_c1_c1_item_subs_obj = undefined;
+    this.vp.t1_c1_c1_item_subs_cod = '';
+  }
 }
