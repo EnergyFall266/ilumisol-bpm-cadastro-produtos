@@ -3,7 +3,7 @@ import { Message } from 'primeng/api';
 import * as wsb from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 
-const URL = environment.url_padrao;
+const URL = 'https://erphomolog.copagril.com.br:9596'//environment.url_padrao;
 
 export const wsG5Exporta = async (port: string, body: string = '{}') =>
   (

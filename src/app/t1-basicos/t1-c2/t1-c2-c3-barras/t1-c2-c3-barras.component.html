@@ -16,7 +16,11 @@
           [(ngModel)]="vp.t1_c2_c3_barras"
         />
       </div>
-      <h6 class="col-12 m-0 py-0" style="font-weight: normal">
+      <h6
+        class="col-12 m-0 py-0"
+        style="font-weight: normal"
+        [hidden]="vp.t1_mandatory_to_readonly"
+      >
         Se não possuir código, deve preencher "SEM GTIN" e justificar no campo
         abaixo
       </h6>
@@ -28,7 +32,10 @@
       <span class="col-12"
         >Justificativa código de barras
         <span
-          [hidden]="vp.t1_mandatory_to_readonly || vp.t1_c2_c3_barras != ''"
+          [hidden]="
+            vp.t1_mandatory_to_readonly ||
+            (vp.t1_c2_c3_barras != '' && vp.t1_c2_c3_barras != 'SEM GTIN')
+          "
           style="color: red"
           >*</span
         ></span

@@ -60,7 +60,10 @@ export default function formValidate(vp: VP_BPM): Message[] {
 
       if (vp.t1_c2_c3_barras == '') {
         m.push(getMsgC('Dados básicos - Código de barras livre'));
-        if (vp.t1_c2_c3_barras_justificativa == '')
+        if (
+          vp.t1_c2_c3_barras_justificativa == '' ||
+          vp.t1_c2_c3_barras_justificativa == 'SEM GTIN'
+        )
           m.push(getMsgC('Dados básicos - Justificativa código de barras'));
       }
 

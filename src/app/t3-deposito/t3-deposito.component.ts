@@ -12,4 +12,10 @@ export class T3DepositoComponent implements OnInit {
   constructor() {}
 
   public ngOnInit(): void {}
+
+  public adicionarDeposito = () =>
+    this.vp.t3_deposito_array.push({
+      id: new Date().getTime(),
+      t3_c1_destino_sel: [],
+    });
 }

@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t3_c1_destino_des"
+            [(ngModel)]="dep.t3_c1_destino_des"
             (click)="depositoInput()"
           />
           <button
@@ -43,13 +43,12 @@
   >
     <p-table
       #tableDepoDes
-      selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
       [value]="vp.t3_c1_destino_arr"
-      [(selection)]="vp.t3_c1_destino_obj"
+      [(selection)]="dep.t3_c1_destino_sel"
       (onRowSelect)="depositoSelect()"
       dataKey="codDep"
       [globalFilterFields]="['codDep', 'desDep']"
@@ -72,6 +71,9 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
           <th pSortableColumn="codDep">
             Código <p-sortIcon field="codDep"></p-sortIcon>
           </th>
@@ -82,6 +84,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-dep>
         <tr [pSelectableRow]="dep">
+          <td>
+            <p-tableCheckbox [value]="dep"></p-tableCheckbox>
+          </td>
           <td>{{ dep.codDep }}</td>
           <td>{{ dep.desDep }}</td>
         </tr>
@@ -111,7 +116,7 @@
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t3_c1_quan_estoque_rep"
+          [(ngModel)]="dep.t3_c1_quan_estoque_rep"
         >
         </p-inputNumber>
       </div>
@@ -145,7 +150,7 @@
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="vp.t3_c1_quan_min_vendas"
+          [(ngModel)]="dep.t3_c1_quan_min_vendas"
         >
         </p-inputNumber>
       </div>

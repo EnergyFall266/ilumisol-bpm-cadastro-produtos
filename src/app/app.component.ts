@@ -7,7 +7,6 @@ import formValidate from 'src/functions/Form_Validate';
 import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
-import { G5Response } from 'src/beans/WS_Beans';
 import { AppService } from './app.service';
 
 declare var workflowCockpit: any;
@@ -30,8 +29,8 @@ export class AppComponent {
   constructor(
     private ap: AppService,
     private messageService: MessageService,
-    public translate: TranslateService,
-    public primeNGConfig: PrimeNGConfig
+    private translate: TranslateService,
+    private primeNGConfig: PrimeNGConfig
   ) {
     new workflowCockpit({
       init: this._loadData,
@@ -65,11 +64,11 @@ export class AppComponent {
       },
       (error) => {
         if (error.response.data) {
-          const e = error.response.data as G5Response;
+          const e = error.response.data;
           this.messageService.add({
             severity: 'error',
             summary: 'Web service error',
-            detail: e.errorMessage,
+            detail: e.errorMessage ?? e.message,
             sticky: true,
           });
         }
@@ -80,6 +79,7 @@ export class AppComponent {
 
     this.primeNGConfig.ripple = true;
     this.vp.overlay = false;
+    this.activeMenu = fd.showMenus(3, [1, 2, 3, 4, 5, 6]);
   }
 
   private _loadData = async (data: Data, info: Info): Promise<void> => {

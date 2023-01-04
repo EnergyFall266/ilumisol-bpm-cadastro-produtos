@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
-import { ExportaDepositos } from 'src/beans/WS_Beans';
+import { DepositosCadastro, ExportaDepositos } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t3-c1',
@@ -10,6 +10,7 @@ import { ExportaDepositos } from 'src/beans/WS_Beans';
 })
 export class T3C1Component implements OnInit {
   @Input() vp!: VP_BPM;
+  @Input() dep!: DepositosCadastro;
 
   public mostrar_modal: boolean = false;
 
@@ -25,16 +26,27 @@ export class T3C1Component implements OnInit {
           'ExportaDepositos'
         )) as ExportaDepositos[];
         if (this.vp.t3_c1_destino_cod != '')
-          this.vp.t3_c1_destino_obj = this.vp.t3_c1_destino_arr.find(
-            (x) => x.codDep == this.vp.t3_c1_destino_cod
+          this.dep.t3_c1_destino_obj = this.vp.t3_c1_destino_arr.find(
+            (x) => x.codDep == this.dep.t3_c1_destino_cod
           );
       }
     }
   }
 
   public depositoSelect() {
-    this.vp.t3_c1_destino_cod = this.vp.t3_c1_destino_obj!.codDep;
-    this.vp.t3_c1_destino_des = this.vp.t3_c1_destino_obj!.desDep;
-    this.mostrar_modal = false;
+    /*this.dep.t3_c1_destino_cod = this.dep.t3_c1_destino_obj!.codDep;
+    this.dep.t3_c1_destino_des = this.dep.t3_c1_destino_obj!.desDep;
+    this.mostrar_modal = false;*/
+    this.dep.t3_c1_destino_cod = '';
+    this.dep.t3_c1_destino_des = '';
+    for (const [i, d] of this.dep.t3_c1_destino_sel.entries()) {
+      if (i == 0) {
+        this.dep.t3_c1_destino_cod = `[${d.codDep}]`;
+        this.dep.t3_c1_destino_des = `[${d.desDep}]`;
+      } else {
+        this.dep.t3_c1_destino_cod = `${this.dep.t3_c1_destino_cod} [${d.codDep}]`;
+        this.dep.t3_c1_destino_des = `${this.dep.t3_c1_destino_des} [${d.desDep}]`;
+      }
+    }
   }
 }
