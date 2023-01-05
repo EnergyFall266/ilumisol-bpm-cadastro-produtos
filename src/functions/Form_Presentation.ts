@@ -20,11 +20,6 @@ export default function getFormPresentation(rld: ResponseLoadData) {
       break;
     case environment.s2_dad_cad:
     case environment.s4_fis_con:
-      rld.vp.t1_mandatory_to_readonly = true;
-      rld.vp.t2_mandatory_to_readonly = true;
-      rld.vp.t3_mandatory_to_readonly = true;
-      rld.vp.t4_mandatory_to_readonly = true;
-
       rld.tabs.push(5);
 
       if (STEP == environment.s2_dad_cad) {
@@ -32,8 +27,14 @@ export default function getFormPresentation(rld: ResponseLoadData) {
         rld.vp.t5_mandatory_to_readonly = false;
       } else {
         rld.initial = 6;
+
+        rld.vp.t1_mandatory_to_readonly = true;
+        rld.vp.t2_mandatory_to_readonly = true;
+        rld.vp.t3_mandatory_to_readonly = true;
+        rld.vp.t4_mandatory_to_readonly = true;
         rld.vp.t6_mandatory_to_readonly = false;
         rld.vp.hideCadastro = false;
+
         rld.tabs.push(6);
       }
       break;

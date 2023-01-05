@@ -4,6 +4,19 @@
       <span class="col-12">Unidade de medida 2 para uso gerencial</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t5_mandatory_to_readonly || vp.t5_c2_c1_med_2_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="uni2Clear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -89,6 +102,19 @@
       <span class="col-12">Unidade de medida 3 para uso gerencial</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t5_mandatory_to_readonly || vp.t5_c2_c1_med_3_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="uni3Clear()"
+          ></button>
           <input
             pInputText
             type="text"

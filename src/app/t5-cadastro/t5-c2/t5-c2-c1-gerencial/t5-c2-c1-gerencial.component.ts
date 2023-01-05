@@ -31,6 +31,12 @@ export class T5C2C1GerencialComponent implements OnInit {
     this.mostrar_modal_2 = false;
   }
 
+  public uni2Clear() {
+    this.vp.t5_c2_c1_med_2_obj = undefined;
+    this.vp.t5_c2_c1_med_2_cod = '';
+    this.vp.t5_c2_c1_med_2_des = '';
+  }
+
   public async uni3Input() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_3 = true;
@@ -42,6 +48,12 @@ export class T5C2C1GerencialComponent implements OnInit {
     this.vp.t5_c2_c1_med_3_cod = this.vp.t5_c2_c1_med_3_obj!.uniMed;
     this.vp.t5_c2_c1_med_3_des = this.vp.t5_c2_c1_med_3_obj!.desMed;
     this.mostrar_modal_3 = false;
+  }
+
+  public uni3Clear() {
+    this.vp.t5_c2_c1_med_3_obj = undefined;
+    this.vp.t5_c2_c1_med_3_cod = '';
+    this.vp.t5_c2_c1_med_3_des = '';
   }
 
   private async buscarUnidades() {

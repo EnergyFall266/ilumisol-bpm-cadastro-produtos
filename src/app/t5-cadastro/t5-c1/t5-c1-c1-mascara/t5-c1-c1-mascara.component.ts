@@ -37,4 +37,10 @@ export class T5C1C1MascaraComponent implements OnInit {
     this.vp.t5_c1_c1_mascara_des = this.vp.t5_c1_c1_mascara_obj!.desMdp;
     this.mostrar_modal = false;
   }
+
+  public mascaraClear() {
+    this.vp.t5_c1_c1_mascara_obj = undefined;
+    this.vp.t5_c1_c1_mascara_cod = '';
+    this.vp.t5_c1_c1_mascara_des = '';
+  }
 }

@@ -38,4 +38,9 @@ export class T1C2C7MultinivelComponent implements OnInit {
     this.vp.t1_c2_c7_multinivel_cod = this.vp.t1_c2_c7_multinivel_obj!.codAgp;
     this.mostrar_modal = false;
   }
+
+  public multinivelClear() {
+    this.vp.t1_c2_c7_multinivel_obj = undefined;
+    this.vp.t1_c2_c7_multinivel_cod = '';
+  }
 }

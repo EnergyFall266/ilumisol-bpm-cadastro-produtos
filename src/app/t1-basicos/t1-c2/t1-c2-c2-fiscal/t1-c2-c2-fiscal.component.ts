@@ -37,4 +37,10 @@ export class T1C2C2FiscalComponent implements OnInit {
     this.vp.t1_c2_c2_clafiscal_des = this.vp.t1_c2_c2_clafiscal_obj!.desClf;
     this.mostrar_modal = false;
   }
+
+  public fiscalClear() {
+    this.vp.t1_c2_c2_clafiscal_obj = undefined;
+    this.vp.t1_c2_c2_clafiscal_cod = '';
+    this.vp.t1_c2_c2_clafiscal_des = '';
+  }
 }

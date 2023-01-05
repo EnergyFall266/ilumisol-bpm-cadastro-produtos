@@ -44,4 +44,10 @@ export class T1C2C5MercadoriaComponent implements OnInit {
     this.vp.t1_c2_c5_mercadoria_des = this.vp.t1_c2_c5_mercadoria_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public mercadoriaClear() {
+    this.vp.t1_c2_c5_mercadoria_obj = undefined;
+    this.vp.t1_c2_c5_mercadoria_cod = '';
+    this.vp.t1_c2_c5_mercadoria_des = '';
+  }
 }

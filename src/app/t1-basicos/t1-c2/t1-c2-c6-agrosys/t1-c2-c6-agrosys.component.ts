@@ -38,4 +38,10 @@ export class T1C2C6AgrosysComponent implements OnInit {
     this.vp.t1_c2_c6_agrosys_des = this.vp.t1_c2_c6_agrosys_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public agrosysClear() {
+    this.vp.t1_c2_c6_agrosys_obj = undefined;
+    this.vp.t1_c2_c6_agrosys_cod = '';
+    this.vp.t1_c2_c6_agrosys_des = '';
+  }
 }

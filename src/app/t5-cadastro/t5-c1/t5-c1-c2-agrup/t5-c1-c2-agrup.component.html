@@ -4,6 +4,19 @@
       <span class="col-12">Agrup. Estoques</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t5_mandatory_to_readonly || vp.t5_c1_c2_agr_est_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="estoquesClear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -92,6 +105,19 @@
       <span class="col-12">Agrup. Custos</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t5_mandatory_to_readonly || vp.t5_c1_c2_agr_cus_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="custosClear()"
+          ></button>
           <input
             pInputText
             type="text"

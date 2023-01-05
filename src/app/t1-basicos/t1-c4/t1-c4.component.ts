@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
-import { ExportaGrupoQuimico } from 'src/beans/WS_Beans';
 
 @Component({
   selector: 'app-t1-c4',

@@ -36,7 +36,22 @@ export class T1C3C2VendaComponent implements OnInit {
   public categoriaSelect() {
     this.vp.t1_c3_c2_categoria_cod = this.vp.t1_c3_c2_categoria_obj!.codCtg;
     this.vp.t1_c3_c2_categoria_des = this.vp.t1_c3_c2_categoria_obj!.desCtg;
+
+    this.subCategoriaClear();
+    this.vp.t1_c3_c2_subcategoria_arr = [];
+
     this.mostrar_modal_cat = false;
+  }
+
+  public categoriaClear() {
+    this.vp.t1_c3_c2_categoria_obj = undefined;
+    this.vp.t1_c3_c2_categoria_cod = -1;
+    this.vp.t1_c3_c2_categoria_des = '';
+
+    this.vp.t1_c3_c2_subcategoria_arr = [];
+    this.vp.t1_c3_c2_subcategoria_obj = undefined;
+    this.vp.t1_c3_c2_subcategoria_cod = -1;
+    this.vp.t1_c3_c2_subcategoria_des = '';
   }
 
   public async subCategoriaInput() {
@@ -46,7 +61,10 @@ export class T1C3C2VendaComponent implements OnInit {
         await this.buscarSubCategorias();
       else
         for (const s of this.vp.t1_c3_c2_subcategoria_arr)
-          if (s.codCtg != this.vp.t1_c3_c2_categoria_cod) {
+          if (
+            this.vp.t1_c3_c2_categoria_cod != -1 &&
+            this.vp.t1_c3_c2_categoria_cod != s.codCtg
+          ) {
             this.vp.t1_c3_c2_subcategoria_arr = [];
             this.vp.t1_c3_c2_subcategoria_obj = undefined;
             this.vp.t1_c3_c2_subcategoria_cod = -1;
@@ -75,5 +93,11 @@ export class T1C3C2VendaComponent implements OnInit {
     this.vp.t1_c3_c2_subcategoria_des =
       this.vp.t1_c3_c2_subcategoria_obj!.desSct;
     this.mostrar_modal_sub = false;
+  }
+
+  public subCategoriaClear() {
+    this.vp.t1_c3_c2_subcategoria_obj = undefined;
+    this.vp.t1_c3_c2_subcategoria_cod = -1;
+    this.vp.t1_c3_c2_subcategoria_des = '';
   }
 }

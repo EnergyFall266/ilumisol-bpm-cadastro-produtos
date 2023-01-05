@@ -37,4 +37,10 @@ export class T1C1C5MedComponent implements OnInit {
     this.vp.t1_c1_c5_medida_des = this.vp.t1_c1_c5_medida_obj!.desMed;
     this.mostrar_modal = false;
   }
+
+  public unidadeClear() {
+    this.vp.t1_c1_c5_medida_obj = undefined;
+    this.vp.t1_c1_c5_medida_cod = '';
+    this.vp.t1_c1_c5_medida_des = '';
+  }
 }

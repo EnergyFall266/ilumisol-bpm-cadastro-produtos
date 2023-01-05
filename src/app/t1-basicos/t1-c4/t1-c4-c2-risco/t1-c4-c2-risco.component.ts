@@ -17,7 +17,7 @@ export class T1C4C2RiscoComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public async toxicoInput() {
+  public async riscoInput() {
     if (!this.vp.t1_mandatory_to_readonly) {
       this.mostrar_modal = true;
       if (this.vp.t1_c4_c2_risco_arr.length == 0) {
@@ -33,9 +33,15 @@ export class T1C4C2RiscoComponent implements OnInit {
     }
   }
 
-  public toxicoSelect() {
+  public riscoSelect() {
     this.vp.t1_c4_c2_risco_cod = this.vp.t1_c4_c2_risco_obj!.codCri;
     this.vp.t1_c4_c2_risco_des = this.vp.t1_c4_c2_risco_obj!.desCri;
     this.mostrar_modal = false;
+  }
+
+  public riscoClear() {
+    this.vp.t1_c4_c2_risco_obj = undefined;
+    this.vp.t1_c4_c2_risco_cod = '';
+    this.vp.t1_c4_c2_risco_des = '';
   }
 }

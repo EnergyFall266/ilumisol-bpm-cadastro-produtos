@@ -4,6 +4,19 @@
       <span class="col-12">Classe de risco</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t1_mandatory_to_readonly || vp.t1_c4_c2_risco_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="riscoClear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -11,7 +24,7 @@
             placeholder="Selecione"
             [readonly]="true"
             [(ngModel)]="vp.t1_c4_c2_risco_des"
-            (click)="toxicoInput()"
+            (click)="riscoInput()"
           />
           <button
             pButton
@@ -20,7 +33,7 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
-            (click)="toxicoInput()"
+            (click)="riscoInput()"
           ></button>
         </div>
       </div>
@@ -45,7 +58,7 @@
       [loading]="vp.buscandoWS"
       [value]="vp.t1_c4_c2_risco_arr"
       [(selection)]="vp.t1_c4_c2_risco_obj"
-      (onRowSelect)="toxicoSelect()"
+      (onRowSelect)="riscoSelect()"
       dataKey="codCri"
       [globalFilterFields]="['codCri', 'desCri']"
     >

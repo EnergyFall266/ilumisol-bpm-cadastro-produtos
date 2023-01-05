@@ -37,4 +37,10 @@ export class T2FornecedorComponent implements OnInit {
     this.vp.t2_fornecedor_des = this.vp.t2_fornecedor_obj!.nomFor;
     this.mostrar_modal = false;
   }
+
+  public fornecedorClear() {
+    this.vp.t2_fornecedor_obj = undefined;
+    this.vp.t2_fornecedor_cod = -1;
+    this.vp.t2_fornecedor_des = '';
+  }
 }

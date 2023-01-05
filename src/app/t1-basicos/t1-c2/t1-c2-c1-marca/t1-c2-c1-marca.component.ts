@@ -37,4 +37,10 @@ export class T1C2C1MarcaComponent implements OnInit {
     this.vp.t1_c2_c1_marca_des = this.vp.t1_c2_c1_marca_obj!.nomMar;
     this.mostrar_modal = false;
   }
+
+  public marcaClear() {
+    this.vp.t1_c2_c1_marca_obj = undefined;
+    this.vp.t1_c2_c1_marca_cod = '';
+    this.vp.t1_c2_c1_marca_des = '';
+  }
 }

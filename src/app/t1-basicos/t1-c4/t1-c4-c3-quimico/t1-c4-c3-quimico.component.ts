@@ -37,4 +37,10 @@ export class T1C4C3QuimicoComponent implements OnInit {
     this.vp.t1_c4_c3_quimico_des = this.vp.t1_c4_c3_quimico_obj!.desQui;
     this.mostrar_modal = false;
   }
+
+  public quimicoClear() {
+    this.vp.t1_c4_c3_quimico_obj = undefined;
+    this.vp.t1_c4_c3_quimico_cod = -1;
+    this.vp.t1_c4_c3_quimico_des = '';
+  }
 }

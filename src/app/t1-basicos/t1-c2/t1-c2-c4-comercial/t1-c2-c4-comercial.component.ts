@@ -39,4 +39,10 @@ export class T1C2C4ComercialComponent implements OnInit {
     this.vp.t1_c2_c4_agrupamento_des = this.vp.t1_c2_c4_agrupamento_obj!.desAgp;
     this.mostrar_modal = false;
   }
+
+  public comercialClear() {
+    this.vp.t1_c2_c4_agrupamento_obj = undefined;
+    this.vp.t1_c2_c4_agrupamento_cod = '';
+    this.vp.t1_c2_c4_agrupamento_des = '';
+  }
 }

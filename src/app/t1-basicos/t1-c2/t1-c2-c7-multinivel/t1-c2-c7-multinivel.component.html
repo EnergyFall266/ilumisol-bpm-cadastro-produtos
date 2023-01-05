@@ -4,6 +4,19 @@
       <span class="col-12">Código Agr. Apr. Multinível</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t1_mandatory_to_readonly || vp.t1_c2_c7_multinivel_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="multinivelClear()"
+          ></button>
           <input
             pInputText
             type="text"

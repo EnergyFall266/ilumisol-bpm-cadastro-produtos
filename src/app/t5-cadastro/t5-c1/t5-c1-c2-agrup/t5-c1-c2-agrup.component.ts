@@ -40,6 +40,12 @@ export class T5C1C2AgrupComponent implements OnInit {
     this.mostrar_modal_est = false;
   }
 
+  public estoquesClear() {
+    this.vp.t5_c1_c2_agr_est_obj = undefined;
+    this.vp.t5_c1_c2_agr_est_cod = '';
+    this.vp.t5_c1_c2_agr_est_des = '';
+  }
+
   public async custosInput() {
     if (!this.vp.t5_mandatory_to_readonly) {
       this.mostrar_modal_cus = true;
@@ -60,5 +66,11 @@ export class T5C1C2AgrupComponent implements OnInit {
     this.vp.t5_c1_c2_agr_cus_cod = this.vp.t5_c1_c2_agr_cus_obj!.codAgp;
     this.vp.t5_c1_c2_agr_cus_des = this.vp.t5_c1_c2_agr_cus_obj!.desAgp;
     this.mostrar_modal_cus = false;
+  }
+
+  public custosClear() {
+    this.vp.t5_c1_c2_agr_cus_obj = undefined;
+    this.vp.t5_c1_c2_agr_cus_cod = '';
+    this.vp.t5_c1_c2_agr_cus_des = '';
   }
 }

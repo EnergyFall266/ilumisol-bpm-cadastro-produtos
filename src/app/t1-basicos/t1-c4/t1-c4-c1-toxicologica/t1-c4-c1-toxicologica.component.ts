@@ -37,4 +37,10 @@ export class T1C4C1ToxicologicaComponent implements OnInit {
     this.vp.t1_c4_c1_toxico_des = this.vp.t1_c4_c1_toxico_obj!.desCto;
     this.mostrar_modal = false;
   }
+
+  public toxicoClear() {
+    this.vp.t1_c4_c1_toxico_obj = undefined;
+    this.vp.t1_c4_c1_toxico_cod = -1;
+    this.vp.t1_c4_c1_toxico_des = '';
+  }
 }
