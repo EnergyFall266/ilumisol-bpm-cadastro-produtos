@@ -38,4 +38,10 @@ export class T6C2C1PisvnComponent implements OnInit {
     this.vp.t6_c2_c1_pis_ven_des = this.vp.t6_c2_c1_pis_ven_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public situacaoClear() {
+    this.vp.t6_c2_c1_pis_ven_obj = undefined;
+    this.vp.t6_c2_c1_pis_ven_cod = '';
+    this.vp.t6_c2_c1_pis_ven_des = '';
+  }
 }

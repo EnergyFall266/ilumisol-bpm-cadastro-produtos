@@ -49,6 +49,9 @@ import { T1C3Component } from './t1-basicos/t1-c3/t1-c3.component';
 import { T1C3C1PadraoComponent } from './t1-basicos/t1-c3/t1-c3-c1-padrao/t1-c3-c1-padrao.component';
 import { T1C3C2VendaComponent } from './t1-basicos/t1-c3/t1-c3-c2-venda/t1-c3-c2-venda.component';
 import { T1C4Component } from './t1-basicos/t1-c4/t1-c4.component';
+import { T1C4C1ToxicologicaComponent } from './t1-basicos/t1-c4/t1-c4-c1-toxicologica/t1-c4-c1-toxicologica.component';
+import { T1C4C2RiscoComponent } from './t1-basicos/t1-c4/t1-c4-c2-risco/t1-c4-c2-risco.component';
+import { T1C4C3QuimicoComponent } from './t1-basicos/t1-c4/t1-c4-c3-quimico/t1-c4-c3-quimico.component';
 import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
 import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
 import { T3C1Component } from './t3-deposito/t3-c1/t3-c1.component';
@@ -84,9 +87,7 @@ import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
-import { T1C4C1ToxicologicaComponent } from './t1-basicos/t1-c4/t1-c4-c1-toxicologica/t1-c4-c1-toxicologica.component';
-import { T1C4C2RiscoComponent } from './t1-basicos/t1-c4/t1-c4-c2-risco/t1-c4-c2-risco.component';
-import { T1C4C3QuimicoComponent } from './t1-basicos/t1-c4/t1-c4-c3-quimico/t1-c4-c3-quimico.component';
+import { T3C5Component } from './t3-deposito/t3-c5/t3-c5.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -113,6 +114,9 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T1C3C1PadraoComponent,
     T1C3C2VendaComponent,
     T1C4Component,
+    T1C4C1ToxicologicaComponent,
+    T1C4C2RiscoComponent,
+    T1C4C3QuimicoComponent,
     T2FornecedorComponent,
     T3DepositoComponent,
     T3C1Component,
@@ -148,9 +152,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C4Component,
     T6C4C1ObsComponent,
     T6C4C2AneComponent,
-    T1C4C1ToxicologicaComponent,
-    T1C4C2RiscoComponent,
-    T1C4C3QuimicoComponent,
+    T3C5Component,
   ],
   imports: [
     BrowserModule,

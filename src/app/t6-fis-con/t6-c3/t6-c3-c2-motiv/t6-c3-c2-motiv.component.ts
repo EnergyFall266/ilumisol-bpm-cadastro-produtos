@@ -38,4 +38,10 @@ export class T6C3C2MotivComponent implements OnInit {
     this.vp.t6_c3_c2_motivo_des = this.vp.t6_c3_c2_motivo_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public motivoClear() {
+    this.vp.t6_c3_c2_motivo_obj = undefined;
+    this.vp.t6_c3_c2_motivo_cod = -1;
+    this.vp.t6_c3_c2_motivo_des = '';
+  }
 }

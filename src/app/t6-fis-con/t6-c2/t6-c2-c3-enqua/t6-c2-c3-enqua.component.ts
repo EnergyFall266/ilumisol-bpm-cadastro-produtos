@@ -36,4 +36,9 @@ export class T6C2C3EnquaComponent implements OnInit {
     this.vp.t6_c2_c3_enqua_cod = this.vp.t6_c2_c3_enqua_obj!.codEnq;
     this.mostrar_modal = false;
   }
+
+  public enquaClear() {
+    this.vp.t6_c2_c3_enqua_obj = undefined;
+    this.vp.t6_c2_c3_enqua_cod = undefined;
+  }
 }

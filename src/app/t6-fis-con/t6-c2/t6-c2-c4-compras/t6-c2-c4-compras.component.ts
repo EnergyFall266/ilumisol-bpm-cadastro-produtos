@@ -31,6 +31,12 @@ export class T6C2C4ComprasComponent implements OnInit {
     this.mostrar_modal_pis = false;
   }
 
+  public pisClear() {
+    this.vp.t6_c2_c4_pis_com_obj = undefined;
+    this.vp.t6_c2_c4_pis_com_cod = '';
+    this.vp.t6_c2_c4_pis_com_des = '';
+  }
+
   public async cofInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_cof = true;
@@ -42,6 +48,12 @@ export class T6C2C4ComprasComponent implements OnInit {
     this.vp.t6_c2_c4_cof_com_cod = this.vp.t6_c2_c4_cof_com_obj!.chvLis;
     this.vp.t6_c2_c4_cof_com_des = this.vp.t6_c2_c4_cof_com_obj!.desLis;
     this.mostrar_modal_cof = false;
+  }
+
+  public cofClear() {
+    this.vp.t6_c2_c4_cof_com_obj = undefined;
+    this.vp.t6_c2_c4_cof_com_cod = '';
+    this.vp.t6_c2_c4_cof_com_des = '';
   }
 
   private async buscarSituacao() {

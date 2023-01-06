@@ -9,6 +9,19 @@
       >
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c1_tipo_prod_cod == -1
+                ? 'none'
+                : ''
+            "
+            (click)="tipoClear()"
+          ></button>
           <input
             pInputText
             type="text"

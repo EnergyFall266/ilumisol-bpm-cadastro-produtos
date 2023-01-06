@@ -39,4 +39,10 @@ export class T5C2C2Medida2Component implements OnInit {
     this.vp.t5_c2_c2_med_2_tip_des = this.vp.t5_c2_c2_med_2_tip_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public tcu2Clear() {
+    this.vp.t5_c2_c2_med_2_tip_obj = undefined;
+    this.vp.t5_c2_c2_med_2_tip_cod = '';
+    this.vp.t5_c2_c2_med_2_tip_des = '';
+  }
 }

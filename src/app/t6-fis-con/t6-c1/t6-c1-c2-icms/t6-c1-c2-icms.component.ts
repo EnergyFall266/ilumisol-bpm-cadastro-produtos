@@ -40,6 +40,11 @@ export class T6C1C2IcmsComponent implements OnInit {
     this.mostrar_modal_esp = false;
   }
 
+  public especialClear() {
+    this.vp.t6_c1_c2_icms_especial_obj = undefined;
+    this.vp.t6_c1_c2_icms_especial_cod = '';
+  }
+
   public async reducaoInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_red = true;
@@ -60,5 +65,10 @@ export class T6C1C2IcmsComponent implements OnInit {
     this.vp.t6_c1_c2_reducao_icms_cod =
       this.vp.t6_c1_c2_reducao_icms_obj!.codTrd;
     this.mostrar_modal_red = false;
+  }
+
+  public reducaoClear() {
+    this.vp.t6_c1_c2_reducao_icms_obj = undefined;
+    this.vp.t6_c1_c2_reducao_icms_cod = '';
   }
 }

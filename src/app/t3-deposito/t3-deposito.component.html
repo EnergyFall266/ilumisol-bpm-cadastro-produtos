@@ -1,46 +1,7 @@
 <div class="grid mt-1">
-  <div class="col-12 pb-0">
-    <div class="grid" *ngFor="let dep of vp.t3_deposito_array">
-      <p-panel class="col-12 mb-2" [header]="'Depósito'">
-        <div class="grid">
-          <div class="col-3 pb-0">
-            <app-t3-c1 [vp]="vp" [dep]="dep"></app-t3-c1>
-          </div>
-
-          <div class="col-3 pb-0">
-            <app-t3-c2 [vp]="vp"></app-t3-c2>
-          </div>
-
-          <div class="col-3 pb-0">
-            <app-t3-c3 [vp]="vp"></app-t3-c3>
-          </div>
-
-          <div class="col-3 pb-0">
-            <app-t3-c4 [vp]="vp"></app-t3-c4>
-          </div>
-        </div>
-      </p-panel>
-    </div>
-  </div>
-
-  <div class="col-2 py-0">
-    <button
-      pButton
-      pRipple
-      type="button"
-      icon="pi pi-plus"
-      label="Adicionar"
-      class="w-full py-2"
-      (click)="adicionarDeposito()"
-    ></button>
-  </div>
-  <div class="col-10"></div>
-
-  <!--
   <div class="col-3">
     <app-t3-c1 [vp]="vp"></app-t3-c1>
   </div>
-  -->
 
   <div class="col-3">
     <app-t3-c2 [vp]="vp"></app-t3-c2>
@@ -52,5 +13,38 @@
 
   <div class="col-3">
     <app-t3-c4 [vp]="vp"></app-t3-c4>
+  </div>
+
+  <div class="col-12">
+    <div class="grid">
+      <div class="col-2">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          label="Adicionar"
+          class="w-full"
+          (click)="adicionarDeposito()"
+          [disabled]="disabledAdicionar()"
+        ></button>
+      </div>
+
+      <div class="col-2">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-times"
+          label="Cancelar"
+          class="w-full p-button-secondary"
+          (click)="adicionarDeposito()"
+        ></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <app-t3-c5 [vp]="vp"></app-t3-c5>
   </div>
 </div>

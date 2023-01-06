@@ -4,6 +4,19 @@
       <span class="col-12">Código ICMS Especial</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c2_icms_especial_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="especialClear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -92,6 +105,19 @@
       <span class="col-12">Código Redução ICMS</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c2_reducao_icms_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="reducaoClear()"
+          ></button>
           <input
             pInputText
             type="text"

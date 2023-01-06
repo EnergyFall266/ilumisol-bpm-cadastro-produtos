@@ -38,4 +38,10 @@ export class T6C3C1EnquaComponent implements OnInit {
     this.vp.t6_c3_c1_enq_esp_des = this.vp.t6_c3_c1_enq_esp_obj!.desLis;
     this.mostrar_modal = false;
   }
+
+  public enquaClear() {
+    this.vp.t6_c3_c1_enq_esp_obj = undefined;
+    this.vp.t6_c3_c1_enq_esp_cod = -1;
+    this.vp.t6_c3_c1_enq_esp_des = '';
+  }
 }

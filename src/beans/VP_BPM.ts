@@ -194,6 +194,8 @@ export class VP_BPM {
   //Coluna 1
   public t3_c1_destino_arr: wsb.ExportaDepositos[] = [];
   public t3_c1_destino_obj?: wsb.ExportaDepositos;
+  public t3_c1_destino_sel: wsb.ExportaDepositos[] = [];
+  public t3_c1_destino_stx: string = '';
   public t3_c1_destino_cod: string = '';
   public t3_c1_destino_des: string = '';
 

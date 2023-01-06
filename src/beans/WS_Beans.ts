@@ -93,23 +93,20 @@ export interface ExportaValorLista {
 }
 
 export interface DepositosCadastro {
-  id: number;
-  t3_c1_destino_sel: ExportaDepositos[];
-  t3_c1_destino_obj?: ExportaDepositos;
-  t3_c1_destino_cod?: string;
-  t3_c1_destino_des?: string;
+  t3_c1_destino_cod: string;
+  t3_c1_destino_des: string;
   t3_c1_quan_estoque_rep?: number;
-  t3_c1_quan_min_vendas?: number;
+  t3_c1_quan_min_vendas: number;
 
   t3_c2_quan_estoque_min?: number;
   t3_c2_quan_estoque_max?: number;
-  t3_c2_quan_max_vendas?: number;
+  t3_c2_quan_max_vendas: number;
 
   t3_c3_estoque_min?: number;
   t3_c3_estoque_max?: number;
 
-  t3_c4_quan_mul_ven?: number;
-  t3_c4_quan_mul_com?: number;
+  t3_c4_quan_mul_ven: number;
+  t3_c4_quan_mul_com: number;
 }
 
 export interface ExportaDepositos {

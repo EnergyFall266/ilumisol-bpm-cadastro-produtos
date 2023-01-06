@@ -4,6 +4,19 @@
       <span class="col-12">Motivo desoneração ICMS</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c3_c2_motivo_cod == -1
+                ? 'none'
+                : ''
+            "
+            (click)="motivoClear()"
+          ></button>
           <input
             pInputText
             type="text"

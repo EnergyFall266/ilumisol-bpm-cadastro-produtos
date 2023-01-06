@@ -4,6 +4,19 @@
       <span class="col-12">Código ICMS Substituído</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c3_icm_subs_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="icmsClear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -92,6 +105,19 @@
       <span class="col-12">Código Substituição Cofins</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c3_cof_subs_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="cofinsClear()"
+          ></button>
           <input
             pInputText
             type="text"
@@ -177,6 +203,19 @@
       <span class="col-12">Código Substituição Pis</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c1_c3_pis_subs_cod == ''
+                ? 'none'
+                : ''
+            "
+            (click)="pisClear()"
+          ></button>
           <input
             pInputText
             type="text"

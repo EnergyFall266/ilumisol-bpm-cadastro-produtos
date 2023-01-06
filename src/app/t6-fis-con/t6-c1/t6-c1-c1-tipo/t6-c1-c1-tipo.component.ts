@@ -25,7 +25,7 @@ export class T6C1C1TipoComponent implements OnInit {
           'ExportaValorLista',
           'LProImp'
         )) as ExportaValorLista[];
-        if (this.vp.t6_c1_c1_tipo_prod_cod != 0)
+        if (this.vp.t6_c1_c1_tipo_prod_cod != -1)
           this.vp.t6_c1_c1_tipo_prod_obj = this.vp.t6_c1_c1_tipo_prod_arr.find(
             (x) => Number(x.chvLis) == this.vp.t6_c1_c1_tipo_prod_cod
           );
@@ -39,5 +39,11 @@ export class T6C1C1TipoComponent implements OnInit {
     );
     this.vp.t6_c1_c1_tipo_prod_des = this.vp.t6_c1_c1_tipo_prod_obj!.desLis;
     this.mostrar_modal = false;
+  }
+
+  public tipoClear() {
+    this.vp.t6_c1_c1_tipo_prod_obj = undefined;
+    this.vp.t6_c1_c1_tipo_prod_cod = -1;
+    this.vp.t6_c1_c1_tipo_prod_des = '';
   }
 }

@@ -15,7 +15,7 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="dep.t3_c1_destino_des"
+            [(ngModel)]="vp.t3_c1_destino_des"
             (click)="depositoInput()"
           />
           <button
@@ -48,8 +48,10 @@
       [paginator]="true"
       [loading]="vp.buscandoWS"
       [value]="vp.t3_c1_destino_arr"
-      [(selection)]="dep.t3_c1_destino_sel"
+      [(selection)]="vp.t3_c1_destino_sel"
       (onRowSelect)="depositoSelect()"
+      (onRowUnselect)="depositoSelect()"
+      (onHeaderCheckboxToggle)="depositoSelect()"
       dataKey="codDep"
       [globalFilterFields]="['codDep', 'desDep']"
     >
@@ -116,7 +118,7 @@
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="dep.t3_c1_quan_estoque_rep"
+          [(ngModel)]="vp.t3_c1_quan_estoque_rep"
         >
         </p-inputNumber>
       </div>
@@ -150,7 +152,7 @@
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
           placeholder="0,00"
-          [(ngModel)]="dep.t3_c1_quan_min_vendas"
+          [(ngModel)]="vp.t3_c1_quan_min_vendas"
         >
         </p-inputNumber>
       </div>

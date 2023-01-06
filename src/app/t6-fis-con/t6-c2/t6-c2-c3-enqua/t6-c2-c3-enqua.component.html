@@ -4,6 +4,19 @@
       <span class="col-12">Código de enquadramento</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-times-circle"
+            class="p-0 p-button-text p-button-secondary w-auto mr-1"
+            [style.display]="
+              vp.t6_mandatory_to_readonly || vp.t6_c2_c3_enqua_cod == undefined
+                ? 'none'
+                : ''
+            "
+            (click)="enquaClear()"
+          ></button>
           <input
             pInputText
             type="text"

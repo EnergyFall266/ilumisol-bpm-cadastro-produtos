@@ -31,6 +31,11 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
     this.mostrar_modal_icm = false;
   }
 
+  public icmsClear() {
+    this.vp.t6_c1_c3_icm_subs_obj = undefined;
+    this.vp.t6_c1_c3_icm_subs_cod = '';
+  }
+
   public async cofinsInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_cof = true;
@@ -43,6 +48,11 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
     this.mostrar_modal_cof = false;
   }
 
+  public cofinsClear() {
+    this.vp.t6_c1_c3_cof_subs_obj = undefined;
+    this.vp.t6_c1_c3_cof_subs_cod = '';
+  }
+
   public async pisInput() {
     if (!this.vp.t6_mandatory_to_readonly) {
       this.mostrar_modal_pis = true;
@@ -53,6 +63,11 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   public pisSelect() {
     this.vp.t6_c1_c3_pis_subs_cod = this.vp.t6_c1_c3_pis_subs_obj!.codTst;
     this.mostrar_modal_pis = false;
+  }
+
+  public pisClear() {
+    this.vp.t6_c1_c3_pis_subs_obj = undefined;
+    this.vp.t6_c1_c3_pis_subs_cod = '';
   }
 
   private async buscarSubstituicao() {
