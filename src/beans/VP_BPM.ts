@@ -189,8 +189,6 @@ export class VP_BPM {
 
   public t3_mandatory_to_readonly: boolean = false;
 
-  public t3_deposito_array: wsb.DepositosCadastro[] = [];
-
   //Coluna 1
   public t3_c1_destino_arr: wsb.ExportaDepositos[] = [];
   public t3_c1_destino_obj?: wsb.ExportaDepositos;

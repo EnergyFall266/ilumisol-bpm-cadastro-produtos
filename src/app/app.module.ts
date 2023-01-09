@@ -87,7 +87,6 @@ import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
-import { T3C5Component } from './t3-deposito/t3-c5/t3-c5.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -152,7 +151,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C4Component,
     T6C4C1ObsComponent,
     T6C4C2AneComponent,
-    T3C5Component,
   ],
   imports: [
     BrowserModule,

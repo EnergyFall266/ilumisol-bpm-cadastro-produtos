@@ -137,14 +137,14 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    */
 
   //Coluna 1
+  vp.t3_c1_destino_stx = map.get('t3_c1_destino_stx');
   vp.t3_c1_destino_cod = map.get('t3_c1_destino_cod');
   vp.t3_c1_destino_des = map.get('t3_c1_destino_des');
 
   if (map.get('t3_c1_quan_estoque_rep') !== undefined)
     vp.t3_c1_quan_estoque_rep = +map.get('t3_c1_quan_estoque_rep');
 
-  if (map.get('t3_c1_quan_min_vendas') !== undefined)
-    vp.t3_c1_quan_min_vendas = +map.get('t3_c1_quan_min_vendas');
+  vp.t3_c1_quan_min_vendas = +map.get('t3_c1_quan_min_vendas');
 
   //Coluna 2
   if (map.get('t3_c2_quan_estoque_min') !== undefined)
@@ -153,8 +153,7 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t3_c2_quan_estoque_max') !== undefined)
     vp.t3_c2_quan_estoque_max = +map.get('t3_c2_quan_estoque_max');
 
-  if (map.get('t3_c2_quan_max_vendas') !== undefined)
-    vp.t3_c2_quan_max_vendas = +map.get('t3_c2_quan_max_vendas');
+  vp.t3_c2_quan_max_vendas = +map.get('t3_c2_quan_max_vendas');
 
   //Coluna 3
   if (map.get('t3_c3_estoque_min') !== undefined)

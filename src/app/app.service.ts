@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { VP_BPM } from 'src/beans/VP_BPM';
-import { CadastroRoot } from 'src/beans/WS_Beans';
+import { CadastroRoot, LigProDep } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import { wsG5Cadastro, wsG5Exporta } from 'src/functions/WS_Axios';
 import * as ged from 'prisma_prismafunctions';
@@ -216,6 +216,18 @@ export class AppService {
   }
 
   public async cadastroService(vp: VP_BPM) {
+    const d: LigProDep[] = [];
+    vp.t3_c1_destino_sel = JSON.parse(vp.t3_c1_destino_stx);
+    for (const i of vp.t3_c1_destino_sel)
+      d.push({
+        codDep: i.codDep,
+        estRep: vp.t3_c1_quan_estoque_rep ?? 0,
+        estMin: vp.t3_c2_quan_estoque_min ?? 0,
+        estMax: vp.t3_c2_quan_estoque_max ?? 0,
+        estMid: vp.t3_c3_estoque_min ?? 0,
+        estMad: vp.t3_c3_estoque_max ?? 0,
+      });
+
     const c: CadastroRoot = {
       produto: {
         //Dados básicos
@@ -326,16 +338,7 @@ export class AppService {
         ],
 
         //Produto X Depósito
-        ligProDep: [
-          {
-            codDep: vp.t3_c1_destino_cod,
-            estRep: vp.t3_c1_quan_estoque_rep ?? 0,
-            estMin: vp.t3_c2_quan_estoque_min ?? 0,
-            estMax: vp.t3_c2_quan_estoque_max ?? 0,
-            estMid: vp.t3_c3_estoque_min ?? 0,
-            estMad: vp.t3_c3_estoque_max ?? 0,
-          },
-        ],
+        ligProDep: d,
       },
     };
 
