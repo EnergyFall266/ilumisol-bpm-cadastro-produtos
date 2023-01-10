@@ -78,8 +78,6 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
-    this.vp.overlay = false;
-    this.activeMenu = fd.showMenus(3, [1, 2, 3, 4, 5, 6]);
   }
 
   private _loadData = async (data: Data, info: Info): Promise<void> => {
