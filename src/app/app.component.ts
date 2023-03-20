@@ -65,18 +65,27 @@ export class AppComponent {
       (error) => {
         if (error.response.data) {
           const e = error.response.data;
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Web service error',
-            detail: e.errorMessage ?? e.message,
-            sticky: true,
-          });
+          if (e.errorCode && e.errorCode != 'entity_already_exists')
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Web service error',
+              detail: e.errorMessage,
+              sticky: true,
+            });
+          else
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Web service error',
+              detail: e.msgRet ?? e.message ?? error.message,
+              sticky: true,
+            });
         }
         this.vp.buscandoWS = false;
         return Promise.reject(error);
       }
     );
-
+    /*this.vp.overlay = false;
+    this.activeMenu = fd.showMenus(5, [2, 3, 5, 6]);*/
     this.primeNGConfig.ripple = true;
   }
 
@@ -106,12 +115,11 @@ export class AppComponent {
         const p = Array.isArray(c.suc.produto)
           ? c.suc.produto[0]
           : c.suc.produto;
-        this.vp.mensagem_retorno = p.msgRetorno + '';
-        if (p.msgRetorno != 'OK')
-          this.vp.mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
-        this.vp.codigo_produto = p.retorno?.codPro + '';
+        this.vp.c7_mensagem_retorno = p.msgRetorno + '';
+        if (p.msgRetorno == 'OK') this.vp.c7_cadastro_disabled = true;
+        else this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
+        this.vp.c7_codigo_produto = p.retorno?.codPro + '';
       }
-      this.vp.disabledButtonCadastro = true;
     }
 
     this.vp.overlay = false;

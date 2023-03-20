@@ -10,8 +10,8 @@
           [min]="0"
           [step]="1"
           mode="decimal"
-          [minFractionDigits]="2"
-          [maxFractionDigits]="2"
+          [minFractionDigits]="4"
+          [maxFractionDigits]="4"
           [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
@@ -20,7 +20,7 @@
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
-          placeholder="0,00"
+          placeholder="0,0000"
           [(ngModel)]="vp.t3_c2_quan_estoque_min"
         >
         </p-inputNumber>
@@ -39,8 +39,8 @@
           [min]="0"
           [step]="1"
           mode="decimal"
-          [minFractionDigits]="2"
-          [maxFractionDigits]="2"
+          [minFractionDigits]="4"
+          [maxFractionDigits]="4"
           [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
@@ -49,7 +49,7 @@
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
-          placeholder="0,00"
+          placeholder="0,0000"
           [(ngModel)]="vp.t3_c2_quan_estoque_max"
         >
         </p-inputNumber>
@@ -73,8 +73,8 @@
           [min]="0"
           [step]="1"
           mode="decimal"
-          [minFractionDigits]="2"
-          [maxFractionDigits]="2"
+          [minFractionDigits]="4"
+          [maxFractionDigits]="4"
           [showButtons]="!vp.t3_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
@@ -83,7 +83,7 @@
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t3_mandatory_to_readonly"
-          placeholder="0,00"
+          placeholder="0,0000"
           [(ngModel)]="vp.t3_c2_quan_max_vendas"
         >
         </p-inputNumber>

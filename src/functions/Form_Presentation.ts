@@ -33,7 +33,7 @@ export default function getFormPresentation(rld: ResponseLoadData) {
         rld.vp.t3_mandatory_to_readonly = true;
         rld.vp.t4_mandatory_to_readonly = true;
         rld.vp.t6_mandatory_to_readonly = false;
-        rld.vp.hideCadastro = false;
+        rld.vp.c7_cadastro_hide = false;
 
         rld.tabs.push(6);
       }

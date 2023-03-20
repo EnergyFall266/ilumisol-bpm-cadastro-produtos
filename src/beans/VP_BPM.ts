@@ -379,8 +379,8 @@ export class VP_BPM {
 
   public t6_c3_c2_motivo_arr: wsb.ExportaValorLista[] = [];
   public t6_c3_c2_motivo_obj?: wsb.ExportaValorLista;
-  public t6_c3_c2_motivo_cod: number = -1;
-  public t6_c3_c2_motivo_des: string = '';
+  public t6_c3_c2_motivo_cod: number = 0;
+  public t6_c3_c2_motivo_des: string = 'Nenhum';
 
   public t6_c3_substituicao: string = '';
 
@@ -410,9 +410,9 @@ export class VP_BPM {
    * Resposta do ws cadastro
    */
 
-  public hideCadastro: boolean = true;
-  public disabledButtonCadastro: boolean = false;
+  public c7_cadastro_hide: boolean = true;
+  public c7_cadastro_disabled: boolean = false;
 
-  public codigo_produto: string = '';
-  public mensagem_retorno: string = '';
+  public c7_codigo_produto: string = '';
+  public c7_mensagem_retorno: string = '';
 }

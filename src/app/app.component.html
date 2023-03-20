@@ -32,7 +32,7 @@
 
   <app-t6-fis-con [hidden]="panel['t6_fis_con']" [vp]="vp"></app-t6-fis-con>
 
-  <div class="grid mt-2" [style.display]="vp.hideCadastro ? 'none' : ''">
+  <div class="grid mt-2" [style.display]="vp.c7_cadastro_hide ? 'none' : ''">
     <div class="col-3">
       <button
         pButton
@@ -41,14 +41,14 @@
         icon="pi pi-database"
         label="Cadastrar"
         class="w-full"
-        [disabled]="vp.disabledButtonCadastro"
+        [disabled]="vp.c7_cadastro_disabled"
         (click)="cadastrarProduto()"
       ></button>
     </div>
 
-    <div class="col-9" [hidden]="vp.mensagem_retorno == ''"></div>
+    <div class="col-9" [hidden]="vp.c7_mensagem_retorno == ''"></div>
 
-    <div class="col-3" [hidden]="vp.mensagem_retorno == ''">
+    <div class="col-3" [hidden]="vp.c7_mensagem_retorno == ''">
       <div class="grid">
         <span class="col-12">Código do produto</span>
         <div class="col-12 py-0">
@@ -57,15 +57,15 @@
             class="col-12"
             pInputText
             [readonly]="true"
-            [(ngModel)]="vp.codigo_produto"
+            [(ngModel)]="vp.c7_codigo_produto"
           />
         </div>
       </div>
     </div>
 
-    <div class="col-9" [hidden]="vp.mensagem_retorno == ''"></div>
+    <div class="col-9" [hidden]="vp.c7_mensagem_retorno == ''"></div>
 
-    <div class="col-12" [hidden]="vp.mensagem_retorno == ''">
+    <div class="col-12" [hidden]="vp.c7_mensagem_retorno == ''">
       <div class="grid">
         <span class="col-12">Mensagem de retorno</span>
         <div class="col-12 py-0">
@@ -75,7 +75,7 @@
             pInputTextarea
             style="resize: none"
             [readonly]="true"
-            [(ngModel)]="vp.mensagem_retorno"
+            [(ngModel)]="vp.c7_mensagem_retorno"
           ></textarea>
         </div>
       </div>
