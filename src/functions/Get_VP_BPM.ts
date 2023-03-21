@@ -32,8 +32,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t1_c1_c5_medida_cod = map.get('t1_c1_c5_medida_cod');
   vp.t1_c1_c5_medida_des = map.get('t1_c1_c5_medida_des');
 
-  vp.t1_c1_cotado = map.get('t1_c1_cotado');
-
   vp.t1_c1_c5_medida_cod = map.get('t1_c1_c5_medida_cod');
   vp.t1_c1_c5_medida_des = map.get('t1_c1_c5_medida_des');
 

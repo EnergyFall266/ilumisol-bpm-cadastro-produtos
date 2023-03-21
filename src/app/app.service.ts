@@ -325,6 +325,7 @@ export class AppService {
         //Fornecedor X Produto - Possível
         ligProFor: [
           {
+            codFor: vp.t2_fornecedor_cod,
             proFor: vp.t2_produto_fornecedor,
             qtdMlt: vp.t2_quantidade_multipla ?? 0,
             qtdMax: vp.t2_quantidade_maxima ?? 0,
@@ -338,20 +339,6 @@ export class AppService {
         ligProDep: d,
       },
     };
-
-    //Fornecedor X Produto
-    if (vp.t2_fornecedor_cod != -1)
-      c.produto.ligProFor = [
-        {
-          codFor: vp.t2_fornecedor_cod,
-          proFor: vp.t2_produto_fornecedor,
-          qtdMlt: vp.t2_quantidade_multipla ?? 0,
-          qtdMax: vp.t2_quantidade_maxima ?? 0,
-          qtdMin: vp.t2_quantidade_minima ?? 0,
-          recIpi: 'S',
-          recIcm: 'S',
-        },
-      ];
 
     return await wsG5Cadastro(JSON.stringify(c));
   }

@@ -44,16 +44,8 @@ export default function formValidate(vp: VP_BPM): Message[] {
 
       if (vp.t1_c1_cotado == '')
         m.push(getMsgS('Dados básicos - Produto será cotado?'));
-      else if (vp.t1_c1_cotado == 'Não') {
-        if (vp.t2_fornecedor_des == '')
-          m.push(getMsgS('Dados do fornecedor - Fornecedor'));
-
-        if (vp.t2_fornecedor_cod == -1)
-          m.push(getMsgC('Dados do fornecedor - Código produto fornecedor'));
-
-        if (vp.t1_c2_c1_marca_cod == '')
-          m.push(getMsgS('Dados básicos - Marca'));
-      }
+      else if (vp.t1_c1_cotado == 'Não' && vp.t1_c2_c1_marca_cod == '')
+        m.push(getMsgS('Dados básicos - Marca'));
 
       if (vp.t1_c2_c2_clafiscal_cod == '')
         m.push(getMsgS('Dados básicos - Classificação fiscal'));
@@ -104,9 +96,6 @@ export default function formValidate(vp: VP_BPM): Message[] {
 
       if (vp.t1_c3_c2_venda_virtual == '')
         m.push(getMsgS('Dados básicos - Venda virtual?'));
-
-      if (vp.t1_c3_c2_venda_virtual == '')
-        m.push(getMsgS('Dados básicos - Venda virtual?'));
       else if (vp.t1_c3_c2_venda_virtual == 'Sim') {
         if (vp.t1_c3_c2_categoria_cod == -1)
           m.push(getMsgS('Dados básicos - Categoria de venda on-line'));
@@ -114,6 +103,12 @@ export default function formValidate(vp: VP_BPM): Message[] {
         if (vp.t1_c3_c2_subcategoria_cod == -1)
           m.push(getMsgS('Dados básicos - Subcategoria de venda on-line'));
       }
+
+      if (vp.t2_fornecedor_cod == -1)
+        m.push(getMsgS('Dados do fornecedor - Fornecedor'));
+
+      if (vp.t2_produto_fornecedor == '')
+        m.push(getMsgC('Dados do fornecedor - Código produto fornecedor'));
 
       if (vp.t2_quantidade_multipla === undefined)
         m.push(getMsgC('Dados do fornecedor - Quantidade múltipla fornecedor'));

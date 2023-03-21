@@ -3,9 +3,7 @@
     <div class="grid">
       <span class="col-12"
         >Fornecedor
-        <span
-          [hidden]="vp.t2_mandatory_to_readonly || vp.t1_c1_cotado != 'Não'"
-          style="color: red"
+        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
@@ -213,9 +211,7 @@
     <div class="grid">
       <span class="col-12"
         >Código produto fornecedor
-        <span
-          [hidden]="vp.t2_mandatory_to_readonly || vp.t1_c1_cotado != 'Não'"
-          style="color: red"
+        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
           >*</span
         ></span
       >
