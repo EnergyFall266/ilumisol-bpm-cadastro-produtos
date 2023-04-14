@@ -211,6 +211,14 @@ export default function formValidate(vp: VP_BPM): Message[] {
         m.push(getMsgS('Dados fiscais e contábeis - Calcula Senar'));
       break;
 
+    case environment.s6_gra_pro:
+      if (vp.c7_mensagem_retorno == '')
+        m.push({
+          severity: 'warn',
+          summary: 'Deve cadastrar o produto para continuar!',
+        });
+      break;
+
     default:
       break;
   }

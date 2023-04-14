@@ -18,26 +18,29 @@ export default function getFormPresentation(rld: ResponseLoadData) {
         rld.vp.t6_show_only_recusa = true;
       }
       break;
+
     case environment.s2_dad_cad:
     case environment.s4_fis_con:
+    case environment.s6_gra_pro:
       rld.tabs.push(5);
 
       if (STEP == environment.s2_dad_cad) {
         rld.initial = 5;
         rld.vp.t5_mandatory_to_readonly = false;
       } else {
-        rld.initial = 6;
+        rld.initial = STEP === environment.s6_gra_pro ? 1 : 6;
 
         rld.vp.t1_mandatory_to_readonly = true;
         rld.vp.t2_mandatory_to_readonly = true;
         rld.vp.t3_mandatory_to_readonly = true;
         rld.vp.t4_mandatory_to_readonly = true;
-        rld.vp.t6_mandatory_to_readonly = false;
-        rld.vp.c7_cadastro_hide = false;
+        rld.vp.t6_mandatory_to_readonly = STEP === environment.s6_gra_pro;
+        rld.vp.c7_cadastro_hide = STEP === environment.s4_fis_con;
 
         rld.tabs.push(6);
       }
       break;
+
     default:
       break;
   }

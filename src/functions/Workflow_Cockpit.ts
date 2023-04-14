@@ -1,6 +1,6 @@
 import { AppService } from 'src/app/app.service';
 import { ResponseLoadData, VP_BPM } from 'src/beans/VP_BPM';
-import { Info } from 'src/beans/Workflow';
+import { Data, Info } from 'src/beans/Workflow';
 import { ws_beans_header } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import getFormPresentation from './Form_Presentation';
@@ -84,7 +84,7 @@ export async function saveData(vp: VP_BPM) {
   return { formData: vp };
 }
 
-export function rollback(data: any, info: any) {
+export function rollback(data: Data, info: Info) {
   if (info.isRequestNew()) return removeData(data.processInstanceId);
   return rollbackData(data.processInstanceId);
 }

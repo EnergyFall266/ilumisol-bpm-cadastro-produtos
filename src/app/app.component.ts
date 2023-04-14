@@ -84,12 +84,11 @@ export class AppComponent {
         return Promise.reject(error);
       }
     );
-    /*this.vp.overlay = false;
-    this.activeMenu = fd.showMenus(5, [2, 3, 5, 6]);*/
+
     this.primeNGConfig.ripple = true;
   }
 
-  private _loadData = async (data: Data, info: Info): Promise<void> => {
+  private _loadData = async (data: Data, info: Info) => {
     const r = await wc.loadData(this.vp, info);
     this.activeMenu = fd.showMenus(r.initial, r.tabs);
     this.vp = r.vp;
@@ -97,13 +96,15 @@ export class AppComponent {
     this.vp.overlay = false;
   };
 
-  private _saveData = async (data: Data, _info: Info): Promise<any> => {
+  private _saveData = async (data: Data, _info: Info) => {
     this.vp.ged_pasta_processo_nome = `Fluxo ${data.processInstanceId}`;
     this.vp.alertas = formValidate(this.vp);
     if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
     return wc.saveData(this.vp);
   };
+
+  private _rollback = wc.rollback;
 
   public cadastrarProduto = async () => {
     this.vp.overlay = true;
@@ -124,8 +125,6 @@ export class AppComponent {
 
     this.vp.overlay = false;
   };
-
-  private _rollback = wc.rollback;
 
   a = () => console.dir(this.vp);
 }

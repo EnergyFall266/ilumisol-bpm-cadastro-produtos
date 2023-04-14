@@ -19,4 +19,5 @@ export const environment = {
   s3_rev_inf: 's3_rev_inf',
   s4_fis_con: 's4_fis_con',
   s5_rev_inf: 's5_rev_inf',
+  s6_gra_pro: 's6_gra_pro',
 };
