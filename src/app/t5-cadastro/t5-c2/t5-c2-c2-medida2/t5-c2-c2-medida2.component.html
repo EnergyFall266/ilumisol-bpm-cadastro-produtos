@@ -107,8 +107,9 @@
           [inputStyleClass]="'col-12'"
           [min]="0"
           [step]="1"
-          mode="currency"
-          currency="BRL"
+          mode="decimal"
+          [minFractionDigits]="6"
+          [maxFractionDigits]="6"
           [showButtons]="!vp.t5_mandatory_to_readonly"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
@@ -117,7 +118,7 @@
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
           [readonly]="vp.t5_mandatory_to_readonly"
-          placeholder="R$ 0,00"
+          placeholder="0,000000"
           [(ngModel)]="vp.t5_c2_c2_med_2_val"
         >
         </p-inputNumber>

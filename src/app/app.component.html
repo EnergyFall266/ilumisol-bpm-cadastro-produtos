@@ -1,11 +1,7 @@
 <div class="card">
   <button [hidden]="true" type="button" (click)="a()">teste</button>
 
-  <p-messages
-    [styleClass]="'w-12'"
-    [(value)]="vp.alertas"
-    [enableService]="false"
-  ></p-messages>
+  <p-messages #msg [styleClass]="'w-12'"></p-messages>
 
   <h5 style="font-weight: normal" class="mt-0 mb-2">
     (<span style="color: red">*</span>) Atenção aos campos obrigatórios

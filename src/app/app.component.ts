@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { VP_BPM } from 'src/beans/VP_BPM';
@@ -8,6 +8,8 @@ import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
 import { AppService } from './app.service';
+import FormValidate from 'src/functions/Form_Validate';
+import { Messages } from 'primeng/messages';
 
 declare var workflowCockpit: any;
 
@@ -15,9 +17,11 @@ declare var workflowCockpit: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MessageService],
+  providers: [MessageService, FormValidate],
 })
 export class AppComponent {
+  @ViewChild(Messages) msg!: Messages;
+
   public title = 'cadastro_produto';
 
   public menus: MenuItem[] = fd.Menus;
@@ -30,7 +34,8 @@ export class AppComponent {
     private ap: AppService,
     private messageService: MessageService,
     private translate: TranslateService,
-    private primeNGConfig: PrimeNGConfig
+    private primeNGConfig: PrimeNGConfig,
+    private formValidate: FormValidate
   ) {
     new workflowCockpit({
       init: this._loadData,
@@ -70,17 +75,18 @@ export class AppComponent {
               severity: 'error',
               summary: 'Web service error',
               detail: e.errorMessage,
-              sticky: true,
+              life: 5000,
             });
           else
             this.messageService.add({
               severity: 'error',
               summary: 'Web service error',
               detail: e.msgRet ?? e.message ?? error.message,
-              sticky: true,
+              life: 5000,
             });
         }
         this.vp.buscandoWS = false;
+        this.vp.overlay = false;
         return Promise.reject(error);
       }
     );
@@ -98,7 +104,10 @@ export class AppComponent {
 
   private _saveData = async (data: Data, _info: Info) => {
     this.vp.ged_pasta_processo_nome = `Fluxo ${data.processInstanceId}`;
-    this.vp.alertas = formValidate(this.vp);
+
+    this.formValidate.salvarDados(this.vp);
+    this.vp.alertas = this.msg.value == null ? [] : this.msg.value;
+
     if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
     return wc.saveData(this.vp);
@@ -109,7 +118,9 @@ export class AppComponent {
   public cadastrarProduto = async () => {
     this.vp.overlay = true;
 
-    this.vp.alertas = formValidate(this.vp);
+    this.formValidate.salvarDados(this.vp);
+    this.vp.alertas = this.msg.value == null ? [] : this.msg.value;
+
     if (this.vp.alertas.length == 0) {
       const c = await this.ap.cadastroService(this.vp);
       if (c.suc.produto) {
