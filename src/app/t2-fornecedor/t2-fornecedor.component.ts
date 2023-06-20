@@ -18,7 +18,7 @@ export class T2FornecedorComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async fornecedorInput() {
-    if (!this.vp.t2_mandatory_to_readonly) {
+    if (!this.vp.t2_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t2_fornecedor_arr.length == 0) {
         this.vp.t2_fornecedor_arr = (await this.ap.exportaServico(

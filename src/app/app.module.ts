@@ -32,33 +32,19 @@ import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
 import { T1C1Component } from './t1-basicos/t1-c1/t1-c1.component';
-import { T1C1C1SubComponent } from './t1-basicos/t1-c1/t1-c1-c1-sub/t1-c1-c1-sub.component';
-import { T1C1C2SimComponent } from './t1-basicos/t1-c1/t1-c1-c2-sim/t1-c1-c2-sim.component';
-import { T1C1C3OriComponent } from './t1-basicos/t1-c1/t1-c1-c3-ori/t1-c1-c3-ori.component';
-import { T1C1C4FamComponent } from './t1-basicos/t1-c1/t1-c1-c4-fam/t1-c1-c4-fam.component';
-import { T1C1C5MedComponent } from './t1-basicos/t1-c1/t1-c1-c5-med/t1-c1-c5-med.component';
+import { T1C1C4FamComponent } from './t1-basicos/t1-c1-c4-fam/t1-c1-c4-fam.component';
+import { T1C1C5MedComponent } from './t1-basicos/t1-c1-c5-med/t1-c1-c5-med.component';
 import { T1C2Component } from './t1-basicos/t1-c2/t1-c2.component';
-import { T1C2C1MarcaComponent } from './t1-basicos/t1-c2/t1-c2-c1-marca/t1-c2-c1-marca.component';
-import { T1C2C2FiscalComponent } from './t1-basicos/t1-c2/t1-c2-c2-fiscal/t1-c2-c2-fiscal.component';
-import { T1C2C3BarrasComponent } from './t1-basicos/t1-c2/t1-c2-c3-barras/t1-c2-c3-barras.component';
 import { T1C2C4ComercialComponent } from './t1-basicos/t1-c2/t1-c2-c4-comercial/t1-c2-c4-comercial.component';
 import { T1C2C5MercadoriaComponent } from './t1-basicos/t1-c2/t1-c2-c5-mercadoria/t1-c2-c5-mercadoria.component';
 import { T1C2C6AgrosysComponent } from './t1-basicos/t1-c2/t1-c2-c6-agrosys/t1-c2-c6-agrosys.component';
 import { T1C2C7MultinivelComponent } from './t1-basicos/t1-c2/t1-c2-c7-multinivel/t1-c2-c7-multinivel.component';
-import { T1C3Component } from './t1-basicos/t1-c3/t1-c3.component';
-import { T1C3C1PadraoComponent } from './t1-basicos/t1-c3/t1-c3-c1-padrao/t1-c3-c1-padrao.component';
-import { T1C3C2VendaComponent } from './t1-basicos/t1-c3/t1-c3-c2-venda/t1-c3-c2-venda.component';
-import { T1C4Component } from './t1-basicos/t1-c4/t1-c4.component';
-import { T1C4C1ToxicologicaComponent } from './t1-basicos/t1-c4/t1-c4-c1-toxicologica/t1-c4-c1-toxicologica.component';
-import { T1C4C2RiscoComponent } from './t1-basicos/t1-c4/t1-c4-c2-risco/t1-c4-c2-risco.component';
-import { T1C4C3QuimicoComponent } from './t1-basicos/t1-c4/t1-c4-c3-quimico/t1-c4-c3-quimico.component';
 import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
 import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
 import { T3C1Component } from './t3-deposito/t3-c1/t3-c1.component';
 import { T3C2Component } from './t3-deposito/t3-c2/t3-c2.component';
 import { T3C3Component } from './t3-deposito/t3-c3/t3-c3.component';
 import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
-import { T4ObsAneComponent } from './t4-obs-ane/t4-obs-ane.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T5C1Component } from './t5-cadastro/t5-c1/t5-c1.component';
 import { T5C1C1MascaraComponent } from './t5-cadastro/t5-c1/t5-c1-c1-mascara/t5-c1-c1-mascara.component';
@@ -87,6 +73,11 @@ import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C1ObsComponent } from './t6-fis-con/t6-c4/t6-c4-c1-obs/t6-c4-c1-obs.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
+import { T1C1MarcaComponent } from './t1-basicos/t1-c1-marca/t1-c1-marca.component';
+import { T1C2SubstitutoComponent } from './t1-basicos/t1-c2-substituto/t1-c2-substituto.component';
+import { T1C3ClassificacaoComponent } from './t1-basicos/t1-c3-classificacao/t1-c3-classificacao.component';
+import { T1C4OrigemComponent } from './t1-basicos/t1-c4-origem/t1-c4-origem.component';
+import { T1C5FamiliaComponent } from './t1-basicos/t1-c5-familia/t1-c5-familia.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -96,33 +87,19 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     AppComponent,
     T1BasicosComponent,
     T1C1Component,
-    T1C1C1SubComponent,
-    T1C1C2SimComponent,
-    T1C1C3OriComponent,
     T1C1C4FamComponent,
     T1C1C5MedComponent,
     T1C2Component,
-    T1C2C1MarcaComponent,
-    T1C2C2FiscalComponent,
-    T1C2C3BarrasComponent,
     T1C2C4ComercialComponent,
     T1C2C5MercadoriaComponent,
     T1C2C6AgrosysComponent,
     T1C2C7MultinivelComponent,
-    T1C3Component,
-    T1C3C1PadraoComponent,
-    T1C3C2VendaComponent,
-    T1C4Component,
-    T1C4C1ToxicologicaComponent,
-    T1C4C2RiscoComponent,
-    T1C4C3QuimicoComponent,
     T2FornecedorComponent,
     T3DepositoComponent,
     T3C1Component,
     T3C2Component,
     T3C3Component,
     T3C4Component,
-    T4ObsAneComponent,
     T5CadastroComponent,
     T5C1Component,
     T5C1C1MascaraComponent,
@@ -151,6 +128,11 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C4Component,
     T6C4C1ObsComponent,
     T6C4C2AneComponent,
+    T1C1MarcaComponent,
+    T1C2SubstitutoComponent,
+    T1C3ClassificacaoComponent,
+    T1C4OrigemComponent,
+    T1C5FamiliaComponent,
   ],
   imports: [
     BrowserModule,

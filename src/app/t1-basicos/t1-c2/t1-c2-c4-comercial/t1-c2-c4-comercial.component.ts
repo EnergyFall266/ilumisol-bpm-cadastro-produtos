@@ -18,7 +18,7 @@ export class T1C2C4ComercialComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async comercialInput() {
-    if (!this.vp.t1_mandatory_to_readonly) {
+    if (!this.vp.t1_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t1_c2_c4_agrupamento_arr.length == 0) {
         this.vp.t1_c2_c4_agrupamento_arr = (await this.ap.exportaServico(

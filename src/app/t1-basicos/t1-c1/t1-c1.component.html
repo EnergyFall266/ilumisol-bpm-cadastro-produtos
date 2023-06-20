@@ -1,85 +1,9 @@
 <div class="grid">
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12"
-        >Segmento de negócio
-        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
-      <div class="col-12 py-0">
-        <p-dropdown
-          class="w-12"
-          [styleClass]="'w-12'"
-          [panelStyleClass]="'col-12'"
-          [options]="vp.t1_c1_segmento_options"
-          placeholder="Selecione"
-          [(ngModel)]="vp.t1_c1_segmento"
-          [readonly]="vp.t1_mandatory_to_readonly"
-        ></p-dropdown>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 pb-0">
-    <app-t1-c1-c1-sub [vp]="vp"></app-t1-c1-c1-sub>
-  </div>
-
-  <div class="col-12 pb-0">
-    <app-t1-c1-c2-sim [vp]="vp"></app-t1-c1-c2-sim>
-  </div>
-
-  <div class="col-12 pb-0">
-    <app-t1-c1-c3-ori [vp]="vp"></app-t1-c1-c3-ori>
-  </div>
-
   <div class="col-12 pb-0">
     <app-t1-c1-c4-fam [vp]="vp"></app-t1-c1-c4-fam>
   </div>
 
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12"
-        >Descrição
-        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
-      <div class="col-12 py-0">
-        <input
-          pInputText
-          type="text"
-          class="col-12"
-          [readonly]="vp.t1_mandatory_to_readonly"
-          [(ngModel)]="vp.t1_c1_descricao"
-        />
-      </div>
-    </div>
-  </div>
-
   <div class="col-12 pb-0">
     <app-t1-c1-c5-med [vp]="vp"></app-t1-c1-c5-med>
-  </div>
-
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12"
-        >Produto será cotado?
-        <span [hidden]="vp.t1_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
-      <div class="col-12 py-0">
-        <p-dropdown
-          class="w-12"
-          [styleClass]="'w-12'"
-          [panelStyleClass]="'col-12'"
-          [options]="vp.check_options"
-          placeholder="Selecione"
-          [(ngModel)]="vp.t1_c1_cotado"
-          [readonly]="vp.t1_mandatory_to_readonly"
-        ></p-dropdown>
-      </div>
-    </div>
   </div>
 </div>

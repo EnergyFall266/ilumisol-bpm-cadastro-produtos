@@ -30,8 +30,8 @@ export default function getFormPresentation(rld: ResponseLoadData) {
       } else {
         rld.initial = STEP === environment.s6_gra_pro ? 1 : 6;
 
-        rld.vp.t1_mandatory_to_readonly = true;
-        rld.vp.t2_mandatory_to_readonly = true;
+        rld.vp.t1_req_to_read = true;
+        rld.vp.t2_req_to_read = true;
         rld.vp.t3_mandatory_to_readonly = true;
         rld.vp.t4_mandatory_to_readonly = true;
         rld.vp.t6_mandatory_to_readonly = STEP === environment.s6_gra_pro;

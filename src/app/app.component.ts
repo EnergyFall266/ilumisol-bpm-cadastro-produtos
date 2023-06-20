@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import * as fd from 'src/functions/Form_Design';
-import formValidate from 'src/functions/Form_Validate';
 import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
@@ -24,9 +23,9 @@ export class AppComponent {
 
   public title = 'cadastro_produto';
 
-  public menus: MenuItem[] = fd.Menus;
+  public menus: MenuItem[] = fd.menus;
   public activeMenu: MenuItem = {};
-  public panel = fd.Panels;
+  public panel = fd.panels;
 
   public vp: VP_BPM = new VP_BPM();
 
@@ -92,6 +91,8 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
+
+    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5]);
   }
 
   private _loadData = async (data: Data, info: Info) => {

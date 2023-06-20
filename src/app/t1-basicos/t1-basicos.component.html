@@ -1,17 +1,218 @@
 <div class="grid mt-1">
+  <!-- Coluna 1 -->
   <div class="col-3">
-    <app-t1-c1 [vp]="vp"></app-t1-c1>
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Descrição
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_descricao_prod"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Complemento
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_complemento"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pb-1">
+        <div class="grid">
+          <span class="col-12"
+            >Descrição p/nota fiscal
+            <span style="color: red" [hidden]="vp.t1_req_to_read">*</span></span
+          >
+          <div class="col-12 py-0 mb-0">
+            <textarea
+              pInputTextarea
+              class="col-12"
+              style="resize: none"
+              rows="9"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_descricao_fiscal"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c1-marca [vp]="vp"></app-t1-c1-marca>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 2 -->
   <div class="col-3">
-    <app-t1-c2 [vp]="vp"></app-t1-c2>
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Pode ser requisitado?</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="true"
+              [(ngModel)]="vp.t1_c3_c1_requisitado"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Pode ser vendido?</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="true"
+              [(ngModel)]="vp.t1_c3_c1_vendido"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Pode ser comprado?</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="true"
+              [(ngModel)]="vp.t1_c3_c1_comprado"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Permite gerar orçamento?</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="true"
+              [(ngModel)]="vp.t1_c3_c1_orcamento"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c2-substituto [vp]="vp"></app-t1-c2-substituto>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 3 -->
   <div class="col-3">
-    <app-t1-c3 [vp]="vp"></app-t1-c3>
-  </div>
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12"
+            >Produto será cotado?
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span></span
+          >
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t1_cotado"
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
 
-  <div class="col-3">
-    <app-t1-c4 [vp]="vp"></app-t1-c4>
+      <div class="col-12 pb-0">
+        <app-t1-c3-classificacao [vp]="vp"></app-t1-c3-classificacao>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Código de barras livre
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_barras"
+            />
+          </div>
+          <h6
+            class="col-12 m-0 py-0"
+            style="font-weight: normal"
+            [hidden]="vp.t1_req_to_read"
+          >
+            Se não possuir código, deve preencher "SEM GTIN" e justificar no
+            campo abaixo
+          </h6>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Justificativa código de barras
+            <span
+              [hidden]="
+                vp.t1_req_to_read ||
+                (vp.t1_barras != '' && vp.t1_barras != 'SEM GTIN')
+              "
+              style="color: red"
+              >*</span
+            >
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_barras_just"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c4-origem [vp]="vp"></app-t1-c4-origem>
+      </div>
+    </div>
   </div>
 </div>

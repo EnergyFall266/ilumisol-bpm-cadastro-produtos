@@ -11,7 +11,7 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_mandatory_to_readonly || vp.t1_c2_c4_agrupamento_cod == ''
+              vp.t1_req_to_read || vp.t1_c2_c4_agrupamento_cod == ''
                 ? 'none'
                 : ''
             "
@@ -32,7 +32,7 @@
             type="button"
             icon="pi pi-search"
             class="p-0"
-            [style.display]="vp.t1_mandatory_to_readonly ? 'none' : ''"
+            [style.display]="vp.t1_req_to_read ? 'none' : ''"
             (click)="comercialInput()"
           ></button>
         </div>

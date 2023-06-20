@@ -1,38 +1,14 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Integra agrosys?
-        <span [hidden]="vp.t1_req_to_read" style="color: red"
-          >*</span
-        ></span
-      >
-      <div class="col-12 py-0">
-        <p-dropdown
-          class="w-12"
-          [styleClass]="'w-12'"
-          [panelStyleClass]="'col-12'"
-          [options]="vp.check_options"
-          placeholder="Selecione"
-          [(ngModel)]="vp.t1_c2_c6_integra_agrosys"
-          [readonly]="vp.t1_req_to_read"
-        ></p-dropdown>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12"
-        >Código agrosys
+      <span class="col-12">
+        Marca
         <span
           style="color: red"
-          [hidden]="
-            vp.t1_req_to_read || vp.t1_c2_c6_integra_agrosys != 'Sim'
-          "
+          [hidden]="vp.t1_req_to_read || vp.t1_cotado != 'Não'"
           >*</span
-        ></span
-      >
+        >
+      </span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <button
@@ -42,11 +18,11 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_req_to_read || vp.t1_c2_c6_agrosys_cod == ''
+              vp.t1_req_to_read || vp.buscandoWS || vp.t1_c1_marca_cod == ''
                 ? 'none'
                 : ''
             "
-            (click)="agrosysClear()"
+            (click)="marcaClear()"
           ></button>
           <input
             pInputText
@@ -54,8 +30,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_c6_agrosys_des"
-            (click)="agrosysInput()"
+            [(ngModel)]="vp.t1_c1_marca_des"
+            (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : marcaInput()"
           />
           <button
             pButton
@@ -64,15 +40,16 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t1_req_to_read ? 'none' : ''"
-            (click)="agrosysInput()"
+            (click)="marcaInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>
     </div>
   </div>
   <p-dialog
-    header="Agrosys"
-    [styleClass]="'w-5'"
+    header="Marcas"
+    [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
@@ -81,17 +58,17 @@
     [(visible)]="mostrar_modal"
   >
     <p-table
-      #tableAgrosys
+      #tableMarca
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t1_c2_c6_agrosys_arr"
-      [(selection)]="vp.t1_c2_c6_agrosys_obj"
-      (onRowSelect)="agrosysSelect()"
-      dataKey="chvLis"
-      [globalFilterFields]="['chvLis', 'desLis']"
+      [value]="vp.t1_c1_marca_arr"
+      [(selection)]="vp.t1_c1_marca_obj"
+      (onRowSelect)="marcaSelect()"
+      dataKey="codMar"
+      [globalFilterFields]="['codMar', 'nomMar']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -102,7 +79,7 @@
               class="col-12"
               pInputText
               (input)="
-                tableAgrosys.filterGlobal($any($event.target).value, 'contains')
+                tableMarca.filterGlobal($any($event.target).value, 'contains')
               "
               placeholder="Buscar"
             />
@@ -111,18 +88,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="chvLis">
-            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          <th pSortableColumn="codMar">
+            Código <p-sortIcon field="codMar"></p-sortIcon>
           </th>
-          <th pSortableColumn="desLis">
-            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          <th pSortableColumn="nomMar">
+            Nome <p-sortIcon field="nomMar"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-tip>
-        <tr [pSelectableRow]="tip">
-          <td>{{ tip.chvLis }}</td>
-          <td>{{ tip.desLis }}</td>
+      <ng-template pTemplate="body" let-mar>
+        <tr [pSelectableRow]="mar">
+          <td>{{ mar.codMar }}</td>
+          <td>{{ mar.nomMar }}</td>
         </tr>
       </ng-template>
     </p-table></p-dialog

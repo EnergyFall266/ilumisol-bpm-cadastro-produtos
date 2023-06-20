@@ -18,7 +18,7 @@ export class T1C2C5MercadoriaComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async mercadoriaInput() {
-    if (!this.vp.t1_mandatory_to_readonly) {
+    if (!this.vp.t1_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t1_c2_c5_mercadoria_arr.length == 0) {
         this.vp.t1_c2_c5_mercadoria_arr = (

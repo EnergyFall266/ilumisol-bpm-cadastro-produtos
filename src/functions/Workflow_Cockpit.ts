@@ -48,15 +48,14 @@ export async function saveData(vp: VP_BPM) {
   }
 
   vp.unidades_medida_arr = [];
-  vp.t1_c1_item_arr = [];
-  vp.t1_c1_c3_origem_arr = [];
+  vp.t1_c4_origem_arr = [];
   vp.t1_c1_c4_familia_arr = [];
-  vp.t1_c2_c1_marca_arr = [];
-  vp.t1_c2_c2_clafiscal_arr = [];
+  vp.t1_c1_marca_arr = [];
+  vp.t1_c3_clafiscal_arr = [];
   vp.t1_c2_c4_agrupamento_arr = [];
   vp.t1_c2_c5_mercadoria_arr = [];
-  vp.t1_c2_c1_marca_arr = [];
-  vp.t1_c2_c2_clafiscal_arr = [];
+  vp.t1_c1_marca_arr = [];
+  vp.t1_c3_clafiscal_arr = [];
   vp.t1_c2_c4_agrupamento_arr = [];
   vp.t1_c2_c5_mercadoria_arr = [];
   vp.t1_c2_c6_agrosys_arr = [];

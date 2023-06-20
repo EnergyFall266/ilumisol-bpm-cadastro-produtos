@@ -1,12 +1,10 @@
 <div class="grid mt-1 pb-2">
   <div class="col-3">
     <div class="grid">
-      <span class="col-12"
-        >Fornecedor
-        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <button
@@ -16,9 +14,7 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t2_mandatory_to_readonly || vp.t2_fornecedor_cod == -1
-                ? 'none'
-                : ''
+              vp.t2_req_to_read || vp.t2_fornecedor_cod == -1 ? 'none' : ''
             "
             (click)="fornecedorClear()"
           ></button>
@@ -37,7 +33,7 @@
             type="button"
             icon="pi pi-search"
             class="p-0"
-            [style.display]="vp.t2_mandatory_to_readonly ? 'none' : ''"
+            [style.display]="vp.t2_req_to_read ? 'none' : ''"
             (click)="fornecedorInput()"
           ></button>
         </div>
@@ -107,12 +103,10 @@
 
   <div class="col-3">
     <div class="grid">
-      <span class="col-12"
-        >Quantidade múltipla fornecedor
-        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Quantidade múltipla fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
       <div class="col-12 py-0">
         <p-inputNumber
           class="w-12"
@@ -123,14 +117,14 @@
           mode="decimal"
           [minFractionDigits]="4"
           [maxFractionDigits]="4"
-          [showButtons]="!vp.t2_mandatory_to_readonly"
+          [showButtons]="!vp.t2_req_to_read"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t2_mandatory_to_readonly"
+          [readonly]="vp.t2_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t2_quantidade_multipla"
         >
@@ -141,12 +135,10 @@
 
   <div class="col-3">
     <div class="grid">
-      <span class="col-12"
-        >Quantidade máxima fornecedor
-        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Quantidade máxima fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
       <div class="col-12 py-0">
         <p-inputNumber
           class="w-12"
@@ -157,14 +149,14 @@
           mode="decimal"
           [minFractionDigits]="4"
           [maxFractionDigits]="4"
-          [showButtons]="!vp.t2_mandatory_to_readonly"
+          [showButtons]="!vp.t2_req_to_read"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t2_mandatory_to_readonly"
+          [readonly]="vp.t2_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t2_quantidade_maxima"
         >
@@ -175,12 +167,10 @@
 
   <div class="col-3">
     <div class="grid">
-      <span class="col-12"
-        >Quantidade mínima fornecedor
-        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Quantidade mínima fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
       <div class="col-12 py-0">
         <p-inputNumber
           class="w-12"
@@ -191,14 +181,14 @@
           mode="decimal"
           [minFractionDigits]="4"
           [maxFractionDigits]="4"
-          [showButtons]="!vp.t2_mandatory_to_readonly"
+          [showButtons]="!vp.t2_req_to_read"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t2_mandatory_to_readonly"
+          [readonly]="vp.t2_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t2_quantidade_minima"
         >
@@ -209,18 +199,16 @@
 
   <div class="col-3">
     <div class="grid">
-      <span class="col-12"
-        >Código produto fornecedor
-        <span [hidden]="vp.t2_mandatory_to_readonly" style="color: red"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Código produto fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
       <div class="col-12 py-0">
         <input
           pInputText
           type="text"
           class="col-12"
-          [readonly]="vp.t2_mandatory_to_readonly"
+          [readonly]="vp.t2_req_to_read"
           [(ngModel)]="vp.t2_produto_fornecedor"
         />
       </div>

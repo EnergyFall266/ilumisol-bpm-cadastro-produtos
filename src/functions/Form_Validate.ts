@@ -16,54 +16,31 @@ export default class FormValidate {
       case environment.s1_sol_cad:
       case environment.s3_rev_inf:
       case environment.s5_rev_inf:
-        if (vp.t1_c1_segmento == '')
-          this.ms.add(getMsgS('Dados básicos - Segmento de negócio'));
-
-        if (vp.t1_c1_c1_substituto_cad == '')
-          this.ms.add(
-            getMsgS('Dados básicos - Substituto de item já cadastrado?')
-          );
-        else if (
-          vp.t1_c1_c1_substituto_cad == 'Sim' &&
-          vp.t1_c1_c1_item_subs_cod == ''
-        )
-          this.ms.add(
-            getMsgS('Dados básicos - Código do item a ser substituído')
-          );
-
-        if (vp.t1_c1_c2_similar_exi == '')
-          this.ms.add(getMsgS('Dados básicos - Existe item similar?'));
-        else if (
-          vp.t1_c1_c2_similar_exi == 'Sim' &&
-          vp.t1_c1_c2_item_simi_cod == ''
-        )
-          this.ms.add(getMsgS('Dados básicos - Código do item simular'));
-
-        if (vp.t1_c1_c3_origem_cod == '')
+        if (vp.t1_c4_origem_cod == '')
           this.ms.add(getMsgS('Dados básicos - Origem'));
 
         if (vp.t1_c1_c4_familia_cod == '')
           this.ms.add(getMsgS('Dados básicos - Família'));
 
-        if (vp.t1_c1_descricao == '')
+        if (vp.t1_descricao_prod == '')
           this.ms.add(getMsgC('Dados básicos - Descrição'));
 
         if (vp.t1_c1_c5_medida_cod == '')
           this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
 
-        if (vp.t1_c1_cotado == '')
+        if (vp.t1_cotado == '')
           this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
-        else if (vp.t1_c1_cotado == 'Não' && vp.t1_c2_c1_marca_cod == '')
+        else if (vp.t1_cotado == 'Não' && vp.t1_c1_marca_cod == '')
           this.ms.add(getMsgS('Dados básicos - Marca'));
 
-        if (vp.t1_c2_c2_clafiscal_cod == '')
+        if (vp.t1_c3_clafiscal_cod == '')
           this.ms.add(getMsgS('Dados básicos - Classificação fiscal'));
 
-        if (vp.t1_c2_c3_barras == '') {
+        if (vp.t1_barras == '') {
           this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
           if (
-            vp.t1_c2_c3_barras_justificativa == '' ||
-            vp.t1_c2_c3_barras_justificativa == 'SEM GTIN'
+            vp.t1_barras_just == '' ||
+            vp.t1_barras_just == 'SEM GTIN'
           )
             this.ms.add(
               getMsgC('Dados básicos - Justificativa código de barras')
@@ -144,7 +121,7 @@ export default class FormValidate {
         break;
 
       case environment.s2_dad_cad:
-        if (vp.t5_c1_descricao == '')
+        if (vp.t1_descricao_fiscal == '')
           this.ms.add(getMsgS('Dados do cadastro - Descrição p/nota fiscal'));
 
         if (vp.t5_c1_c1_mascara_cod == '')

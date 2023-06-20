@@ -18,7 +18,7 @@ export class T1C2C6AgrosysComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async agrosysInput() {
-    if (!this.vp.t1_mandatory_to_readonly) {
+    if (!this.vp.t1_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t1_c2_c6_agrosys_arr.length == 0) {
         this.vp.t1_c2_c6_agrosys_arr = (await this.ap.exportaServico(

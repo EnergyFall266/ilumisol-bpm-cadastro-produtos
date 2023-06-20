@@ -10,8 +10,8 @@ export interface ResponseLoadData {
 
 export class VP_BPM {
   //Variáveis ​​Gerais
-  public overlay: boolean = true;
-  public buscandoWS: boolean = true;
+  public overlay: boolean = false;
+  public buscandoWS: boolean = false;
 
   public alertas: Message[] = [];
 
@@ -38,61 +38,49 @@ export class VP_BPM {
    * Dados básicos
    */
 
-  public t1_mandatory_to_readonly: boolean = false;
+  public t1_req_to_read: boolean = false;
+
+  public t1_descricao_prod: string = '';
+  public t1_complemento: string = '';
+  public t1_descricao_fiscal: string = '';
+
+  public t1_c1_marca_arr: wsb.ExportaMarcas[] = [];
+  public t1_c1_marca_obj?: wsb.ExportaMarcas;
+  public t1_c1_marca_cod: string = '';
+  public t1_c1_marca_des: string = '';
+
+  public t1_c2_substituto_cad: string = '';
+  public t1_c2_substituto_arr: wsb.ExportaProdutos[] = [];
+  public t1_c2_substituto_obj?: wsb.ExportaProdutos;
+  public t1_c2_substituto_cod: string = '';
+
+  public t1_cotado: string = '';
+
+  public t1_c3_clafiscal_arr: wsb.ExportaClaFis[] = [];
+  public t1_c3_clafiscal_obj?: wsb.ExportaClaFis;
+  public t1_c3_clafiscal_cod: string = '';
+  public t1_c3_clafiscal_des: string = '';
+
+  public t1_barras: string = '';
+  public t1_barras_just: string = '';
+
+  public t1_c4_origem_arr: wsb.ExportaOrigens[] = [];
+  public t1_c4_origem_obj?: wsb.ExportaOrigens;
+  public t1_c4_origem_cod: string = '';
+  public t1_c4_origem_des: string = '';
 
   //Coluna 1
-  public t1_c1_segmento_options: SelectItem[] = [
-    { label: 'Lojas Agro', value: 'Lojas Agro' },
-    { label: 'Varejo', value: 'Varejo' },
-    { label: 'Industrial e Consumo', value: 'Industrial e Consumo' },
-    { label: 'Imobilizado', value: 'Imobilizado' },
-  ];
-  public t1_c1_segmento: string = '';
-
-  public t1_c1_item_arr: wsb.ExportaProdutos[] = [];
-
-  public t1_c1_c1_substituto_cad: string = '';
-
-  public t1_c1_c1_item_subs_obj?: wsb.ExportaProdutos;
-  public t1_c1_c1_item_subs_cod: string = '';
-
-  public t1_c1_c2_similar_exi: string = '';
-
-  public t1_c1_c2_item_simi_obj?: wsb.ExportaProdutos;
-  public t1_c1_c2_item_simi_cod: string = '';
-
-  public t1_c1_c3_origem_arr: wsb.ExportaOrigens[] = [];
-  public t1_c1_c3_origem_obj?: wsb.ExportaOrigens;
-  public t1_c1_c3_origem_cod: string = '';
-  public t1_c1_c3_origem_des: string = '';
 
   public t1_c1_c4_familia_arr: wsb.ExportaFamilias[] = [];
   public t1_c1_c4_familia_obj?: wsb.ExportaFamilias;
   public t1_c1_c4_familia_cod: string = '';
   public t1_c1_c4_familia_des: string = '';
 
-  public t1_c1_descricao: string = '';
-
   public t1_c1_c5_medida_obj?: wsb.ExportaUniMeds;
   public t1_c1_c5_medida_cod: string = '';
   public t1_c1_c5_medida_des: string = '';
 
-  public t1_c1_cotado: string = '';
-
   //Coluna 2
-  public t1_c2_c1_marca_arr: wsb.ExportaMarcas[] = [];
-  public t1_c2_c1_marca_obj?: wsb.ExportaMarcas;
-  public t1_c2_c1_marca_cod: string = '';
-  public t1_c2_c1_marca_des: string = '';
-
-  public t1_c2_c2_clafiscal_arr: wsb.ExportaClaFis[] = [];
-  public t1_c2_c2_clafiscal_obj?: wsb.ExportaClaFis;
-  public t1_c2_c2_clafiscal_cod: string = '';
-  public t1_c2_c2_clafiscal_des: string = '';
-
-  public t1_c2_c3_barras: string = '';
-
-  public t1_c2_c3_barras_justificativa: string = '';
 
   public t1_c2_c4_agrupamento_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c2_c4_agrupamento_obj?: wsb.ExportaAgrupamentos;
@@ -168,7 +156,7 @@ export class VP_BPM {
    * Dados de fornecedor
    */
 
-  public t2_mandatory_to_readonly: boolean = false;
+  public t2_req_to_read: boolean = false;
 
   public t2_fornecedor_arr: wsb.ExportaFornecedores[] = [];
   public t2_fornecedor_obj?: wsb.ExportaFornecedores;
@@ -240,8 +228,6 @@ export class VP_BPM {
   public t5_show_only_recusa: boolean = false;
 
   //Coluna 1
-  public t5_c1_descricao: string = '';
-
   public t5_c1_c1_mascara_arr: wsb.ExportaMascaraDerivacao[] = [];
   public t5_c1_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
   public t5_c1_c1_mascara_cod: string = '';

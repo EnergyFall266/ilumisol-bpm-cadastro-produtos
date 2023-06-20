@@ -1,25 +1,4 @@
 <div class="grid">
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12"
-        >Descrição p/nota fiscal
-        <span style="color: red" [hidden]="vp.t5_mandatory_to_readonly"
-          >*</span
-        ></span
-      >
-      <div class="col-12 py-0 mb-0">
-        <textarea
-          pInputTextarea
-          class="col-12"
-          style="resize: none"
-          rows="9"
-          [readonly]="vp.t5_mandatory_to_readonly"
-          [(ngModel)]="vp.t5_c1_descricao"
-        ></textarea>
-      </div>
-    </div>
-  </div>
-
   <div class="col-12 pb-0">
     <app-t5-c1-c1-mascara [vp]="vp"></app-t5-c1-c1-mascara>
   </div>

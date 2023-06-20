@@ -229,13 +229,13 @@ export class AppService {
     const c: CadastroRoot = {
       produto: {
         //Dados básicos
-        codOri: vp.t1_c1_c3_origem_cod,
+        codOri: vp.t1_c4_origem_cod,
         codFam: vp.t1_c1_c4_familia_cod,
-        desPro: vp.t1_c1_descricao,
+        desPro: vp.t1_descricao_prod,
         uniMed: vp.t1_c1_c5_medida_cod,
 
-        codMar: vp.t1_c2_c1_marca_cod,
-        codClf: vp.t1_c2_c2_clafiscal_cod,
+        codMar: vp.t1_c1_marca_cod,
+        codClf: vp.t1_c3_clafiscal_cod,
         codAgc: vp.t1_c2_c4_agrupamento_cod,
         oriMer: vp.t1_c2_c5_mercadoria_cod,
         intAgs: vp.t1_c2_c6_integra_agrosys,
@@ -265,7 +265,7 @@ export class AppService {
         qtdMlt: vp.t3_c4_quan_mul_com,
 
         //Dados do cadastro
-        desNfv: vp.t5_c1_descricao,
+        desNfv: vp.t1_descricao_fiscal,
         codMdp: vp.t5_c1_c1_mascara_cod,
         codAge: vp.t5_c1_c2_agr_est_cod,
         codAgu: vp.t5_c1_c2_agr_cus_cod,
@@ -314,7 +314,7 @@ export class AppService {
         //Derivação
         derivacao: [
           {
-            codBar: vp.t1_c2_c3_barras,
+            codBar: vp.t1_barras,
             tipCn2: vp.t5_c2_c2_med_2_tip_cod,
             vlrCn2: vp.t5_c2_c2_med_2_val ?? 0,
             tipCn3: vp.t5_c2_c3_med_3_tip_cod,
