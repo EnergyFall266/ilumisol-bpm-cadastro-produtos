@@ -31,14 +31,6 @@ import { EditorModule } from 'primeng/editor';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
-import { T1C1Component } from './t1-basicos/t1-c1/t1-c1.component';
-import { T1C1C4FamComponent } from './t1-basicos/t1-c1-c4-fam/t1-c1-c4-fam.component';
-import { T1C1C5MedComponent } from './t1-basicos/t1-c1-c5-med/t1-c1-c5-med.component';
-import { T1C2Component } from './t1-basicos/t1-c2/t1-c2.component';
-import { T1C2C4ComercialComponent } from './t1-basicos/t1-c2/t1-c2-c4-comercial/t1-c2-c4-comercial.component';
-import { T1C2C5MercadoriaComponent } from './t1-basicos/t1-c2/t1-c2-c5-mercadoria/t1-c2-c5-mercadoria.component';
-import { T1C2C6AgrosysComponent } from './t1-basicos/t1-c2/t1-c2-c6-agrosys/t1-c2-c6-agrosys.component';
-import { T1C2C7MultinivelComponent } from './t1-basicos/t1-c2/t1-c2-c7-multinivel/t1-c2-c7-multinivel.component';
 import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
 import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
 import { T3C1Component } from './t3-deposito/t3-c1/t3-c1.component';
@@ -48,7 +40,6 @@ import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T5C1Component } from './t5-cadastro/t5-c1/t5-c1.component';
 import { T5C1C1MascaraComponent } from './t5-cadastro/t5-c1/t5-c1-c1-mascara/t5-c1-c1-mascara.component';
-import { T5C1C2AgrupComponent } from './t5-cadastro/t5-c1/t5-c1-c2-agrup/t5-c1-c2-agrup.component';
 import { T5C2Component } from './t5-cadastro/t5-c2/t5-c2.component';
 import { T5C2C1GerencialComponent } from './t5-cadastro/t5-c2/t5-c2-c1-gerencial/t5-c2-c1-gerencial.component';
 import { T5C2C2Medida2Component } from './t5-cadastro/t5-c2/t5-c2-c2-medida2/t5-c2-c2-medida2.component';
@@ -78,6 +69,12 @@ import { T1C2SubstitutoComponent } from './t1-basicos/t1-c2-substituto/t1-c2-sub
 import { T1C3ClassificacaoComponent } from './t1-basicos/t1-c3-classificacao/t1-c3-classificacao.component';
 import { T1C4OrigemComponent } from './t1-basicos/t1-c4-origem/t1-c4-origem.component';
 import { T1C5FamiliaComponent } from './t1-basicos/t1-c5-familia/t1-c5-familia.component';
+import { T1C6UnidadeComponent } from './t1-basicos/t1-c6-unidade/t1-c6-unidade.component';
+import { T1C7MercadoriaComponent } from './t1-basicos/t1-c7-mercadoria/t1-c7-mercadoria.component';
+import { T1C8AgrComercialComponent } from './t1-basicos/t1-c8-agr-comercial/t1-c8-agr-comercial.component';
+import { T1C9AgrEstoqueComponent } from './t1-basicos/t1-c9-agr-estoque/t1-c9-agr-estoque.component';
+import { T1C10AgrCustoComponent } from './t1-basicos/t1-c10-agr-custo/t1-c10-agr-custo.component';
+import { T1C11MultinivelComponent } from './t1-basicos/t1-c11-multinivel/t1-c11-multinivel.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -86,14 +83,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
   declarations: [
     AppComponent,
     T1BasicosComponent,
-    T1C1Component,
-    T1C1C4FamComponent,
-    T1C1C5MedComponent,
-    T1C2Component,
-    T1C2C4ComercialComponent,
-    T1C2C5MercadoriaComponent,
-    T1C2C6AgrosysComponent,
-    T1C2C7MultinivelComponent,
     T2FornecedorComponent,
     T3DepositoComponent,
     T3C1Component,
@@ -103,7 +92,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T5CadastroComponent,
     T5C1Component,
     T5C1C1MascaraComponent,
-    T5C1C2AgrupComponent,
     T5C2Component,
     T5C2C1GerencialComponent,
     T5C2C2Medida2Component,
@@ -133,6 +121,12 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T1C3ClassificacaoComponent,
     T1C4OrigemComponent,
     T1C5FamiliaComponent,
+    T1C6UnidadeComponent,
+    T1C7MercadoriaComponent,
+    T1C8AgrComercialComponent,
+    T1C9AgrEstoqueComponent,
+    T1C10AgrCustoComponent,
+    T1C11MultinivelComponent,
   ],
   imports: [
     BrowserModule,

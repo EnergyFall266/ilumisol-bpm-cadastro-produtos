@@ -11,7 +11,9 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_req_to_read || vp.t1_c2_c7_multinivel_cod == ''
+              vp.t1_req_to_read ||
+              vp.buscandoWS ||
+              vp.t1_c11_multinivel_cod == ''
                 ? 'none'
                 : ''
             "
@@ -23,8 +25,10 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_c7_multinivel_cod"
-            (click)="multinivelInput()"
+            [(ngModel)]="vp.t1_c11_multinivel_cod"
+            (click)="
+              vp.t1_req_to_read || vp.buscandoWS ? '' : multinivelInput()
+            "
           />
           <button
             pButton
@@ -34,6 +38,7 @@
             class="p-0"
             [style.display]="vp.t1_req_to_read ? 'none' : ''"
             (click)="multinivelInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>
@@ -56,8 +61,8 @@
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t1_c2_c7_multinivel_arr"
-      [(selection)]="vp.t1_c2_c7_multinivel_obj"
+      [value]="vp.t1_c11_multinivel_arr"
+      [(selection)]="vp.t1_c11_multinivel_obj"
       (onRowSelect)="multinivelSelect()"
       dataKey="codAgp"
       [globalFilterFields]="['codAgp', 'desAgp']"

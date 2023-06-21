@@ -8,24 +8,22 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    * Dados básicos
    */
 
-  //Coluna 1
   vp.t1_c4_origem_cod = map.get('t1_c4_origem_cod');
   vp.t1_c4_origem_des = map.get('t1_c4_origem_des');
 
-  vp.t1_c1_c4_familia_cod = map.get('t1_c1_c4_familia_cod');
-  vp.t1_c1_c4_familia_des = map.get('t1_c1_c4_familia_des');
+  vp.t1_c5_familia_cod = map.get('t1_c5_familia_cod');
+  vp.t1_c5_familia_des = map.get('t1_c5_familia_des');
 
   vp.t1_descricao_prod = map.get('t1_descricao_prod');
 
-  vp.t1_c1_c5_medida_cod = map.get('t1_c1_c5_medida_cod');
-  vp.t1_c1_c5_medida_des = map.get('t1_c1_c5_medida_des');
+  vp.t1_c6_medida_cod = map.get('t1_c6_medida_cod');
+  vp.t1_c6_medida_des = map.get('t1_c6_medida_des');
 
-  vp.t1_c1_c5_medida_cod = map.get('t1_c1_c5_medida_cod');
-  vp.t1_c1_c5_medida_des = map.get('t1_c1_c5_medida_des');
+  vp.t1_c6_medida_cod = map.get('t1_c6_medida_cod');
+  vp.t1_c6_medida_des = map.get('t1_c6_medida_des');
 
   vp.t1_cotado = map.get('t1_cotado');
 
-  //Coluna 2
   if (map.get('t1_c1_marca_cod') !== undefined) {
     vp.t1_c1_marca_cod = map.get('t1_c1_marca_cod');
     vp.t1_c1_marca_des = map.get('t1_c1_marca_des');
@@ -40,65 +38,16 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t1_barras_just') !== undefined)
     vp.t1_barras_just = map.get('t1_barras_just');
 
-  vp.t1_c2_c4_agrupamento_cod = map.get('t1_c2_c4_agrupamento_cod');
-  vp.t1_c2_c4_agrupamento_des = map.get('t1_c2_c4_agrupamento_des');
+  vp.t1_c8_agrcomercial_cod = map.get('t1_c8_agrcomercial_cod');
+  vp.t1_c8_agrcomercial_des = map.get('t1_c8_agrcomercial_des');
 
-  vp.t1_c2_especificacao = map.get('t1_c2_especificacao');
+  vp.t1_c7_mercadoria_cod = map.get('t1_c7_mercadoria_cod');
+  vp.t1_c7_mercadoria_des = map.get('t1_c7_mercadoria_des');
 
-  vp.t1_c2_c5_mercadoria_cod = map.get('t1_c2_c5_mercadoria_cod');
-  vp.t1_c2_c5_mercadoria_des = map.get('t1_c2_c5_mercadoria_des');
+  vp.t1_especificacao = map.get('t1_especificacao');
 
-  vp.t1_c2_c6_integra_agrosys = map.get('t1_c2_c6_integra_agrosys');
-
-  if (map.get('t1_c2_c6_agrosys_cod') !== undefined) {
-    vp.t1_c2_c6_agrosys_cod = map.get('t1_c2_c6_agrosys_cod');
-    vp.t1_c2_c6_agrosys_des = map.get('t1_c2_c6_agrosys_des');
-  }
-
-  if (map.get('t1_c2_c7_multinivel_cod') !== undefined)
-    vp.t1_c2_c7_multinivel_cod = map.get('t1_c2_c7_multinivel_cod');
-
-  //Coluna 3
-  vp.t1_c3_vendido_upl = map.get('t1_c3_vendido_upl');
-
-  vp.t1_c3_receita = map.get('t1_c3_receita');
-
-  vp.t1_c3_c2_venda_virtual = map.get('t1_c3_c2_venda_virtual');
-
-  if (map.get('t1_c3_c2_categoria_cod') !== undefined) {
-    vp.t1_c3_c2_categoria_cod = +map.get('t1_c3_c2_categoria_cod');
-    vp.t1_c3_c2_categoria_des = map.get('t1_c3_c2_categoria_des');
-  }
-
-  if (map.get('t1_c3_c2_subcategoria_cod') !== undefined) {
-    vp.t1_c3_c2_subcategoria_cod = +map.get('t1_c3_c2_subcategoria_cod');
-    vp.t1_c3_c2_subcategoria_des = map.get('t1_c3_c2_subcategoria_des');
-  }
-
-  if (map.get('t1_c3_numero_onu') !== undefined)
-    vp.t1_c3_numero_onu = map.get('t1_c3_numero_onu');
-
-  //Coluna 4
-  if (map.get('t1_c4_c1_toxico_cod') !== undefined) {
-    vp.t1_c4_c1_toxico_cod = +map.get('t1_c4_c1_toxico_cod');
-    vp.t1_c4_c1_toxico_des = map.get('t1_c4_c1_toxico_des');
-  }
-
-  if (map.get('t1_c4_c2_risco_cod') !== undefined) {
-    vp.t1_c4_c2_risco_cod = map.get('t1_c4_c2_risco_cod');
-    vp.t1_c4_c2_risco_des = map.get('t1_c4_c2_risco_des');
-  }
-
-  if (map.get('t1_c4_numero_risco') !== undefined)
-    vp.t1_c4_numero_risco = map.get('t1_c4_numero_risco');
-
-  if (map.get('t1_c4_numero_mapa') !== undefined)
-    vp.t1_c4_numero_mapa = map.get('t1_c4_numero_mapa');
-
-  if (map.get('t1_c4_quimico_cod') !== undefined) {
-    vp.t1_c4_c3_quimico_cod = +map.get('t1_c4_quimico_cod');
-    vp.t1_c4_c3_quimico_des = map.get('t1_c4_quimico_des');
-  }
+  if (map.get('t1_c11_multinivel_cod') !== undefined)
+    vp.t1_c11_multinivel_cod = map.get('t1_c11_multinivel_cod');
 
   /**
    * Dados de fornecedor
@@ -176,14 +125,14 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t5_c1_c1_mascara_des = map.get('t5_c1_c1_mascara_des');
   }
 
-  if (map.get('t5_c1_c2_agr_est_cod') !== undefined) {
-    vp.t5_c1_c2_agr_est_cod = map.get('t5_c1_c2_agr_est_cod');
-    vp.t5_c1_c2_agr_est_des = map.get('t5_c1_c2_agr_est_des');
+  if (map.get('t1_c9_agrestoque_cod') !== undefined) {
+    vp.t1_c9_agrestoque_cod = map.get('t1_c9_agrestoque_cod');
+    vp.t1_c9_agrestoque_des = map.get('t1_c9_agrestoque_des');
   }
 
-  if (map.get('t5_c1_c2_agr_cus_cod') !== undefined) {
-    vp.t5_c1_c2_agr_cus_cod = map.get('t5_c1_c2_agr_cus_cod');
-    vp.t5_c1_c2_agr_cus_des = map.get('t5_c1_c2_agr_cus_des');
+  if (map.get('t1_c10_agrcusto_cod') !== undefined) {
+    vp.t1_c10_agrcusto_cod = map.get('t1_c10_agrcusto_cod');
+    vp.t1_c10_agrcusto_des = map.get('t1_c10_agrcusto_des');
   }
 
   //Coluna 2

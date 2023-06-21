@@ -230,33 +230,20 @@ export class AppService {
       produto: {
         //Dados básicos
         codOri: vp.t1_c4_origem_cod,
-        codFam: vp.t1_c1_c4_familia_cod,
+        codFam: vp.t1_c5_familia_cod,
         desPro: vp.t1_descricao_prod,
-        uniMed: vp.t1_c1_c5_medida_cod,
+        uniMed: vp.t1_c6_medida_cod,
 
         codMar: vp.t1_c1_marca_cod,
         codClf: vp.t1_c3_clafiscal_cod,
-        codAgc: vp.t1_c2_c4_agrupamento_cod,
-        oriMer: vp.t1_c2_c5_mercadoria_cod,
-        intAgs: vp.t1_c2_c6_integra_agrosys,
-        proAgs: vp.t1_c2_c6_agrosys_cod,
-        codAga: vp.t1_c2_c7_multinivel_cod,
+        codAgc: vp.t1_c8_agrcomercial_cod,
+        oriMer: vp.t1_c7_mercadoria_cod,
+        codAga: vp.t1_c11_multinivel_cod,
 
-        indReq: vp.t1_c3_c1_requisitado[0],
-        indVen: vp.t1_c3_c1_vendido[0],
-        indCpr: vp.t1_c3_c1_comprado[0],
-        indOct: vp.t1_c3_c1_orcamento[0],
-        proUpl: vp.t1_c3_vendido_upl[0],
-        emiRec: vp.t1_c3_receita[0],
-        venVir: vp.t1_c3_c2_venda_virtual[0],
-        codCtg: vp.t1_c3_c2_categoria_cod,
-        codSct: vp.t1_c3_c2_subcategoria_cod,
-        nroOnu: vp.t1_c3_numero_onu,
-        codCto: vp.t1_c4_c1_toxico_cod,
-        codCri: vp.t1_c4_c2_risco_cod,
-        codNri: vp.t1_c4_numero_risco,
-        nroMap: vp.t1_c4_numero_mapa,
-        codQui: vp.t1_c4_c3_quimico_cod,
+        indReq: vp.t1_requisitado[0],
+        indVen: vp.t1_vendido[0],
+        indCpr: vp.t1_comprado[0],
+        indOct: vp.t1_orcamento[0],
 
         //Dados de depósito
         qtdMin: vp.t3_c1_quan_min_vendas,
@@ -267,8 +254,8 @@ export class AppService {
         //Dados do cadastro
         desNfv: vp.t1_descricao_fiscal,
         codMdp: vp.t5_c1_c1_mascara_cod,
-        codAge: vp.t5_c1_c2_agr_est_cod,
-        codAgu: vp.t5_c1_c2_agr_cus_cod,
+        codAge: vp.t1_c9_agrestoque_cod,
+        codAgu: vp.t1_c10_agrcusto_cod,
 
         uniMe2: vp.t5_c2_c1_med_2_cod,
         uniMe3: vp.t5_c2_c1_med_3_cod,

@@ -1,12 +1,7 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Familia
-        <span style="color: red" [hidden]="vp.t1_req_to_read"
-          >*</span
-        ></span
-      >
+      <span class="col-12">Agrupamento estoque</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <button
@@ -16,11 +11,13 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_req_to_read || vp.t1_c1_c4_familia_cod == ''
+              vp.t1_req_to_read ||
+              vp.buscandoWS ||
+              vp.t1_c9_agrestoque_cod == ''
                 ? 'none'
                 : ''
             "
-            (click)="familiaClear()"
+            (click)="estoquesClear()"
           ></button>
           <input
             pInputText
@@ -28,8 +25,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_c4_familia_des"
-            (click)="familiaInput()"
+            [(ngModel)]="vp.t1_c9_agrestoque_des"
+            (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : estoquesInput()"
           />
           <button
             pButton
@@ -38,34 +35,35 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t1_req_to_read ? 'none' : ''"
-            (click)="familiaInput()"
+            (click)="estoquesInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>
     </div>
   </div>
   <p-dialog
-    header="Famílias"
+    header="Agrup. Estoques"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
     [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
+    [(visible)]="mostrar_modal_est"
   >
     <p-table
-      #tableFamilia
+      #tableEstoques
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t1_c1_c4_familia_arr"
-      [(selection)]="vp.t1_c1_c4_familia_obj"
-      (onRowSelect)="familiaSelect()"
-      dataKey="codFam"
-      [globalFilterFields]="['codFam', 'desFam', 'codOri']"
+      [value]="vp.t1_c9_agrestoque_arr"
+      [(selection)]="vp.t1_c9_agrestoque_obj"
+      (onRowSelect)="estoquesSelect()"
+      dataKey="codAgp"
+      [globalFilterFields]="['codAgp', 'desAgp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -76,7 +74,10 @@
               class="col-12"
               pInputText
               (input)="
-                tableFamilia.filterGlobal($any($event.target).value, 'contains')
+                tableEstoques.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
               "
               placeholder="Buscar"
             />
@@ -85,22 +86,20 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="codFam">
-            Código <p-sortIcon field="codFam"></p-sortIcon>
+          <th pSortableColumn="codAgp">
+            Código <p-sortIcon field="codAgp"></p-sortIcon>
           </th>
-          <th pSortableColumn="desFam">
-            Descrição <p-sortIcon field="desFam"></p-sortIcon>
+          <th pSortableColumn="desAgp">
+            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
           </th>
-          <th>Código de Origem</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-fam>
-        <tr [pSelectableRow]="fam">
-          <td>{{ fam.codFam }}</td>
-          <td>{{ fam.desFam }}</td>
-          <td>{{ fam.codOri }}</td>
+      <ng-template pTemplate="body" let-est>
+        <tr [pSelectableRow]="est">
+          <td>{{ est.codAgp }}</td>
+          <td>{{ est.desAgp }}</td>
         </tr>
       </ng-template>
-    </p-table></p-dialog
-  >
+    </p-table>
+  </p-dialog>
 </div>

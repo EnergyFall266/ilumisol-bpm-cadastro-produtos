@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { T1C2C6AgrosysComponent } from './t1-c2-c6-agrosys.component';
+import { T1C10AgrCustoComponent } from './t1-c10-agr-custo.component';
 
-describe('T1C2C6AgrosysComponent', () => {
-  let component: T1C2C6AgrosysComponent;
-  let fixture: ComponentFixture<T1C2C6AgrosysComponent>;
+describe('T1C10AgrCustoComponent', () => {
+  let component: T1C10AgrCustoComponent;
+  let fixture: ComponentFixture<T1C10AgrCustoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ T1C2C6AgrosysComponent ]
+      declarations: [ T1C10AgrCustoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(T1C2C6AgrosysComponent);
+    fixture = TestBed.createComponent(T1C10AgrCustoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

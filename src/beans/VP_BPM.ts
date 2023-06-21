@@ -49,6 +49,14 @@ export class VP_BPM {
   public t1_c1_marca_cod: string = '';
   public t1_c1_marca_des: string = '';
 
+  public t1_requisitado: string = 'Não';
+
+  public t1_vendido: string = 'Sim';
+
+  public t1_comprado: string = 'Sim';
+
+  public t1_orcamento: string = 'Não';
+
   public t1_c2_substituto_cad: string = '';
   public t1_c2_substituto_arr: wsb.ExportaProdutos[] = [];
   public t1_c2_substituto_obj?: wsb.ExportaProdutos;
@@ -69,88 +77,40 @@ export class VP_BPM {
   public t1_c4_origem_cod: string = '';
   public t1_c4_origem_des: string = '';
 
-  //Coluna 1
+  public t1_c5_familia_arr: wsb.ExportaFamilias[] = [];
+  public t1_c5_familia_obj?: wsb.ExportaFamilias;
+  public t1_c5_familia_cod: string = '';
+  public t1_c5_familia_des: string = '';
 
-  public t1_c1_c4_familia_arr: wsb.ExportaFamilias[] = [];
-  public t1_c1_c4_familia_obj?: wsb.ExportaFamilias;
-  public t1_c1_c4_familia_cod: string = '';
-  public t1_c1_c4_familia_des: string = '';
+  public t1_c6_medida_obj?: wsb.ExportaUniMeds;
+  public t1_c6_medida_cod: string = '';
+  public t1_c6_medida_des: string = '';
 
-  public t1_c1_c5_medida_obj?: wsb.ExportaUniMeds;
-  public t1_c1_c5_medida_cod: string = '';
-  public t1_c1_c5_medida_des: string = '';
+  public t1_c7_mercadoria_arr: wsb.ExportaValorLista[] = [];
+  public t1_c7_mercadoria_obj?: wsb.ExportaValorLista;
+  public t1_c7_mercadoria_cod: string = '';
+  public t1_c7_mercadoria_des: string = '';
 
-  //Coluna 2
+  public t1_c8_agrcomercial_arr: wsb.ExportaAgrupamentos[] = [];
+  public t1_c8_agrcomercial_obj?: wsb.ExportaAgrupamentos;
+  public t1_c8_agrcomercial_cod: string = '';
+  public t1_c8_agrcomercial_des: string = '';
 
-  public t1_c2_c4_agrupamento_arr: wsb.ExportaAgrupamentos[] = [];
-  public t1_c2_c4_agrupamento_obj?: wsb.ExportaAgrupamentos;
-  public t1_c2_c4_agrupamento_cod: string = '';
-  public t1_c2_c4_agrupamento_des: string = '';
+  public t1_c9_agrestoque_arr: wsb.ExportaAgrupamentos[] = [];
+  public t1_c9_agrestoque_obj?: wsb.ExportaAgrupamentos;
+  public t1_c9_agrestoque_cod: string = '';
+  public t1_c9_agrestoque_des: string = '';
 
-  public t1_c2_especificacao: string = '';
+  public t1_c10_agrcusto_arr: wsb.ExportaAgrupamentos[] = [];
+  public t1_c10_agrcusto_obj?: wsb.ExportaAgrupamentos;
+  public t1_c10_agrcusto_cod: string = '';
+  public t1_c10_agrcusto_des: string = '';
 
-  public t1_c2_c5_mercadoria_arr: wsb.ExportaValorLista[] = [];
-  public t1_c2_c5_mercadoria_obj?: wsb.ExportaValorLista;
-  public t1_c2_c5_mercadoria_cod: string = '';
-  public t1_c2_c5_mercadoria_des: string = '';
+  public t1_especificacao: string = '';
 
-  public t1_c2_c6_integra_agrosys: string = '';
-
-  public t1_c2_c6_agrosys_arr: wsb.ExportaValorLista[] = [];
-  public t1_c2_c6_agrosys_obj?: wsb.ExportaValorLista;
-  public t1_c2_c6_agrosys_cod: string = '';
-  public t1_c2_c6_agrosys_des: string = '';
-
-  public t1_c2_c7_multinivel_arr: wsb.ExportaAgrupamentos[] = [];
-  public t1_c2_c7_multinivel_obj?: wsb.ExportaAgrupamentos;
-  public t1_c2_c7_multinivel_cod: string = '';
-
-  //Coluna 3
-  public t1_c3_c1_requisitado: string = 'Não';
-
-  public t1_c3_c1_vendido: string = 'Sim';
-
-  public t1_c3_c1_comprado: string = 'Sim';
-
-  public t1_c3_c1_orcamento: string = 'Não';
-
-  public t1_c3_vendido_upl: string = '';
-
-  public t1_c3_receita: string = '';
-
-  public t1_c3_c2_venda_virtual: string = '';
-
-  public t1_c3_c2_categoria_arr: wsb.ExportaCategorias[] = [];
-  public t1_c3_c2_categoria_obj?: wsb.ExportaCategorias;
-  public t1_c3_c2_categoria_cod: number = -1;
-  public t1_c3_c2_categoria_des: string = '';
-
-  public t1_c3_c2_subcategoria_arr: wsb.ExportaSubCategorias[] = [];
-  public t1_c3_c2_subcategoria_obj?: wsb.ExportaSubCategorias;
-  public t1_c3_c2_subcategoria_cod: number = -1;
-  public t1_c3_c2_subcategoria_des: string = '';
-
-  public t1_c3_numero_onu: string = '';
-
-  //Coluna 4
-  public t1_c4_c1_toxico_arr: wsb.ExportaClasseToxicologica[] = [];
-  public t1_c4_c1_toxico_obj?: wsb.ExportaClasseToxicologica;
-  public t1_c4_c1_toxico_cod: number = -1;
-  public t1_c4_c1_toxico_des: string = '';
-
-  public t1_c4_c2_risco_arr: wsb.ExportaClasseRisco[] = [];
-  public t1_c4_c2_risco_obj?: wsb.ExportaClasseRisco;
-  public t1_c4_c2_risco_cod: string = '';
-  public t1_c4_c2_risco_des: string = '';
-
-  public t1_c4_numero_risco: string = '';
-
-  public t1_c4_numero_mapa: string = '';
-
-  public t1_c4_c3_quimico_arr: wsb.ExportaGrupoQuimico[] = [];
-  public t1_c4_c3_quimico_obj?: wsb.ExportaGrupoQuimico;
-  public t1_c4_c3_quimico_cod: number = -1;
-  public t1_c4_c3_quimico_des: string = '';
+  public t1_c11_multinivel_arr: wsb.ExportaAgrupamentos[] = [];
+  public t1_c11_multinivel_obj?: wsb.ExportaAgrupamentos;
+  public t1_c11_multinivel_cod: string = '';
 
   /**
    * Dados de fornecedor
@@ -232,16 +192,6 @@ export class VP_BPM {
   public t5_c1_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
   public t5_c1_c1_mascara_cod: string = '';
   public t5_c1_c1_mascara_des: string = '';
-
-  public t5_c1_c2_agr_est_arr: wsb.ExportaAgrupamentos[] = [];
-  public t5_c1_c2_agr_est_obj?: wsb.ExportaAgrupamentos;
-  public t5_c1_c2_agr_est_cod: string = '';
-  public t5_c1_c2_agr_est_des: string = '';
-
-  public t5_c1_c2_agr_cus_arr: wsb.ExportaAgrupamentos[] = [];
-  public t5_c1_c2_agr_cus_obj?: wsb.ExportaAgrupamentos;
-  public t5_c1_c2_agr_cus_cod: string = '';
-  public t5_c1_c2_agr_cus_des: string = '';
 
   //Coluna 2
   public t5_c2_c1_med_2_obj?: wsb.ExportaUniMeds;

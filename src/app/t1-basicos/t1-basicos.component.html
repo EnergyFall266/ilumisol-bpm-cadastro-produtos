@@ -40,10 +40,10 @@
 
       <div class="col-12 pb-1">
         <div class="grid">
-          <span class="col-12"
-            >Descrição p/nota fiscal
-            <span style="color: red" [hidden]="vp.t1_req_to_read">*</span></span
-          >
+          <span class="col-12">
+            Descrição p/nota fiscal
+            <span style="color: red" [hidden]="vp.t1_req_to_read">*</span>
+          </span>
           <div class="col-12 py-0 mb-0">
             <textarea
               pInputTextarea
@@ -75,7 +75,7 @@
               type="text"
               class="col-12"
               [readonly]="true"
-              [(ngModel)]="vp.t1_c3_c1_requisitado"
+              [(ngModel)]="vp.t1_requisitado"
             />
           </div>
         </div>
@@ -90,7 +90,7 @@
               type="text"
               class="col-12"
               [readonly]="true"
-              [(ngModel)]="vp.t1_c3_c1_vendido"
+              [(ngModel)]="vp.t1_vendido"
             />
           </div>
         </div>
@@ -105,7 +105,7 @@
               type="text"
               class="col-12"
               [readonly]="true"
-              [(ngModel)]="vp.t1_c3_c1_comprado"
+              [(ngModel)]="vp.t1_comprado"
             />
           </div>
         </div>
@@ -120,7 +120,7 @@
               type="text"
               class="col-12"
               [readonly]="true"
-              [(ngModel)]="vp.t1_c3_c1_orcamento"
+              [(ngModel)]="vp.t1_orcamento"
             />
           </div>
         </div>
@@ -129,18 +129,13 @@
       <div class="col-12 pb-0">
         <app-t1-c2-substituto [vp]="vp"></app-t1-c2-substituto>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 3 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12">
         <div class="grid">
-          <span class="col-12"
-            >Produto será cotado?
-            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span></span
-          >
+          <span class="col-12">
+            Produto será cotado?
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
           <div class="col-12 py-0">
             <p-dropdown
               class="w-12"
@@ -154,7 +149,12 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- Coluna 3 -->
+  <div class="col-3">
+    <div class="grid">
       <div class="col-12 pb-0">
         <app-t1-c3-classificacao [vp]="vp"></app-t1-c3-classificacao>
       </div>
@@ -212,6 +212,57 @@
 
       <div class="col-12 pb-0">
         <app-t1-c4-origem [vp]="vp"></app-t1-c4-origem>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c5-familia [vp]="vp"></app-t1-c5-familia>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c6-unidade [vp]="vp"></app-t1-c6-unidade>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna 3 -->
+  <div class="col-3">
+    <div class="grid">
+      <div class="col-12 pb-0">
+        <app-t1-c7-mercadoria [vp]="vp"></app-t1-c7-mercadoria>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c8-agr-comercial [vp]="vp"></app-t1-c8-agr-comercial>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c9-agr-estoque [vp]="vp"></app-t1-c9-agr-estoque>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c10-agr-custo [vp]="vp"></app-t1-c10-agr-custo>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Especificação técnica
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_especificacao"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 pb-0">
+        <app-t1-c11-multinivel [vp]="vp"></app-t1-c11-multinivel>
       </div>
     </div>
   </div>

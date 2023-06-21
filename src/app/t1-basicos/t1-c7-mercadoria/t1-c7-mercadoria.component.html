@@ -1,12 +1,10 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Origem fiscal mercadoria
-        <span style="color: red" [hidden]="vp.t1_req_to_read"
-          >*</span
-        ></span
-      >
+      <span class="col-12">
+        Origem fiscal mercadoria
+        <span style="color: red" [hidden]="vp.t1_req_to_read">*</span>
+      </span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <button
@@ -16,7 +14,9 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_req_to_read || vp.t1_c2_c5_mercadoria_cod == ''
+              vp.t1_req_to_read ||
+              vp.buscandoWS ||
+              vp.t1_c7_mercadoria_cod == ''
                 ? 'none'
                 : ''
             "
@@ -28,8 +28,10 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c2_c5_mercadoria_des"
-            (click)="mercadoriaInput()"
+            [(ngModel)]="vp.t1_c7_mercadoria_des"
+            (click)="
+              vp.t1_req_to_read || vp.buscandoWS ? '' : mercadoriaInput()
+            "
           />
           <button
             pButton
@@ -39,6 +41,7 @@
             class="p-0"
             [style.display]="vp.t1_req_to_read ? 'none' : ''"
             (click)="mercadoriaInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>
@@ -61,8 +64,8 @@
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t1_c2_c5_mercadoria_arr"
-      [(selection)]="vp.t1_c2_c5_mercadoria_obj"
+      [value]="vp.t1_c7_mercadoria_arr"
+      [(selection)]="vp.t1_c7_mercadoria_obj"
       (onRowSelect)="mercadoriaSelect()"
       dataKey="chvLis"
       [globalFilterFields]="['chvLis', 'desLis']"
@@ -102,6 +105,6 @@
           <td>{{ mer.desLis }}</td>
         </tr>
       </ng-template>
-    </p-table></p-dialog
-  >
+    </p-table>
+  </p-dialog>
 </div>

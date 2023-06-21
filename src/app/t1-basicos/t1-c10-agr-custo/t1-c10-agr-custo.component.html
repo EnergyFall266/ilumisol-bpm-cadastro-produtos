@@ -1,12 +1,7 @@
 <div class="grid">
   <div class="col-12">
     <div class="grid">
-      <span class="col-12"
-        >Unidade de medida
-        <span style="color: red" [hidden]="vp.t1_req_to_read"
-          >*</span
-        ></span
-      >
+      <span class="col-12">Agrup. Custos</span>
       <div class="col-12 py-0">
         <div class="p-inputgroup">
           <button
@@ -16,11 +11,13 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t1_req_to_read || vp.t1_c1_c5_medida_cod == ''
+              vp.t1_req_to_read ||
+              vp.buscandoWS ||
+              vp.t1_c10_agrcusto_cod == ''
                 ? 'none'
                 : ''
             "
-            (click)="unidadeClear()"
+            (click)="custosClear()"
           ></button>
           <input
             pInputText
@@ -28,8 +25,8 @@
             class="col-12"
             placeholder="Selecione"
             [readonly]="true"
-            [(ngModel)]="vp.t1_c1_c5_medida_des"
-            (click)="unidadeInput()"
+            [(ngModel)]="vp.t1_c10_agrcusto_des"
+            (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : custosInput()"
           />
           <button
             pButton
@@ -38,34 +35,35 @@
             icon="pi pi-search"
             class="p-0"
             [style.display]="vp.t1_req_to_read ? 'none' : ''"
-            (click)="unidadeInput()"
+            (click)="custosInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>
     </div>
   </div>
   <p-dialog
-    header="Unidades de medida"
+    header="Agrup. Custos"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
     [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
+    [(visible)]="mostrar_modal_cus"
   >
     <p-table
-      #tableUnidade
+      #tableCustos
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.unidades_medida_arr"
-      [(selection)]="vp.t1_c1_c5_medida_obj"
-      (onRowSelect)="unidadeSelect()"
-      dataKey="uniMed"
-      [globalFilterFields]="['uniMed', 'desMed']"
+      [value]="vp.t1_c10_agrcusto_arr"
+      [(selection)]="vp.t1_c10_agrcusto_obj"
+      (onRowSelect)="custosSelect()"
+      dataKey="codAgp"
+      [globalFilterFields]="['codAgp', 'desAgp']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -76,7 +74,7 @@
               class="col-12"
               pInputText
               (input)="
-                tableUnidade.filterGlobal($any($event.target).value, 'contains')
+                tableCustos.filterGlobal($any($event.target).value, 'contains')
               "
               placeholder="Buscar"
             />
@@ -85,20 +83,20 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="uniMed">
-            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          <th pSortableColumn="codAgp">
+            Código <p-sortIcon field="codAgp"></p-sortIcon>
           </th>
-          <th pSortableColumn="desMed">
-            Descrição <p-sortIcon field="uniMed"></p-sortIcon>
+          <th pSortableColumn="desAgp">
+            Descrição <p-sortIcon field="desAgp"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-ori>
-        <tr [pSelectableRow]="ori">
-          <td>{{ ori.uniMed }}</td>
-          <td>{{ ori.desMed }}</td>
+      <ng-template pTemplate="body" let-cus>
+        <tr [pSelectableRow]="cus">
+          <td>{{ cus.codAgp }}</td>
+          <td>{{ cus.desAgp }}</td>
         </tr>
       </ng-template>
-    </p-table></p-dialog
-  >
+    </p-table>
+  </p-dialog>
 </div>

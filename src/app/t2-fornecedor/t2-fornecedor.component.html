@@ -14,7 +14,9 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t2_req_to_read || vp.t2_fornecedor_cod == -1 ? 'none' : ''
+              vp.t2_req_to_read || vp.buscandoWS || vp.t2_fornecedor_cod == -1
+                ? 'none'
+                : ''
             "
             (click)="fornecedorClear()"
           ></button>
@@ -25,7 +27,9 @@
             placeholder="Selecione"
             [readonly]="true"
             [(ngModel)]="vp.t2_fornecedor_des"
-            (click)="fornecedorInput()"
+            (click)="
+              vp.t2_req_to_read || vp.buscandoWS ? '' : fornecedorInput()
+            "
           />
           <button
             pButton
@@ -35,6 +39,7 @@
             class="p-0"
             [style.display]="vp.t2_req_to_read ? 'none' : ''"
             (click)="fornecedorInput()"
+            [disabled]="vp.buscandoWS"
           ></button>
         </div>
       </div>

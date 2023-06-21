@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { T1C1C4FamComponent } from './t1-c1-c4-fam.component';
+import { T1C7MercadoriaComponent } from './t1-c7-mercadoria.component';
 
-describe('T1C1C4FamComponent', () => {
-  let component: T1C1C4FamComponent;
-  let fixture: ComponentFixture<T1C1C4FamComponent>;
+describe('T1C7MercadoriaComponent', () => {
+  let component: T1C7MercadoriaComponent;
+  let fixture: ComponentFixture<T1C7MercadoriaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ T1C1C4FamComponent ]
+      declarations: [ T1C7MercadoriaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(T1C1C4FamComponent);
+    fixture = TestBed.createComponent(T1C7MercadoriaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

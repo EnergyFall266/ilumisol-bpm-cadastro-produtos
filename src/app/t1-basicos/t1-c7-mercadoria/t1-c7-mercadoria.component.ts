@@ -4,11 +4,11 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaValorLista } from 'src/beans/WS_Beans';
 
 @Component({
-  selector: 'app-t1-c2-c5-mercadoria',
-  templateUrl: './t1-c2-c5-mercadoria.component.html',
-  styleUrls: ['./t1-c2-c5-mercadoria.component.scss'],
+  selector: 'app-t1-c7-mercadoria',
+  templateUrl: './t1-c7-mercadoria.component.html',
+  styleUrls: ['./t1-c7-mercadoria.component.scss'],
 })
-export class T1C2C5MercadoriaComponent implements OnInit {
+export class T1C7MercadoriaComponent {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
@@ -20,8 +20,8 @@ export class T1C2C5MercadoriaComponent implements OnInit {
   public async mercadoriaInput() {
     if (!this.vp.t1_req_to_read) {
       this.mostrar_modal = true;
-      if (this.vp.t1_c2_c5_mercadoria_arr.length == 0) {
-        this.vp.t1_c2_c5_mercadoria_arr = (
+      if (this.vp.t1_c7_mercadoria_arr.length == 0) {
+        this.vp.t1_c7_mercadoria_arr = (
           (await this.ap.exportaServico(
             'ExportaValorLista',
             'LOriMer'
@@ -30,24 +30,24 @@ export class T1C2C5MercadoriaComponent implements OnInit {
           chvLis: l.chvLis + '',
           desLis: l.desLis,
         }));
-        if (this.vp.t1_c2_c5_mercadoria_cod != '')
-          this.vp.t1_c2_c5_mercadoria_obj =
-            this.vp.t1_c2_c5_mercadoria_arr.find(
-              (x) => x.chvLis == this.vp.t1_c2_c5_mercadoria_cod
+        if (this.vp.t1_c7_mercadoria_cod != '')
+          this.vp.t1_c7_mercadoria_obj =
+            this.vp.t1_c7_mercadoria_arr.find(
+              (x) => x.chvLis == this.vp.t1_c7_mercadoria_cod
             );
       }
     }
   }
 
   public mercadoriaSelect() {
-    this.vp.t1_c2_c5_mercadoria_cod = this.vp.t1_c2_c5_mercadoria_obj!.chvLis;
-    this.vp.t1_c2_c5_mercadoria_des = this.vp.t1_c2_c5_mercadoria_obj!.desLis;
+    this.vp.t1_c7_mercadoria_cod = this.vp.t1_c7_mercadoria_obj!.chvLis;
+    this.vp.t1_c7_mercadoria_des = this.vp.t1_c7_mercadoria_obj!.desLis;
     this.mostrar_modal = false;
   }
 
   public mercadoriaClear() {
-    this.vp.t1_c2_c5_mercadoria_obj = undefined;
-    this.vp.t1_c2_c5_mercadoria_cod = '';
-    this.vp.t1_c2_c5_mercadoria_des = '';
+    this.vp.t1_c7_mercadoria_obj = undefined;
+    this.vp.t1_c7_mercadoria_cod = '';
+    this.vp.t1_c7_mercadoria_des = '';
   }
 }

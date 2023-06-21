@@ -19,13 +19,13 @@ export default class FormValidate {
         if (vp.t1_c4_origem_cod == '')
           this.ms.add(getMsgS('Dados básicos - Origem'));
 
-        if (vp.t1_c1_c4_familia_cod == '')
+        if (vp.t1_c5_familia_cod == '')
           this.ms.add(getMsgS('Dados básicos - Família'));
 
         if (vp.t1_descricao_prod == '')
           this.ms.add(getMsgC('Dados básicos - Descrição'));
 
-        if (vp.t1_c1_c5_medida_cod == '')
+        if (vp.t1_c6_medida_cod == '')
           this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
 
         if (vp.t1_cotado == '')
@@ -47,19 +47,8 @@ export default class FormValidate {
             );
         }
 
-        if (vp.t1_c2_especificacao == '')
+        if (vp.t1_especificacao == '')
           this.ms.add(getMsgC('Dados básicos - Especificação técnica'));
-
-        if (vp.t1_c2_c5_mercadoria_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Origem fiscal mercadoria'));
-
-        if (vp.t1_c2_c6_integra_agrosys == '')
-          this.ms.add(getMsgS('Dados básicos - Integra agrosys?'));
-        else if (
-          vp.t1_c2_c6_integra_agrosys == 'Sim' &&
-          vp.t1_c2_c6_agrosys_cod == ''
-        )
-          this.ms.add(getMsgS('Dados básicos - Código agrosys'));
 
         if (vp.t3_c1_destino_cod == '')
           this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
@@ -77,24 +66,6 @@ export default class FormValidate {
 
         if (vp.t3_c2_quan_max_vendas === undefined)
           this.ms.add(getMsgC('Dados de depósito - Qtda. max. de vendas'));
-
-        if (vp.t1_c3_vendido_upl == '')
-          this.ms.add(getMsgS('Dados básicos - Pode ser vendido UPL?'));
-
-        if (vp.t1_c3_receita == '')
-          this.ms.add(getMsgS('Dados básicos - Emite receita agronômica?'));
-
-        if (vp.t1_c3_c2_venda_virtual == '')
-          this.ms.add(getMsgS('Dados básicos - Venda virtual?'));
-        else if (vp.t1_c3_c2_venda_virtual == 'Sim') {
-          if (vp.t1_c3_c2_categoria_cod == -1)
-            this.ms.add(getMsgS('Dados básicos - Categoria de venda on-line'));
-
-          if (vp.t1_c3_c2_subcategoria_cod == -1)
-            this.ms.add(
-              getMsgS('Dados básicos - Subcategoria de venda on-line')
-            );
-        }
 
         if (vp.t2_fornecedor_cod == -1)
           this.ms.add(getMsgS('Dados do fornecedor - Fornecedor'));
