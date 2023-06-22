@@ -19,7 +19,7 @@ export class T6C1C2IcmsComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async especialInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_esp = true;
       if (this.vp.t6_c1_c2_icms_especial_arr.length == 0) {
         this.vp.t6_c1_c2_icms_especial_arr = (await this.ap.exportaServico(
@@ -46,7 +46,7 @@ export class T6C1C2IcmsComponent implements OnInit {
   }
 
   public async reducaoInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_red = true;
       if (this.vp.t6_c1_c2_reducao_icms_arr.length == 0) {
         this.vp.t6_c1_c2_reducao_icms_arr = (await this.ap.exportaServico(

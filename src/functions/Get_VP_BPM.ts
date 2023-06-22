@@ -103,16 +103,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t3_c4_quan_mul_com = +map.get('t3_c4_quan_mul_com');
 
   /**
-   * Observações e Anexos
-   */
-
-  if (map.get('t4_observacoes') !== undefined)
-    vp.t4_observacoes = map.get('t4_observacoes');
-
-  if (map.get('t4_anexo_pasta_id') !== undefined)
-    vp.t4_anexo_pasta_id = map.get('t4_anexo_pasta_id');
-
-  /**
    * Dados do cadastro
    */
 
@@ -120,9 +110,9 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t1_descricao_fiscal') !== undefined)
     vp.t1_descricao_fiscal = map.get('t1_descricao_fiscal');
 
-  if (map.get('t5_c1_c1_mascara_cod') !== undefined) {
-    vp.t5_c1_c1_mascara_cod = map.get('t5_c1_c1_mascara_cod');
-    vp.t5_c1_c1_mascara_des = map.get('t5_c1_c1_mascara_des');
+  if (map.get('t5_c1_mascara_cod') !== undefined) {
+    vp.t5_c1_mascara_cod = map.get('t5_c1_mascara_cod');
+    vp.t5_c1_mascara_des = map.get('t5_c1_mascara_des');
   }
 
   if (map.get('t1_c9_agrestoque_cod') !== undefined) {
@@ -136,57 +126,57 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   }
 
   //Coluna 2
-  if (map.get('t5_c2_c1_med_2_cod') !== undefined) {
-    vp.t5_c2_c1_med_2_cod = map.get('t5_c2_c1_med_2_cod');
-    vp.t5_c2_c1_med_2_des = map.get('t5_c2_c1_med_2_des');
+  if (map.get('t5_c2_medida2_cod') !== undefined) {
+    vp.t5_c2_medida2_cod = map.get('t5_c2_medida2_cod');
+    vp.t5_c2_medida2_des = map.get('t5_c2_medida2_des');
   }
 
-  if (map.get('t5_c2_c1_med_3_cod') !== undefined) {
-    vp.t5_c2_c1_med_3_cod = map.get('t5_c2_c1_med_3_cod');
-    vp.t5_c2_c1_med_3_des = map.get('t5_c2_c1_med_3_des');
+  if (map.get('t5_c3_medida3_cod') !== undefined) {
+    vp.t5_c3_medida3_cod = map.get('t5_c3_medida3_cod');
+    vp.t5_c3_medida3_des = map.get('t5_c3_medida3_des');
   }
 
-  if (map.get('t5_c2_c2_med_2_tip_cod') !== undefined) {
-    vp.t5_c2_c2_med_2_tip_cod = map.get('t5_c2_c2_med_2_tip_cod');
-    vp.t5_c2_c2_med_2_tip_des = map.get('t5_c2_c2_med_2_tip_des');
+  if (map.get('t5_c4_conversao2_cod') !== undefined) {
+    vp.t5_c4_conversao2_cod = map.get('t5_c4_conversao2_cod');
+    vp.t5_c4_conversao2_des = map.get('t5_c4_conversao2_des');
   }
 
-  if (map.get('t5_c2_c2_med_2_val') !== undefined)
-    vp.t5_c2_c2_med_2_val = +map.get('t5_c2_c2_med_2_val');
+  if (map.get('t5_valor2') !== undefined)
+    vp.t5_valor2 = +map.get('t5_valor2');
 
-  if (map.get('t5_c2_c3_med_3_tip_cod') !== undefined) {
-    vp.t5_c2_c3_med_3_tip_cod = map.get('t5_c2_c3_med_3_tip_cod');
-    vp.t5_c2_c3_med_3_tip_des = map.get('t5_c2_c3_med_3_tip_des');
+  if (map.get('t5_c5_conversao3_cod') !== undefined) {
+    vp.t5_c5_conversao3_cod = map.get('t5_c5_conversao3_cod');
+    vp.t5_c5_conversao3_des = map.get('t5_c5_conversao3_des');
   }
 
-  if (map.get('t5_c2_c3_med_3_val') !== undefined)
-    vp.t5_c2_c3_med_3_val = +map.get('t5_c2_c3_med_3_val');
+  if (map.get('t5_valor3') !== undefined)
+    vp.t5_valor3 = +map.get('t5_valor3');
 
   //Coluna 3
-  if (map.get('t5_c3_c1_peso_bruto') !== undefined)
-    vp.t5_c3_c1_peso_bruto = +map.get('t5_c3_c1_peso_bruto');
+  if (map.get('t5_peso_bruto') !== undefined)
+    vp.t5_peso_bruto = +map.get('t5_peso_bruto');
 
-  if (map.get('t5_c3_c1_peso_liquido') !== undefined)
-    vp.t5_c3_c1_peso_liquido = +map.get('t5_c3_c1_peso_liquido');
+  if (map.get('t5_peso_liquido') !== undefined)
+    vp.t5_peso_liquido = +map.get('t5_peso_liquido');
 
-  if (map.get('t5_c3_observacao') !== undefined)
-    vp.t5_c3_observacao = map.get('t5_c3_observacao');
+  if (map.get('t5_observacao') !== undefined)
+    vp.t5_observacao = map.get('t5_observacao');
 
-  if (map.get('t5_c3_c2_anexo_pasta_id') !== undefined)
-    vp.t5_c3_c2_anexo_pasta_id = map.get('t5_c3_c2_anexo_pasta_id');
+  if (map.get('t5_pasta_id') !== undefined)
+    vp.t5_pasta_id = map.get('t5_pasta_id');
 
   //Coluna 4
-  if (map.get('t5_c4_recusa') !== undefined)
-    vp.t5_c4_recusa = map.get('t5_c4_recusa');
+  if (map.get('t5_recusa') !== undefined)
+    vp.t5_recusa = map.get('t5_recusa');
 
   /**
    * Dados fiscais e contábeis
    */
 
   //Coluna 1
-  if (map.get('t6_c1_c1_tipo_prod_cod') !== undefined) {
-    vp.t6_c1_c1_tipo_prod_cod = map.get('t6_c1_c1_tipo_prod_cod');
-    vp.t6_c1_c1_tipo_prod_des = map.get('t6_c1_c1_tipo_prod_des');
+  if (map.get('t6_c1_impostos_cod') !== undefined) {
+    vp.t6_c1_impostos_cod = map.get('t6_c1_impostos_cod');
+    vp.t6_c1_impostos_des = map.get('t6_c1_impostos_des');
   }
 
   if (map.get('t6_c1_c2_icms_especial_cod') !== undefined)
@@ -204,17 +194,17 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_c1_c3_pis_subs_cod') !== undefined)
     vp.t6_c1_c3_pis_subs_cod = map.get('t6_c1_c3_pis_subs_cod');
 
-  if (map.get('t6_c1_pis_recu') !== undefined)
-    vp.t6_c1_pis_recu = map.get('t6_c1_pis_recu');
+  if (map.get('t6_recupera_pis') !== undefined)
+    vp.t6_recupera_pis = map.get('t6_recupera_pis');
 
-  if (map.get('t6_c1_cof_recu') !== undefined)
-    vp.t6_c1_cof_recu = map.get('t6_c1_cof_recu');
+  if (map.get('t6_recupera_cof') !== undefined)
+    vp.t6_recupera_cof = map.get('t6_recupera_cof');
 
-  if (map.get('t6_c1_pis_trib') !== undefined)
-    vp.t6_c1_pis_trib = map.get('t6_c1_pis_trib');
+  if (map.get('t6_tributa_pis') !== undefined)
+    vp.t6_tributa_pis = map.get('t6_tributa_pis');
 
-  if (map.get('t6_c1_cof_trib') !== undefined)
-    vp.t6_c1_cof_trib = map.get('t6_c1_cof_trib');
+  if (map.get('t6_tributa_cof') !== undefined)
+    vp.t6_tributa_cof = map.get('t6_tributa_cof');
 
   //Coluna 2
   if (map.get('t6_c2_c1_pis_ven_cod') !== undefined) {
@@ -246,18 +236,18 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t6_c2_c4_cof_com_des = map.get('t6_c2_c4_cof_com_des');
   }
 
-  if (map.get('t6_c2_usa_pro_for') !== undefined)
-    vp.t6_c2_usa_pro_for = map.get('t6_c2_usa_pro_for');
+  if (map.get('t6_produ_forne') !== undefined)
+    vp.t6_produ_forne = map.get('t6_produ_forne');
 
-  if (map.get('t6_c2_funrural') !== undefined)
-    vp.t6_c2_funrural = +map.get('t6_c2_funrural');
+  if (map.get('t6_funrural') !== undefined)
+    vp.t6_funrural = +map.get('t6_funrural');
 
-  if (map.get('t6_c2_gilrat') !== undefined)
-    vp.t6_c2_gilrat = +map.get('t6_c2_gilrat');
+  if (map.get('t6_gilrat') !== undefined)
+    vp.t6_gilrat = +map.get('t6_gilrat');
 
   //Coluna 3
-  if (map.get('t6_c3_senart') !== undefined)
-    vp.t6_c3_senart = +map.get('t6_c3_senart');
+  if (map.get('t6_senart') !== undefined)
+    vp.t6_senart = +map.get('t6_senart');
 
   if (map.get('t6_c3_c1_enq_esp_cod') !== undefined) {
     vp.t6_c3_c1_enq_esp_cod = map.get('t6_c3_c1_enq_esp_cod');
@@ -284,18 +274,18 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_c3_cal_sen') !== undefined)
     vp.t6_c3_cal_sen = map.get('t6_c3_cal_sen');
 
-  if (map.get('t6_c3_c4_pauta') !== undefined)
-    vp.t6_c3_c4_pauta = map.get('t6_c3_c4_pauta');
+  if (map.get('t6_pauta') !== undefined)
+    vp.t6_pauta = map.get('t6_pauta');
 
-  if (map.get('t6_c3_c5_benef') !== undefined)
-    vp.t6_c3_c5_benef = map.get('t6_c3_c5_benef');
+  if (map.get('t6_benef') !== undefined)
+    vp.t6_benef = map.get('t6_benef');
 
   //Coluna 4
-  if (map.get('t6_c4_c1_observacoes') !== undefined)
-    vp.t6_c4_c1_observacoes = map.get('t6_c4_c1_observacoes');
+  if (map.get('t6_observacoes') !== undefined)
+    vp.t6_observacoes = map.get('t6_observacoes');
 
-  if (map.get('t6_c4_c1_recusa') !== undefined)
-    vp.t6_c4_c1_recusa = map.get('t6_c4_c1_recusa');
+  if (map.get('t6_recusa') !== undefined)
+    vp.t6_recusa = map.get('t6_recusa');
 
   if (map.get('t6_c4_c2_anexo_pasta_id') !== undefined)
     vp.t6_c4_c2_anexo_pasta_id = map.get('t6_c4_c2_anexo_pasta_id');

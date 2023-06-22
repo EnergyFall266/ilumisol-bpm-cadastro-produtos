@@ -3,7 +3,7 @@
     <div class="grid">
       <span class="col-12"
         >Qtda. Múltipla para vendas
-        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
+        <span [hidden]="vp.t3_req_to_read" style="color: red"
           >*</span
         ></span
       >
@@ -17,14 +17,14 @@
           mode="decimal"
           [minFractionDigits]="4"
           [maxFractionDigits]="4"
-          [showButtons]="!vp.t3_mandatory_to_readonly"
+          [showButtons]="!vp.t3_req_to_read"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t3_mandatory_to_readonly"
+          [readonly]="vp.t3_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t3_c4_quan_mul_ven"
         >
@@ -37,7 +37,7 @@
     <div class="grid">
       <span class="col-12"
         >Qtda. Múltipla para compras
-        <span [hidden]="vp.t3_mandatory_to_readonly" style="color: red"
+        <span [hidden]="vp.t3_req_to_read" style="color: red"
           >*</span
         ></span
       >
@@ -51,14 +51,14 @@
           mode="decimal"
           [minFractionDigits]="4"
           [maxFractionDigits]="4"
-          [showButtons]="!vp.t3_mandatory_to_readonly"
+          [showButtons]="!vp.t3_req_to_read"
           buttonLayout="horizontal"
           spinnerMode="horizontal"
           decrementButtonClass="p-0"
           incrementButtonClass="p-0"
           incrementButtonIcon="pi pi-plus"
           decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t3_mandatory_to_readonly"
+          [readonly]="vp.t3_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t3_c4_quan_mul_com"
         >

@@ -1,0 +1,96 @@
+<div class="grid">
+  <span class="col-12">Unidade de medida 3 para uso gerencial</span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t5_req_to_read || vp.buscandoWS || vp.t5_c3_medida3_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="uni3Clear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t5_c3_medida3_des"
+        (click)="vp.t5_req_to_read || vp.buscandoWS ? '' : uni3Input()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t5_req_to_read ? 'none' : ''"
+        (click)="uni3Input()"
+        [disabled]="vp.buscandoWS"
+      ></button>
+    </div>
+  </div>
+  <p-dialog
+    header="Unidades de medida"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal_3"
+  >
+    <p-table
+      #tableUni3
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [loading]="vp.buscandoWS"
+      [value]="vp.unidades_medida_arr"
+      [(selection)]="vp.t5_c3_medida3_obj"
+      (onRowSelect)="uni3Select()"
+      dataKey="uniMed"
+      [globalFilterFields]="['uniMed', 'desMed']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableUni3.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="uniMed">
+            Unidade <p-sortIcon field="uniMed"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMed">
+            Descrição <p-sortIcon field="desMed"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-un3>
+        <tr [pSelectableRow]="un3">
+          <td>{{ un3.uniMed }}</td>
+          <td>{{ un3.desMed }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-dialog>
+</div>

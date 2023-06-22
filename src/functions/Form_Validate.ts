@@ -95,26 +95,26 @@ export default class FormValidate {
         if (vp.t1_descricao_fiscal == '')
           this.ms.add(getMsgS('Dados do cadastro - Descrição p/nota fiscal'));
 
-        if (vp.t5_c1_c1_mascara_cod == '')
+        if (vp.t5_c1_mascara_cod == '')
           this.ms.add(getMsgS('Dados do cadastro - Máscara Derivação'));
         break;
 
       case environment.s4_fis_con:
-        if (vp.t6_c1_c1_tipo_prod_cod == -1)
+        if (vp.t6_c1_impostos_cod == -1)
           this.ms.add(
             getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
           );
 
-        if (vp.t6_c1_pis_recu == '')
+        if (vp.t6_recupera_pis == '')
           this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Pis'));
 
-        if (vp.t6_c1_cof_recu == '')
+        if (vp.t6_recupera_cof == '')
           this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Cofins'));
 
-        if (vp.t6_c1_pis_trib == '')
+        if (vp.t6_tributa_pis == '')
           this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Pis'));
 
-        if (vp.t6_c1_cof_trib == '')
+        if (vp.t6_tributa_cof == '')
           this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Cofins'));
 
         if (vp.t6_c2_c1_pis_ven_cod == '')
@@ -155,18 +155,18 @@ export default class FormValidate {
             )
           );
 
-        if (vp.t6_c2_usa_pro_for == '')
+        if (vp.t6_produ_forne == '')
           this.ms.add(
             getMsgS('Dados fiscais e contábeis - Usa Produto x Fornecedor')
           );
 
-        if (vp.t6_c2_funrural === undefined)
+        if (vp.t6_funrural === undefined)
           this.ms.add(getMsgC('Dados fiscais e contábeis - % Funrural'));
 
-        if (vp.t6_c2_gilrat === undefined)
+        if (vp.t6_gilrat === undefined)
           this.ms.add(getMsgC('Dados fiscais e contábeis - % Gilrat'));
 
-        if (vp.t6_c3_senart === undefined)
+        if (vp.t6_senart === undefined)
           this.ms.add(getMsgC('Dados fiscais e contábeis - % Senar / Senat'));
 
         if (vp.t6_c3_c1_enq_esp_cod == -1)

@@ -92,7 +92,7 @@ export class AppComponent {
 
     this.primeNGConfig.ripple = true;
 
-    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5]);
+    this.activeMenu = fd.showMenus(5, [1, 2, 3, 4, 5]);
   }
 
   private _loadData = async (data: Data, info: Info) => {
@@ -107,7 +107,7 @@ export class AppComponent {
     this.vp.ged_pasta_processo_nome = `Fluxo ${data.processInstanceId}`;
 
     this.formValidate.salvarDados(this.vp);
-    this.vp.alertas = this.msg.value == null ? [] : this.msg.value;
+    this.vp.alertas = this.msg.messages == null ? [] : this.msg.messages;
 
     if (this.vp.alertas.length > 0)
       throw Error('Os dados informados são inválidos.');
@@ -120,7 +120,7 @@ export class AppComponent {
     this.vp.overlay = true;
 
     this.formValidate.salvarDados(this.vp);
-    this.vp.alertas = this.msg.value == null ? [] : this.msg.value;
+    this.vp.alertas = this.msg.messages == null ? [] : this.msg.messages;
 
     if (this.vp.alertas.length == 0) {
       const c = await this.ap.cadastroService(this.vp);

@@ -1,0 +1,99 @@
+<div class="grid">
+  <span class="col-12">
+    Máscara Derivação
+    <span style="color: red" [hidden]="vp.t5_req_to_read">*</span>
+  </span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t5_req_to_read || vp.buscandoWS || vp.t5_c1_mascara_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="mascaraClear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t5_c1_mascara_des"
+        (click)="vp.t5_req_to_read || vp.buscandoWS ? '' : mascaraInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t5_req_to_read ? 'none' : ''"
+        (click)="mascaraInput()"
+        [disabled]="vp.buscandoWS"
+      ></button>
+    </div>
+  </div>
+  <p-dialog
+    header="Máscaras"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
+  >
+    <p-table
+      #tableMascara
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [loading]="vp.buscandoWS"
+      [value]="vp.t5_c1_mascara_arr"
+      [(selection)]="vp.t5_c1_mascara_obj"
+      (onRowSelect)="mascaraSelect()"
+      dataKey="codMdp"
+      [globalFilterFields]="['codMdp', 'desMdp']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableMascara.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="codMdp">
+            Código <p-sortIcon field="codMdp"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desMdp">
+            Descrição <p-sortIcon field="desMdp"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-mas>
+        <tr [pSelectableRow]="mas">
+          <td>{{ mas.codMdp }}</td>
+          <td>{{ mas.desMdp }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-dialog>
+</div>

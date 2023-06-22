@@ -1,17 +1,294 @@
 <div class="grid mt-1">
+  <!-- Coluna 1 -->
   <div class="col-3" [hidden]="vp.t6_show_only_recusa">
-    <app-t6-c1 [vp]="vp"></app-t6-c1>
+    <div class="grid">
+      <div class="col-12">
+        <app-t6-c1-impostos [vp]="vp"></app-t6-c1-impostos>
+      </div>
+
+      <app-t6-c1 [vp]="vp"></app-t6-c1>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Recupera Pis
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_recupera_pis"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Recupera Cofins
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_recupera_cof"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 2 -->
   <div class="col-3" [hidden]="vp.t6_show_only_recusa">
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Tributa Pis
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_tributa_pis"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Tributa Cofins
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_tributa_cof"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <app-t6-c2 [vp]="vp"></app-t6-c2>
   </div>
 
+  <!-- Coluna 3 -->
   <div class="col-3" [hidden]="vp.t6_show_only_recusa">
-    <app-t6-c3 [vp]="vp"></app-t6-c3>
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Usa Produto x Fornecedor
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_produ_forne"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            % Funrural
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_funrural"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            % Gilrat
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_gilrat"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            % Senar / Senat
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_senart"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <app-t6-c3 [vp]="vp"></app-t6-c3>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Tabela pauta fiscal</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_pauta"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Código cBenef</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_benef"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 4 -->
   <div class="col-3">
+    <div class="grid">
+      <div class="col-12 pb-1" [hidden]="vp.t6_show_only_recusa">
+        <div class="grid">
+          <span class="col-12">Comentários e observações da área fiscal</span>
+          <div class="col-12 py-0">
+            <textarea
+              pInputTextarea
+              class="col-12"
+              style="resize: none"
+              rows="9"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_observacoes"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Justificativa da recusa do cadastro</span>
+          <div class="col-12 py-0">
+            <textarea
+              pInputTextarea
+              class="col-12"
+              style="resize: none"
+              rows="9"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_recusa"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <app-t6-c4 [vp]="vp"></app-t6-c4>
   </div>
 </div>

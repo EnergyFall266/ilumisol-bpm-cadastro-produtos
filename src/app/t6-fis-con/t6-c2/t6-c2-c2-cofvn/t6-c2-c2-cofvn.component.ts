@@ -18,7 +18,7 @@ export class T6C2C2CofvnComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async situacaoInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t6_c2_sit_tri_arr.length == 0) {
         this.vp.t6_c2_sit_tri_arr = (await this.ap.exportaServico(

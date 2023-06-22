@@ -18,7 +18,7 @@ export class T6C3C2MotivComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async motivoInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t6_c3_c2_motivo_arr.length == 0) {
         this.vp.t6_c3_c2_motivo_arr = (await this.ap.exportaServico(

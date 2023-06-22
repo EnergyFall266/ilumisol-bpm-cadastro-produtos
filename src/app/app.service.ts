@@ -81,15 +81,12 @@ export class AppService {
   private ct = ged.checkEnviadoTemplate;
 
   public enviarDocs = async (vp: VP_BPM, t: string) => {
-    if (t == 's') {
-      await this.prepararDocs(vp.t4_anexo_files, vp.t4_anexo_ged_arr);
-      var p = await this.pegarPastasGED(vp, vp.t4_anexo_pasta_nome);
-    } else if (t == 'c') {
+    if (t == 'c') {
       await this.prepararDocs(
-        vp.t5_c3_c2_anexo_files,
-        vp.t5_c3_c2_anexo_ged_arr
+        vp.t5_file_TS,
+        vp.t5_file_GED
       );
-      var p = await this.pegarPastasGED(vp, vp.t5_c3_c2_anexo_pasta_nome);
+      var p = await this.pegarPastasGED(vp, vp.t5_pasta_nome);
     } else if (t == 'f') {
       await this.prepararDocs(
         vp.t6_c4_c2_anexo_files,
@@ -101,16 +98,14 @@ export class AppService {
     if (p) {
       vp.ged_pasta_pai_id = p.paiId;
       vp.ged_pasta_processo_id = p.proId;
-      if (t == 's') vp.t4_anexo_pasta_id = p.scfId;
-      else if (t == 'c') vp.t5_c3_c2_anexo_pasta_id = p.scfId;
+      if (t == 'c') vp.t5_pasta_id = p.scfId;
       else if (t == 'f') vp.t6_c4_c2_anexo_pasta_id = p.scfId;
 
       if (
         this.anexos_ged_temp.length ==
         (await this.processarDocsGED(vp, p.scfId))
       ) {
-        if (t == 's') vp.t4_anexo_files = [];
-        else if (t == 'c') vp.t5_c3_c2_anexo_files = [];
+        if (t == 'c') vp.t5_file_TS = [];
         else if (t == 'f') vp.t6_c4_c2_anexo_files = [];
         this.anexos_ged_temp = [];
       }
@@ -197,13 +192,9 @@ export class AppService {
   };
 
   public async getAllDocs(vp: VP_BPM) {
-    if (vp.t4_anexo_pasta_id != '')
-      vp.t4_anexo_ged_arr = (
-        await ged.folderList(0, vp.token, vp.t4_anexo_pasta_id)
-      ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
-    if (vp.t5_c3_c2_anexo_pasta_id != '')
-      vp.t5_c3_c2_anexo_ged_arr = (
-        await ged.folderList(0, vp.token, vp.t5_c3_c2_anexo_pasta_id)
+    if (vp.t5_pasta_id != '')
+      vp.t5_file_GED = (
+        await ged.folderList(0, vp.token, vp.t5_pasta_id)
       ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
     if (vp.t6_c4_c2_anexo_pasta_id != '')
       vp.t6_c4_c2_anexo_ged_arr = (
@@ -253,27 +244,27 @@ export class AppService {
 
         //Dados do cadastro
         desNfv: vp.t1_descricao_fiscal,
-        codMdp: vp.t5_c1_c1_mascara_cod,
+        codMdp: vp.t5_c1_mascara_cod,
         codAge: vp.t1_c9_agrestoque_cod,
         codAgu: vp.t1_c10_agrcusto_cod,
 
-        uniMe2: vp.t5_c2_c1_med_2_cod,
-        uniMe3: vp.t5_c2_c1_med_3_cod,
+        uniMe2: vp.t5_c2_medida2_cod,
+        uniMe3: vp.t5_c3_medida3_cod,
 
-        pesBru: vp.t5_c3_c1_peso_bruto,
-        pesLiq: vp.t5_c3_c1_peso_liquido,
+        pesBru: vp.t5_peso_bruto,
+        pesLiq: vp.t5_peso_liquido,
 
         //Dados fiscais e contábeis
-        proImp: vp.t6_c1_c1_tipo_prod_cod,
+        proImp: vp.t6_c1_impostos_cod,
         codTic: vp.t6_c1_c2_icms_especial_cod,
         codTrd: vp.t6_c1_c2_reducao_icms_cod,
         codTst: vp.t6_c1_c3_icm_subs_cod,
         codStc: vp.t6_c1_c3_cof_subs_cod,
         codStp: vp.t6_c1_c3_pis_subs_cod,
-        recPis: vp.t6_c1_pis_recu[0],
-        recCof: vp.t6_c1_cof_recu[0],
-        triPis: vp.t6_c1_pis_trib[0],
-        triCof: vp.t6_c1_cof_trib[0],
+        recPis: vp.t6_recupera_pis[0],
+        recCof: vp.t6_recupera_cof[0],
+        triPis: vp.t6_tributa_pis[0],
+        triCof: vp.t6_tributa_cof[0],
 
         cstPis: vp.t6_c2_c1_pis_ven_cod,
         natPis: vp.t6_c2_c1_pis_nat_cod ?? 0,
@@ -282,11 +273,11 @@ export class AppService {
         codEnq: vp.t6_c2_c3_enqua_cod,
         cstPic: vp.t6_c2_c4_pis_com_cod,
         cstCoc: vp.t6_c2_c4_cof_com_cod,
-        indFpr: vp.t6_c2_usa_pro_for[0],
-        perFun: vp.t6_c2_funrural,
-        perGil: vp.t6_c2_gilrat,
+        indFpr: vp.t6_produ_forne[0],
+        perFun: vp.t6_funrural,
+        perGil: vp.t6_gilrat,
 
-        perSen: vp.t6_c3_senart,
+        perSen: vp.t6_senart,
         proEpe: vp.t6_c3_c1_enq_esp_cod,
         motDes: vp.t6_c3_c2_motivo_cod,
         codCes: vp.t6_c3_substituicao,
@@ -302,10 +293,10 @@ export class AppService {
         derivacao: [
           {
             codBar: vp.t1_barras,
-            tipCn2: vp.t5_c2_c2_med_2_tip_cod,
-            vlrCn2: vp.t5_c2_c2_med_2_val ?? 0,
-            tipCn3: vp.t5_c2_c3_med_3_tip_cod,
-            vlrCn3: vp.t5_c2_c3_med_3_val ?? 0,
+            tipCn2: vp.t5_c4_conversao2_cod,
+            vlrCn2: vp.t5_valor2 ?? 0,
+            tipCn3: vp.t5_c5_conversao3_cod,
+            vlrCn3: vp.t5_valor3 ?? 0,
           },
         ],
 

@@ -135,7 +135,7 @@ export class VP_BPM {
    * Dados de depósito
    */
 
-  public t3_mandatory_to_readonly: boolean = false;
+  public t3_req_to_read: boolean = false;
 
   //Coluna 1
   public t3_c1_destino_arr: wsb.ExportaDepositos[] = [];
@@ -167,83 +167,83 @@ export class VP_BPM {
   public t3_c4_quan_mul_com?: number;
 
   /**
-   * Observações e Anexos
-   */
-
-  public t4_mandatory_to_readonly: boolean = false;
-
-  public t4_observacoes: string = '';
-
-  public t4_anexo_files: File[] = [];
-  public t4_anexo_ged_arr: Anexo[] = [];
-  public t4_anexo_pasta_id: string = '';
-  public t4_anexo_pasta_nome: string = 'Anexo solicitação';
-
-  /**
    * Dados do cadastro
    */
 
-  public t5_mandatory_to_readonly: boolean = true;
+  public t5_req_to_read: boolean = false;
+
+  public t5_conversao_arr: wsb.ExportaValorLista[] = [];
+
+  public t5_descricao: string = '';
+
+  public t5_c1_mascara_arr: wsb.ExportaMascaraDerivacao[] = [];
+  public t5_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
+  public t5_c1_mascara_cod: string = '';
+  public t5_c1_mascara_des: string = '';
+
+  public t5_c2_medida2_obj?: wsb.ExportaUniMeds;
+  public t5_c2_medida2_cod: string = '';
+  public t5_c2_medida2_des: string = '';
+
+  public t5_c3_medida3_obj?: wsb.ExportaUniMeds;
+  public t5_c3_medida3_cod: string = '';
+  public t5_c3_medida3_des: string = '';
+
+  public t5_c4_conversao2_obj?: wsb.ExportaValorLista;
+  public t5_c4_conversao2_cod: string = '';
+  public t5_c4_conversao2_des: string = '';
+
+  public t5_valor2?: number;
+
+  public t5_c5_conversao3_obj?: wsb.ExportaValorLista;
+  public t5_c5_conversao3_cod: string = '';
+  public t5_c5_conversao3_des: string = '';
+
+  public t5_valor3?: number;
+
+  public t5_peso_bruto?: number;
+
+  public t5_peso_liquido?: number;
+
+  public t5_observacao: string = '';
+
+  public t5_file_TS: File[] = [];
+  public t5_file_GED: Anexo[] = [];
+  public t5_pasta_id: string = '';
+  public t5_pasta_nome: string = 'Anexo cadastro';
+
+  public t5_recusa: string = '';
 
   public t5_show_only_recusa: boolean = false;
-
-  //Coluna 1
-  public t5_c1_c1_mascara_arr: wsb.ExportaMascaraDerivacao[] = [];
-  public t5_c1_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
-  public t5_c1_c1_mascara_cod: string = '';
-  public t5_c1_c1_mascara_des: string = '';
-
-  //Coluna 2
-  public t5_c2_c1_med_2_obj?: wsb.ExportaUniMeds;
-  public t5_c2_c1_med_2_cod: string = '';
-  public t5_c2_c1_med_2_des: string = '';
-
-  public t5_c2_c1_med_3_obj?: wsb.ExportaUniMeds;
-  public t5_c2_c1_med_3_cod: string = '';
-  public t5_c2_c1_med_3_des: string = '';
-
-  public t5_c2_tipo_conversao_arr: wsb.ExportaValorLista[] = [];
-
-  public t5_c2_c2_med_2_tip_obj?: wsb.ExportaValorLista;
-  public t5_c2_c2_med_2_tip_cod: string = '';
-  public t5_c2_c2_med_2_tip_des: string = '';
-
-  public t5_c2_c2_med_2_val?: number;
-
-  public t5_c2_c3_med_3_tip_obj?: wsb.ExportaValorLista;
-  public t5_c2_c3_med_3_tip_cod: string = '';
-  public t5_c2_c3_med_3_tip_des: string = '';
-
-  public t5_c2_c3_med_3_val?: number;
-
-  //Coluna 3
-  public t5_c3_c1_peso_bruto?: number;
-
-  public t5_c3_c1_peso_liquido?: number;
-
-  public t5_c3_observacao: string = '';
-
-  public t5_c3_c2_anexo_files: File[] = [];
-  public t5_c3_c2_anexo_ged_arr: Anexo[] = [];
-  public t5_c3_c2_anexo_pasta_id: string = '';
-  public t5_c3_c2_anexo_pasta_nome: string = 'Anexo cadastro';
-
-  //Coluna 4
-  public t5_c4_recusa: string = '';
 
   /**
    * Dados fiscais e contábeis
    */
 
-  public t6_mandatory_to_readonly: boolean = true;
+  public t6_c1_impostos_arr: wsb.ExportaValorLista[] = [];
+  public t6_c1_impostos_obj?: wsb.ExportaValorLista;
+  public t6_c1_impostos_cod: number = -1;
+  public t6_c1_impostos_des: string = '';
+
+  public t6_req_to_read: boolean = false;
+
+  public t6_recupera_pis: string = '';
+
+  public t6_recupera_cof: string = '';
+
+  public t6_tributa_pis: string = '';
+
+  public t6_tributa_cof: string = '';
+
+  public t6_produ_forne: string = '';
+
+  public t6_funrural?: number;
+
+  public t6_gilrat?: number;
 
   public t6_show_only_recusa: boolean = false;
 
   //Coluna 1
-  public t6_c1_c1_tipo_prod_arr: wsb.ExportaValorLista[] = [];
-  public t6_c1_c1_tipo_prod_obj?: wsb.ExportaValorLista;
-  public t6_c1_c1_tipo_prod_cod: number = -1;
-  public t6_c1_c1_tipo_prod_des: string = '';
 
   public t6_c1_c2_icms_especial_arr: wsb.ExportaICMSEsp[] = [];
   public t6_c1_c2_icms_especial_obj?: wsb.ExportaICMSEsp;
@@ -263,14 +263,6 @@ export class VP_BPM {
 
   public t6_c1_c3_pis_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c1_c3_pis_subs_cod: string = '';
-
-  public t6_c1_pis_recu: string = '';
-
-  public t6_c1_cof_recu: string = '';
-
-  public t6_c1_pis_trib: string = '';
-
-  public t6_c1_cof_trib: string = '';
 
   //Coluna 2
   public t6_c2_sit_tri_arr: wsb.ExportaValorLista[] = [];
@@ -299,14 +291,8 @@ export class VP_BPM {
   public t6_c2_c4_cof_com_cod: string = '';
   public t6_c2_c4_cof_com_des: string = '';
 
-  public t6_c2_usa_pro_for: string = '';
-
-  public t6_c2_funrural?: number;
-
-  public t6_c2_gilrat?: number;
-
   //Coluna 3
-  public t6_c3_senart?: number;
+  public t6_senart?: number;
 
   public t6_c3_c1_enq_esp_arr: wsb.ExportaValorLista[] = [];
   public t6_c3_c1_enq_esp_obj?: wsb.ExportaValorLista;
@@ -328,14 +314,14 @@ export class VP_BPM {
 
   public t6_c3_cal_sen: string = '';
 
-  public t6_c3_c4_pauta: string = '';
+  public t6_pauta: string = '';
 
-  public t6_c3_c5_benef: string = '';
+  public t6_benef: string = '';
 
   //Coluna 4
-  public t6_c4_c1_observacoes: string = '';
+  public t6_observacoes: string = '';
 
-  public t6_c4_c1_recusa: string = '';
+  public t6_recusa: string = '';
 
   public t6_c4_c2_anexo_files: File[] = [];
   public t6_c4_c2_anexo_ged_arr: Anexo[] = [];

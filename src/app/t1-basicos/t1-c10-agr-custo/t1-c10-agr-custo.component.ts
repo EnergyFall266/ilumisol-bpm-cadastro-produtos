@@ -19,7 +19,7 @@ export class T1C10AgrCustoComponent {
   public ngOnInit(): void {}
 
   public async custosInput() {
-    if (!this.vp.t5_mandatory_to_readonly) {
+    if (!this.vp.t5_req_to_read) {
       this.mostrar_modal_cus = true;
       if (this.vp.t1_c10_agrcusto_arr.length == 0) {
         this.vp.t1_c10_agrcusto_arr = (await this.ap.exportaServico(

@@ -19,7 +19,7 @@ export class T1C9AgrEstoqueComponent {
   public ngOnInit(): void {}
 
   public async estoquesInput() {
-    if (!this.vp.t5_mandatory_to_readonly) {
+    if (!this.vp.t5_req_to_read) {
       this.mostrar_modal_est = true;
       if (this.vp.t1_c9_agrestoque_arr.length == 0) {
         this.vp.t1_c9_agrestoque_arr = (await this.ap.exportaServico(

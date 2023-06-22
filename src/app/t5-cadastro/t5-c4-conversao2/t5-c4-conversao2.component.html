@@ -1,0 +1,96 @@
+<div class="grid">
+  <span class="col-12">Tipo Conversão Unidade Medida 2</span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t5_req_to_read || vp.buscandoWS || vp.t5_c4_conversao2_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="tcu2Clear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t5_c4_conversao2_des"
+        (click)="vp.t5_req_to_read || vp.buscandoWS ? '' : tcu2Input()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t5_req_to_read ? 'none' : ''"
+        (click)="tcu2Input()"
+        [disabled]="vp.buscandoWS"
+      ></button>
+    </div>
+  </div>
+  <p-dialog
+    header="Tipos de conversão"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
+  >
+    <p-table
+      #tableTcu2
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [loading]="vp.buscandoWS"
+      [value]="vp.t5_conversao_arr"
+      [(selection)]="vp.t5_c4_conversao2_obj"
+      (onRowSelect)="tcu2Select()"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableTcu2.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tc2>
+        <tr [pSelectableRow]="tc2">
+          <td>{{ tc2.chvLis }}</td>
+          <td>{{ tc2.desLis }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-dialog>
+</div>

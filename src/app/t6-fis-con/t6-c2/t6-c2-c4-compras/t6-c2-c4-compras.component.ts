@@ -19,7 +19,7 @@ export class T6C2C4ComprasComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async pisInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_pis = true;
       if (this.vp.t6_c2_sit_tri_arr.length == 0) this.buscarSituacao();
     }
@@ -38,7 +38,7 @@ export class T6C2C4ComprasComponent implements OnInit {
   }
 
   public async cofInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_cof = true;
       if (this.vp.t6_c2_sit_tri_arr.length == 0) this.buscarSituacao();
     }

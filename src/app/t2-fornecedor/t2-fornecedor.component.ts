@@ -18,17 +18,15 @@ export class T2FornecedorComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async fornecedorInput() {
-    if (!this.vp.t2_req_to_read) {
-      this.mostrar_modal = true;
-      if (this.vp.t2_fornecedor_arr.length == 0) {
-        this.vp.t2_fornecedor_arr = (await this.ap.exportaServico(
-          'ExportaFornecedores'
-        )) as ExportaFornecedores[];
-        if (this.vp.t2_fornecedor_cod != -1)
-          this.vp.t2_fornecedor_obj = this.vp.t2_fornecedor_arr.find(
-            (x) => x.codFor == this.vp.t2_fornecedor_cod
-          );
-      }
+    this.mostrar_modal = true;
+    if (this.vp.t2_fornecedor_arr.length == 0) {
+      this.vp.t2_fornecedor_arr = (await this.ap.exportaServico(
+        'ExportaFornecedores'
+      )) as ExportaFornecedores[];
+      if (this.vp.t2_fornecedor_cod != -1)
+        this.vp.t2_fornecedor_obj = this.vp.t2_fornecedor_arr.find(
+          (x) => x.codFor == this.vp.t2_fornecedor_cod
+        );
     }
   }
 

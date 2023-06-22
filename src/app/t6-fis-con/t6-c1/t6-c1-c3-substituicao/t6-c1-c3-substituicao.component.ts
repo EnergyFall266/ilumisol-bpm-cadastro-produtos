@@ -20,7 +20,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async icmsInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_icm = true;
       if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
     }
@@ -37,7 +37,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   }
 
   public async cofinsInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_cof = true;
       if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
     }
@@ -54,7 +54,7 @@ export class T6C1C3SubstituicaoComponent implements OnInit {
   }
 
   public async pisInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal_pis = true;
       if (this.vp.t6_c1_substituicao_arr.length == 0) this.buscarSubstituicao();
     }

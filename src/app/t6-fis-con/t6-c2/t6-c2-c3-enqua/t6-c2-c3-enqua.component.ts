@@ -18,7 +18,7 @@ export class T6C2C3EnquaComponent implements OnInit {
   public ngOnInit(): void {}
 
   public async enquaInput() {
-    if (!this.vp.t6_mandatory_to_readonly) {
+    if (!this.vp.t6_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t6_c2_c3_enqua_arr.length == 0) {
         this.vp.t6_c2_c3_enqua_arr = (await this.ap.exportaServico(

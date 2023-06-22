@@ -1,0 +1,93 @@
+<div class="grid">
+  <span class="col-12">Tipo Conversão Unidade Medida 3</span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t5_req_to_read || vp.t5_c5_conversao3_cod == '' ? 'none' : ''
+        "
+        (click)="tcu3Clear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t5_c5_conversao3_des"
+        (click)="tcu3Input()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t5_req_to_read ? 'none' : ''"
+        (click)="tcu3Input()"
+      ></button>
+    </div>
+  </div>
+  <p-dialog
+    header="Tipos de conversão"
+    [styleClass]="'w-6'"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [closeOnEscape]="true"
+    [closable]="!vp.buscandoWS"
+    [(visible)]="mostrar_modal"
+  >
+    <p-table
+      #tableTcu3
+      selectionMode="single"
+      styleClass="p-datatable-sm"
+      [rows]="10"
+      [paginator]="true"
+      [loading]="vp.buscandoWS"
+      [value]="vp.t5_conversao_arr"
+      [(selection)]="vp.t5_c5_conversao3_obj"
+      (onRowSelect)="tcu3Select()"
+      dataKey="chvLis"
+      [globalFilterFields]="['chvLis', 'desLis']"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              class="col-12"
+              pInputText
+              (input)="
+                tableTcu3.filterGlobal($any($event.target).value, 'contains')
+              "
+              placeholder="Buscar"
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="chvLis">
+            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="desLis">
+            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-tc3>
+        <tr [pSelectableRow]="tc3">
+          <td>{{ tc3.chvLis }}</td>
+          <td>{{ tc3.desLis }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-dialog>
+</div>

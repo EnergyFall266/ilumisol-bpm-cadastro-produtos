@@ -1,16 +1,195 @@
 <div class="grid mt-1">
+  <!-- Coluna 1 -->
   <div class="col-3" [hidden]="vp.t5_show_only_recusa">
-    <app-t5-c1 [vp]="vp"></app-t5-c1>
+    <div class="grid">
+      <div class="col-12 pb-1">
+        <div class="grid">
+          <span class="col-12">
+            Descrição complementar da derivação
+            <span style="color: red" [hidden]="vp.t5_req_to_read">*</span>
+          </span>
+          <div class="col-12 py-0 mb-0">
+            <textarea
+              pInputTextarea
+              class="col-12"
+              style="resize: none"
+              rows="5"
+              [readonly]="vp.t5_req_to_read"
+              [(ngModel)]="vp.t5_descricao"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t5-c1-mascara [vp]="vp"></app-t5-c1-mascara>
+      </div>
+
+      <div class="col-12">
+        <app-t5-c2-medida2 [vp]="vp"></app-t5-c2-medida2>
+      </div>
+
+      <div class="col-12">
+        <app-t5-c3-medida3 [vp]="vp"></app-t5-c3-medida3>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 2 -->
   <div class="col-3" [hidden]="vp.t5_show_only_recusa">
-    <app-t5-c2 [vp]="vp"></app-t5-c2>
+    <div class="grid">
+      <div class="col-12">
+        <app-t5-c4-conversao2 [vp]="vp"></app-t5-c4-conversao2>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Valor Conversão Unidade Medida 2</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="6"
+              [maxFractionDigits]="6"
+              [showButtons]="!vp.t5_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t5_req_to_read"
+              placeholder="0,000000"
+              [(ngModel)]="vp.t5_valor2"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t5-c5-conversao3 [vp]="vp"></app-t5-c5-conversao3>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Valor Conversão Unidade Medida 3</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="6"
+              [maxFractionDigits]="6"
+              [showButtons]="!vp.t5_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t5_req_to_read"
+              placeholder="0,000000"
+              [(ngModel)]="vp.t5_valor3"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 3 -->
   <div class="col-3" [hidden]="vp.t5_show_only_recusa">
-    <app-t5-c3 [vp]="vp"></app-t5-c3>
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Peso Bruto</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t5_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t5_req_to_read"
+              placeholder="0,00"
+              [(ngModel)]="vp.t5_peso_bruto"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Peso Líquido</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t5_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t5_req_to_read"
+              placeholder="0,00"
+              [(ngModel)]="vp.t5_peso_liquido"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Observação cadastros</span>
+          <div class="col-12 py-0">
+            <textarea
+              pInputTextarea
+              class="col-12"
+              style="resize: none"
+              rows="5"
+              [readonly]="vp.t5_req_to_read"
+              [(ngModel)]="vp.t5_observacao"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t5-c6-anexo [vp]="vp"></app-t5-c6-anexo>
+      </div>
+    </div>
   </div>
 
+  <!-- Coluna 4 -->
   <div class="col-3">
     <div class="grid">
       <span class="col-12">Justificativa recusa</span>
@@ -19,9 +198,9 @@
           pInputTextarea
           class="col-12"
           style="resize: none"
-          rows="21"
-          [readonly]="vp.t5_mandatory_to_readonly"
-          [(ngModel)]="vp.t5_c4_recusa"
+          rows="17"
+          [readonly]="vp.t5_req_to_read"
+          [(ngModel)]="vp.t5_recusa"
         ></textarea>
       </div>
     </div>

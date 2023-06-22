@@ -3,7 +3,7 @@
     <div class="grid">
       <span class="col-12"
         >Enquadramento de produto específico
-        <span style="color: red" [hidden]="vp.t6_mandatory_to_readonly"
+        <span style="color: red" [hidden]="vp.t6_req_to_read"
           >*</span
         ></span
       >
@@ -16,7 +16,7 @@
             icon="pi pi-times-circle"
             class="p-0 p-button-text p-button-secondary w-auto mr-1"
             [style.display]="
-              vp.t6_mandatory_to_readonly || vp.t6_c3_c1_enq_esp_cod == -1
+              vp.t6_req_to_read || vp.t6_c3_c1_enq_esp_cod == -1
                 ? 'none'
                 : ''
             "
@@ -37,7 +37,7 @@
             type="button"
             icon="pi pi-search"
             class="p-0"
-            [style.display]="vp.t6_mandatory_to_readonly ? 'none' : ''"
+            [style.display]="vp.t6_req_to_read ? 'none' : ''"
             (click)="enquaInput()"
           ></button>
         </div>

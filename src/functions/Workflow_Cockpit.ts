@@ -35,17 +35,10 @@ export async function loadData(vp: VP_BPM, info: Info) {
 }
 
 export async function saveData(vp: VP_BPM) {
-  switch (STEP) {
-    case environment.s2_dad_cad:
-      if (vp.t5_c3_c2_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 'c');
-      break;
-    case environment.s4_fis_con:
-      if (vp.t6_c4_c2_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 'f');
-      break;
-    default:
-      if (vp.t4_anexo_files.length > 0) vp = await ap.enviarDocs(vp, 's');
-      break;
-  }
+  if (STEP === environment.s2_dad_cad && vp.t5_file_TS.length > 0)
+    vp = await ap.enviarDocs(vp, 'c');
+  if (STEP === environment.s4_fis_con && vp.t6_c4_c2_anexo_files.length > 0)
+    vp = await ap.enviarDocs(vp, 'f');
 
   vp.unidades_medida_arr = [];
   vp.t1_c4_origem_arr = [];
@@ -61,11 +54,11 @@ export async function saveData(vp: VP_BPM) {
   vp.t1_c11_multinivel_arr = [];
   vp.t2_fornecedor_arr = [];
   vp.t3_c1_destino_arr = [];
-  vp.t5_c1_c1_mascara_arr = [];
+  vp.t5_c1_mascara_arr = [];
   vp.t1_c9_agrestoque_arr = [];
   vp.t1_c10_agrcusto_arr = [];
-  vp.t5_c2_tipo_conversao_arr = [];
-  vp.t6_c1_c1_tipo_prod_arr = [];
+  vp.t5_conversao_arr = [];
+  vp.t6_c1_impostos_arr = [];
   vp.t6_c1_c2_icms_especial_arr = [];
   vp.t6_c1_c2_reducao_icms_arr = [];
   vp.t6_c1_substituicao_arr = [];
