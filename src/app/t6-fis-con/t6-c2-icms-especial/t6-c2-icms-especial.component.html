@@ -1,8 +1,5 @@
 <div class="grid">
-  <span class="col-12">
-    Tipo de produto para impostos
-    <span style="color: red" [hidden]="vp.t6_req_to_read">*</span>
-  </span>
+  <span class="col-12">Código ICMS Especial</span>
   <div class="col-12 py-0">
     <div class="p-inputgroup">
       <button
@@ -12,11 +9,11 @@
         icon="pi pi-times-circle"
         class="p-0 p-button-text p-button-secondary w-auto mr-1"
         [style.display]="
-          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c1_impostos_cod == -1
+          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c2_icms_espe_cod == ''
             ? 'none'
             : ''
         "
-        (click)="tipoClear()"
+        (click)="especialClear()"
       ></button>
       <input
         pInputText
@@ -24,8 +21,8 @@
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t6_c1_impostos_des"
-        (click)="vp.t6_req_to_read || vp.buscandoWS ? '' : tipoInput()"
+        [(ngModel)]="vp.t6_c2_icms_espe_cod"
+        (click)="vp.t5_req_to_read || vp.buscandoWS ? '' : especialInput()"
       />
       <button
         pButton
@@ -34,33 +31,33 @@
         icon="pi pi-search"
         class="p-0"
         [style.display]="vp.t6_req_to_read ? 'none' : ''"
-        (click)="tipoInput()"
+        (click)="especialInput()"
         [disabled]="vp.buscandoWS"
       ></button>
     </div>
   </div>
   <p-dialog
-    header="Tipos"
+    header="Códigos"
     [styleClass]="'w-6'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
     [closeOnEscape]="true"
     [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
+    [(visible)]="mostrar_modal_esp"
   >
     <p-table
-      #tableTipo
+      #tableEspecial
       selectionMode="single"
       styleClass="p-datatable-sm"
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t6_c1_impostos_arr"
-      [(selection)]="vp.t6_c1_impostos_obj"
-      (onRowSelect)="tipoSelect()"
-      dataKey="chvLis"
-      [globalFilterFields]="['chvLis', 'desLis']"
+      [value]="vp.t6_c2_icms_espe_arr"
+      [(selection)]="vp.t6_c2_icms_espe_obj"
+      (onRowSelect)="especialSelect()"
+      dataKey="codTic"
+      [globalFilterFields]="['codTic', 'desTic']"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -71,7 +68,10 @@
               class="col-12"
               pInputText
               (input)="
-                tableTipo.filterGlobal($any($event.target).value, 'contains')
+                tableEspecial.filterGlobal(
+                  $any($event.target).value,
+                  'contains'
+                )
               "
               placeholder="Buscar"
             />
@@ -80,18 +80,18 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="chvLis">
-            Código <p-sortIcon field="chvLis"></p-sortIcon>
+          <th pSortableColumn="codTic">
+            Código <p-sortIcon field="codTic"></p-sortIcon>
           </th>
-          <th pSortableColumn="desLis">
-            Descrição <p-sortIcon field="desLis"></p-sortIcon>
+          <th pSortableColumn="desTic">
+            Descrição <p-sortIcon field="desTic"></p-sortIcon>
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-tip>
-        <tr [pSelectableRow]="tip">
-          <td>{{ tip.chvLis }}</td>
-          <td>{{ tip.desLis }}</td>
+      <ng-template pTemplate="body" let-esp>
+        <tr [pSelectableRow]="esp">
+          <td>{{ esp.codTic }}</td>
+          <td>{{ esp.desTic }}</td>
         </tr>
       </ng-template>
     </p-table>

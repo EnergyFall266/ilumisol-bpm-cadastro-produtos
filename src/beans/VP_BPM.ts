@@ -220,12 +220,31 @@ export class VP_BPM {
    * Dados fiscais e contábeis
    */
 
+  public t6_req_to_read: boolean = false;
+
   public t6_c1_impostos_arr: wsb.ExportaValorLista[] = [];
   public t6_c1_impostos_obj?: wsb.ExportaValorLista;
   public t6_c1_impostos_cod: number = -1;
   public t6_c1_impostos_des: string = '';
 
-  public t6_req_to_read: boolean = false;
+  public t6_c2_icms_espe_arr: wsb.ExportaICMSEsp[] = [];
+  public t6_c2_icms_espe_obj?: wsb.ExportaICMSEsp;
+  public t6_c2_icms_espe_cod: string = '';
+
+  public t6_c3_redu_icms_arr: wsb.ExportaReducaoICMS[] = [];
+  public t6_c3_redu_icms_obj?: wsb.ExportaReducaoICMS;
+  public t6_c3_redu_icms_cod: string = '';
+
+  public t6_substituicao_arr: wsb.ExportaSubstituicao[] = [];
+
+  public t6_c4_icms_subs_obj?: wsb.ExportaSubstituicao;
+  public t6_c4_icms_subs_cod: string = '';
+
+  public t6_c5_cof_subs_obj?: wsb.ExportaSubstituicao;
+  public t6_c5_cof_subs_cod: string = '';
+
+  public t6_c9_pis_subs_obj?: wsb.ExportaSubstituicao;
+  public t6_c9_pis_subs_cod: string = '';
 
   public t6_recupera_pis: string = '';
 
@@ -235,88 +254,70 @@ export class VP_BPM {
 
   public t6_tributa_cof: string = '';
 
+  public t6_situacao_arr: wsb.ExportaValorLista[] = [];
+
+  public t6_c7_s_p_ven_obj?: wsb.ExportaValorLista;
+  public t6_c7_s_p_ven_cod: string = '';
+  public t6_c7_s_p_ven_des: string = '';
+
+  public t6_natureza_pis?: number;
+
+  public t6_c8_s_c_ven_obj?: wsb.ExportaValorLista;
+  public t6_c8_s_c_ven_cod: string = '';
+  public t6_c8_s_c_ven_des: string = '';
+
+  public t6_natureza_cof?: number;
+
+  public t6_c9_enqua_arr: wsb.ExportaEnquadramento[] = [];
+  public t6_c9_enqua_obj?: wsb.ExportaEnquadramento;
+  public t6_c9_enqua_cod?: number;
+
+  public t6_c10_s_p_com_obj?: wsb.ExportaValorLista;
+  public t6_c10_s_p_com_cod: string = '';
+  public t6_c10_s_p_com_des: string = '';
+
+  public t6_c11_s_c_com_obj?: wsb.ExportaValorLista;
+  public t6_c11_s_c_com_cod: string = '';
+  public t6_c11_s_c_com_des: string = '';
+
   public t6_produ_forne: string = '';
 
   public t6_funrural?: number;
 
   public t6_gilrat?: number;
 
-  public t6_show_only_recusa: boolean = false;
-
-  //Coluna 1
-
-  public t6_c1_c2_icms_especial_arr: wsb.ExportaICMSEsp[] = [];
-  public t6_c1_c2_icms_especial_obj?: wsb.ExportaICMSEsp;
-  public t6_c1_c2_icms_especial_cod: string = '';
-
-  public t6_c1_c2_reducao_icms_arr: wsb.ExportaReducaoICMS[] = [];
-  public t6_c1_c2_reducao_icms_obj?: wsb.ExportaReducaoICMS;
-  public t6_c1_c2_reducao_icms_cod: string = '';
-
-  public t6_c1_substituicao_arr: wsb.ExportaSubstituicao[] = [];
-
-  public t6_c1_c3_icm_subs_obj?: wsb.ExportaSubstituicao;
-  public t6_c1_c3_icm_subs_cod: string = '';
-
-  public t6_c1_c3_cof_subs_obj?: wsb.ExportaSubstituicao;
-  public t6_c1_c3_cof_subs_cod: string = '';
-
-  public t6_c1_c3_pis_subs_obj?: wsb.ExportaSubstituicao;
-  public t6_c1_c3_pis_subs_cod: string = '';
-
-  //Coluna 2
-  public t6_c2_sit_tri_arr: wsb.ExportaValorLista[] = [];
-
-  public t6_c2_c1_pis_ven_obj?: wsb.ExportaValorLista;
-  public t6_c2_c1_pis_ven_cod: string = '';
-  public t6_c2_c1_pis_ven_des: string = '';
-
-  public t6_c2_c1_pis_nat_cod?: number;
-
-  public t6_c2_c2_cof_ven_obj?: wsb.ExportaValorLista;
-  public t6_c2_c2_cof_ven_cod: string = '';
-  public t6_c2_c2_cof_ven_des: string = '';
-
-  public t6_c2_c2_cof_nat_cod?: number;
-
-  public t6_c2_c3_enqua_arr: wsb.ExportaEnquadramento[] = [];
-  public t6_c2_c3_enqua_obj?: wsb.ExportaEnquadramento;
-  public t6_c2_c3_enqua_cod?: number;
-
-  public t6_c2_c4_pis_com_obj?: wsb.ExportaValorLista;
-  public t6_c2_c4_pis_com_cod: string = '';
-  public t6_c2_c4_pis_com_des: string = '';
-
-  public t6_c2_c4_cof_com_obj?: wsb.ExportaValorLista;
-  public t6_c2_c4_cof_com_cod: string = '';
-  public t6_c2_c4_cof_com_des: string = '';
-
-  //Coluna 3
   public t6_senart?: number;
 
-  public t6_c3_c1_enq_esp_arr: wsb.ExportaValorLista[] = [];
-  public t6_c3_c1_enq_esp_obj?: wsb.ExportaValorLista;
-  public t6_c3_c1_enq_esp_cod: number = -1;
-  public t6_c3_c1_enq_esp_des: string = '';
+  public t6_c12_enqua_esp_arr: wsb.ExportaValorLista[] = [];
+  public t6_c12_enqua_esp_obj?: wsb.ExportaValorLista;
+  public t6_c12_enqua_esp_cod: number = -1;
+  public t6_c12_enqua_esp_des: string = '';
 
-  public t6_c3_c2_motivo_arr: wsb.ExportaValorLista[] = [];
-  public t6_c3_c2_motivo_obj?: wsb.ExportaValorLista;
-  public t6_c3_c2_motivo_cod: number = 0;
-  public t6_c3_c2_motivo_des: string = 'Nenhum';
+  public t6_c13_motivo_arr: wsb.ExportaValorLista[] = [];
+  public t6_c13_motivo_obj?: wsb.ExportaValorLista;
+  public t6_c13_motivo_cod: number = 0;
+  public t6_c13_motivo_des: string = 'Nenhum';
 
-  public t6_c3_substituicao: string = '';
+  public t6_espe_subs_trub: string = '';
 
-  public t6_c3_c3_anp_cod?: number;
-
-  public t6_c3_c3_anp_des: string = '';
-
-  public t6_c3_cal_fun: string = '';
-
-  public t6_c3_cal_sen: string = '';
+  public t6_anp_cod?: number;
+  public t6_anp_des: string = '';
 
   public t6_pauta: string = '';
 
   public t6_benef: string = '';
+
+  public t6_show_only_recusa: boolean = false;
+
+  //Coluna 1
+
+  //Coluna 2
+
+  //Coluna 3
+
+  public t6_c3_cal_fun: string = '';
+
+  public t6_c3_cal_sen: string = '';
 
   //Coluna 4
   public t6_observacoes: string = '';

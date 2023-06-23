@@ -6,7 +6,25 @@
         <app-t6-c1-impostos [vp]="vp"></app-t6-c1-impostos>
       </div>
 
-      <app-t6-c1 [vp]="vp"></app-t6-c1>
+      <div class="col-12">
+        <app-t6-c2-icms-especial [vp]="vp"></app-t6-c2-icms-especial>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c3-reducao-icms [vp]="vp"></app-t6-c3-reducao-icms>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c4-icms-substituido [vp]="vp"></app-t6-c4-icms-substituido>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c5-substituicao-cof [vp]="vp"></app-t6-c5-substituicao-cof>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c6-substituicao-pis [vp]="vp"></app-t6-c6-substituicao-pis>
+      </div>
 
       <div class="col-12">
         <div class="grid">
@@ -92,9 +110,69 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <app-t6-c2 [vp]="vp"></app-t6-c2>
+      <div class="col-12">
+        <app-t6-c7-situ-pis-vendas [vp]="vp"></app-t6-c7-situ-pis-vendas>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Natureza Receita Pis
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [useGrouping]="false"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_natureza_pis"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c8-situ-cof-vendas [vp]="vp"></app-t6-c8-situ-cof-vendas>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Natureza Receita Cofins
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [useGrouping]="false"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_natureza_cof"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c9-enquadramento [vp]="vp"></app-t6-c9-enquadramento>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c10-situ-pis-compras [vp]="vp"></app-t6-c10-situ-pis-compras>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c11-situ-cof-compras [vp]="vp"></app-t6-c11-situ-cof-compras>
+      </div>
+    </div>
   </div>
 
   <!-- Coluna 3 -->
@@ -219,7 +297,74 @@
         </div>
       </div>
 
-      <app-t6-c3 [vp]="vp"></app-t6-c3>
+      <div class="col-12">
+        <app-t6-c12-enquadramento-espe
+          [vp]="vp"
+        ></app-t6-c12-enquadramento-espe>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c13-motivo [vp]="vp"></app-t6-c13-motivo>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Especificador Substituição Tributária</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_espe_subs_trub"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div [hidden]="vp.t6_c12_enqua_esp_des != 'Combustível'" class="col-12">
+        <div class="grid">
+          <div class="col-12">
+            <div class="grid">
+              <span class="col-12">
+                Código produto ANP
+                <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+              </span>
+              <div class="col-12 py-0">
+                <p-inputNumber
+                  class="w-12"
+                  [styleClass]="'w-12'"
+                  [inputStyleClass]="'col-12'"
+                  [min]="0"
+                  [maxlength]="9"
+                  [useGrouping]="false"
+                  [readonly]="vp.t6_req_to_read"
+                  [(ngModel)]="vp.t6_anp_cod"
+                >
+                </p-inputNumber>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="grid">
+              <span class="col-12">
+                Descrição produto na ANP
+                <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+              </span>
+              <div class="col-12 py-0">
+                <input
+                  pInputText
+                  type="text"
+                  class="col-12"
+                  [readonly]="vp.t6_req_to_read"
+                  [(ngModel)]="vp.t6_anp_des"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="col-12">
         <div class="grid">

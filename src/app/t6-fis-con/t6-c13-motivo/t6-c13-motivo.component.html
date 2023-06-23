@@ -1,0 +1,94 @@
+<div class="grid">
+  <span class="col-12">Motivo desoneração ICMS</span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c13_motivo_cod == -1 ? 'none' : ''
+        "
+        (click)="motivoClear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t6_c13_motivo_des"
+        (click)="vp.t6_req_to_read || vp.buscandoWS ? '' : motivoInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t6_req_to_read ? 'none' : ''"
+        (click)="motivoInput()"
+        [disabled]="vp.buscandoWS"
+      ></button>
+    </div>
+  </div>
+</div>
+<p-dialog
+  header="Motivos"
+  [styleClass]="'w-6'"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [closable]="!vp.buscandoWS"
+  [(visible)]="mostrar_modal"
+>
+  <p-table
+    #tableMotivo
+    selectionMode="single"
+    styleClass="p-datatable-sm"
+    [rows]="10"
+    [paginator]="true"
+    [loading]="vp.buscandoWS"
+    [value]="vp.t6_c13_motivo_arr"
+    [(selection)]="vp.t6_c13_motivo_obj"
+    (onRowSelect)="motivoSelect()"
+    dataKey="chvLis"
+    [globalFilterFields]="['chvLis', 'desLis']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="col-12"
+            pInputText
+            (input)="
+              tableMotivo.filterGlobal($any($event.target).value, 'contains')
+            "
+            placeholder="Buscar"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="chvLis">
+          Código <p-sortIcon field="chvLis"></p-sortIcon>
+        </th>
+        <th pSortableColumn="desLis">
+          Descrição <p-sortIcon field="desLis"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-mot>
+      <tr [pSelectableRow]="mot">
+        <td>{{ mot.chvLis }}</td>
+        <td>{{ mot.desLis }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

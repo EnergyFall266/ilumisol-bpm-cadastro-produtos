@@ -1,0 +1,96 @@
+<div class="grid">
+  <span class="col-12">
+    Situação Tributária Cofins Compras
+    <span style="color: red" [hidden]="vp.t6_req_to_read">*</span>
+  </span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="p-0 p-button-text p-button-secondary w-auto mr-1"
+        [style.display]="
+          vp.t6_req_to_read || vp.t6_c11_s_c_com_cod == '' ? 'none' : ''
+        "
+        (click)="cofClear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t6_c11_s_c_com_des"
+        (click)="cofInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t6_req_to_read ? 'none' : ''"
+        (click)="cofInput()"
+      ></button>
+    </div>
+  </div>
+</div>
+<p-dialog
+  header="Situações"
+  [styleClass]="'w-6'"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [closable]="!vp.buscandoWS"
+  [(visible)]="mostrar_modal_cof"
+>
+  <p-table
+    #tableCofCom
+    selectionMode="single"
+    styleClass="p-datatable-sm"
+    [rows]="10"
+    [paginator]="true"
+    [loading]="vp.buscandoWS"
+    [value]="vp.t6_situacao_arr"
+    [(selection)]="vp.t6_c11_s_c_com_obj"
+    (onRowSelect)="cofSelect()"
+    dataKey="chvLis"
+    [globalFilterFields]="['chvLis', 'desLis']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="col-12"
+            pInputText
+            (input)="
+              tableCofCom.filterGlobal($any($event.target).value, 'contains')
+            "
+            placeholder="Buscar"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="chvLis">
+          Código <p-sortIcon field="chvLis"></p-sortIcon>
+        </th>
+        <th pSortableColumn="desLis">
+          Descrição <p-sortIcon field="desLis"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cof>
+      <tr [pSelectableRow]="cof">
+        <td>{{ cof.chvLis }}</td>
+        <td>{{ cof.desLis }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

@@ -117,38 +117,38 @@ export default class FormValidate {
         if (vp.t6_tributa_cof == '')
           this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Cofins'));
 
-        if (vp.t6_c2_c1_pis_ven_cod == '')
+        if (vp.t6_c7_s_p_ven_cod == '')
           this.ms.add(
             getMsgS(
               'Dados fiscais e contábeis - Situação Tributária Pis Vendas'
             )
           );
 
-        if (vp.t6_c2_c1_pis_nat_cod === undefined)
+        if (vp.t6_natureza_pis === undefined)
           this.ms.add(
             getMsgS('Dados fiscais e contábeis - Natureza Receita Pis')
           );
 
-        if (vp.t6_c2_c2_cof_ven_cod == '')
+        if (vp.t6_c8_s_c_ven_cod == '')
           this.ms.add(
             getMsgS(
               'Dados fiscais e contábeis - Situação Tributária Cofins Vendas'
             )
           );
 
-        if (vp.t6_c2_c2_cof_nat_cod === undefined)
+        if (vp.t6_natureza_cof === undefined)
           this.ms.add(
             getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins')
           );
 
-        if (vp.t6_c2_c4_pis_com_cod == '')
+        if (vp.t6_c10_s_p_com_cod == '')
           this.ms.add(
             getMsgS(
               'Dados fiscais e contábeis - Situação Tributária Pis Compras'
             )
           );
 
-        if (vp.t6_c2_c4_cof_com_cod == '')
+        if (vp.t6_c11_s_c_com_cod == '')
           this.ms.add(
             getMsgS(
               'Dados fiscais e contábeis - Situação Tributária Cofins Compras'
@@ -169,19 +169,19 @@ export default class FormValidate {
         if (vp.t6_senart === undefined)
           this.ms.add(getMsgC('Dados fiscais e contábeis - % Senar / Senat'));
 
-        if (vp.t6_c3_c1_enq_esp_cod == -1)
+        if (vp.t6_c12_enqua_esp_cod == -1)
           this.ms.add(
             getMsgS(
               'Dados fiscais e contábeis - Enquadramento de produto específico'
             )
           );
-        else if (vp.t6_c3_c1_enq_esp_des == 'Combustível') {
-          if (vp.t6_c3_c3_anp_cod === undefined)
+        else if (vp.t6_c12_enqua_esp_des == 'Combustível') {
+          if (vp.t6_anp_cod === undefined)
             this.ms.add(
               getMsgC('Dados fiscais e contábeis - Código produto ANP')
             );
 
-          if (vp.t6_c3_c3_anp_des == '')
+          if (vp.t6_anp_des == '')
             this.ms.add(
               getMsgC('Dados fiscais e contábeis - Descrição produto na ANP')
             );

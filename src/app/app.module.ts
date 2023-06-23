@@ -39,18 +39,6 @@ import { T3C3Component } from './t3-deposito/t3-c3/t3-c3.component';
 import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T6FisConComponent } from './t6-fis-con/t6-fis-con.component';
-import { T6C1Component } from './t6-fis-con/t6-c1/t6-c1.component';
-import { T6C1C2IcmsComponent } from './t6-fis-con/t6-c1/t6-c1-c2-icms/t6-c1-c2-icms.component';
-import { T6C1C3SubstituicaoComponent } from './t6-fis-con/t6-c1/t6-c1-c3-substituicao/t6-c1-c3-substituicao.component';
-import { T6C2Component } from './t6-fis-con/t6-c2/t6-c2.component';
-import { T6C2C1PisvnComponent } from './t6-fis-con/t6-c2/t6-c2-c1-pisvn/t6-c2-c1-pisvn.component';
-import { T6C2C2CofvnComponent } from './t6-fis-con/t6-c2/t6-c2-c2-cofvn/t6-c2-c2-cofvn.component';
-import { T6C2C3EnquaComponent } from './t6-fis-con/t6-c2/t6-c2-c3-enqua/t6-c2-c3-enqua.component';
-import { T6C2C4ComprasComponent } from './t6-fis-con/t6-c2/t6-c2-c4-compras/t6-c2-c4-compras.component';
-import { T6C3Component } from './t6-fis-con/t6-c3/t6-c3.component';
-import { T6C3C1EnquaComponent } from './t6-fis-con/t6-c3/t6-c3-c1-enqua/t6-c3-c1-enqua.component';
-import { T6C3C2MotivComponent } from './t6-fis-con/t6-c3/t6-c3-c2-motiv/t6-c3-c2-motiv.component';
-import { T6C3C3AnpComponent } from './t6-fis-con/t6-c3/t6-c3-c3-anp/t6-c3-c3-anp.component';
 import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
 import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
 import { T1C1MarcaComponent } from './t1-basicos/t1-c1-marca/t1-c1-marca.component';
@@ -71,6 +59,18 @@ import { T5C4Conversao2Component } from './t5-cadastro/t5-c4-conversao2/t5-c4-co
 import { T5C5Conversao3Component } from './t5-cadastro/t5-c5-conversao3/t5-c5-conversao3.component';
 import { T5C6AnexoComponent } from './t5-cadastro/t5-c6-anexo/t5-c6-anexo.component';
 import { T6C1ImpostosComponent } from './t6-fis-con/t6-c1-impostos/t6-c1-impostos.component';
+import { T6C2IcmsEspecialComponent } from './t6-fis-con/t6-c2-icms-especial/t6-c2-icms-especial.component';
+import { T6C3ReducaoIcmsComponent } from './t6-fis-con/t6-c3-reducao-icms/t6-c3-reducao-icms.component';
+import { T6C4IcmsSubstituidoComponent } from './t6-fis-con/t6-c4-icms-substituido/t6-c4-icms-substituido.component';
+import { T6C5SubstituicaoCofComponent } from './t6-fis-con/t6-c5-substituicao-cof/t6-c5-substituicao-cof.component';
+import { T6C6SubstituicaoPisComponent } from './t6-fis-con/t6-c6-substituicao-pis/t6-c6-substituicao-pis.component';
+import { T6C9EnquadramentoComponent } from './t6-fis-con/t6-c9-enquadramento/t6-c9-enquadramento.component';
+import { T6C10SituPisComprasComponent } from './t6-fis-con/t6-c10-situ-pis-compras/t6-c10-situ-pis-compras.component';
+import { T6C11SituCofComprasComponent } from './t6-fis-con/t6-c11-situ-cof-compras/t6-c11-situ-cof-compras.component';
+import { T6C7SituPisVendasComponent } from './t6-fis-con/t6-c7-situ-pis-vendas/t6-c7-situ-pis-vendas.component';
+import { T6C8SituCofVendasComponent } from './t6-fis-con/t6-c8-situ-cof-vendas/t6-c8-situ-cof-vendas.component';
+import { T6C12EnquadramentoEspeComponent } from './t6-fis-con/t6-c12-enquadramento-espe/t6-c12-enquadramento-espe.component';
+import { T6C13MotivoComponent } from './t6-fis-con/t6-c13-motivo/t6-c13-motivo.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -87,18 +87,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T3C4Component,
     T5CadastroComponent,
     T6FisConComponent,
-    T6C1Component,
-    T6C1C2IcmsComponent,
-    T6C1C3SubstituicaoComponent,
-    T6C2Component,
-    T6C2C1PisvnComponent,
-    T6C2C2CofvnComponent,
-    T6C2C3EnquaComponent,
-    T6C2C4ComprasComponent,
-    T6C3Component,
-    T6C3C1EnquaComponent,
-    T6C3C2MotivComponent,
-    T6C3C3AnpComponent,
     T6C4Component,
     T6C4C2AneComponent,
     T1C1MarcaComponent,
@@ -119,6 +107,18 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T5C5Conversao3Component,
     T5C6AnexoComponent,
     T6C1ImpostosComponent,
+    T6C2IcmsEspecialComponent,
+    T6C3ReducaoIcmsComponent,
+    T6C4IcmsSubstituidoComponent,
+    T6C5SubstituicaoCofComponent,
+    T6C6SubstituicaoPisComponent,
+    T6C9EnquadramentoComponent,
+    T6C10SituPisComprasComponent,
+    T6C11SituCofComprasComponent,
+    T6C7SituPisVendasComponent,
+    T6C8SituCofVendasComponent,
+    T6C12EnquadramentoEspeComponent,
+    T6C13MotivoComponent,
   ],
   imports: [
     BrowserModule,

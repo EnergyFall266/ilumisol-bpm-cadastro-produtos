@@ -59,13 +59,13 @@ export async function saveData(vp: VP_BPM) {
   vp.t1_c10_agrcusto_arr = [];
   vp.t5_conversao_arr = [];
   vp.t6_c1_impostos_arr = [];
-  vp.t6_c1_c2_icms_especial_arr = [];
-  vp.t6_c1_c2_reducao_icms_arr = [];
-  vp.t6_c1_substituicao_arr = [];
-  vp.t6_c2_sit_tri_arr = [];
-  vp.t6_c2_c3_enqua_arr = [];
-  vp.t6_c3_c1_enq_esp_arr = [];
-  vp.t6_c3_c2_motivo_arr = [];
+  vp.t6_c2_icms_espe_arr = [];
+  vp.t6_c3_redu_icms_arr = [];
+  vp.t6_substituicao_arr = [];
+  vp.t6_situacao_arr = [];
+  vp.t6_c9_enqua_arr = [];
+  vp.t6_c12_enqua_esp_arr = [];
+  vp.t6_c13_motivo_arr = [];
 
   return { formData: vp };
 }

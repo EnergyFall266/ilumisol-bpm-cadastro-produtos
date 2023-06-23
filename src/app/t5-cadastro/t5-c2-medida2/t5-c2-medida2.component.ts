@@ -12,7 +12,6 @@ export class T5C2Medida2Component {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal_2: boolean = false;
-  public mostrar_modal_3: boolean = false;
 
   constructor(private ap: AppService) {}
 
