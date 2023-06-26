@@ -23,20 +23,20 @@ export class T6C6SubstituicaoPisComponent {
       this.vp.t6_substituicao_arr = (await this.ap.exportaServico(
         'ExportaSubstituicao'
       )) as ExportaSubstituicao[];
-      if (this.vp.t6_c9_pis_subs_cod != '')
-        this.vp.t6_c9_pis_subs_obj = this.vp.t6_substituicao_arr.find(
-          (x) => x.codTst == this.vp.t6_c9_pis_subs_cod
+      if (this.vp.t6_c6_pis_subs_cod != '')
+        this.vp.t6_c6_pis_subs_obj = this.vp.t6_substituicao_arr.find(
+          (x) => x.codTst == this.vp.t6_c6_pis_subs_cod
         );
     }
   }
 
   public pisSelect() {
-    this.vp.t6_c9_pis_subs_cod = this.vp.t6_c9_pis_subs_obj!.codTst;
+    this.vp.t6_c6_pis_subs_cod = this.vp.t6_c6_pis_subs_obj!.codTst;
     this.mostrar_modal_pis = false;
   }
 
   public pisClear() {
-    this.vp.t6_c9_pis_subs_obj = undefined;
-    this.vp.t6_c9_pis_subs_cod = '';
+    this.vp.t6_c6_pis_subs_obj = undefined;
+    this.vp.t6_c6_pis_subs_cod = '';
   }
 }

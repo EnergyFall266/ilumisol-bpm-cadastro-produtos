@@ -26,8 +26,8 @@ export async function loadData(vp: VP_BPM, info: Info) {
     var map: Map<any, any> = new Map();
     for (let i of ipv) map.set(i.key, i.value);
     rld.vp = getVP(rld.vp, map);
+    rld = getFormPresentation(rld);
   }
-  rld = getFormPresentation(rld);
 
   rld.vp = await ap.getAllDocs(rld.vp);
 
@@ -37,7 +37,7 @@ export async function loadData(vp: VP_BPM, info: Info) {
 export async function saveData(vp: VP_BPM) {
   if (STEP === environment.s2_dad_cad && vp.t5_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'c');
-  if (STEP === environment.s4_fis_con && vp.t6_c4_c2_anexo_files.length > 0)
+  if (STEP === environment.s6_fis_con && vp.t6_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'f');
 
   vp.unidades_medida_arr = [];

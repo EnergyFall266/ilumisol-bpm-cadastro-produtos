@@ -16,7 +16,7 @@
           chooseLabel="Anexo"
           [chooseIcon]="'pi pi-search'"
           [uploadIcon]="'pi pi-save'"
-          (onSelect)="escolherDocumentoFileUpload(anexosT5)"
+          (onSelect)="escolherDocFU(anexosT5)"
         ></p-fileUpload>
       </div>
       <div
@@ -29,7 +29,7 @@
           class="p-button-danger w-full"
           icon="pi pi-times"
           type="button"
-          (click)="removerDocumentoFileUpload(anexosT5)"
+          (click)="removerDocFU(anexosT5)"
         ></button>
       </div>
     </div>
@@ -50,14 +50,14 @@
           type="button"
           class="p-button-info"
           icon="pi pi-download"
-          (click)="descarregarDocumentoGED(a.gedId!)"
+          (click)="descarregarDocGED(a.gedId!)"
         ></button>
         <button
           pButton
           type="button"
           class="p-button-danger mr-2"
           icon="pi pi-trash"
-          (click)="excluirDocumentoGED(a)"
+          (click)="excluirDocGED(a)"
         ></button>
         <span>{{ sn(a.arquivoGED!.title) }}</span>
       </div>

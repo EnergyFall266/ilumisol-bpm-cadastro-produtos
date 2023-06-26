@@ -9,7 +9,7 @@
         icon="pi pi-times-circle"
         class="p-0 p-button-text p-button-secondary w-auto mr-1"
         [style.display]="
-          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c9_pis_subs_cod == ''
+          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c6_pis_subs_cod == ''
             ? 'none'
             : ''
         "
@@ -21,7 +21,7 @@
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t6_c9_pis_subs_cod"
+        [(ngModel)]="vp.t6_c6_pis_subs_cod"
         (click)="vp.t6_req_to_read || vp.buscandoWS ? '' : pisInput()"
       />
       <button
@@ -55,7 +55,7 @@
     [paginator]="true"
     [loading]="vp.buscandoWS"
     [value]="vp.t6_substituicao_arr"
-    [(selection)]="vp.t6_c9_pis_subs_obj"
+    [(selection)]="vp.t6_c6_pis_subs_obj"
     (onRowSelect)="pisSelect()"
     dataKey="codTst"
     [globalFilterFields]="['codTst', 'desTst']"

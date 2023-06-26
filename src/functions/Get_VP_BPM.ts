@@ -191,8 +191,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_c5_cof_subs_cod') !== undefined)
     vp.t6_c5_cof_subs_cod = map.get('t6_c5_cof_subs_cod');
 
-  if (map.get('t6_c9_pis_subs_cod') !== undefined)
-    vp.t6_c9_pis_subs_cod = map.get('t6_c9_pis_subs_cod');
+  if (map.get('t6_c6_pis_subs_cod') !== undefined)
+    vp.t6_c6_pis_subs_cod = map.get('t6_c6_pis_subs_cod');
 
   if (map.get('t6_recupera_pis') !== undefined)
     vp.t6_recupera_pis = map.get('t6_recupera_pis');
@@ -268,12 +268,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_anp_des') !== undefined)
     vp.t6_anp_des = map.get('t6_anp_des');
 
-  if (map.get('t6_c3_cal_fun') !== undefined)
-    vp.t6_c3_cal_fun = map.get('t6_c3_cal_fun');
-
-  if (map.get('t6_c3_cal_sen') !== undefined)
-    vp.t6_c3_cal_sen = map.get('t6_c3_cal_sen');
-
   if (map.get('t6_pauta') !== undefined)
     vp.t6_pauta = map.get('t6_pauta');
 
@@ -287,8 +281,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_recusa') !== undefined)
     vp.t6_recusa = map.get('t6_recusa');
 
-  if (map.get('t6_c4_c2_anexo_pasta_id') !== undefined)
-    vp.t6_c4_c2_anexo_pasta_id = map.get('t6_c4_c2_anexo_pasta_id');
+  if (map.get('t6_pasta_id') !== undefined)
+    vp.t6_pasta_id = map.get('t6_pasta_id');
 
   return vp;
 }

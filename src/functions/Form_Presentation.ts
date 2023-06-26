@@ -4,45 +4,24 @@ import { environment } from 'src/environments/environment';
 const STEP = environment.tarefa();
 
 export default function getFormPresentation(rld: ResponseLoadData) {
-  switch (STEP) {
-    case environment.s1_sol_cad:
-    case environment.s3_rev_inf:
-    case environment.s5_rev_inf:
-      if (STEP == environment.s3_rev_inf) {
-        rld.initial = 5;
-        rld.tabs.push(5);
-        rld.vp.t5_show_only_recusa = true;
-      } else if (STEP == environment.s5_rev_inf) {
-        rld.initial = 6;
-        rld.tabs.push(6);
-        rld.vp.t6_show_only_recusa = true;
-      }
-      break;
+  rld.initial =
+    STEP == environment.s2_dad_cad || STEP == environment.s3_rev_inf
+      ? 4
+      : STEP == environment.s2_dad_cad
+      ? 5
+      : 1;
+  rld.tabs.push(4);
+  if (STEP == environment.s6_fis_con || STEP == environment.s7_gra_pro)
+    rld.tabs.push(5);
 
-    case environment.s2_dad_cad:
-    case environment.s4_fis_con:
-    case environment.s6_gra_pro:
-      rld.tabs.push(5);
+  rld.initial = STEP === environment.s7_gra_pro ? 1 : 5;
 
-      if (STEP == environment.s2_dad_cad) {
-        rld.initial = 5;
-        rld.vp.t5_req_to_read = false;
-      } else {
-        rld.initial = STEP === environment.s6_gra_pro ? 1 : 6;
-
-        rld.vp.t1_req_to_read = true;
-        rld.vp.t2_req_to_read = true;
-        rld.vp.t3_req_to_read = true;
-        rld.vp.t6_req_to_read = STEP === environment.s6_gra_pro;
-        rld.vp.c7_cadastro_hide = STEP === environment.s4_fis_con;
-
-        rld.tabs.push(6);
-      }
-      break;
-
-    default:
-      break;
-  }
+  rld.vp.t1_req_to_read = true;
+  rld.vp.t2_req_to_read = true;
+  rld.vp.t3_req_to_read = true;
+  rld.vp.t5_req_to_read = STEP !== environment.s2_dad_cad;
+  rld.vp.t6_req_to_read = STEP === environment.s7_gra_pro;
+  rld.vp.c7_cadastro_hide = STEP === environment.s6_fis_con;
 
   return rld;
 }

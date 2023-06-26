@@ -4,11 +4,11 @@ import * as gedf from 'prisma_prismafunctions';
 import { FileUpload } from 'primeng/fileupload';
 
 @Component({
-  selector: 'app-t5-c6-anexo',
-  templateUrl: './t5-c6-anexo.component.html',
-  styleUrls: ['./t5-c6-anexo.component.scss'],
+  selector: 'app-t6-c14-anexo',
+  templateUrl: './t6-c14-anexo.component.html',
+  styleUrls: ['./t6-c14-anexo.component.scss'],
 })
-export class T5C6AnexoComponent {
+export class T6C14AnexoComponent {
   @Input() vp!: VP_BPM;
 
   constructor() {}
@@ -17,11 +17,12 @@ export class T5C6AnexoComponent {
 
   public sn = gedf.simplifyName;
 
-  public escolherDocFU = (fu: FileUpload) => (this.vp.t5_file_TS = fu.files);
+  public escolherDocFU = (fu: FileUpload) =>
+    (this.vp.t6_file_TS = fu.files);
 
   public removerDocFU = (fu: FileUpload): void => {
     fu.clear();
-    this.vp.t5_file_TS = fu.files;
+    this.vp.t6_file_TS = fu.files;
   };
 
   public descarregarDocGED = async (id: string) =>
@@ -29,10 +30,11 @@ export class T5C6AnexoComponent {
 
   public excluirDocGED = async (anexo: gedf.Anexo) => {
     if (await gedf.deleteDocument(anexo.gedId!, this.vp.token)) {
-      this.vp.t5_file_GED = this.vp.t5_file_GED.filter(
+      this.vp.t6_file_GED = this.vp.t6_file_GED.filter(
         (x) => anexo.gedId !== x.gedId
       );
-      if (this.vp.t5_file_GED.length == 0) this.vp.t5_pasta_id = '';
+      if (this.vp.t6_file_GED.length == 0)
+        this.vp.t6_pasta_id = '';
     }
   };
 }

@@ -91,8 +91,6 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
-
-    this.activeMenu = fd.showMenus(5, [1, 2, 3, 4, 5]);
   }
 
   private _loadData = async (data: Data, info: Info) => {
@@ -129,8 +127,8 @@ export class AppComponent {
           ? c.suc.produto[0]
           : c.suc.produto;
         this.vp.c7_mensagem_retorno = p.msgRetorno + '';
-        if (p.msgRetorno == 'OK') this.vp.c7_cadastro_disabled = true;
-        else this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
+        if (p.msgRetorno != 'OK')
+          this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
         this.vp.c7_codigo_produto = p.retorno?.codPro + '';
       }
     }

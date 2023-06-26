@@ -35,12 +35,11 @@
         icon="pi pi-database"
         label="Cadastrar"
         class="w-full"
-        [disabled]="vp.c7_cadastro_disabled"
+        [disabled]="vp.c7_mensagem_retorno == 'OK'"
         (click)="cadastrarProduto()"
       ></button>
     </div>
-
-    <div class="col-9" [hidden]="vp.c7_mensagem_retorno == ''"></div>
+    <div class="col-9"></div>
 
     <div class="col-3" [hidden]="vp.c7_mensagem_retorno == ''">
       <div class="grid">
@@ -56,8 +55,6 @@
         </div>
       </div>
     </div>
-
-    <div class="col-9" [hidden]="vp.c7_mensagem_retorno == ''"></div>
 
     <div class="col-12" [hidden]="vp.c7_mensagem_retorno == ''">
       <div class="grid">

@@ -15,7 +15,6 @@ export default class FormValidate {
     switch (STEP) {
       case environment.s1_sol_cad:
       case environment.s3_rev_inf:
-      case environment.s5_rev_inf:
         if (vp.t1_c4_origem_cod == '')
           this.ms.add(getMsgS('Dados básicos - Origem'));
 
@@ -99,7 +98,7 @@ export default class FormValidate {
           this.ms.add(getMsgS('Dados do cadastro - Máscara Derivação'));
         break;
 
-      case environment.s4_fis_con:
+      case environment.s6_fis_con:
         if (vp.t6_c1_impostos_cod == -1)
           this.ms.add(
             getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
@@ -186,15 +185,9 @@ export default class FormValidate {
               getMsgC('Dados fiscais e contábeis - Descrição produto na ANP')
             );
         }
-
-        if (vp.t6_c3_cal_fun == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Calcula Funrural'));
-
-        if (vp.t6_c3_cal_sen == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Calcula Senar'));
         break;
 
-      case environment.s6_gra_pro:
+      case environment.s7_gra_pro:
         if (vp.c7_mensagem_retorno == '')
           this.ms.add({
             severity: 'warn',

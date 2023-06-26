@@ -89,24 +89,24 @@ export class AppService {
       var p = await this.pegarPastasGED(vp, vp.t5_pasta_nome);
     } else if (t == 'f') {
       await this.prepararDocs(
-        vp.t6_c4_c2_anexo_files,
-        vp.t6_c4_c2_anexo_ged_arr
+        vp.t6_file_TS,
+        vp.t6_file_GED
       );
-      var p = await this.pegarPastasGED(vp, vp.t6_c4_c2_anexo_pasta_nome);
+      var p = await this.pegarPastasGED(vp, vp.t6_pasta_nome);
     }
 
     if (p) {
       vp.ged_pasta_pai_id = p.paiId;
       vp.ged_pasta_processo_id = p.proId;
       if (t == 'c') vp.t5_pasta_id = p.scfId;
-      else if (t == 'f') vp.t6_c4_c2_anexo_pasta_id = p.scfId;
+      else if (t == 'f') vp.t6_pasta_id = p.scfId;
 
       if (
         this.anexos_ged_temp.length ==
         (await this.processarDocsGED(vp, p.scfId))
       ) {
         if (t == 'c') vp.t5_file_TS = [];
-        else if (t == 'f') vp.t6_c4_c2_anexo_files = [];
+        else if (t == 'f') vp.t6_file_TS = [];
         this.anexos_ged_temp = [];
       }
     }
@@ -196,9 +196,9 @@ export class AppService {
       vp.t5_file_GED = (
         await ged.folderList(0, vp.token, vp.t5_pasta_id)
       ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
-    if (vp.t6_c4_c2_anexo_pasta_id != '')
-      vp.t6_c4_c2_anexo_ged_arr = (
-        await ged.folderList(0, vp.token, vp.t6_c4_c2_anexo_pasta_id)
+    if (vp.t6_pasta_id != '')
+      vp.t6_file_GED = (
+        await ged.folderList(0, vp.token, vp.t6_pasta_id)
       ).files.map((d) => ({ gedId: d.id, arquivoGED: d, enviado: true }));
 
     return vp;
@@ -260,7 +260,7 @@ export class AppService {
         codTrd: vp.t6_c3_redu_icms_cod,
         codTst: vp.t6_c4_icms_subs_cod,
         codStc: vp.t6_c5_cof_subs_cod,
-        codStp: vp.t6_c9_pis_subs_cod,
+        codStp: vp.t6_c6_pis_subs_cod,
         recPis: vp.t6_recupera_pis[0],
         recCof: vp.t6_recupera_cof[0],
         triPis: vp.t6_tributa_pis[0],
@@ -283,8 +283,8 @@ export class AppService {
         codCes: vp.t6_espe_subs_trub,
         codAnp: vp.t6_anp_cod,
         desAnp: vp.t6_anp_des,
-        calFun: vp.t6_c3_cal_fun[0],
-        calSen: vp.t6_c3_cal_sen[0],
+        //calFun: vp.t6_c3_cal_fun[0],
+        //calSen: vp.t6_c3_cal_sen[0],
         claPro: 1,
         tipPro: 'C',
         numOri: 55,

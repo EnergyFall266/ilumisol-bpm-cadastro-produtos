@@ -39,8 +39,6 @@ import { T3C3Component } from './t3-deposito/t3-c3/t3-c3.component';
 import { T3C4Component } from './t3-deposito/t3-c4/t3-c4.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T6FisConComponent } from './t6-fis-con/t6-fis-con.component';
-import { T6C4Component } from './t6-fis-con/t6-c4/t6-c4.component';
-import { T6C4C2AneComponent } from './t6-fis-con/t6-c4/t6-c4-c2-ane/t6-c4-c2-ane.component';
 import { T1C1MarcaComponent } from './t1-basicos/t1-c1-marca/t1-c1-marca.component';
 import { T1C2SubstitutoComponent } from './t1-basicos/t1-c2-substituto/t1-c2-substituto.component';
 import { T1C3ClassificacaoComponent } from './t1-basicos/t1-c3-classificacao/t1-c3-classificacao.component';
@@ -71,6 +69,7 @@ import { T6C7SituPisVendasComponent } from './t6-fis-con/t6-c7-situ-pis-vendas/t
 import { T6C8SituCofVendasComponent } from './t6-fis-con/t6-c8-situ-cof-vendas/t6-c8-situ-cof-vendas.component';
 import { T6C12EnquadramentoEspeComponent } from './t6-fis-con/t6-c12-enquadramento-espe/t6-c12-enquadramento-espe.component';
 import { T6C13MotivoComponent } from './t6-fis-con/t6-c13-motivo/t6-c13-motivo.component';
+import { T6C14AnexoComponent } from './t6-fis-con/t6-c14-anexo/t6-c14-anexo.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -87,8 +86,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T3C4Component,
     T5CadastroComponent,
     T6FisConComponent,
-    T6C4Component,
-    T6C4C2AneComponent,
     T1C1MarcaComponent,
     T1C2SubstitutoComponent,
     T1C3ClassificacaoComponent,
@@ -119,6 +116,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C8SituCofVendasComponent,
     T6C12EnquadramentoEspeComponent,
     T6C13MotivoComponent,
+    T6C14AnexoComponent,
   ],
   imports: [
     BrowserModule,

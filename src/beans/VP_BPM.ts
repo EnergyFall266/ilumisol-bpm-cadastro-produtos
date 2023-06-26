@@ -10,7 +10,7 @@ export interface ResponseLoadData {
 
 export class VP_BPM {
   //Variáveis ​​Gerais
-  public overlay: boolean = false;
+  public overlay: boolean = true;
   public buscandoWS: boolean = false;
 
   public alertas: Message[] = [];
@@ -41,7 +41,9 @@ export class VP_BPM {
   public t1_req_to_read: boolean = false;
 
   public t1_descricao_prod: string = '';
+
   public t1_complemento: string = '';
+
   public t1_descricao_fiscal: string = '';
 
   public t1_c1_marca_arr: wsb.ExportaMarcas[] = [];
@@ -212,9 +214,8 @@ export class VP_BPM {
   public t5_pasta_id: string = '';
   public t5_pasta_nome: string = 'Anexo cadastro';
 
-  public t5_recusa: string = '';
-
   public t5_show_only_recusa: boolean = false;
+  public t5_recusa: string = '';
 
   /**
    * Dados fiscais e contábeis
@@ -243,8 +244,8 @@ export class VP_BPM {
   public t6_c5_cof_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c5_cof_subs_cod: string = '';
 
-  public t6_c9_pis_subs_obj?: wsb.ExportaSubstituicao;
-  public t6_c9_pis_subs_cod: string = '';
+  public t6_c6_pis_subs_obj?: wsb.ExportaSubstituicao;
+  public t6_c6_pis_subs_cod: string = '';
 
   public t6_recupera_pis: string = '';
 
@@ -307,34 +308,21 @@ export class VP_BPM {
 
   public t6_benef: string = '';
 
-  public t6_show_only_recusa: boolean = false;
-
-  //Coluna 1
-
-  //Coluna 2
-
-  //Coluna 3
-
-  public t6_c3_cal_fun: string = '';
-
-  public t6_c3_cal_sen: string = '';
-
-  //Coluna 4
   public t6_observacoes: string = '';
 
+  public t6_recusa_show_only: boolean = false;
   public t6_recusa: string = '';
 
-  public t6_c4_c2_anexo_files: File[] = [];
-  public t6_c4_c2_anexo_ged_arr: Anexo[] = [];
-  public t6_c4_c2_anexo_pasta_id: string = '';
-  public t6_c4_c2_anexo_pasta_nome: string = 'Anexo fiscal/cotábil';
+  public t6_file_TS: File[] = [];
+  public t6_file_GED: Anexo[] = [];
+  public t6_pasta_id: string = '';
+  public t6_pasta_nome: string = 'Anexo cadastro';
 
   /**
    * Resposta do ws cadastro
    */
 
   public c7_cadastro_hide: boolean = true;
-  public c7_cadastro_disabled: boolean = false;
 
   public c7_codigo_produto: string = '';
   public c7_mensagem_retorno: string = '';
