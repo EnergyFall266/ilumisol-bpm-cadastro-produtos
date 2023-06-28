@@ -15,6 +15,7 @@
               class="col-12"
               [readonly]="vp.t1_req_to_read"
               [(ngModel)]="vp.t1_descricao_prod"
+              (ngModelChange)="getDescNota()"
             />
           </div>
         </div>
@@ -33,6 +34,7 @@
               class="col-12"
               [readonly]="vp.t1_req_to_read"
               [(ngModel)]="vp.t1_complemento"
+              (ngModelChange)="getDescNota()"
             />
           </div>
         </div>
@@ -70,13 +72,15 @@
         <div class="grid">
           <span class="col-12">Pode ser requisitado?</span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
-              [readonly]="true"
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
               [(ngModel)]="vp.t1_requisitado"
-            />
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
           </div>
         </div>
       </div>
@@ -85,13 +89,15 @@
         <div class="grid">
           <span class="col-12">Pode ser vendido?</span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
-              [readonly]="true"
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
               [(ngModel)]="vp.t1_vendido"
-            />
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
           </div>
         </div>
       </div>
@@ -100,13 +106,15 @@
         <div class="grid">
           <span class="col-12">Pode ser comprado?</span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
-              [readonly]="true"
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
               [(ngModel)]="vp.t1_comprado"
-            />
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
           </div>
         </div>
       </div>
@@ -115,13 +123,15 @@
         <div class="grid">
           <span class="col-12">Permite gerar orçamento?</span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
-              [readonly]="true"
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
               [(ngModel)]="vp.t1_orcamento"
-            />
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
           </div>
         </div>
       </div>

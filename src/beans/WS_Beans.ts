@@ -2,8 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 
 export const ws_beans_header: AxiosRequestConfig<string> = {
   headers: {
-    user: 'weliton.ribeiro',
-    pass: '102030',
+    user: 'suporte',
+    pass: '@98fm',
     encryptionType: '0',
     Authorization: '',
     'Content-Type': 'application/json',

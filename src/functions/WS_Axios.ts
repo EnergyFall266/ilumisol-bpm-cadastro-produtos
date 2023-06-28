@@ -11,7 +11,7 @@ export const wsG5Exporta = async (port: string, body: string = '{}') =>
       AxiosResponse<wsb.G5Response>,
       AxiosResponse<wsb.G5Response>
     >(
-      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm&port=${port}&useAlwaysArray=true`,
+      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm.produto&port=${port}&useAlwaysArray=true`,
       body,
       wsb.ws_beans_header
     )
@@ -22,7 +22,7 @@ export const wsG5Cadastro = async (body: string) => {
 
   await axios
     .post<AxiosResponse<wsb.G5Response>, AxiosResponse<wsb.G5Response>>(
-      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm&port=CadastroProduto&useAlwaysArray=true`,
+      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm.produto&port=CadastroProduto&useAlwaysArray=true`,
       body,
       wsb.ws_beans_header
     )

@@ -60,6 +60,7 @@ export class VP_BPM {
   public t1_orcamento: string = 'Não';
 
   public t1_c2_substituto_cad: string = '';
+
   public t1_c2_substituto_arr: wsb.ExportaProdutos[] = [];
   public t1_c2_substituto_obj?: wsb.ExportaProdutos;
   public t1_c2_substituto_cod: string = '';
@@ -322,7 +323,7 @@ export class VP_BPM {
    * Resposta do ws cadastro
    */
 
-  public c7_cadastro_hide: boolean = true;
+  public c7_cadastro_show: boolean = false;
 
   public c7_codigo_produto: string = '';
   public c7_mensagem_retorno: string = '';
