@@ -10,7 +10,7 @@ export interface ResponseLoadData {
 
 export class VP_BPM {
   //Variáveis ​​Gerais
-  public overlay: boolean = true;
+  public overlay: boolean = false;
   public buscandoWS: boolean = false;
 
   public alertas: Message[] = [];
@@ -33,6 +33,12 @@ export class VP_BPM {
   ];
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
+
+  public c1_req_to_read: boolean = false;
+  public c1_empresa_arr: wsb.ExportaEmpresas[] = [];
+  public c1_empresa_obj?: wsb.ExportaEmpresas;
+  public c1_empresa_cod: number = 1;
+  public c1_empresa_nom: string = '';
 
   /**
    * Dados básicos
@@ -115,16 +121,30 @@ export class VP_BPM {
   public t1_c11_multinivel_obj?: wsb.ExportaAgrupamentos;
   public t1_c11_multinivel_cod: string = '';
 
+  public t1_altura?: number;
+
+  public t1_largura?: number;
+
+  public t1_comprimento?: number;
+
+  public t1_valor_aprox?: number;
+
+  public t1_aplicacao: string = '';
+
+  public t1_comp_trata: string = '';
+
+  public t1_controlado: string = '';
+
   /**
    * Dados de fornecedor
    */
 
   public t2_req_to_read: boolean = false;
 
-  public t2_fornecedor_arr: wsb.ExportaFornecedores[] = [];
-  public t2_fornecedor_obj?: wsb.ExportaFornecedores;
-  public t2_fornecedor_cod: number = -1;
-  public t2_fornecedor_des: string = '';
+  public t2_c1_fornecedor_arr: wsb.ExportaFornecedores[] = [];
+  public t2_c1_fornecedor_obj?: wsb.ExportaFornecedores;
+  public t2_c1_fornecedor_cod: number = -1;
+  public t2_c1_fornecedor_des: string = '';
 
   public t2_quantidade_multipla?: number;
 
@@ -132,7 +152,13 @@ export class VP_BPM {
 
   public t2_quantidade_minima?: number;
 
-  public t2_produto_fornecedor: string = '';
+  public t2_produto_fornecedor_cod: string = '';
+
+  public t2_produto_fornecedor_des: string = '';
+
+  public t2_c2_medida_obj?: wsb.ExportaUniMeds;
+  public t2_c2_medida_cod: string = '';
+  public t2_c2_medida_des: string = '';
 
   /**
    * Dados de depósito
@@ -140,7 +166,6 @@ export class VP_BPM {
 
   public t3_req_to_read: boolean = false;
 
-  //Coluna 1
   public t3_c1_destino_arr: wsb.ExportaDepositos[] = [];
   public t3_c1_destino_obj?: wsb.ExportaDepositos;
   public t3_c1_destino_sel: wsb.ExportaDepositos[] = [];
@@ -148,26 +173,17 @@ export class VP_BPM {
   public t3_c1_destino_cod: string = '';
   public t3_c1_destino_des: string = '';
 
-  public t3_c1_quan_estoque_rep?: number;
+  public t3_qtde_estoque_rep?: number;
+  public t3_qtde_estoque_min?: number;
+  public t3_qtde_estoque_max?: number;
 
-  public t3_c1_quan_min_vendas?: number;
+  public t3_est_min_dias?: number;
+  public t3_est_max_dias?: number;
+  public t3_qtde_mul_ven?: number;
+  public t3_qtde_mul_com?: number;
 
-  //Coluna 2
-  public t3_c2_quan_estoque_min?: number;
-
-  public t3_c2_quan_estoque_max?: number;
-
-  public t3_c2_quan_max_vendas?: number;
-
-  //Coluna 3
-  public t3_c3_estoque_min?: number;
-
-  public t3_c3_estoque_max?: number;
-
-  //Coluna 4
-  public t3_c4_quan_mul_ven?: number;
-
-  public t3_c4_quan_mul_com?: number;
+  public t3_qtde_min_vendas?: number;
+  public t3_qtde_max_vendas?: number;
 
   /**
    * Dados do cadastro

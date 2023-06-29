@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 const URL = environment.url_padrao;
 
-export const wsG5Exporta = async (port: string, body: string = '{}') =>
+export const wsG5Exporta = async (port: string, body: string) =>
   (
     await axios.post<
       AxiosResponse<wsb.G5Response>,
@@ -16,26 +16,3 @@ export const wsG5Exporta = async (port: string, body: string = '{}') =>
       wsb.ws_beans_header
     )
   ).data;
-
-export const wsG5Cadastro = async (body: string) => {
-  const r: { suc: wsb.G5Response; msg?: Message[] } = { suc: {} };
-
-  await axios
-    .post<AxiosResponse<wsb.G5Response>, AxiosResponse<wsb.G5Response>>(
-      `${URL}/SXI/G5Rest?server=${URL}&module=sapiens&service=com.prisma.bpm.produto&port=CadastroProduto&useAlwaysArray=true`,
-      body,
-      wsb.ws_beans_header
-    )
-    .then((x) => (r.suc = x.data))
-    .catch((e) => {
-      r.msg = [
-        {
-          severity: 'error',
-          summary: 'Web service cadastro',
-          detail: (e.response.data as wsb.G5Response).errorMessage ?? '',
-        },
-      ];
-    });
-
-  return r;
-};

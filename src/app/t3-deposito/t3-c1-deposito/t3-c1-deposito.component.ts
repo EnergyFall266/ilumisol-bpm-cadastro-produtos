@@ -4,11 +4,11 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaDepositos } from 'src/beans/WS_Beans';
 
 @Component({
-  selector: 'app-t3-c1',
-  templateUrl: './t3-c1.component.html',
-  styleUrls: ['./t3-c1.component.scss'],
+  selector: 'app-t3-c1-deposito',
+  templateUrl: './t3-c1-deposito.component.html',
+  styleUrls: ['./t3-c1-deposito.component.scss'],
 })
-export class T3C1Component implements OnInit {
+export class T3C1DepositoComponent {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
@@ -21,7 +21,8 @@ export class T3C1Component implements OnInit {
     this.mostrar_modal = true;
     if (this.vp.t3_c1_destino_arr.length == 0) {
       this.vp.t3_c1_destino_arr = (await this.ap.exportaServico(
-        'ExportaDepositos'
+        'ExportaDepositos',
+        JSON.stringify({ codEmp: this.vp.c1_empresa_cod })
       )) as ExportaDepositos[];
       if (this.vp.t3_c1_destino_stx != '')
         this.vp.t3_c1_destino_sel = JSON.parse(this.vp.t3_c1_destino_stx);

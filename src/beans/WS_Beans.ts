@@ -15,6 +15,8 @@ export interface G5Response {
   msgRet?: string;
   erroExecucao?: ErroExecucao;
 
+  //Consultas
+  empresas?: ExportaEmpresas[] | ExportaEmpresas;
   produtos?: ExportaProdutos[] | ExportaProdutos;
   origens?: ExportaOrigens[] | ExportaOrigens;
   familias?: ExportaFamilias[] | ExportaFamilias;
@@ -39,11 +41,17 @@ export interface G5Response {
   substituicoes?: ExportaSubstituicao[] | ExportaSubstituicao;
   enquadramentos?: ExportaEnquadramento[] | ExportaEnquadramento;
 
+  //Cadastro
   produto?: Produto | Produto[];
 
   errorType?: string;
   errorMessage?: string;
   stackTrace?: string;
+}
+
+export interface ExportaEmpresas {
+  codEmp: number;
+  nomEmp: string;
 }
 
 export interface ExportaProdutos {
@@ -159,6 +167,7 @@ export interface CadastroRoot {
 }
 
 interface Produto {
+  codEmp:number
   codOri?: string;
   codFam?: string;
   desPro?: string;
@@ -167,8 +176,8 @@ interface Produto {
   codClf?: string;
   codAgc?: string;
   oriMer?: string;
-  intAgs?: string;
-  proAgs?: string;
+  //intAgs?: string;
+  //proAgs?: string;
   qtdMve?: number;
   qtdMlt?: number;
   qtdMin?: number;
@@ -178,9 +187,9 @@ interface Produto {
   indVen?: string;
   indCpr?: string;
   indOct?: string;
-  proUpl?: string;
+  //proUpl?: string;
   emiRec?: string;
-  venVir?: string;
+  /*venVir?: string;
   codCtg?: number;
   codSct?: number;
   nroOnu?: string;
@@ -188,7 +197,7 @@ interface Produto {
   codCri?: string;
   codNri?: string;
   nroMap?: string;
-  codQui?: number;
+  codQui?: number;*/
   desNfv?: string;
   codMdp?: string;
   codAge?: string;
@@ -223,11 +232,14 @@ interface Produto {
   codCes?: string;
   codAnp?: number;
   desAnp?: string;
-  calFun?: string;
-  calSen?: string;
+  //calFun?: string;
+  //calSen?: string;
   claPro?: number;
   tipPro?: string;
   numOri?: number;
+  larPro?: number;
+  altPro?: number;
+  comPro?: number;
   derivacao?: Derivacao[];
   ligProFor?: LigProFor[];
   ligProDep?: LigProDep[];

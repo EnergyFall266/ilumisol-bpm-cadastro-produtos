@@ -21,7 +21,10 @@ export class T1C4OrigemComponent {
     this.mostrar_modal = true;
     if (this.vp.t1_c4_origem_arr.length == 0) {
       this.vp.t1_c4_origem_arr = (
-        (await this.ap.exportaServico('ExportaOrigens')) as ExportaOrigens[]
+        (await this.ap.exportaServico(
+          'ExportaOrigens',
+          JSON.stringify({ codEmp: this.vp.c1_empresa_cod })
+        )) as ExportaOrigens[]
       ).map<ExportaOrigens>((l) => ({
         codOri: l.codOri + '',
         desOri: l.desOri,

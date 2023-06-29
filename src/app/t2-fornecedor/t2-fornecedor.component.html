@@ -1,110 +1,7 @@
 <div class="grid mt-1 pb-2">
   <div class="col-3">
-    <div class="grid">
-      <span class="col-12">
-        Fornecedor
-        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
-      </span>
-      <div class="col-12 py-0">
-        <div class="p-inputgroup">
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-times-circle"
-            class="p-0 p-button-text p-button-secondary w-auto mr-1"
-            [style.display]="
-              vp.t2_req_to_read || vp.buscandoWS || vp.t2_fornecedor_cod == -1
-                ? 'none'
-                : ''
-            "
-            (click)="fornecedorClear()"
-          ></button>
-          <input
-            pInputText
-            type="text"
-            class="col-12"
-            placeholder="Selecione"
-            [readonly]="true"
-            [(ngModel)]="vp.t2_fornecedor_des"
-            (click)="
-              vp.t2_req_to_read || vp.buscandoWS ? '' : fornecedorInput()
-            "
-          />
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-search"
-            class="p-0"
-            [style.display]="vp.t2_req_to_read ? 'none' : ''"
-            (click)="fornecedorInput()"
-            [disabled]="vp.buscandoWS"
-          ></button>
-        </div>
-      </div>
-    </div>
+    <app-t2-c1-fornecedor [vp]="vp"></app-t2-c1-fornecedor>
   </div>
-  <p-dialog
-    header="Fornecedores"
-    [styleClass]="'w-6'"
-    [modal]="true"
-    [draggable]="false"
-    [resizable]="false"
-    [closeOnEscape]="true"
-    [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
-  >
-    <p-table
-      #tableFornecedor
-      selectionMode="single"
-      styleClass="p-datatable-sm"
-      [rows]="10"
-      [paginator]="true"
-      [loading]="vp.buscandoWS"
-      [value]="vp.t2_fornecedor_arr"
-      [(selection)]="vp.t2_fornecedor_obj"
-      (onRowSelect)="fornecedorSelect()"
-      dataKey="codFor"
-      [globalFilterFields]="['codFor', 'nomFor']"
-    >
-      <ng-template pTemplate="caption">
-        <div class="p-d-flex">
-          <span class="p-input-icon-left p-ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              class="col-12"
-              pInputText
-              (input)="
-                tableFornecedor.filterGlobal(
-                  $any($event.target).value,
-                  'contains'
-                )
-              "
-              placeholder="Buscar"
-            />
-          </span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="codFor">
-            Código <p-sortIcon field="codFor"></p-sortIcon>
-          </th>
-          <th pSortableColumn="nomFor">
-            Descrição <p-sortIcon field="nomFor"></p-sortIcon>
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-for>
-        <tr [pSelectableRow]="for">
-          <td>{{ for.codFor }}</td>
-          <td>{{ for.nomFor }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-dialog>
 
   <div class="col-3">
     <div class="grid">
@@ -132,38 +29,6 @@
           [readonly]="vp.t2_req_to_read"
           placeholder="0,0000"
           [(ngModel)]="vp.t2_quantidade_multipla"
-        >
-        </p-inputNumber>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-3">
-    <div class="grid">
-      <span class="col-12">
-        Quantidade máxima fornecedor
-        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
-      </span>
-      <div class="col-12 py-0">
-        <p-inputNumber
-          class="w-12"
-          [styleClass]="'w-12'"
-          [inputStyleClass]="'col-12'"
-          [min]="0"
-          [step]="1"
-          mode="decimal"
-          [minFractionDigits]="4"
-          [maxFractionDigits]="4"
-          [showButtons]="!vp.t2_req_to_read"
-          buttonLayout="horizontal"
-          spinnerMode="horizontal"
-          decrementButtonClass="p-0"
-          incrementButtonClass="p-0"
-          incrementButtonIcon="pi pi-plus"
-          decrementButtonIcon="pi pi-minus"
-          [readonly]="vp.t2_req_to_read"
-          placeholder="0,0000"
-          [(ngModel)]="vp.t2_quantidade_maxima"
         >
         </p-inputNumber>
       </div>
@@ -205,6 +70,38 @@
   <div class="col-3">
     <div class="grid">
       <span class="col-12">
+        Quantidade máxima fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
+      <div class="col-12 py-0">
+        <p-inputNumber
+          class="w-12"
+          [styleClass]="'w-12'"
+          [inputStyleClass]="'col-12'"
+          [min]="0"
+          [step]="1"
+          mode="decimal"
+          [minFractionDigits]="4"
+          [maxFractionDigits]="4"
+          [showButtons]="!vp.t2_req_to_read"
+          buttonLayout="horizontal"
+          spinnerMode="horizontal"
+          decrementButtonClass="p-0"
+          incrementButtonClass="p-0"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          [readonly]="vp.t2_req_to_read"
+          placeholder="0,0000"
+          [(ngModel)]="vp.t2_quantidade_maxima"
+        >
+        </p-inputNumber>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="grid">
+      <span class="col-12">
         Código produto fornecedor
         <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
       </span>
@@ -214,9 +111,31 @@
           type="text"
           class="col-12"
           [readonly]="vp.t2_req_to_read"
-          [(ngModel)]="vp.t2_produto_fornecedor"
+          [(ngModel)]="vp.t2_produto_fornecedor_cod"
         />
       </div>
     </div>
+  </div>
+
+  <div class="col-3">
+    <div class="grid">
+      <span class="col-12">
+        Descrição produto fornecedor
+        <span [hidden]="vp.t2_req_to_read" style="color: red">*</span>
+      </span>
+      <div class="col-12 py-0">
+        <input
+          pInputText
+          type="text"
+          class="col-12"
+          [readonly]="vp.t2_req_to_read"
+          [(ngModel)]="vp.t2_produto_fornecedor_des"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <app-t2-c2-unidade [vp]="vp"></app-t2-c2-unidade>
   </div>
 </div>

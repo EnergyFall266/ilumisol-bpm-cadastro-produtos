@@ -1,0 +1,88 @@
+<div class="grid">
+  <span class="col-12">
+    Empresa <span [hidden]="vp.c1_req_to_read" style="color: red">*</span>
+  </span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.c1_empresa_nom"
+        (click)="vp.c1_req_to_read || vp.buscandoWS ? '' : fornecedorInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.c1_req_to_read ? 'none' : ''"
+        (click)="fornecedorInput()"
+        [disabled]="vp.buscandoWS"
+      ></button>
+    </div>
+  </div>
+</div>
+<p-dialog
+  header="Fornecedores"
+  [styleClass]="'w-6'"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [closable]="!vp.buscandoWS"
+  [(visible)]="mostrar_modal"
+>
+  <p-table
+    #tableFornecedor
+    selectionMode="single"
+    styleClass="p-datatable-sm"
+    [rows]="10"
+    [paginator]="true"
+    [loading]="vp.buscandoWS"
+    [value]="vp.c1_empresa_arr"
+    [(selection)]="vp.c1_empresa_obj"
+    (onRowSelect)="fornecedorSelect()"
+    dataKey="codEmp"
+    [globalFilterFields]="['codEmp', 'nomEmp']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="col-12"
+            pInputText
+            (input)="
+              tableFornecedor.filterGlobal(
+                $any($event.target).value,
+                'contains'
+              )
+            "
+            placeholder="Buscar"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="codEmp">
+          Código <p-sortIcon field="codEmp"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nomEmp">
+          Descrição <p-sortIcon field="nomEmp"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-for>
+      <tr [pSelectableRow]="for">
+        <td>{{ for.codEmp }}</td>
+        <td>{{ for.nomEmp }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

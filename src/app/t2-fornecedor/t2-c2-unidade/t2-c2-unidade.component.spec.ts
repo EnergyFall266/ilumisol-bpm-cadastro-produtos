@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { T3C1Component } from './t3-c1.component';
+import { T2C2UnidadeComponent } from './t2-c2-unidade.component';
 
-describe('T3C1Component', () => {
-  let component: T3C1Component;
-  let fixture: ComponentFixture<T3C1Component>;
+describe('T2C2UnidadeComponent', () => {
+  let component: T2C2UnidadeComponent;
+  let fixture: ComponentFixture<T2C2UnidadeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ T3C1Component ]
+      declarations: [ T2C2UnidadeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(T3C1Component);
+    fixture = TestBed.createComponent(T2C2UnidadeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

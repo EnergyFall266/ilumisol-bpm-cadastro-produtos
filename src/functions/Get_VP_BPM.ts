@@ -4,6 +4,9 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.ged_pasta_pai_id = map.get('ged_pasta_pai_id');
   vp.ged_pasta_processo_id = map.get('ged_pasta_processo_id');
 
+  vp.c1_empresa_cod = map.get('c1_empresa_cod');
+  vp.c1_empresa_nom = map.get('c1_empresa_nom');
+
   /**
    * Dados básicos
    */
@@ -60,9 +63,9 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    * Dados de fornecedor
    */
 
-  if (map.get('t2_fornecedor_cod') !== undefined) {
-    vp.t2_fornecedor_cod = +map.get('t2_fornecedor_cod');
-    vp.t2_fornecedor_des = map.get('t2_fornecedor_des');
+  if (map.get('t2_c1_fornecedor_cod') !== undefined) {
+    vp.t2_c1_fornecedor_cod = +map.get('t2_c1_fornecedor_cod');
+    vp.t2_c1_fornecedor_des = map.get('t2_c1_fornecedor_des');
   }
 
   vp.t2_quantidade_multipla = +map.get('t2_quantidade_multipla');
@@ -71,8 +74,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t2_quantidade_minima = +map.get('t2_quantidade_minima');
 
-  if (map.get('t2_produto_fornecedor') !== undefined)
-    vp.t2_produto_fornecedor = map.get('t2_produto_fornecedor');
+  if (map.get('t2_produto_fornecedor_cod') !== undefined)
+    vp.t2_produto_fornecedor_cod = map.get('t2_produto_fornecedor_cod');
 
   /**
    * Dados de depósito
@@ -83,31 +86,31 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t3_c1_destino_cod = map.get('t3_c1_destino_cod');
   vp.t3_c1_destino_des = map.get('t3_c1_destino_des');
 
-  if (map.get('t3_c1_quan_estoque_rep') !== undefined)
-    vp.t3_c1_quan_estoque_rep = +map.get('t3_c1_quan_estoque_rep');
+  if (map.get('t3_qtde_estoque_rep') !== undefined)
+    vp.t3_qtde_estoque_rep = +map.get('t3_qtde_estoque_rep');
 
-  vp.t3_c1_quan_min_vendas = +map.get('t3_c1_quan_min_vendas');
+  vp.t3_qtde_min_vendas = +map.get('t3_qtde_min_vendas');
 
   //Coluna 2
-  if (map.get('t3_c2_quan_estoque_min') !== undefined)
-    vp.t3_c2_quan_estoque_min = +map.get('t3_c2_quan_estoque_min');
+  if (map.get('t3_qtde_estoque_min') !== undefined)
+    vp.t3_qtde_estoque_min = +map.get('t3_qtde_estoque_min');
 
-  if (map.get('t3_c2_quan_estoque_max') !== undefined)
-    vp.t3_c2_quan_estoque_max = +map.get('t3_c2_quan_estoque_max');
+  if (map.get('t3_qtde_estoque_max') !== undefined)
+    vp.t3_qtde_estoque_max = +map.get('t3_qtde_estoque_max');
 
-  vp.t3_c2_quan_max_vendas = +map.get('t3_c2_quan_max_vendas');
+  vp.t3_qtde_max_vendas = +map.get('t3_qtde_max_vendas');
 
   //Coluna 3
-  if (map.get('t3_c3_estoque_min') !== undefined)
-    vp.t3_c3_estoque_min = +map.get('t3_c3_estoque_min');
+  if (map.get('t3_est_min_dias') !== undefined)
+    vp.t3_est_min_dias = +map.get('t3_est_min_dias');
 
-  if (map.get('t3_c3_estoque_max') !== undefined)
-    vp.t3_c3_estoque_max = +map.get('t3_c3_estoque_max');
+  if (map.get('t3_est_max_dias') !== undefined)
+    vp.t3_est_max_dias = +map.get('t3_est_max_dias');
 
   //Coluna 4
-  vp.t3_c4_quan_mul_ven = +map.get('t3_c4_quan_mul_ven');
+  vp.t3_qtde_mul_ven = +map.get('t3_qtde_mul_ven');
 
-  vp.t3_c4_quan_mul_com = +map.get('t3_c4_quan_mul_com');
+  vp.t3_qtde_mul_com = +map.get('t3_qtde_mul_com');
 
   /**
    * Dados do cadastro

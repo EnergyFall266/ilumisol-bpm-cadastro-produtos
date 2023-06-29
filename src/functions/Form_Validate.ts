@@ -15,79 +15,77 @@ export default class FormValidate {
     switch (STEP) {
       case environment.s1_sol_cad:
       case environment.s3_rev_inf:
-        if (vp.t1_c4_origem_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Origem'));
+        if (vp.c1_empresa_cod == -1)
+          this.ms.add(getMsgS('Seleciona uma empresa para continuar'));
+        else {
+          if (vp.t1_c4_origem_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Origem'));
 
-        if (vp.t1_c5_familia_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Família'));
+          if (vp.t1_c5_familia_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Família'));
 
-        if (vp.t1_descricao_prod == '')
-          this.ms.add(getMsgC('Dados básicos - Descrição'));
+          if (vp.t1_descricao_prod == '')
+            this.ms.add(getMsgC('Dados básicos - Descrição'));
 
-        if (vp.t1_c6_medida_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
+          if (vp.t1_c6_medida_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
 
-        if (vp.t1_cotado == '')
-          this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
-        else if (vp.t1_cotado == 'Não' && vp.t1_c1_marca_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Marca'));
+          if (vp.t1_cotado == '')
+            this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
+          else if (vp.t1_cotado == 'Não' && vp.t1_c1_marca_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Marca'));
 
-        if (vp.t1_c3_clafiscal_cod == '')
-          this.ms.add(getMsgS('Dados básicos - Classificação fiscal'));
+          if (vp.t1_c3_clafiscal_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Classificação fiscal'));
 
-        if (vp.t1_barras == '') {
-          this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
-          if (
-            vp.t1_barras_just == '' ||
-            vp.t1_barras_just == 'SEM GTIN'
-          )
+          if (vp.t1_barras == '') {
+            this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
+            if (vp.t1_barras_just == '' || vp.t1_barras_just == 'SEM GTIN')
+              this.ms.add(
+                getMsgC('Dados básicos - Justificativa código de barras')
+              );
+          }
+
+          if (vp.t3_c1_destino_cod == '')
+            this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
+
+          if (vp.t3_qtde_mul_ven === undefined)
+            this.ms.add(getMsgC('Dados de depósito - Qtde. Múltipla vendas'));
+
+          if (vp.t3_qtde_mul_com === undefined)
             this.ms.add(
-              getMsgC('Dados básicos - Justificativa código de barras')
+              getMsgC('Dados de depósito - Qtde. Múltipla para compras')
+            );
+
+          if (vp.t3_qtde_min_vendas === undefined)
+            this.ms.add(getMsgC('Dados de depósito - Qtde. mín. de vendas'));
+
+          if (vp.t3_qtde_max_vendas === undefined)
+            this.ms.add(getMsgC('Dados de depósito - Qtde. max. de vendas'));
+
+          if (vp.t2_c1_fornecedor_cod == -1)
+            this.ms.add(getMsgS('Dados do fornecedor - Fornecedor'));
+
+          if (vp.t2_produto_fornecedor_cod == '')
+            this.ms.add(
+              getMsgC('Dados do fornecedor - Código produto fornecedor')
+            );
+
+          if (vp.t2_quantidade_multipla === undefined)
+            this.ms.add(
+              getMsgC('Dados do fornecedor - Quantidade múltipla fornecedor')
+            );
+
+          if (vp.t2_quantidade_maxima === undefined)
+            this.ms.add(
+              getMsgC('Dados do fornecedor - Quantidade máxima fornecedor')
+            );
+
+          if (vp.t2_quantidade_minima === undefined)
+            this.ms.add(
+              getMsgC('Dados do fornecedor - Quantidade mínima fornecedor')
             );
         }
-
-        if (vp.t1_especificacao == '')
-          this.ms.add(getMsgC('Dados básicos - Especificação técnica'));
-
-        if (vp.t3_c1_destino_cod == '')
-          this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
-
-        if (vp.t3_c4_quan_mul_ven === undefined)
-          this.ms.add(getMsgC('Dados de depósito - Qtda. Múltipla vendas'));
-
-        if (vp.t3_c4_quan_mul_com === undefined)
-          this.ms.add(
-            getMsgC('Dados de depósito - Qtda. Múltipla para compras')
-          );
-
-        if (vp.t3_c1_quan_min_vendas === undefined)
-          this.ms.add(getMsgC('Dados de depósito - Qtda. mín. de vendas'));
-
-        if (vp.t3_c2_quan_max_vendas === undefined)
-          this.ms.add(getMsgC('Dados de depósito - Qtda. max. de vendas'));
-
-        if (vp.t2_fornecedor_cod == -1)
-          this.ms.add(getMsgS('Dados do fornecedor - Fornecedor'));
-
-        if (vp.t2_produto_fornecedor == '')
-          this.ms.add(
-            getMsgC('Dados do fornecedor - Código produto fornecedor')
-          );
-
-        if (vp.t2_quantidade_multipla === undefined)
-          this.ms.add(
-            getMsgC('Dados do fornecedor - Quantidade múltipla fornecedor')
-          );
-
-        if (vp.t2_quantidade_maxima === undefined)
-          this.ms.add(
-            getMsgC('Dados do fornecedor - Quantidade máxima fornecedor')
-          );
-
-        if (vp.t2_quantidade_minima === undefined)
-          this.ms.add(
-            getMsgC('Dados do fornecedor - Quantidade mínima fornecedor')
-          );
         break;
 
       case environment.s2_dad_cad:
@@ -159,15 +157,6 @@ export default class FormValidate {
             getMsgS('Dados fiscais e contábeis - Usa Produto x Fornecedor')
           );
 
-        if (vp.t6_funrural === undefined)
-          this.ms.add(getMsgC('Dados fiscais e contábeis - % Funrural'));
-
-        if (vp.t6_gilrat === undefined)
-          this.ms.add(getMsgC('Dados fiscais e contábeis - % Gilrat'));
-
-        if (vp.t6_senart === undefined)
-          this.ms.add(getMsgC('Dados fiscais e contábeis - % Senar / Senat'));
-
         if (vp.t6_c12_enqua_esp_cod == -1)
           this.ms.add(
             getMsgS(
@@ -205,12 +194,12 @@ const getMsgC = (t: string): Message => ({
   severity: 'warn',
   summary: 'Campo obrigatório!',
   detail: t,
-  life: 5000
+  life: 5000,
 });
 
 const getMsgS = (t: string): Message => ({
   severity: 'warn',
   summary: 'Seleção obrigatória!',
   detail: t,
-  life: 5000
+  life: 5000,
 });

@@ -6,7 +6,7 @@ import { ExportaProdutos } from 'src/beans/WS_Beans';
 @Component({
   selector: 'app-t1-c2-substituto',
   templateUrl: './t1-c2-substituto.component.html',
-  styleUrls: ['./t1-c2-substituto.component.scss']
+  styleUrls: ['./t1-c2-substituto.component.scss'],
 })
 export class T1C2SubstitutoComponent {
   @Input() vp!: VP_BPM;
@@ -21,7 +21,10 @@ export class T1C2SubstitutoComponent {
     this.mostrar_modal = true;
     if (this.vp.t1_c2_substituto_arr.length == 0) {
       this.vp.t1_c2_substituto_arr = (
-        (await this.ap.exportaServico('ExportaProdutos')) as ExportaProdutos[]
+        (await this.ap.exportaServico(
+          'ExportaProdutos',
+          JSON.stringify({ codEmp: this.vp.c1_empresa_cod })
+        )) as ExportaProdutos[]
       ).map<ExportaProdutos>((l) => ({
         codPro: l.codPro.replaceAll("'", ''),
         desPro: l.desPro,

@@ -6,7 +6,7 @@ import { ExportaFamilias } from 'src/beans/WS_Beans';
 @Component({
   selector: 'app-t1-c5-familia',
   templateUrl: './t1-c5-familia.component.html',
-  styleUrls: ['./t1-c5-familia.component.scss']
+  styleUrls: ['./t1-c5-familia.component.scss'],
 })
 export class T1C5FamiliaComponent {
   @Input() vp!: VP_BPM;
@@ -35,10 +35,12 @@ export class T1C5FamiliaComponent {
   }
 
   private async buscarFamilias() {
+    var json: any = { codEmp: this.vp.c1_empresa_cod };
+    if (this.vp.t1_c4_origem_cod != '') json.codOri = this.vp.t1_c4_origem_cod;
     this.vp.t1_c5_familia_arr = (
       (await this.ap.exportaServico(
         'ExportaFamilias',
-        this.vp.t1_c4_origem_cod
+        json
       )) as ExportaFamilias[]
     ).map<ExportaFamilias>((l) => ({
       codFam: l.codFam + '',

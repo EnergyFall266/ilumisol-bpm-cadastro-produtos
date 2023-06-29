@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import { CadastroRoot, LigProDep } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
-import { wsG5Cadastro, wsG5Exporta } from 'src/functions/WS_Axios';
+import { wsG5Exporta } from 'src/functions/WS_Axios';
 import * as ged from 'prisma_prismafunctions';
 
 @Injectable({ providedIn: 'root' })
@@ -11,7 +11,7 @@ export class AppService {
 
   constructor() {}
 
-  public async exportaServico(port: string, body: string | number = '') {
+  public async exportaServico(port: string, body: string | number = '{}') {
     var r;
     if (port == 'ExportaFamilias' && body != '')
       r = await wsG5Exporta(port, `{ "codOri": "${body}" }`);
@@ -21,9 +21,11 @@ export class AppService {
       r = await wsG5Exporta(port, `{ "nomLis": "${body}" }`);
     else if (port == 'ExportaSubCategorias' && body != -1)
       r = await wsG5Exporta(port, `{ "codCtg": ${body} }`);
-    else r = await wsG5Exporta(port);
+    else r = await wsG5Exporta(port, body + '');
 
-    if (port == 'ExportaProdutos' && r.produtos)
+    if (port == 'ExportaEmpresas' && r.empresas)
+      return Array.isArray(r.empresas) ? r.empresas : [r.empresas];
+    else if (port == 'ExportaProdutos' && r.produtos)
       return Array.isArray(r.produtos) ? r.produtos : [r.produtos];
     else if (port == 'ExportaOrigens' && r.origens)
       return Array.isArray(r.origens) ? r.origens : [r.origens];
@@ -82,16 +84,10 @@ export class AppService {
 
   public enviarDocs = async (vp: VP_BPM, t: string) => {
     if (t == 'c') {
-      await this.prepararDocs(
-        vp.t5_file_TS,
-        vp.t5_file_GED
-      );
+      await this.prepararDocs(vp.t5_file_TS, vp.t5_file_GED);
       var p = await this.pegarPastasGED(vp, vp.t5_pasta_nome);
     } else if (t == 'f') {
-      await this.prepararDocs(
-        vp.t6_file_TS,
-        vp.t6_file_GED
-      );
+      await this.prepararDocs(vp.t6_file_TS, vp.t6_file_GED);
       var p = await this.pegarPastasGED(vp, vp.t6_pasta_nome);
     }
 
@@ -210,15 +206,16 @@ export class AppService {
     for (const i of vp.t3_c1_destino_sel)
       d.push({
         codDep: i.codDep,
-        estRep: vp.t3_c1_quan_estoque_rep ?? 0,
-        estMin: vp.t3_c2_quan_estoque_min ?? 0,
-        estMax: vp.t3_c2_quan_estoque_max ?? 0,
-        estMid: vp.t3_c3_estoque_min ?? 0,
-        estMad: vp.t3_c3_estoque_max ?? 0,
+        estRep: vp.t3_qtde_estoque_rep ?? 0,
+        estMin: vp.t3_qtde_estoque_min ?? 0,
+        estMax: vp.t3_qtde_estoque_max ?? 0,
+        estMid: vp.t3_est_min_dias ?? 0,
+        estMad: vp.t3_est_max_dias ?? 0,
       });
 
     const c: CadastroRoot = {
       produto: {
+        codEmp: vp.c1_empresa_cod,
         //Dados básicos
         codOri: vp.t1_c4_origem_cod,
         codFam: vp.t1_c5_familia_cod,
@@ -237,10 +234,10 @@ export class AppService {
         indOct: vp.t1_orcamento[0],
 
         //Dados de depósito
-        qtdMin: vp.t3_c1_quan_min_vendas,
-        qtdMax: vp.t3_c2_quan_max_vendas,
-        qtdMve: vp.t3_c4_quan_mul_ven,
-        qtdMlt: vp.t3_c4_quan_mul_com,
+        qtdMin: vp.t3_qtde_min_vendas,
+        qtdMax: vp.t3_qtde_max_vendas,
+        qtdMve: vp.t3_qtde_mul_ven,
+        qtdMlt: vp.t3_qtde_mul_com,
 
         //Dados do cadastro
         desNfv: vp.t1_descricao_fiscal,
@@ -288,6 +285,9 @@ export class AppService {
         claPro: 1,
         tipPro: 'C',
         numOri: 55,
+        larPro: vp.t1_largura,
+        altPro: vp.t1_altura,
+        comPro: vp.t1_comprimento,
 
         //Derivação
         derivacao: [
@@ -303,8 +303,8 @@ export class AppService {
         //Fornecedor X Produto - Possível
         ligProFor: [
           {
-            codFor: vp.t2_fornecedor_cod,
-            proFor: vp.t2_produto_fornecedor,
+            codFor: vp.t2_c1_fornecedor_cod,
+            proFor: vp.t2_produto_fornecedor_cod,
             qtdMlt: vp.t2_quantidade_multipla ?? 0,
             qtdMax: vp.t2_quantidade_maxima ?? 0,
             qtdMin: vp.t2_quantidade_minima ?? 0,
@@ -318,6 +318,6 @@ export class AppService {
       },
     };
 
-    return await wsG5Cadastro(JSON.stringify(c));
+    return await wsG5Exporta('CadastroProduto', JSON.stringify(c));
   }
 }

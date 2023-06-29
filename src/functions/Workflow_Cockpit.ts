@@ -52,7 +52,7 @@ export async function saveData(vp: VP_BPM) {
   vp.t1_c8_agrcomercial_arr = [];
   vp.t1_c7_mercadoria_arr = [];
   vp.t1_c11_multinivel_arr = [];
-  vp.t2_fornecedor_arr = [];
+  vp.t2_c1_fornecedor_arr = [];
   vp.t3_c1_destino_arr = [];
   vp.t5_c1_mascara_arr = [];
   vp.t1_c9_agrestoque_arr = [];

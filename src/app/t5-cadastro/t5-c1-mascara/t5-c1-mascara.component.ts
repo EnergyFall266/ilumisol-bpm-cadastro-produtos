@@ -6,7 +6,7 @@ import { ExportaMascaraDerivacao } from 'src/beans/WS_Beans';
 @Component({
   selector: 'app-t5-c1-mascara',
   templateUrl: './t5-c1-mascara.component.html',
-  styleUrls: ['./t5-c1-mascara.component.scss']
+  styleUrls: ['./t5-c1-mascara.component.scss'],
 })
 export class T5C1MascaraComponent {
   @Input() vp!: VP_BPM;
@@ -22,7 +22,8 @@ export class T5C1MascaraComponent {
       this.mostrar_modal = true;
       if (this.vp.t5_c1_mascara_arr.length == 0) {
         this.vp.t5_c1_mascara_arr = (await this.ap.exportaServico(
-          'ExportaMascaraDerivacao'
+          'ExportaMascaraDerivacao',
+          JSON.stringify({ codEmp: this.vp.c1_empresa_cod })
         )) as ExportaMascaraDerivacao[];
         if (this.vp.t5_c1_mascara_cod != '')
           this.vp.t5_c1_mascara_obj = this.vp.t5_c1_mascara_arr.find(

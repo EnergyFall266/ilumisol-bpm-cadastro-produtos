@@ -7,7 +7,8 @@ export const environment = {
       return 'error';
     }
   },
-  url_padrao: window.location.origin ?? '',
+  //url_padrao: window.location.origin ?? '',
+  url_padrao: 'https://senior.ilumisol.com.br:8181',
   ged_papel: {
     active: true,
     permissionLevel: 3,

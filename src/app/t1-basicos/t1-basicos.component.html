@@ -62,12 +62,7 @@
       <div class="col-12 pb-0">
         <app-t1-c1-marca [vp]="vp"></app-t1-c1-marca>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 2 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12">
         <div class="grid">
           <span class="col-12">Pode ser requisitado?</span>
@@ -118,7 +113,12 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- Coluna 2 -->
+  <div class="col-3">
+    <div class="grid">
       <div class="col-12">
         <div class="grid">
           <span class="col-12">Permite gerar orçamento?</span>
@@ -159,12 +159,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 3 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12 pb-0">
         <app-t1-c3-classificacao [vp]="vp"></app-t1-c3-classificacao>
       </div>
@@ -227,16 +222,16 @@
       <div class="col-12 pb-0">
         <app-t1-c5-familia [vp]="vp"></app-t1-c5-familia>
       </div>
-
-      <div class="col-12 pb-0">
-        <app-t1-c6-unidade [vp]="vp"></app-t1-c6-unidade>
-      </div>
     </div>
   </div>
 
   <!-- Coluna 3 -->
   <div class="col-3">
     <div class="grid">
+      <div class="col-12 pb-0">
+        <app-t1-c6-unidade [vp]="vp"></app-t1-c6-unidade>
+      </div>
+
       <div class="col-12 pb-0">
         <app-t1-c7-mercadoria [vp]="vp"></app-t1-c7-mercadoria>
       </div>
@@ -255,10 +250,7 @@
 
       <div class="col-12">
         <div class="grid">
-          <span class="col-12">
-            Especificação técnica
-            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
-          </span>
+          <span class="col-12">Especificação técnica</span>
           <div class="col-12 py-0">
             <input
               pInputText
@@ -274,6 +266,12 @@
       <div class="col-12 pb-0">
         <app-t1-c11-multinivel [vp]="vp"></app-t1-c11-multinivel>
       </div>
+    </div>
+  </div>
+
+  <!-- Coluna 3 -->
+  <div class="col-3">
+    <div class="grid">
     </div>
   </div>
 </div>

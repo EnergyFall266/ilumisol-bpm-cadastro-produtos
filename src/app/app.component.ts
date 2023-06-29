@@ -91,6 +91,7 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
+    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5]);
   }
 
   private _loadData = async (data: Data, info: Info) => {
@@ -122,10 +123,8 @@ export class AppComponent {
 
     if (this.vp.alertas.length == 0) {
       const c = await this.ap.cadastroService(this.vp);
-      if (c.suc.produto) {
-        const p = Array.isArray(c.suc.produto)
-          ? c.suc.produto[0]
-          : c.suc.produto;
+      if (c.produto) {
+        const p = Array.isArray(c.produto) ? c.produto[0] : c.produto;
         this.vp.c7_mensagem_retorno = p.msgRetorno + '';
         if (p.msgRetorno != 'OK')
           this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
