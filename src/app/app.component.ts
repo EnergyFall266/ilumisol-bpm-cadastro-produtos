@@ -91,7 +91,7 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
-    this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5]);
+    //this.activeMenu = fd.showMenus(1, [1, 2, 3, 4, 5]);
   }
 
   private _loadData = async (data: Data, info: Info) => {
@@ -118,7 +118,7 @@ export class AppComponent {
   public cadastrarProduto = async () => {
     this.vp.overlay = true;
 
-    this.formValidate.salvarDados(this.vp);
+    this.formValidate.cadastrarProduto(this.vp);
     this.vp.alertas = this.msg.messages == null ? [] : this.msg.messages;
 
     if (this.vp.alertas.length == 0) {

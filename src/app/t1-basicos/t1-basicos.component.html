@@ -96,7 +96,12 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- Coluna 2 -->
+  <div class="col-3">
+    <div class="grid">
       <div class="col-12">
         <div class="grid">
           <span class="col-12">Pode ser comprado?</span>
@@ -113,12 +118,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 2 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12">
         <div class="grid">
           <span class="col-12">Permite gerar orçamento?</span>
@@ -214,7 +214,12 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- Coluna 3 -->
+  <div class="col-3">
+    <div class="grid">
       <div class="col-12 pb-0">
         <app-t1-c4-origem [vp]="vp"></app-t1-c4-origem>
       </div>
@@ -222,12 +227,7 @@
       <div class="col-12 pb-0">
         <app-t1-c5-familia [vp]="vp"></app-t1-c5-familia>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 3 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12 pb-0">
         <app-t1-c6-unidade [vp]="vp"></app-t1-c6-unidade>
       </div>
@@ -272,6 +272,196 @@
   <!-- Coluna 3 -->
   <div class="col-3">
     <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Altura / Espessura (mm)
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="4"
+              [maxFractionDigits]="4"
+              [showButtons]="!vp.t1_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t1_req_to_read"
+              placeholder="0,0000"
+              [(ngModel)]="vp.t1_altura"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Largura (mm)
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="4"
+              [maxFractionDigits]="4"
+              [showButtons]="!vp.t1_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t1_req_to_read"
+              placeholder="0,0000"
+              [(ngModel)]="vp.t1_largura"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Comprimento (mm)
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              [minFractionDigits]="4"
+              [maxFractionDigits]="4"
+              [showButtons]="!vp.t1_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t1_req_to_read"
+              placeholder="0,0000"
+              [(ngModel)]="vp.t1_comprimento"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Valor aprox. do item
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              mode="currency"
+              currency="BRL"
+              [minFractionDigits]="4"
+              [maxFractionDigits]="4"
+              [showButtons]="!vp.t1_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              decrementButtonIcon="pi pi-minus"
+              incrementButtonIcon="pi pi-plus"
+              [readonly]="vp.t1_req_to_read"
+              placeholder="R$ 0,0000"
+              [(ngModel)]="vp.t1_valor_aprox"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Aplicação
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_aplicacao"
+            />
+          </div>
+          <h6
+            class="col-12 m-0 py-0"
+            style="font-weight: normal"
+            [hidden]="vp.t1_req_to_read"
+          >
+            Descreva onde será utilizado o produto
+          </h6>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Composição Tratamento
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t1_req_to_read"
+              [(ngModel)]="vp.t1_comp_trata"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Produto vai ter estoque controlado?
+            <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t1_controlado"
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

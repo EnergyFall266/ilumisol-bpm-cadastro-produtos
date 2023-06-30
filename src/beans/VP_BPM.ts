@@ -10,7 +10,7 @@ export interface ResponseLoadData {
 
 export class VP_BPM {
   //Variáveis ​​Gerais
-  public overlay: boolean = false;
+  public overlay: boolean = true;
   public buscandoWS: boolean = false;
 
   public alertas: Message[] = [];

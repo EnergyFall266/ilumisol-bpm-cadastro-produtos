@@ -13,9 +13,7 @@ export class AppService {
 
   public async exportaServico(port: string, body: string | number = '{}') {
     var r;
-    if (port == 'ExportaFamilias' && body != '')
-      r = await wsG5Exporta(port, `{ "codOri": "${body}" }`);
-    else if (port == 'ExportaAgrupamentos')
+    if (port == 'ExportaAgrupamentos')
       r = await wsG5Exporta(port, `{ "tipAgp": "${body}" }`);
     else if (port == 'ExportaValorLista')
       r = await wsG5Exporta(port, `{ "nomLis": "${body}" }`);

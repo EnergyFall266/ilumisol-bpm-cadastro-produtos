@@ -40,7 +40,7 @@ export class T1C5FamiliaComponent {
     this.vp.t1_c5_familia_arr = (
       (await this.ap.exportaServico(
         'ExportaFamilias',
-        json
+        JSON.stringify(json)
       )) as ExportaFamilias[]
     ).map<ExportaFamilias>((l) => ({
       codFam: l.codFam + '',

@@ -59,6 +59,18 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t1_c11_multinivel_cod') !== undefined)
     vp.t1_c11_multinivel_cod = map.get('t1_c11_multinivel_cod');
 
+  vp.t1_altura = map.get('t1_altura');
+
+  vp.t1_largura = map.get('t1_largura');
+
+  vp.t1_comprimento = map.get('t1_comprimento');
+
+  vp.t1_aplicacao = map.get('t1_aplicacao');
+
+  vp.t1_comp_trata = map.get('t1_comp_trata');
+
+  vp.t1_controlado = map.get('t1_controlado');
+
   /**
    * Dados de fornecedor
    */

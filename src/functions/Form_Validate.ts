@@ -46,6 +46,30 @@ export default class FormValidate {
               );
           }
 
+          if (vp.t1_altura === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Altura / Espessura'));
+
+          if (vp.t1_largura === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Largura'));
+
+          if (vp.t1_comprimento === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Comprimento'));
+
+          if (vp.t1_valor_aprox === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
+
+          if (vp.t1_aplicacao === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Aplicação'));
+
+          if (vp.t1_comp_trata === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Composição Tratamento'));
+
+          if (vp.t1_controlado === undefined)
+            this.ms.add(
+              getMsgS('Dados do básicos - Produto vai ter estoque controlado?')
+            );
+
+          //
           if (vp.t3_c1_destino_cod == '')
             this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
 
@@ -63,6 +87,7 @@ export default class FormValidate {
           if (vp.t3_qtde_max_vendas === undefined)
             this.ms.add(getMsgC('Dados de depósito - Qtde. max. de vendas'));
 
+          //
           if (vp.t2_c1_fornecedor_cod == -1)
             this.ms.add(getMsgS('Dados do fornecedor - Fornecedor'));
 
@@ -97,86 +122,9 @@ export default class FormValidate {
         break;
 
       case environment.s6_fis_con:
-        if (vp.t6_c1_impostos_cod == -1)
-          this.ms.add(
-            getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
-          );
-
-        if (vp.t6_recupera_pis == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Pis'));
-
-        if (vp.t6_recupera_cof == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Cofins'));
-
-        if (vp.t6_tributa_pis == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Pis'));
-
-        if (vp.t6_tributa_cof == '')
-          this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Cofins'));
-
-        if (vp.t6_c7_s_p_ven_cod == '')
-          this.ms.add(
-            getMsgS(
-              'Dados fiscais e contábeis - Situação Tributária Pis Vendas'
-            )
-          );
-
-        if (vp.t6_natureza_pis === undefined)
-          this.ms.add(
-            getMsgS('Dados fiscais e contábeis - Natureza Receita Pis')
-          );
-
-        if (vp.t6_c8_s_c_ven_cod == '')
-          this.ms.add(
-            getMsgS(
-              'Dados fiscais e contábeis - Situação Tributária Cofins Vendas'
-            )
-          );
-
-        if (vp.t6_natureza_cof === undefined)
-          this.ms.add(
-            getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins')
-          );
-
-        if (vp.t6_c10_s_p_com_cod == '')
-          this.ms.add(
-            getMsgS(
-              'Dados fiscais e contábeis - Situação Tributária Pis Compras'
-            )
-          );
-
-        if (vp.t6_c11_s_c_com_cod == '')
-          this.ms.add(
-            getMsgS(
-              'Dados fiscais e contábeis - Situação Tributária Cofins Compras'
-            )
-          );
-
-        if (vp.t6_produ_forne == '')
-          this.ms.add(
-            getMsgS('Dados fiscais e contábeis - Usa Produto x Fornecedor')
-          );
-
-        if (vp.t6_c12_enqua_esp_cod == -1)
-          this.ms.add(
-            getMsgS(
-              'Dados fiscais e contábeis - Enquadramento de produto específico'
-            )
-          );
-        else if (vp.t6_c12_enqua_esp_des == 'Combustível') {
-          if (vp.t6_anp_cod === undefined)
-            this.ms.add(
-              getMsgC('Dados fiscais e contábeis - Código produto ANP')
-            );
-
-          if (vp.t6_anp_des == '')
-            this.ms.add(
-              getMsgC('Dados fiscais e contábeis - Descrição produto na ANP')
-            );
-        }
         break;
 
-      case environment.s7_gra_pro:
+      case environment.s6_fis_con:
         if (vp.c7_mensagem_retorno == '')
           this.ms.add({
             severity: 'warn',
@@ -186,6 +134,76 @@ export default class FormValidate {
 
       default:
         break;
+    }
+  };
+
+  public cadastrarProduto = (vp: VP_BPM) => {
+    if (vp.t6_c1_impostos_cod == -1)
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
+      );
+
+    if (vp.t6_recupera_pis == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Pis'));
+
+    if (vp.t6_recupera_cof == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Cofins'));
+
+    if (vp.t6_tributa_pis == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Pis'));
+
+    if (vp.t6_tributa_cof == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Cofins'));
+
+    if (vp.t6_c7_s_p_ven_cod == '')
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Situação Tributária Pis Vendas')
+      );
+
+    if (vp.t6_natureza_pis === undefined)
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Natureza Receita Pis'));
+
+    if (vp.t6_c8_s_c_ven_cod == '')
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Situação Tributária Cofins Vendas')
+      );
+
+    if (vp.t6_natureza_cof === undefined)
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins')
+      );
+
+    if (vp.t6_c10_s_p_com_cod == '')
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Situação Tributária Pis Compras')
+      );
+
+    if (vp.t6_c11_s_c_com_cod == '')
+      this.ms.add(
+        getMsgS(
+          'Dados fiscais e contábeis - Situação Tributária Cofins Compras'
+        )
+      );
+
+    if (vp.t6_produ_forne == '')
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Usa Produto x Fornecedor')
+      );
+
+    if (vp.t6_c12_enqua_esp_cod == -1)
+      this.ms.add(
+        getMsgS(
+          'Dados fiscais e contábeis - Enquadramento de produto específico'
+        )
+      );
+    else if (vp.t6_c12_enqua_esp_des == 'Combustível') {
+      if (vp.t6_anp_cod === undefined)
+        this.ms.add(getMsgC('Dados fiscais e contábeis - Código produto ANP'));
+
+      if (vp.t6_anp_des == '')
+        this.ms.add(
+          getMsgC('Dados fiscais e contábeis - Descrição produto na ANP')
+        );
     }
   };
 }
