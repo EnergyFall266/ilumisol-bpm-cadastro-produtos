@@ -6,24 +6,24 @@ export const menus: MenuItem[] = [
     command: () => showPanel(1),
     visible: false,
   },
-  {
+  /*{
     label: 'Dados do fornecedor',
+    command: () => showPanel(2),
+    visible: false,
+  },*/
+  /*{
+    label: 'Dados de depósito',
+    command: () => showPanel(3),
+    visible: false,
+  },*/
+  {
+    label: 'Dados de derivação',
     command: () => showPanel(2),
     visible: false,
   },
   {
-    label: 'Dados de depósito',
-    command: () => showPanel(3),
-    visible: false,
-  },
-  {
-    label: 'Dados de derivação',
-    command: () => showPanel(4),
-    visible: false,
-  },
-  {
     label: 'Dados fiscais e contábeis',
-    command: () => showPanel(5),
+    command: () => showPanel(3),
     visible: false,
   },
 ];
@@ -31,10 +31,10 @@ export const menus: MenuItem[] = [
 type panelType = { [k: string]: boolean };
 export const panels: panelType = {
   t1_basicos: false,
-  t2_fornecedor: true,
-  t3_deposito: true,
-  t4_cadastro: true,
-  t5_fis_con: true,
+  //t2_fornecedor: true,
+  //t3_deposito: true,
+  t2_cadastro: true,
+  t3_fis_con: true,
 };
 
 export function showMenus(inicial: number, panels: number[]): MenuItem {
@@ -45,9 +45,9 @@ export function showMenus(inicial: number, panels: number[]): MenuItem {
 function showPanel(panel: number): MenuItem {
   Object.keys(panels).forEach((k) => (panels[k] = true));
   if (panel === 1) panels['t1_basicos'] = false;
-  else if (panel === 2) panels['t2_fornecedor'] = false;
-  else if (panel === 3) panels['t3_deposito'] = false;
-  else if (panel === 4) panels['t4_cadastro'] = false;
-  else if (panel === 5) panels['t5_fis_con'] = false;
+  //else if (panel === 2) panels['t2_fornecedor'] = false;
+  //else if (panel === 3) panels['t3_deposito'] = false;
+  else if (panel === 2) panels['t2_cadastro'] = false;
+  else if (panel === 3) panels['t3_fis_con'] = false;
   return menus[panel - 1];
 }

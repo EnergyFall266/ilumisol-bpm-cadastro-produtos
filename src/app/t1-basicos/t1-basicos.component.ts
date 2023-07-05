@@ -12,10 +12,4 @@ export class T1BasicosComponent implements OnInit {
   constructor() {}
 
   public ngOnInit(): void {}
-
-  public getDescNota() {
-    this.vp.t1_descricao_fiscal =
-      this.vp.t1_descricao_prod +
-      (this.vp.t1_complemento != '' ? ' ' + this.vp.t1_complemento : '');
-  }
 }

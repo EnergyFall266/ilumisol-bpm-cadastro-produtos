@@ -200,48 +200,54 @@ export class AppService {
 
   public async cadastroService(vp: VP_BPM) {
     const d: LigProDep[] = [];
-    vp.t3_c1_destino_sel = JSON.parse(vp.t3_c1_destino_stx);
-    for (const i of vp.t3_c1_destino_sel)
+    vp.t1_c12_destino_sel = JSON.parse(vp.t1_c12_destino_stx);
+    for (const i of vp.t1_c12_destino_sel)
       d.push({
         codDep: i.codDep,
-        estRep: vp.t3_qtde_estoque_rep ?? 0,
+        /*estRep: vp.t3_qtde_estoque_rep ?? 0,
         estMin: vp.t3_qtde_estoque_min ?? 0,
         estMax: vp.t3_qtde_estoque_max ?? 0,
         estMid: vp.t3_est_min_dias ?? 0,
-        estMad: vp.t3_est_max_dias ?? 0,
+        estMad: vp.t3_est_max_dias ?? 0,*/
       });
 
     const c: CadastroRoot = {
       produto: {
         codEmp: vp.c1_empresa_cod,
-        //Dados básicos
-        codOri: vp.t1_c4_origem_cod,
+        /**
+         * Dados básicos
+         */
+        //codOri: vp.t1_c4_origem_cod,
         codFam: vp.t1_c5_familia_cod,
         desPro: vp.t1_descricao_prod,
         uniMed: vp.t1_c6_medida_cod,
 
         codMar: vp.t1_c1_marca_cod,
         codClf: vp.t1_c3_clafiscal_cod,
-        codAgc: vp.t1_c8_agrcomercial_cod,
+        //codAgc: vp.t1_c8_agrcomercial_cod,
         oriMer: vp.t1_c7_mercadoria_cod,
-        codAga: vp.t1_c11_multinivel_cod,
+        //codAga: vp.t1_c11_multinivel_cod,
 
-        indReq: vp.t1_requisitado[0],
+        //indReq: vp.t1_requisitado[0],
         indVen: vp.t1_vendido[0],
         indCpr: vp.t1_comprado[0],
-        indOct: vp.t1_orcamento[0],
+        //indOct: vp.t1_orcamento[0],
 
-        //Dados de depósito
-        qtdMin: vp.t3_qtde_min_vendas,
-        qtdMax: vp.t3_qtde_max_vendas,
-        qtdMve: vp.t3_qtde_mul_ven,
-        qtdMlt: vp.t3_qtde_mul_com,
+        /**
+         * Dados de depósito
+         */
+        //qtdMin: vp.t3_qtde_min_vendas,
+        //qtdMax: vp.t3_qtde_max_vendas,
+        //qtdMve: vp.t3_qtde_mul_ven,
+        //qtdMlt: vp.t3_qtde_mul_com,
 
-        //Dados do cadastro
+        /**
+         * Dados do cadastro
+         */
         desNfv: vp.t1_descricao_fiscal,
         codMdp: vp.t5_c1_mascara_cod,
         codAge: vp.t1_c9_agrestoque_cod,
-        codAgu: vp.t1_c10_agrcusto_cod,
+        //codAgu: vp.t1_c10_agrcusto_cod,
 
         uniMe2: vp.t5_c2_medida2_cod,
         uniMe3: vp.t5_c3_medida3_cod,
@@ -249,7 +255,9 @@ export class AppService {
         pesBru: vp.t5_peso_bruto,
         pesLiq: vp.t5_peso_liquido,
 
-        //Dados fiscais e contábeis
+        /**
+         * Dados fiscais e contábeis
+         */
         proImp: vp.t6_c1_impostos_cod,
         codTic: vp.t6_c2_icms_espe_cod,
         codTrd: vp.t6_c3_redu_icms_cod,
@@ -287,7 +295,9 @@ export class AppService {
         altPro: vp.t1_altura,
         comPro: vp.t1_comprimento,
 
-        //Derivação
+        /**
+         * Derivação
+         */
         derivacao: [
           {
             codBar: vp.t1_barras,
@@ -299,7 +309,7 @@ export class AppService {
         ],
 
         //Fornecedor X Produto - Possível
-        ligProFor: [
+        /*ligProFor: [
           {
             codFor: vp.t2_c1_fornecedor_cod,
             proFor: vp.t2_produto_fornecedor_cod,
@@ -309,7 +319,7 @@ export class AppService {
             recIpi: 'S',
             recIcm: 'S',
           },
-        ],
+        ],*/
 
         //Produto X Depósito
         ligProDep: d,

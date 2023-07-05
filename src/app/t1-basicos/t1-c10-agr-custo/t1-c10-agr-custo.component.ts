@@ -9,7 +9,7 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
   styleUrls: ['./t1-c10-agr-custo.component.scss']
 })
 export class T1C10AgrCustoComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal_est: boolean = false;
   public mostrar_modal_cus: boolean = false;
@@ -44,5 +44,5 @@ export class T1C10AgrCustoComponent {
     this.vp.t1_c10_agrcusto_obj = undefined;
     this.vp.t1_c10_agrcusto_cod = '';
     this.vp.t1_c10_agrcusto_des = '';
-  }
+  }*/
 }

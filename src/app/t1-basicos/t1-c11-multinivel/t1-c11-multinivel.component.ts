@@ -9,7 +9,7 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
   styleUrls: ['./t1-c11-multinivel.component.scss'],
 })
 export class T1C11MultinivelComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -42,5 +42,5 @@ export class T1C11MultinivelComponent {
   public multinivelClear() {
     this.vp.t1_c11_multinivel_obj = undefined;
     this.vp.t1_c11_multinivel_cod = '';
-  }
+  }*/
 }

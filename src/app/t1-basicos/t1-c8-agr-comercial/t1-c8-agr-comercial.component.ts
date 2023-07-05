@@ -9,7 +9,7 @@ import { ExportaAgrupamentos } from 'src/beans/WS_Beans';
   styleUrls: ['./t1-c8-agr-comercial.component.scss']
 })
 export class T1C8AgrComercialComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -44,5 +44,5 @@ export class T1C8AgrComercialComponent {
     this.vp.t1_c8_agrcomercial_obj = undefined;
     this.vp.t1_c8_agrcomercial_cod = '';
     this.vp.t1_c8_agrcomercial_des = '';
-  }
+  }*/
 }

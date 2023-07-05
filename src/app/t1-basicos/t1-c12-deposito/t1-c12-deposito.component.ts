@@ -4,12 +4,12 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaDepositos } from 'src/beans/WS_Beans';
 
 @Component({
-  selector: 'app-t3-c1-deposito',
-  templateUrl: './t3-c1-deposito.component.html',
-  styleUrls: ['./t3-c1-deposito.component.scss'],
+  selector: 'app-t1-c12-deposito',
+  templateUrl: './t1-c12-deposito.component.html',
+  styleUrls: ['./t1-c12-deposito.component.scss']
 })
-export class T3C1DepositoComponent {
-  /*@Input() vp!: VP_BPM;
+export class T1C12DepositoComponent {
+  @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -49,5 +49,5 @@ export class T3C1DepositoComponent {
     this.vp.t1_c12_destino_stx = '';
     this.vp.t1_c12_destino_cod = '';
     this.vp.t1_c12_destino_des = '';
-  }*/
+  }
 }

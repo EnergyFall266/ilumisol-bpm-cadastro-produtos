@@ -1,17 +1,30 @@
-<div class="grid">
+<!--<div class="grid">
   <span class="col-12">
     Depósito destino
     <span style="color: red" [hidden]="vp.t3_req_to_read">*</span>
   </span>
   <div class="col-12 py-0">
     <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
+        [style.display]="
+          vp.t3_req_to_read || vp.buscandoWS || vp.t1_c12_destino_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="depositoClear()"
+      ></button>
       <input
         pInputText
         type="text"
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t3_c1_destino_des"
+        [(ngModel)]="vp.t1_c12_destino_des"
         (click)="vp.t3_req_to_read || vp.buscandoWS ? '' : depositoInput()"
       />
       <button
@@ -43,8 +56,8 @@
     [rows]="10"
     [paginator]="true"
     [loading]="vp.buscandoWS"
-    [value]="vp.t3_c1_destino_arr"
-    [(selection)]="vp.t3_c1_destino_sel"
+    [value]="vp.t1_c12_destino_arr"
+    [(selection)]="vp.t1_c12_destino_sel"
     (onRowSelect)="depositoSelect()"
     (onRowUnselect)="depositoSelect()"
     (onHeaderCheckboxToggle)="depositoSelect()"
@@ -90,4 +103,4 @@
       </tr>
     </ng-template>
   </p-table>
-</p-dialog>
+</p-dialog>-->

@@ -9,7 +9,7 @@ import { ExportaOrigens } from 'src/beans/WS_Beans';
   styleUrls: ['./t1-c4-origem.component.scss'],
 })
 export class T1C4OrigemComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -46,5 +46,5 @@ export class T1C4OrigemComponent {
     this.vp.t1_c4_origem_obj = undefined;
     this.vp.t1_c4_origem_cod = '';
     this.vp.t1_c4_origem_des = '';
-  }
+  }*/
 }

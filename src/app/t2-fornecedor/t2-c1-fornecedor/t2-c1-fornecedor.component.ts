@@ -9,7 +9,7 @@ import { ExportaFornecedores } from 'src/beans/WS_Beans';
   styleUrls: ['./t2-c1-fornecedor.component.scss']
 })
 export class T2C1FornecedorComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -40,5 +40,5 @@ export class T2C1FornecedorComponent {
     this.vp.t2_c1_fornecedor_obj = undefined;
     this.vp.t2_c1_fornecedor_cod = -1;
     this.vp.t2_c1_fornecedor_des = '';
-  }
+  }*/
 }

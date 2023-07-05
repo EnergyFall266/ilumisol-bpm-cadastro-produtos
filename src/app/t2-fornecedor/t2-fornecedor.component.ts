@@ -6,10 +6,10 @@ import { VP_BPM } from 'src/beans/VP_BPM';
   templateUrl: './t2-fornecedor.component.html',
   styleUrls: ['./t2-fornecedor.component.scss'],
 })
-export class T2FornecedorComponent implements OnInit {
-  @Input() vp!: VP_BPM;
+export class T2FornecedorComponent {
+  /*@Input() vp!: VP_BPM;
 
   constructor() {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {}*/
 }

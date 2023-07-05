@@ -18,14 +18,17 @@ export default class FormValidate {
         if (vp.c1_empresa_cod == -1)
           this.ms.add(getMsgS('Seleciona uma empresa para continuar'));
         else {
-          if (vp.t1_c4_origem_cod == '')
-            this.ms.add(getMsgS('Dados básicos - Origem'));
+          if (vp.t1_descricao_prod == '')
+            this.ms.add(getMsgC('Dados básicos - Descrição'));
+
+          if (vp.t1_descricao_fiscal == '')
+            this.ms.add(getMsgS('Dados básicos - Descrição p/nota fiscal'));
+
+          /*if (vp.t1_c4_origem_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Origem'));*/
 
           if (vp.t1_c5_familia_cod == '')
             this.ms.add(getMsgS('Dados básicos - Família'));
-
-          if (vp.t1_descricao_prod == '')
-            this.ms.add(getMsgC('Dados básicos - Descrição'));
 
           if (vp.t1_c6_medida_cod == '')
             this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
@@ -48,12 +51,22 @@ export default class FormValidate {
 
           if (vp.t1_altura === undefined)
             this.ms.add(getMsgS('Dados do básicos - Altura / Espessura'));
+          if (vp.t1_altura_tipo == '')
+            this.ms.add(
+              getMsgS('Dados do básicos - Altura / Espessura tipo de medida')
+            );
 
           if (vp.t1_largura === undefined)
             this.ms.add(getMsgS('Dados do básicos - Largura'));
+          if (vp.t1_largura_tipo == '')
+            this.ms.add(getMsgS('Dados do básicos - Largura tipo de medida'));
 
           if (vp.t1_comprimento === undefined)
             this.ms.add(getMsgS('Dados do básicos - Comprimento'));
+          if (vp.t1_comprimento_tipo == '')
+            this.ms.add(
+              getMsgS('Dados do básicos - Comprimento tipo de medida')
+            );
 
           if (vp.t1_valor_aprox === undefined)
             this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
@@ -70,7 +83,7 @@ export default class FormValidate {
             );
 
           //
-          if (vp.t3_c1_destino_cod == '')
+          /*if (vp.t1_c12_destino_cod == '')
             this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
 
           if (vp.t3_qtde_mul_ven === undefined)
@@ -109,19 +122,13 @@ export default class FormValidate {
           if (vp.t2_quantidade_minima === undefined)
             this.ms.add(
               getMsgC('Dados do fornecedor - Quantidade mínima fornecedor')
-            );
+            );*/
         }
         break;
 
       case environment.s2_dad_cad:
-        if (vp.t1_descricao_fiscal == '')
-          this.ms.add(getMsgS('Dados do cadastro - Descrição p/nota fiscal'));
-
         if (vp.t5_c1_mascara_cod == '')
-          this.ms.add(getMsgS('Dados do cadastro - Máscara Derivação'));
-        break;
-
-      case environment.s6_fis_con:
+          this.ms.add(getMsgS('Dados de derivação - Máscara Derivação'));
         break;
 
       case environment.s6_fis_con:

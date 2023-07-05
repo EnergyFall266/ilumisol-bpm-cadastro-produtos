@@ -30,6 +30,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
 import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
 import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
@@ -70,6 +72,7 @@ import { C1EmpresaComponent } from './c1-empresa/c1-empresa.component';
 import { T2C1FornecedorComponent } from './t2-fornecedor/t2-c1-fornecedor/t2-c1-fornecedor.component';
 import { T2C2UnidadeComponent } from './t2-fornecedor/t2-c2-unidade/t2-c2-unidade.component';
 import { T3C1DepositoComponent } from './t3-deposito/t3-c1-deposito/t3-c1-deposito.component';
+import { T1C12DepositoComponent } from './t1-basicos/t1-c12-deposito/t1-c12-deposito.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -117,6 +120,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T2C1FornecedorComponent,
     T2C2UnidadeComponent,
     T3C1DepositoComponent,
+    T1C12DepositoComponent,
   ],
   imports: [
     BrowserModule,
@@ -153,6 +157,8 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     EditorModule,
     RippleModule,
     ToastModule,
+    KeyFilterModule,
+    SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

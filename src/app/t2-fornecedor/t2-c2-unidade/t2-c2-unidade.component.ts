@@ -9,7 +9,7 @@ import { ExportaUniMeds } from 'src/beans/WS_Beans';
   styleUrls: ['./t2-c2-unidade.component.scss'],
 })
 export class T2C2UnidadeComponent {
-  @Input() vp!: VP_BPM;
+  /*@Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
 
@@ -40,5 +40,5 @@ export class T2C2UnidadeComponent {
     this.vp.t2_c2_medida_obj = undefined;
     this.vp.t2_c2_medida_cod = '';
     this.vp.t2_c2_medida_des = '';
-  }
+  }*/
 }

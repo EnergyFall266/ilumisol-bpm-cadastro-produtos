@@ -18,25 +18,23 @@ export class T1C5FamiliaComponent {
   public ngOnInit(): void {}
 
   public async familiaInput() {
-    if (!this.vp.t1_req_to_read) {
-      this.mostrar_modal = true;
-      if (this.vp.t1_c5_familia_arr.length == 0) await this.buscarFamilias();
-      else
-        for (const f of this.vp.t1_c5_familia_arr)
-          if (f.codOri != this.vp.t1_c4_origem_cod) {
-            this.vp.t1_c5_familia_arr = [];
-            this.vp.t1_c5_familia_obj = undefined;
-            this.vp.t1_c5_familia_cod = '';
-            this.vp.t1_c5_familia_des = '';
-            await this.buscarFamilias();
-            break;
-          }
-    }
+    this.mostrar_modal = true;
+    if (this.vp.t1_c5_familia_arr.length == 0) await this.buscarFamilias();
+    /*else
+      for (const f of this.vp.t1_c5_familia_arr)
+        if (f.codOri != this.vp.t1_c4_origem_cod) {
+          this.vp.t1_c5_familia_arr = [];
+          this.vp.t1_c5_familia_obj = undefined;
+          this.vp.t1_c5_familia_cod = '';
+          this.vp.t1_c5_familia_des = '';
+          await this.buscarFamilias();
+          break;
+        }*/
   }
 
   private async buscarFamilias() {
     var json: any = { codEmp: this.vp.c1_empresa_cod };
-    if (this.vp.t1_c4_origem_cod != '') json.codOri = this.vp.t1_c4_origem_cod;
+    //if (this.vp.t1_c4_origem_cod != '') json.codOri = this.vp.t1_c4_origem_cod;
     this.vp.t1_c5_familia_arr = (
       (await this.ap.exportaServico(
         'ExportaFamilias',

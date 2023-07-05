@@ -31,13 +31,17 @@ export class VP_BPM {
     { label: 'Sim', value: 'Sim' },
     { label: 'Não', value: 'Não' },
   ];
+  public medida_options: SelectItem[] = [
+    { label: 'mm.', value: 'mm' },
+    { label: 'pol.', value: 'pol' },
+  ];
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
 
   public c1_req_to_read: boolean = false;
   public c1_empresa_arr: wsb.ExportaEmpresas[] = [];
   public c1_empresa_obj?: wsb.ExportaEmpresas;
-  public c1_empresa_cod: number = 1;
+  public c1_empresa_cod: number = -1;
   public c1_empresa_nom: string = '';
 
   /**
@@ -57,13 +61,13 @@ export class VP_BPM {
   public t1_c1_marca_cod: string = '';
   public t1_c1_marca_des: string = '';
 
-  public t1_requisitado: string = 'Não';
+  //public t1_requisitado: string = 'Não';
 
   public t1_vendido: string = 'Sim';
 
   public t1_comprado: string = 'Sim';
 
-  public t1_orcamento: string = 'Não';
+  //public t1_orcamento: string = 'Não';
 
   public t1_c2_substituto_cad: string = '';
 
@@ -81,10 +85,12 @@ export class VP_BPM {
   public t1_barras: string = '';
   public t1_barras_just: string = '';
 
-  public t1_c4_origem_arr: wsb.ExportaOrigens[] = [];
+  public t1_valor_aprox?: number;
+
+  /*public t1_c4_origem_arr: wsb.ExportaOrigens[] = [];
   public t1_c4_origem_obj?: wsb.ExportaOrigens;
   public t1_c4_origem_cod: string = '';
-  public t1_c4_origem_des: string = '';
+  public t1_c4_origem_des: string = '';*/
 
   public t1_c5_familia_arr: wsb.ExportaFamilias[] = [];
   public t1_c5_familia_obj?: wsb.ExportaFamilias;
@@ -100,34 +106,42 @@ export class VP_BPM {
   public t1_c7_mercadoria_cod: string = '';
   public t1_c7_mercadoria_des: string = '';
 
-  public t1_c8_agrcomercial_arr: wsb.ExportaAgrupamentos[] = [];
+  /*public t1_c8_agrcomercial_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c8_agrcomercial_obj?: wsb.ExportaAgrupamentos;
   public t1_c8_agrcomercial_cod: string = '';
-  public t1_c8_agrcomercial_des: string = '';
+  public t1_c8_agrcomercial_des: string = '';*/
 
   public t1_c9_agrestoque_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c9_agrestoque_obj?: wsb.ExportaAgrupamentos;
   public t1_c9_agrestoque_cod: string = '';
   public t1_c9_agrestoque_des: string = '';
 
-  public t1_c10_agrcusto_arr: wsb.ExportaAgrupamentos[] = [];
+  /*public t1_c10_agrcusto_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c10_agrcusto_obj?: wsb.ExportaAgrupamentos;
   public t1_c10_agrcusto_cod: string = '';
-  public t1_c10_agrcusto_des: string = '';
+  public t1_c10_agrcusto_des: string = '';*/
 
-  public t1_especificacao: string = '';
+  //public t1_especificacao: string = '';
 
-  public t1_c11_multinivel_arr: wsb.ExportaAgrupamentos[] = [];
+  /*public t1_c11_multinivel_arr: wsb.ExportaAgrupamentos[] = [];
   public t1_c11_multinivel_obj?: wsb.ExportaAgrupamentos;
-  public t1_c11_multinivel_cod: string = '';
+  public t1_c11_multinivel_cod: string = '';*/
 
   public t1_altura?: number;
+  public t1_altura_tipo: string = '';
 
   public t1_largura?: number;
+  public t1_largura_tipo: string = '';
 
   public t1_comprimento?: number;
+  public t1_comprimento_tipo: string = '';
 
-  public t1_valor_aprox?: number;
+  public t1_c12_destino_arr: wsb.ExportaDepositos[] = [];
+  public t1_c12_destino_obj?: wsb.ExportaDepositos;
+  public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
+  public t1_c12_destino_stx: string = '';
+  public t1_c12_destino_cod: string = '';
+  public t1_c12_destino_des: string = '';
 
   public t1_aplicacao: string = '';
 
@@ -139,7 +153,7 @@ export class VP_BPM {
    * Dados de fornecedor
    */
 
-  public t2_req_to_read: boolean = false;
+  /*public t2_req_to_read: boolean = false;
 
   public t2_c1_fornecedor_arr: wsb.ExportaFornecedores[] = [];
   public t2_c1_fornecedor_obj?: wsb.ExportaFornecedores;
@@ -158,20 +172,20 @@ export class VP_BPM {
 
   public t2_c2_medida_obj?: wsb.ExportaUniMeds;
   public t2_c2_medida_cod: string = '';
-  public t2_c2_medida_des: string = '';
+  public t2_c2_medida_des: string = '';*/
 
   /**
    * Dados de depósito
    */
 
-  public t3_req_to_read: boolean = false;
+  /*public t3_req_to_read: boolean = false;
 
-  public t3_c1_destino_arr: wsb.ExportaDepositos[] = [];
-  public t3_c1_destino_obj?: wsb.ExportaDepositos;
-  public t3_c1_destino_sel: wsb.ExportaDepositos[] = [];
-  public t3_c1_destino_stx: string = '';
-  public t3_c1_destino_cod: string = '';
-  public t3_c1_destino_des: string = '';
+  public t1_c12_destino_arr: wsb.ExportaDepositos[] = [];
+  public t1_c12_destino_obj?: wsb.ExportaDepositos;
+  public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
+  public t1_c12_destino_stx: string = '';
+  public t1_c12_destino_cod: string = '';
+  public t1_c12_destino_des: string = '';
 
   public t3_qtde_estoque_rep?: number;
   public t3_qtde_estoque_min?: number;
@@ -183,10 +197,10 @@ export class VP_BPM {
   public t3_qtde_mul_com?: number;
 
   public t3_qtde_min_vendas?: number;
-  public t3_qtde_max_vendas?: number;
+  public t3_qtde_max_vendas?: number;*/
 
   /**
-   * Dados do cadastro
+   * Dados da derivação
    */
 
   public t5_req_to_read: boolean = false;

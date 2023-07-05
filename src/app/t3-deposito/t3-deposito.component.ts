@@ -6,10 +6,10 @@ import { VP_BPM } from 'src/beans/VP_BPM';
   templateUrl: './t3-deposito.component.html',
   styleUrls: ['./t3-deposito.component.scss'],
 })
-export class T3DepositoComponent implements OnInit {
-  @Input() vp!: VP_BPM;
+export class T3DepositoComponent {
+  /*@Input() vp!: VP_BPM;
 
   constructor() {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {}*/
 }
