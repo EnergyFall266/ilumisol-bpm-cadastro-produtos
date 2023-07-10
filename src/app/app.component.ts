@@ -1,6 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
+import {
+  MenuItem,
+  MessageService,
+  PrimeNGConfig,
+  Translation,
+} from 'primeng/api';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import * as fd from 'src/functions/Form_Design';
 import * as wc from 'src/functions/Workflow_Cockpit';
@@ -47,7 +52,9 @@ export class AppComponent {
     translate.use('pt');
     this.translate
       .stream('primeng')
-      .subscribe((data) => this.primeNGConfig.setTranslation(data));
+      .subscribe((data: Translation) =>
+        this.primeNGConfig.setTranslation(data)
+      );
   }
 
   public ngOnInit(): void {
@@ -91,6 +98,7 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
+    this.activeMenu = fd.showMenus(1, [1, 2, 3]);
   }
 
   private _loadData = async (data: Data, info: Info) => {

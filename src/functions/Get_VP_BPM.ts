@@ -7,6 +7,10 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.c1_empresa_cod = map.get('c1_empresa_cod');
   vp.c1_empresa_nom = map.get('c1_empresa_nom');
 
+  vp.c1_duplicado_stx = map.get('c1_duplicado_stx');
+  vp.c1_duplicado_cax = map.get('c1_duplicado_cax');
+  vp.c1_duplicado_nom = map.get('c1_duplicado_nom');
+
   /**
    * Dados básicos
    */
@@ -70,6 +74,10 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c9_agrestoque_des = map.get('t1_c9_agrestoque_des');
   }
 
+  vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
+  vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
+  vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
+
   //vp.t1_especificacao = map.get('t1_especificacao');
 
   /*if (map.get('t1_c11_multinivel_cod') !== undefined)
@@ -113,11 +121,7 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    */
 
   //Coluna 1
-  /*vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
-  vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
-  vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
-
-  if (map.get('t3_qtde_estoque_rep') !== undefined)
+  /*if (map.get('t3_qtde_estoque_rep') !== undefined)
     vp.t3_qtde_estoque_rep = +map.get('t3_qtde_estoque_rep');
 
   vp.t3_qtde_min_vendas = +map.get('t3_qtde_min_vendas');

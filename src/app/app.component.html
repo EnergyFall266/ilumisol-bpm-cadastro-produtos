@@ -1,5 +1,5 @@
 <div class="card">
-  <button [hidden]="false" type="button" (click)="a()">teste</button>
+  <button [hidden]="true" type="button" (click)="a()">teste</button>
 
   <p-messages #msg [styleClass]="'w-12'"></p-messages>
 
@@ -7,11 +7,7 @@
     (<span style="color: red">*</span>) Atenção aos campos obrigatórios
   </h5>
 
-  <div class="grid mt-2 mb-3">
-    <div class="col-3">
-      <app-c1-empresa [vp]="vp"></app-c1-empresa>
-    </div>
-  </div>
+  <app-c1-empresa [vp]="vp"></app-c1-empresa>
 
   <div [hidden]="vp.c1_empresa_nom == ''">
     <p-tabMenu

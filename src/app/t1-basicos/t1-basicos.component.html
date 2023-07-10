@@ -19,7 +19,7 @@
                 vp.t1_descricao_prod = vp.t1_descricao_prod.toUpperCase();
                 vp.t1_descricao_fiscal = vp.t1_descricao_prod
               "
-              [pKeyFilter]="'alpha'"
+              [pKeyFilter]="vp.key_filter"
             />
           </div>
         </div>
@@ -54,6 +54,7 @@
               rows="5"
               [readonly]="vp.t1_req_to_read"
               [(ngModel)]="vp.t1_descricao_fiscal"
+              [pKeyFilter]="vp.key_filter"
             ></textarea>
           </div>
         </div>

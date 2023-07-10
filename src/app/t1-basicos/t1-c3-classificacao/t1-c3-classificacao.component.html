@@ -45,7 +45,7 @@
   </div>
   <p-dialog
     header="Classificações fiscais"
-    [styleClass]="'w-6'"
+    [styleClass]="'w-11'"
     [modal]="true"
     [draggable]="false"
     [resizable]="false"
@@ -90,12 +90,31 @@
           <th pSortableColumn="desClf">
             Descrição <p-sortIcon field="desClf"></p-sortIcon>
           </th>
+          <th pSortableColumn="claFis">
+            Código NCM <p-sortIcon field="claFis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="perIpi">
+            % IPI para entradas <p-sortIcon field="perIpi"></p-sortIcon>
+          </th>
+          <th pSortableColumn="perIps">
+            % IPI para saídas <p-sortIcon field="perIps"></p-sortIcon>
+          </th>
+          <th pSortableColumn="perPis">
+            % PIS <p-sortIcon field="perPis"></p-sortIcon>
+          </th>
+          <th pSortableColumn="perCof">
+            % COFINS <p-sortIcon field="perCof"></p-sortIcon>
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-fis>
         <tr [pSelectableRow]="fis">
           <td>{{ fis.codClf }}</td>
           <td>{{ fis.desClf }}</td>
+          <td>{{ fis.claFis }}</td>
+          <td>{{ fis.perIpi }}</td>
+          <td>{{ fis.perPis }}</td>
+          <td>{{ fis.perCof }}</td>
         </tr>
       </ng-template>
     </p-table>

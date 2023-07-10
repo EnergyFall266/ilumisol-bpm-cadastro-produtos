@@ -88,6 +88,11 @@ export interface ExportaMarcas {
 export interface ExportaClaFis {
   codClf: string;
   desClf: string;
+  claFis: string;
+  perIpi: number;
+  perIps: number;
+  perPis: number;
+  perCof: number;
 }
 
 export interface ExportaAgrupamentos {
@@ -167,7 +172,7 @@ export interface CadastroRoot {
 }
 
 interface Produto {
-  codEmp:number
+  codEmp: number;
   codOri?: string;
   codFam?: string;
   desPro?: string;

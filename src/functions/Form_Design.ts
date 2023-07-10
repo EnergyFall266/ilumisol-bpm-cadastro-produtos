@@ -17,7 +17,7 @@ export const menus: MenuItem[] = [
     visible: false,
   },*/
   {
-    label: 'Dados de derivação',
+    label: 'Dados da derivação',
     command: () => showPanel(2),
     visible: false,
   },

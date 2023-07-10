@@ -1,88 +1,181 @@
-<div class="grid">
-  <span class="col-12">
-    Empresa <span [hidden]="vp.c1_req_to_read" style="color: red">*</span>
-  </span>
-  <div class="col-12 py-0">
-    <div class="p-inputgroup">
-      <input
-        pInputText
-        type="text"
-        class="col-12"
-        placeholder="Selecione"
-        [readonly]="true"
-        [(ngModel)]="vp.c1_empresa_nom"
-        (click)="vp.c1_req_to_read || vp.buscandoWS ? '' : fornecedorInput()"
-      />
-      <button
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-search"
-        class="p-0"
-        [style.display]="vp.c1_req_to_read ? 'none' : ''"
-        (click)="fornecedorInput()"
-        [disabled]="vp.buscandoWS"
-      ></button>
-    </div>
-  </div>
-</div>
-<p-dialog
-  header="Fornecedores"
-  [styleClass]="'w-6'"
-  [modal]="true"
-  [draggable]="false"
-  [resizable]="false"
-  [closeOnEscape]="true"
-  [closable]="!vp.buscandoWS"
-  [(visible)]="mostrar_modal"
->
-  <p-table
-    #tableFornecedor
-    selectionMode="single"
-    styleClass="p-datatable-sm"
-    [rows]="10"
-    [paginator]="true"
-    [loading]="vp.buscandoWS"
-    [value]="vp.c1_empresa_arr"
-    [(selection)]="vp.c1_empresa_obj"
-    (onRowSelect)="fornecedorSelect()"
-    dataKey="codEmp"
-    [globalFilterFields]="['codEmp', 'nomEmp']"
-  >
-    <ng-template pTemplate="caption">
-      <div class="p-d-flex">
-        <span class="p-input-icon-left p-ml-auto">
-          <i class="pi pi-search"></i>
+<div class="grid my-2">
+  <div class="col-3">
+    <div class="grid">
+      <span class="col-12">
+        Empresa <span [hidden]="vp.c1_empresa_rqd" style="color: red">*</span>
+      </span>
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
           <input
+            pInputText
             type="text"
             class="col-12"
-            pInputText
-            (input)="
-              tableFornecedor.filterGlobal(
-                $any($event.target).value,
-                'contains'
-              )
-            "
-            placeholder="Buscar"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.c1_empresa_nom"
+            (click)="vp.c1_empresa_rqd || vp.buscandoWS ? '' : empInput()"
           />
-        </span>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.c1_empresa_rqd ? 'none' : ''"
+            (click)="empInput()"
+            [disabled]="vp.buscandoWS"
+          ></button>
+        </div>
       </div>
-    </ng-template>
-    <ng-template pTemplate="header">
-      <tr>
-        <th pSortableColumn="codEmp">
-          Código <p-sortIcon field="codEmp"></p-sortIcon>
-        </th>
-        <th pSortableColumn="nomEmp">
-          Descrição <p-sortIcon field="nomEmp"></p-sortIcon>
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-for>
-      <tr [pSelectableRow]="for">
-        <td>{{ for.codEmp }}</td>
-        <td>{{ for.nomEmp }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-</p-dialog>
+    </div>
+    <p-dialog
+      header="Empresas"
+      [styleClass]="'w-6'"
+      [modal]="true"
+      [draggable]="false"
+      [resizable]="false"
+      [closeOnEscape]="true"
+      [closable]="!vp.buscandoWS"
+      [(visible)]="mostrar_modal_emp"
+    >
+      <p-table
+        #tA
+        selectionMode="single"
+        styleClass="p-datatable-sm"
+        [rows]="10"
+        [paginator]="true"
+        [loading]="vp.buscandoWS"
+        [value]="vp.c1_empresa_arr"
+        [(selection)]="vp.c1_empresa_obj"
+        (onRowSelect)="empSelect()"
+        dataKey="codEmp"
+        [globalFilterFields]="['codEmp', 'nomEmp']"
+      >
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                class="col-12"
+                pInputText
+                (input)="tA.filterGlobal($any($event.target).value, 'contains')"
+                placeholder="Buscar"
+              />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="codEmp">
+              Código <p-sortIcon field="codEmp"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nomEmp">
+              Descrição <p-sortIcon field="nomEmp"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-emp>
+          <tr [pSelectableRow]="emp">
+            <td>{{ emp.codEmp }}</td>
+            <td>{{ emp.nomEmp }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-dialog>
+  </div>
+
+  <div class="col-9" [hidden]="vp.c1_duplicado_hide">
+    <div class="grid">
+      <span class="col-12">
+        Duplicar cadastro para outras empresas
+        <span [hidden]="vp.c1_duplicado_rqd" style="color: red">*</span>
+      </span>
+      <div class="col-12 py-0">
+        <div class="p-inputgroup">
+          <input
+            pInputText
+            type="text"
+            class="col-12"
+            placeholder="Selecione"
+            [readonly]="true"
+            [(ngModel)]="vp.c1_duplicado_nom"
+            (click)="vp.c1_duplicado_rqd || vp.buscandoWS ? '' : dupInput()"
+          />
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-0"
+            [style.display]="vp.c1_duplicado_rqd ? 'none' : ''"
+            (click)="dupInput()"
+            [disabled]="vp.buscandoWS"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <p-dialog
+      header="Empresas"
+      [styleClass]="'w-6'"
+      [modal]="true"
+      [draggable]="false"
+      [resizable]="false"
+      [closeOnEscape]="true"
+      [closable]="!vp.buscandoWS"
+      [(visible)]="mostrar_modal_dup"
+    >
+      <p-table
+        #tA
+        styleClass="p-datatable-sm"
+        [rows]="10"
+        [paginator]="true"
+        [loading]="vp.buscandoWS"
+        [value]="vp.c1_empresa_arr"
+        [(selection)]="vp.c1_duplicado_sel"
+        (onRowSelect)="dupSelect()"
+        (onRowUnselect)="dupSelect()"
+        (onHeaderCheckboxToggle)="dupSelect()"
+        dataKey="codEmp"
+        [globalFilterFields]="['codEmp', 'nomEmp']"
+      >
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                class="col-12"
+                pInputText
+                (input)="tA.filterGlobal($any($event.target).value, 'contains')"
+                placeholder="Buscar"
+              />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 3rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="codEmp">
+              Código <p-sortIcon field="codEmp"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nomEmp">
+              Descrição <p-sortIcon field="nomEmp"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-emp>
+          <tr [pSelectableRow]="emp">
+            <td>
+              <p-tableCheckbox [value]="emp"></p-tableCheckbox>
+            </td>
+            <td>{{ emp.codEmp }}</td>
+            <td>{{ emp.nomEmp }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-dialog>
+  </div>
+</div>

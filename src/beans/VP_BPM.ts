@@ -10,7 +10,7 @@ export interface ResponseLoadData {
 
 export class VP_BPM {
   //Variáveis ​​Gerais
-  public overlay: boolean = true;
+  public overlay: boolean = false;
   public buscandoWS: boolean = false;
 
   public alertas: Message[] = [];
@@ -20,6 +20,8 @@ export class VP_BPM {
 
   public token: string = '';
   public user_fullname: string = '';
+
+  public key_filter: RegExp = /[a-zA-Z0-9 ]/;
 
   public ged_pasta_pai_id: string = '';
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
@@ -38,11 +40,19 @@ export class VP_BPM {
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
 
-  public c1_req_to_read: boolean = false;
+  public c1_empresa_rqd: boolean = false;
   public c1_empresa_arr: wsb.ExportaEmpresas[] = [];
   public c1_empresa_obj?: wsb.ExportaEmpresas;
   public c1_empresa_cod: number = -1;
   public c1_empresa_nom: string = '';
+
+  public c1_duplicado_hide: boolean = true;
+  public c1_duplicado_rqd: boolean = false;
+  public c1_duplicado_sel: wsb.ExportaEmpresas[] = [];
+  public c1_duplicado_stx: string = '';
+  public c1_duplicado_cod: number[] = [];
+  public c1_duplicado_cax: string = '';
+  public c1_duplicado_nom: string = '';
 
   /**
    * Dados básicos
@@ -137,7 +147,6 @@ export class VP_BPM {
   public t1_comprimento_tipo: string = '';
 
   public t1_c12_destino_arr: wsb.ExportaDepositos[] = [];
-  public t1_c12_destino_obj?: wsb.ExportaDepositos;
   public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
   public t1_c12_destino_stx: string = '';
   public t1_c12_destino_cod: string = '';
@@ -181,7 +190,6 @@ export class VP_BPM {
   /*public t3_req_to_read: boolean = false;
 
   public t1_c12_destino_arr: wsb.ExportaDepositos[] = [];
-  public t1_c12_destino_obj?: wsb.ExportaDepositos;
   public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
   public t1_c12_destino_stx: string = '';
   public t1_c12_destino_cod: string = '';
