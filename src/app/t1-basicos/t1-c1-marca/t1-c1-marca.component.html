@@ -5,7 +5,7 @@
         Marca
         <span
           style="color: red"
-          [hidden]="vp.t1_req_to_read || vp.t1_cotado != 'Não'"
+          [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
           >*</span
         >
       </span>
@@ -45,6 +45,13 @@
           ></button>
         </div>
       </div>
+      <h6
+        class="col-12 m-0 py-0"
+        style="font-weight: normal"
+        [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
+      >
+        Apenas para inversores e módulos
+      </h6>
     </div>
   </div>
   <p-dialog
@@ -102,6 +109,6 @@
           <td>{{ mar.nomMar }}</td>
         </tr>
       </ng-template>
-    </p-table></p-dialog
-  >
+    </p-table>
+  </p-dialog>
 </div>

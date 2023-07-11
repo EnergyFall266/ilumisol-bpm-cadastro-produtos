@@ -35,27 +35,21 @@ export async function loadData(vp: VP_BPM, info: Info) {
 }
 
 export async function saveData(vp: VP_BPM) {
-  if (STEP === environment.s2_dad_cad && vp.t5_file_TS.length > 0)
+  if (STEP === environment.s2_dad_cad && vp.t1_c13_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'c');
-  if (STEP === environment.s6_fis_con && vp.t6_file_TS.length > 0)
+  if (STEP === environment.s6_fis_con && vp.t6_c14_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'f');
 
   vp.unidades_medida_arr = [];
-  //vp.t1_c4_origem_arr = [];
   vp.t1_c5_familia_arr = [];
   vp.t1_c1_marca_arr = [];
   vp.t1_c3_clafiscal_arr = [];
   vp.t1_c7_mercadoria_arr = [];
   vp.t1_c1_marca_arr = [];
   vp.t1_c3_clafiscal_arr = [];
-  //vp.t1_c8_agrcomercial_arr = [];
   vp.t1_c7_mercadoria_arr = [];
-  //vp.t1_c11_multinivel_arr = [];
-  //vp.t2_c1_fornecedor_arr = [];
-  //vp.t1_c12_destino_arr = [];
   vp.t5_c1_mascara_arr = [];
   vp.t1_c9_agrestoque_arr = [];
-  //vp.t1_c10_agrcusto_arr = [];
   vp.t5_conversao_arr = [];
   vp.t6_c1_impostos_arr = [];
   vp.t6_c2_icms_espe_arr = [];

@@ -1,0 +1,57 @@
+<div class="grid">
+  <span class="col-12">Anexo cadastro / foto</span>
+
+  <div
+    class="col-12 px-0 pt-0 pb-3"
+    [style.display]="vp.t1_req_to_read ? 'none' : ''"
+  >
+    <p-fileUpload
+      #fu
+      styleClass="w-full col-12 py-0"
+      name="anexosT5_string[]"
+      [multiple]="true"
+      [customUpload]="true"
+      (onSelect)="escolherDocFU()"
+      [chooseIcon]="'pi pi-search'"
+      [showUploadButton]="false"
+      [showCancelButton]="false"
+    >
+      <ng-template let-f pTemplate="file">
+        <div class="grid align-items-center mb-3">
+          <div class="col-fixed p-0 mr-2">
+            <button
+              pButton
+              type="button"
+              class="p-0 p-button-danger"
+              icon="pi pi-times"
+              (click)="removerDocFU($event, f)"
+            ></button>
+          </div>
+          <span class="col-fixed p-0 text-sm">{{ f.name }}</span>
+        </div>
+      </ng-template>
+    </p-fileUpload>
+  </div>
+
+  <div
+    class="col-12 py-0 mb-2 flex align-items-center"
+    [style.display]="vp.t1_c13_file_GED.length == 0 ? 'none' : ''"
+    *ngFor="let a of vp.t1_c13_file_GED"
+  >
+    <button
+      pButton
+      type="button"
+      class="py-1 p-button-info"
+      icon="pi pi-download"
+      (click)="descarregarDocGED(a.gedId!)"
+    ></button>
+    <button
+      pButton
+      type="button"
+      class="py-1 p-button-danger mr-2"
+      icon="pi pi-trash"
+      (click)="excluirDocGED(a)"
+    ></button>
+    <span class="text-sm">{{ a.arquivoGED?.title }}</span>
+  </div>
+</div>

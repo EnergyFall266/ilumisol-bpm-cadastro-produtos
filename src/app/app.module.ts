@@ -54,7 +54,6 @@ import { T5C2Medida2Component } from './t5-cadastro/t5-c2-medida2/t5-c2-medida2.
 import { T5C3Medida3Component } from './t5-cadastro/t5-c3-medida3/t5-c3-medida3.component';
 import { T5C4Conversao2Component } from './t5-cadastro/t5-c4-conversao2/t5-c4-conversao2.component';
 import { T5C5Conversao3Component } from './t5-cadastro/t5-c5-conversao3/t5-c5-conversao3.component';
-import { T5C6AnexoComponent } from './t5-cadastro/t5-c6-anexo/t5-c6-anexo.component';
 import { T6C1ImpostosComponent } from './t6-fis-con/t6-c1-impostos/t6-c1-impostos.component';
 import { T6C2IcmsEspecialComponent } from './t6-fis-con/t6-c2-icms-especial/t6-c2-icms-especial.component';
 import { T6C3ReducaoIcmsComponent } from './t6-fis-con/t6-c3-reducao-icms/t6-c3-reducao-icms.component';
@@ -74,6 +73,7 @@ import { T2C1FornecedorComponent } from './t2-fornecedor/t2-c1-fornecedor/t2-c1-
 import { T2C2UnidadeComponent } from './t2-fornecedor/t2-c2-unidade/t2-c2-unidade.component';
 import { T3C1DepositoComponent } from './t3-deposito/t3-c1-deposito/t3-c1-deposito.component';
 import { T1C12DepositoComponent } from './t1-basicos/t1-c12-deposito/t1-c12-deposito.component';
+import { T1C13AnexoComponent } from './t1-basicos/t1-c13-anexo/t1-c13-anexo.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -102,7 +102,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T5C3Medida3Component,
     T5C4Conversao2Component,
     T5C5Conversao3Component,
-    T5C6AnexoComponent,
     T6C1ImpostosComponent,
     T6C2IcmsEspecialComponent,
     T6C3ReducaoIcmsComponent,
@@ -122,6 +121,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T2C2UnidadeComponent,
     T3C1DepositoComponent,
     T1C12DepositoComponent,
+    T1C13AnexoComponent,
   ],
   imports: [
     BrowserModule,

@@ -98,7 +98,6 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
-    this.activeMenu = fd.showMenus(1, [1, 2, 3]);
   }
 
   private _loadData = async (data: Data, info: Info) => {

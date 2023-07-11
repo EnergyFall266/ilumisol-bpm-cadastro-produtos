@@ -24,52 +24,68 @@ export default class FormValidate {
           if (vp.t1_descricao_fiscal == '')
             this.ms.add(getMsgS('Dados básicos - Descrição p/nota fiscal'));
 
-          /*if (vp.t1_c4_origem_cod == '')
-            this.ms.add(getMsgS('Dados básicos - Origem'));*/
+          if (vp.t1_c1_marca_chk() && vp.t1_c1_marca_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Origem'));
+
+          if (vp.t1_c2_substituto_cad == '')
+            this.ms.add(
+              getMsgS('Dados básicos - Substituto de item já cadastrado?')
+            );
+          else if (
+            vp.t1_c2_substituto_cad == 'Sim' &&
+            vp.t1_c2_substituto_cod == ''
+          )
+            this.ms.add(
+              getMsgS('Dados básicos - Código do item a ser substituido')
+            );
+
+          if (vp.t1_cotado == '')
+            this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
+
+          if (vp.t1_c3_clafiscal_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Classificação fiscal / NCM'));
+
+          if (vp.t1_barras == '')
+            this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
+
+          if (vp.t1_barras_just_chk())
+            this.ms.add(
+              getMsgC('Dados básicos - Justificativa código de barras')
+            );
+
+          if (vp.t1_valor_aprox === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
 
           if (vp.t1_c5_familia_cod == '')
             this.ms.add(getMsgS('Dados básicos - Família'));
 
           if (vp.t1_c6_medida_cod == '')
-            this.ms.add(getMsgS('Dados básicos - Unidade de medida'));
+            this.ms.add(getMsgS('Dados básicos - Unidade de medida Estoque'));
 
-          if (vp.t1_cotado == '')
-            this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
-          else if (vp.t1_cotado == 'Não' && vp.t1_c1_marca_cod == '')
-            this.ms.add(getMsgS('Dados básicos - Marca'));
+          if (vp.t1_c7_mercadoria_cod == '')
+            this.ms.add(getMsgS('Dados básicos - Origem fiscal mercadoria'));
 
-          if (vp.t1_c3_clafiscal_cod == '')
-            this.ms.add(getMsgS('Dados básicos - Classificação fiscal'));
-
-          if (vp.t1_barras == '') {
-            this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
-            if (vp.t1_barras_just == '' || vp.t1_barras_just == 'SEM GTIN')
-              this.ms.add(
-                getMsgC('Dados básicos - Justificativa código de barras')
-              );
-          }
+          if (vp.t1_c12_destino_cod == '')
+            this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
 
           if (vp.t1_altura === undefined)
             this.ms.add(getMsgS('Dados do básicos - Altura / Espessura'));
-          if (vp.t1_altura_tipo == '')
+          else if (vp.t1_altura_tipo == '')
             this.ms.add(
               getMsgS('Dados do básicos - Altura / Espessura tipo de medida')
             );
 
           if (vp.t1_largura === undefined)
             this.ms.add(getMsgS('Dados do básicos - Largura'));
-          if (vp.t1_largura_tipo == '')
+          else if (vp.t1_largura_tipo == '')
             this.ms.add(getMsgS('Dados do básicos - Largura tipo de medida'));
 
           if (vp.t1_comprimento === undefined)
             this.ms.add(getMsgS('Dados do básicos - Comprimento'));
-          if (vp.t1_comprimento_tipo == '')
+          else if (vp.t1_comprimento_tipo == '')
             this.ms.add(
               getMsgS('Dados do básicos - Comprimento tipo de medida')
             );
-
-          if (vp.t1_valor_aprox === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
 
           if (vp.t1_aplicacao === undefined)
             this.ms.add(getMsgS('Dados do básicos - Aplicação'));
@@ -77,56 +93,17 @@ export default class FormValidate {
           if (vp.t1_comp_trata === undefined)
             this.ms.add(getMsgS('Dados do básicos - Composição Tratamento'));
 
-          if (vp.t1_controlado === undefined)
+          if (vp.t1_controlado == '')
             this.ms.add(
               getMsgS('Dados do básicos - Produto vai ter estoque controlado?')
             );
-
-          //
-          /*if (vp.t1_c12_destino_cod == '')
-            this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
-
-          if (vp.t3_qtde_mul_ven === undefined)
-            this.ms.add(getMsgC('Dados de depósito - Qtde. Múltipla vendas'));
-
-          if (vp.t3_qtde_mul_com === undefined)
-            this.ms.add(
-              getMsgC('Dados de depósito - Qtde. Múltipla para compras')
-            );
-
-          if (vp.t3_qtde_min_vendas === undefined)
-            this.ms.add(getMsgC('Dados de depósito - Qtde. mín. de vendas'));
-
-          if (vp.t3_qtde_max_vendas === undefined)
-            this.ms.add(getMsgC('Dados de depósito - Qtde. max. de vendas'));
-
-          //
-          if (vp.t2_c1_fornecedor_cod == -1)
-            this.ms.add(getMsgS('Dados do fornecedor - Fornecedor'));
-
-          if (vp.t2_produto_fornecedor_cod == '')
-            this.ms.add(
-              getMsgC('Dados do fornecedor - Código produto fornecedor')
-            );
-
-          if (vp.t2_quantidade_multipla === undefined)
-            this.ms.add(
-              getMsgC('Dados do fornecedor - Quantidade múltipla fornecedor')
-            );
-
-          if (vp.t2_quantidade_maxima === undefined)
-            this.ms.add(
-              getMsgC('Dados do fornecedor - Quantidade máxima fornecedor')
-            );
-
-          if (vp.t2_quantidade_minima === undefined)
-            this.ms.add(
-              getMsgC('Dados do fornecedor - Quantidade mínima fornecedor')
-            );*/
         }
         break;
 
       case environment.s2_dad_cad:
+        if (vp.t5_descricao == '')
+          this.ms.add(getMsgS('Dados de derivação - Descrição complementar da derivação'));
+
         if (vp.t5_c1_mascara_cod == '')
           this.ms.add(getMsgS('Dados de derivação - Máscara Derivação'));
         break;

@@ -201,8 +201,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t5_observacao') !== undefined)
     vp.t5_observacao = map.get('t5_observacao');
 
-  if (map.get('t5_pasta_id') !== undefined)
-    vp.t5_pasta_id = map.get('t5_pasta_id');
+  if (map.get('t1_c13_pasta_id') !== undefined)
+    vp.t1_c13_pasta_id = map.get('t1_c13_pasta_id');
 
   //Coluna 4
   if (map.get('t5_recusa') !== undefined) vp.t5_recusa = map.get('t5_recusa');
@@ -314,8 +314,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   if (map.get('t6_recusa') !== undefined) vp.t6_recusa = map.get('t6_recusa');
 
-  if (map.get('t6_pasta_id') !== undefined)
-    vp.t6_pasta_id = map.get('t6_pasta_id');
+  if (map.get('t6_c14_pasta_id') !== undefined)
+    vp.t6_c14_pasta_id = map.get('t6_c14_pasta_id');
 
   return vp;
 }

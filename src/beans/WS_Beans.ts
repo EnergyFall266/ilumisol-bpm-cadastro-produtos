@@ -168,10 +168,10 @@ interface ErroExecucao {
 }
 
 export interface CadastroRoot {
-  produto: Produto;
+  produto: Produto[];
 }
 
-interface Produto {
+export interface Produto {
   codEmp: number;
   codOri?: string;
   codFam?: string;

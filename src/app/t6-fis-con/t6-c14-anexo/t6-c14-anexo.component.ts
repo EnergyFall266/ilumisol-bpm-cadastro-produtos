@@ -18,11 +18,11 @@ export class T6C14AnexoComponent {
   public sn = gedf.simplifyName;
 
   public escolherDocFU = (fu: FileUpload) =>
-    (this.vp.t6_file_TS = fu.files);
+    (this.vp.t6_c14_file_TS = fu.files);
 
   public removerDocFU = (fu: FileUpload): void => {
     fu.clear();
-    this.vp.t6_file_TS = fu.files;
+    this.vp.t6_c14_file_TS = fu.files;
   };
 
   public descarregarDocGED = async (id: string) =>
@@ -30,11 +30,11 @@ export class T6C14AnexoComponent {
 
   public excluirDocGED = async (anexo: gedf.Anexo) => {
     if (await gedf.deleteDocument(anexo.gedId!, this.vp.token)) {
-      this.vp.t6_file_GED = this.vp.t6_file_GED.filter(
+      this.vp.t6_c14_file_GED = this.vp.t6_c14_file_GED.filter(
         (x) => anexo.gedId !== x.gedId
       );
-      if (this.vp.t6_file_GED.length == 0)
-        this.vp.t6_pasta_id = '';
+      if (this.vp.t6_c14_file_GED.length == 0)
+        this.vp.t6_c14_pasta_id = '';
     }
   };
 }
