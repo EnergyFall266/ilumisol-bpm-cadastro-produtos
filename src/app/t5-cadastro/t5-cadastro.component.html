@@ -2,7 +2,7 @@
   <!-- Coluna 1 -->
   <div class="col-3" [hidden]="vp.t5_show_only_recusa">
     <div class="grid">
-      <div class="col-12 pb-1">
+      <!--<div class="col-12 pb-1">
         <div class="grid">
           <span class="col-12">
             Descrição complementar da derivação
@@ -20,7 +20,7 @@
             ></textarea>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <div class="col-12">
         <app-t5-c1-mascara [vp]="vp"></app-t5-c1-mascara>
@@ -132,7 +132,7 @@
               decrementButtonIcon="pi pi-minus"
               [readonly]="vp.t5_req_to_read"
               placeholder="0,00"
-              [(ngModel)]="vp.t5_peso_bruto"
+              [(ngModel)]="vp.t1_peso_bruto"
             >
             </p-inputNumber>
           </div>
@@ -161,7 +161,7 @@
               decrementButtonIcon="pi pi-minus"
               [readonly]="vp.t5_req_to_read"
               placeholder="0,00"
-              [(ngModel)]="vp.t5_peso_liquido"
+              [(ngModel)]="vp.t1_peso_liquido"
             >
             </p-inputNumber>
           </div>

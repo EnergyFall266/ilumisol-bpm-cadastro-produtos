@@ -24,7 +24,7 @@ export class VP_BPM {
   public token: string = '';
   public user_fullname: string = '';
 
-  public key_filter: RegExp = /[a-zA-Z0-9 ]/;
+  public key_filter: RegExp = /[a-zA-Z0-9./ ]/;
 
   public ged_pasta_pai_id: string = '';
   public ged_pasta_pai_nome: string = 'Cadastro de produto';
@@ -36,18 +36,14 @@ export class VP_BPM {
     { label: 'Sim', value: 'Sim' },
     { label: 'Não', value: 'Não' },
   ];
-  public medida_options: SelectItem[] = [
-    { label: 'mm.', value: 'mm' },
-    { label: 'pol.', value: 'pol' },
-  ];
 
   public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
 
   public c1_empresa_rqd: boolean = false;
   public c1_empresa_arr: wsb.ExportaEmpresas[] = [];
   public c1_empresa_obj?: wsb.ExportaEmpresas;
-  public c1_empresa_cod: number = -1;
-  public c1_empresa_nom: string = '';
+  public c1_empresa_cod: number = 1;
+  public c1_empresa_nom: string = 'a';
 
   public c1_duplicado_hide: boolean = true;
   public c1_duplicado_rqd: boolean = false;
@@ -90,15 +86,17 @@ export class VP_BPM {
 
   public t1_cotado: string = '';
 
+  public t1_controlado: string = '';
+
   public t1_c3_clafiscal_arr: wsb.ExportaClaFis[] = [];
   public t1_c3_clafiscal_obj?: wsb.ExportaClaFis;
   public t1_c3_clafiscal_cod: string = '';
   public t1_c3_clafiscal_des: string = '';
 
-  public t1_barras: string = '';
+  /*public t1_barras: string = '';
   public t1_barras_just: string = '';
   public t1_barras_just_chk = () =>
-    this.t1_barras == '' || this.t1_c5_familia_cod == 'SEM GTIN';
+    this.t1_barras == '' || this.t1_c5_familia_cod == 'SEM GTIN';*/
 
   public t1_valor_aprox?: number;
 
@@ -127,6 +125,16 @@ export class VP_BPM {
   public t1_c12_destino_cod: string = '';
   public t1_c12_destino_des: string = '';
 
+  public t1_aplicacao: string = '';
+
+  public t1_comp_trata: string = '';
+
+  public medida_options: SelectItem[] = [
+    { label: 'mm.', value: 'mm' },
+    { label: 'pol.', value: 'pol' },
+  ];
+  public t1_tipo_arr: string[] = ['mm.', 'pol.'];
+
   public t1_altura?: number;
   public t1_altura_tipo: string = '';
 
@@ -136,11 +144,9 @@ export class VP_BPM {
   public t1_comprimento?: number;
   public t1_comprimento_tipo: string = '';
 
-  public t1_aplicacao: string = '';
+  public t1_peso_bruto?: number;
 
-  public t1_comp_trata: string = '';
-
-  public t1_controlado: string = '';
+  public t1_peso_liquido?: number;
 
   public t1_c13_file_TS: File[] = [];
   public t1_c13_file_GED: Anexo[] = [];
@@ -155,7 +161,7 @@ export class VP_BPM {
 
   public t5_conversao_arr: wsb.ExportaValorLista[] = [];
 
-  public t5_descricao: string = '';
+  //public t5_descricao: string = '';
 
   public t5_c1_mascara_arr: wsb.ExportaMascaraDerivacao[] = [];
   public t5_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
@@ -181,10 +187,6 @@ export class VP_BPM {
   public t5_c5_conversao3_des: string = '';
 
   public t5_valor3?: number;
-
-  public t5_peso_bruto?: number;
-
-  public t5_peso_liquido?: number;
 
   public t5_observacao: string = '';
 

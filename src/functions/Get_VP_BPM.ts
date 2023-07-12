@@ -42,29 +42,19 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t1_c3_clafiscal_cod = map.get('t1_c3_clafiscal_cod');
   vp.t1_c3_clafiscal_des = map.get('t1_c3_clafiscal_des');
 
-  if (map.get('t1_barras') !== undefined) vp.t1_barras = map.get('t1_barras');
+  /*if (map.get('t1_barras') !== undefined) vp.t1_barras = map.get('t1_barras');
 
   if (map.get('t1_barras_just') !== undefined)
-    vp.t1_barras_just = map.get('t1_barras_just');
+    vp.t1_barras_just = map.get('t1_barras_just');*/
 
   if (map.get('t1_valor_aprox') !== undefined)
     vp.t1_valor_aprox = +map.get('t1_valor_aprox');
-
-  /*vp.t1_c4_origem_cod = map.get('t1_c4_origem_cod');
-  vp.t1_c4_origem_des = map.get('t1_c4_origem_des');*/
 
   vp.t1_c5_familia_cod = map.get('t1_c5_familia_cod');
   vp.t1_c5_familia_des = map.get('t1_c5_familia_des');
 
   vp.t1_c6_medida_cod = map.get('t1_c6_medida_cod');
   vp.t1_c6_medida_des = map.get('t1_c6_medida_des');
-
-  //vp.t1_requisitado = map.get('t1_requisitado');
-
-  //vp.t1_orcamento = map.get('t1_orcamento');
-
-  /*vp.t1_c8_agrcomercial_cod = map.get('t1_c8_agrcomercial_cod');
-  vp.t1_c8_agrcomercial_des = map.get('t1_c8_agrcomercial_des');*/
 
   vp.t1_c7_mercadoria_cod = map.get('t1_c7_mercadoria_cod');
   vp.t1_c7_mercadoria_des = map.get('t1_c7_mercadoria_des');
@@ -77,11 +67,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
   vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
   vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
-
-  //vp.t1_especificacao = map.get('t1_especificacao');
-
-  /*if (map.get('t1_c11_multinivel_cod') !== undefined)
-    vp.t1_c11_multinivel_cod = map.get('t1_c11_multinivel_cod');*/
 
   vp.t1_altura = map.get('t1_altura');
   vp.t1_altura_tipo = map.get('t1_altura_tipo');
@@ -99,72 +84,18 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t1_controlado = map.get('t1_controlado');
 
   /**
-   * Dados de fornecedor
-   */
-
-  /*if (map.get('t2_c1_fornecedor_cod') !== undefined) {
-    vp.t2_c1_fornecedor_cod = +map.get('t2_c1_fornecedor_cod');
-    vp.t2_c1_fornecedor_des = map.get('t2_c1_fornecedor_des');
-  }
-
-  vp.t2_quantidade_multipla = +map.get('t2_quantidade_multipla');
-
-  vp.t2_quantidade_maxima = +map.get('t2_quantidade_maxima');
-
-  vp.t2_quantidade_minima = +map.get('t2_quantidade_minima');
-
-  if (map.get('t2_produto_fornecedor_cod') !== undefined)
-    vp.t2_produto_fornecedor_cod = map.get('t2_produto_fornecedor_cod');*/
-
-  /**
-   * Dados de depósito
-   */
-
-  //Coluna 1
-  /*if (map.get('t3_qtde_estoque_rep') !== undefined)
-    vp.t3_qtde_estoque_rep = +map.get('t3_qtde_estoque_rep');
-
-  vp.t3_qtde_min_vendas = +map.get('t3_qtde_min_vendas');
-
-  //Coluna 2
-  if (map.get('t3_qtde_estoque_min') !== undefined)
-    vp.t3_qtde_estoque_min = +map.get('t3_qtde_estoque_min');
-
-  if (map.get('t3_qtde_estoque_max') !== undefined)
-    vp.t3_qtde_estoque_max = +map.get('t3_qtde_estoque_max');
-
-  vp.t3_qtde_max_vendas = +map.get('t3_qtde_max_vendas');
-
-  //Coluna 3
-  if (map.get('t3_est_min_dias') !== undefined)
-    vp.t3_est_min_dias = +map.get('t3_est_min_dias');
-
-  if (map.get('t3_est_max_dias') !== undefined)
-    vp.t3_est_max_dias = +map.get('t3_est_max_dias');
-
-  //Coluna 4
-  vp.t3_qtde_mul_ven = +map.get('t3_qtde_mul_ven');
-
-  vp.t3_qtde_mul_com = +map.get('t3_qtde_mul_com');*/
-
-  /**
    * Dados do cadastro
    */
 
   //Coluna 1
 
-  if (map.get('t5_descricao') !== undefined)
-    vp.t5_descricao = map.get('t5_descricao');
+  /*if (map.get('t5_descricao') !== undefined)
+    vp.t5_descricao = map.get('t5_descricao');*/
 
   if (map.get('t5_c1_mascara_cod') !== undefined) {
     vp.t5_c1_mascara_cod = map.get('t5_c1_mascara_cod');
     vp.t5_c1_mascara_des = map.get('t5_c1_mascara_des');
   }
-
-  /*if (map.get('t1_c10_agrcusto_cod') !== undefined) {
-    vp.t1_c10_agrcusto_cod = map.get('t1_c10_agrcusto_cod');
-    vp.t1_c10_agrcusto_des = map.get('t1_c10_agrcusto_des');
-  }*/
 
   //Coluna 2
   if (map.get('t5_c2_medida2_cod') !== undefined) {
@@ -192,11 +123,11 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t5_valor3') !== undefined) vp.t5_valor3 = +map.get('t5_valor3');
 
   //Coluna 3
-  if (map.get('t5_peso_bruto') !== undefined)
-    vp.t5_peso_bruto = +map.get('t5_peso_bruto');
+  if (map.get('t1_peso_bruto') !== undefined)
+    vp.t1_peso_bruto = +map.get('t1_peso_bruto');
 
-  if (map.get('t5_peso_liquido') !== undefined)
-    vp.t5_peso_liquido = +map.get('t5_peso_liquido');
+  if (map.get('t1_peso_liquido') !== undefined)
+    vp.t1_peso_liquido = +map.get('t1_peso_liquido');
 
   if (map.get('t5_observacao') !== undefined)
     vp.t5_observacao = map.get('t5_observacao');

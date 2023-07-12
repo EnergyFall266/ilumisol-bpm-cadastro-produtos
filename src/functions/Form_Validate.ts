@@ -42,16 +42,21 @@ export default class FormValidate {
           if (vp.t1_cotado == '')
             this.ms.add(getMsgS('Dados básicos - Produto será cotado?'));
 
+          if (vp.t1_controlado == '')
+            this.ms.add(
+              getMsgS('Dados do básicos - Produto vai ter estoque controlado?')
+            );
+
           if (vp.t1_c3_clafiscal_cod == '')
             this.ms.add(getMsgS('Dados básicos - Classificação fiscal / NCM'));
 
-          if (vp.t1_barras == '')
+          /*if (vp.t1_barras == '')
             this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
 
           if (vp.t1_barras_just_chk())
             this.ms.add(
               getMsgC('Dados básicos - Justificativa código de barras')
-            );
+            );*/
 
           if (vp.t1_valor_aprox === undefined)
             this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
@@ -67,6 +72,12 @@ export default class FormValidate {
 
           if (vp.t1_c12_destino_cod == '')
             this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
+
+          if (vp.t1_aplicacao === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Aplicação'));
+
+          if (vp.t1_comp_trata === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Composição Tratamento'));
 
           if (vp.t1_altura === undefined)
             this.ms.add(getMsgS('Dados do básicos - Altura / Espessura'));
@@ -87,22 +98,22 @@ export default class FormValidate {
               getMsgS('Dados do básicos - Comprimento tipo de medida')
             );
 
-          if (vp.t1_aplicacao === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Aplicação'));
+          if (vp.t1_peso_bruto === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Peso Bruto'));
 
-          if (vp.t1_comp_trata === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Composição Tratamento'));
+          if (vp.t1_peso_liquido === undefined)
+            this.ms.add(getMsgS('Dados do básicos - Peso Líquido'));
 
-          if (vp.t1_controlado == '')
+          if (vp.t1_c13_file_TS.length == 0)
             this.ms.add(
-              getMsgS('Dados do básicos - Produto vai ter estoque controlado?')
+              getMsgS('Dados do básicos - Deve inserir pelo menos um anexo')
             );
         }
         break;
 
       case environment.s2_dad_cad:
-        if (vp.t5_descricao == '')
-          this.ms.add(getMsgS('Dados de derivação - Descrição complementar da derivação'));
+        /*if (vp.t5_descricao == '')
+          this.ms.add(getMsgS('Dados de derivação - Descrição complementar da derivação'));*/
 
         if (vp.t5_c1_mascara_cod == '')
           this.ms.add(getMsgS('Dados de derivação - Máscara Derivação'));

@@ -232,7 +232,7 @@ export class AppService {
        */
       derivacao: [
         {
-          codBar: vp.t1_barras,
+          //codBar: vp.t1_barras,
           tipCn2: vp.t5_c4_conversao2_cod,
           vlrCn2: vp.t5_valor2 ?? 0,
           tipCn3: vp.t5_c5_conversao3_cod,
@@ -242,8 +242,8 @@ export class AppService {
       codMdp: vp.t5_c1_mascara_cod,
       uniMe2: vp.t5_c2_medida2_cod,
       uniMe3: vp.t5_c3_medida3_cod,
-      pesBru: vp.t5_peso_bruto,
-      pesLiq: vp.t5_peso_liquido,
+      pesBru: vp.t1_peso_bruto,
+      pesLiq: vp.t1_peso_liquido,
 
       /**
        * Dados fiscais e contábeis

@@ -33,6 +33,7 @@ import { ToastModule } from 'primeng/toast';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ChipsModule } from 'primeng/chips';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
 import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
 import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
@@ -160,7 +161,8 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     ToastModule,
     KeyFilterModule,
     SelectButtonModule,
-    ChipsModule
+    ChipsModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent],
