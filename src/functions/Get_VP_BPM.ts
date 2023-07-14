@@ -7,9 +7,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.c1_empresa_cod = map.get('c1_empresa_cod');
   vp.c1_empresa_nom = map.get('c1_empresa_nom');
 
-  vp.c1_duplicado_stx = map.get('c1_duplicado_stx');
-  vp.c1_duplicado_cax = map.get('c1_duplicado_cax');
-  vp.c1_duplicado_nom = map.get('c1_duplicado_nom');
+  vp.t1_c14_duplicado_stx = map.get('t1_c14_duplicado_stx');
+  vp.t1_c14_duplicado_nom = map.get('t1_c14_duplicado_nom');
 
   /**
    * Dados básicos
@@ -66,7 +65,7 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
   vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
-  vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
+  //vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
 
   vp.t1_altura = map.get('t1_altura');
   vp.t1_altura_tipo = map.get('t1_altura_tipo');

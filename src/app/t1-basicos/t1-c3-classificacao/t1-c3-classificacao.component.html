@@ -1,122 +1,118 @@
 <div class="grid">
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12">
-        Classificação fiscal / NCM
-        <span style="color: red" [hidden]="vp.t1_req_to_read">*</span>
-      </span>
-      <div class="col-12 py-0">
-        <div class="p-inputgroup">
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-times-circle"
-            class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
-            [style.display]="
-              vp.t1_req_to_read || vp.buscandoWS || vp.t1_c3_clafiscal_cod == ''
-                ? 'none'
-                : ''
-            "
-            (click)="fiscalClear()"
-          ></button>
-          <input
-            pInputText
-            type="text"
-            class="col-12"
-            placeholder="Selecione"
-            [readonly]="true"
-            [(ngModel)]="vp.t1_c3_clafiscal_des"
-            (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : fiscalInput()"
-          />
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-search"
-            class="p-0"
-            [style.display]="vp.t1_req_to_read ? 'none' : ''"
-            (click)="fiscalInput()"
-            [disabled]="vp.buscandoWS"
-          ></button>
-        </div>
-      </div>
+  <span class="col-12">
+    Classificação fiscal / NCM
+    <span style="color: red" [hidden]="vp.t1_req_to_read">*</span>
+  </span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
+        [style.display]="
+          vp.t1_req_to_read || vp.buscandoWS || vp.t1_c3_clafiscal_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="fiscalClear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t1_c3_clafiscal_des"
+        (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : fiscalInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t1_req_to_read ? 'none' : ''"
+        (click)="fiscalInput()"
+        [disabled]="vp.buscandoWS"
+      ></button>
     </div>
   </div>
-  <p-dialog
-    header="Classificações fiscais"
-    [styleClass]="'w-11'"
-    [modal]="true"
-    [draggable]="false"
-    [resizable]="false"
-    [closeOnEscape]="true"
-    [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
-  >
-    <p-table
-      #tableFiscal
-      selectionMode="single"
-      styleClass="p-datatable-sm"
-      [rows]="10"
-      [paginator]="true"
-      [loading]="vp.buscandoWS"
-      [value]="vp.t1_c3_clafiscal_arr"
-      [(selection)]="vp.t1_c3_clafiscal_obj"
-      (onRowSelect)="fiscalSelect()"
-      dataKey="codClf"
-      [globalFilterFields]="['codClf', 'desClf']"
-    >
-      <ng-template pTemplate="caption">
-        <div class="p-d-flex">
-          <span class="p-input-icon-left p-ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              class="col-12"
-              pInputText
-              (input)="
-                tableFiscal.filterGlobal($any($event.target).value, 'contains')
-              "
-              placeholder="Buscar"
-            />
-          </span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="codClf">
-            Código <p-sortIcon field="codClf"></p-sortIcon>
-          </th>
-          <th pSortableColumn="desClf">
-            Descrição <p-sortIcon field="desClf"></p-sortIcon>
-          </th>
-          <th pSortableColumn="claFis">
-            Código NCM <p-sortIcon field="claFis"></p-sortIcon>
-          </th>
-          <th pSortableColumn="perIpi">
-            % IPI para entradas <p-sortIcon field="perIpi"></p-sortIcon>
-          </th>
-          <th pSortableColumn="perIps">
-            % IPI para saídas <p-sortIcon field="perIps"></p-sortIcon>
-          </th>
-          <th pSortableColumn="perPis">
-            % PIS <p-sortIcon field="perPis"></p-sortIcon>
-          </th>
-          <th pSortableColumn="perCof">
-            % COFINS <p-sortIcon field="perCof"></p-sortIcon>
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-fis>
-        <tr [pSelectableRow]="fis">
-          <td>{{ fis.codClf }}</td>
-          <td>{{ fis.desClf }}</td>
-          <td>{{ fis.claFis }}</td>
-          <td>{{ fis.perIpi }}</td>
-          <td>{{ fis.perPis }}</td>
-          <td>{{ fis.perCof }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-dialog>
 </div>
+<p-dialog
+  header="Classificações fiscais"
+  [styleClass]="'w-11'"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [closable]="!vp.buscandoWS"
+  [(visible)]="mostrar_modal"
+>
+  <p-table
+    #tableFiscal
+    selectionMode="single"
+    styleClass="p-datatable-sm"
+    [rows]="10"
+    [paginator]="true"
+    [loading]="vp.buscandoWS"
+    [value]="vp.t1_c3_clafiscal_arr"
+    [(selection)]="vp.t1_c3_clafiscal_obj"
+    (onRowSelect)="fiscalSelect()"
+    dataKey="codClf"
+    [globalFilterFields]="['codClf', 'desClf']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="col-12"
+            pInputText
+            (input)="
+              tableFiscal.filterGlobal($any($event.target).value, 'contains')
+            "
+            placeholder="Buscar"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="codClf">
+          Código <p-sortIcon field="codClf"></p-sortIcon>
+        </th>
+        <th pSortableColumn="desClf">
+          Descrição <p-sortIcon field="desClf"></p-sortIcon>
+        </th>
+        <th pSortableColumn="claFis">
+          Código NCM <p-sortIcon field="claFis"></p-sortIcon>
+        </th>
+        <th pSortableColumn="perIpi">
+          % IPI para entradas <p-sortIcon field="perIpi"></p-sortIcon>
+        </th>
+        <th pSortableColumn="perIps">
+          % IPI para saídas <p-sortIcon field="perIps"></p-sortIcon>
+        </th>
+        <th pSortableColumn="perPis">
+          % PIS <p-sortIcon field="perPis"></p-sortIcon>
+        </th>
+        <th pSortableColumn="perCof">
+          % COFINS <p-sortIcon field="perCof"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-fis>
+      <tr [pSelectableRow]="fis">
+        <td>{{ fis.codClf }}</td>
+        <td>{{ fis.desClf }}</td>
+        <td>{{ fis.claFis }}</td>
+        <td>{{ fis.perIpi }}</td>
+        <td>{{ fis.perPis }}</td>
+        <td>{{ fis.perCof }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

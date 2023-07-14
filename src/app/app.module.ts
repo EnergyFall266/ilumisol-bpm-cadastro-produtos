@@ -75,6 +75,7 @@ import { T2C2UnidadeComponent } from './t2-fornecedor/t2-c2-unidade/t2-c2-unidad
 import { T3C1DepositoComponent } from './t3-deposito/t3-c1-deposito/t3-c1-deposito.component';
 import { T1C12DepositoComponent } from './t1-basicos/t1-c12-deposito/t1-c12-deposito.component';
 import { T1C13AnexoComponent } from './t1-basicos/t1-c13-anexo/t1-c13-anexo.component';
+import { T1C14DuplicadoComponent } from './t1-basicos/t1-c14-duplicado/t1-c14-duplicado.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -123,6 +124,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T3C1DepositoComponent,
     T1C12DepositoComponent,
     T1C13AnexoComponent,
+    T1C14DuplicadoComponent,
   ],
   imports: [
     BrowserModule,

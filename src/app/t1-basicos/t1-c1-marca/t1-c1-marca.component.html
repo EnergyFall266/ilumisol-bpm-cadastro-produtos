@@ -1,114 +1,110 @@
 <div class="grid">
-  <div class="col-12">
-    <div class="grid">
-      <span class="col-12">
-        Marca
-        <span
-          style="color: red"
-          [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
-          >*</span
-        >
-      </span>
-      <div class="col-12 py-0">
-        <div class="p-inputgroup">
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-times-circle"
-            class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
-            [style.display]="
-              vp.t1_req_to_read || vp.buscandoWS || vp.t1_c1_marca_cod == ''
-                ? 'none'
-                : ''
-            "
-            (click)="marcaClear()"
-          ></button>
-          <input
-            pInputText
-            type="text"
-            class="col-12"
-            placeholder="Selecione"
-            [readonly]="true"
-            [(ngModel)]="vp.t1_c1_marca_des"
-            (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : marcaInput()"
-          />
-          <button
-            pButton
-            pRipple
-            type="button"
-            icon="pi pi-search"
-            class="p-0"
-            [style.display]="vp.t1_req_to_read ? 'none' : ''"
-            (click)="marcaInput()"
-            [disabled]="vp.buscandoWS"
-          ></button>
-        </div>
-      </div>
-      <h6
-        class="col-12 m-0 py-0"
-        style="font-weight: normal"
-        [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
-      >
-        Apenas para inversores e módulos
-      </h6>
+  <span class="col-12">
+    Marca
+    <span
+      style="color: red"
+      [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
+      >*</span
+    >
+  </span>
+  <div class="col-12 py-0">
+    <div class="p-inputgroup">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times-circle"
+        class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
+        [style.display]="
+          vp.t1_req_to_read || vp.buscandoWS || vp.t1_c1_marca_cod == ''
+            ? 'none'
+            : ''
+        "
+        (click)="marcaClear()"
+      ></button>
+      <input
+        pInputText
+        type="text"
+        class="col-12"
+        placeholder="Selecione"
+        [readonly]="true"
+        [(ngModel)]="vp.t1_c1_marca_des"
+        (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : marcaInput()"
+      />
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-0"
+        [style.display]="vp.t1_req_to_read ? 'none' : ''"
+        (click)="marcaInput()"
+        [disabled]="vp.buscandoWS"
+      ></button>
     </div>
   </div>
-  <p-dialog
-    header="Marcas"
-    [styleClass]="'w-6'"
-    [modal]="true"
-    [draggable]="false"
-    [resizable]="false"
-    [closeOnEscape]="true"
-    [closable]="!vp.buscandoWS"
-    [(visible)]="mostrar_modal"
+  <h6
+    class="col-12 m-0 py-0"
+    style="font-weight: normal"
+    [hidden]="vp.t1_req_to_read || !vp.t1_c1_marca_chk()"
   >
-    <p-table
-      #tableMarca
-      selectionMode="single"
-      styleClass="p-datatable-sm"
-      [rows]="10"
-      [paginator]="true"
-      [loading]="vp.buscandoWS"
-      [value]="vp.t1_c1_marca_arr"
-      [(selection)]="vp.t1_c1_marca_obj"
-      (onRowSelect)="marcaSelect()"
-      dataKey="codMar"
-      [globalFilterFields]="['codMar', 'nomMar']"
-    >
-      <ng-template pTemplate="caption">
-        <div class="p-d-flex">
-          <span class="p-input-icon-left p-ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              class="col-12"
-              pInputText
-              (input)="
-                tableMarca.filterGlobal($any($event.target).value, 'contains')
-              "
-              placeholder="Buscar"
-            />
-          </span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="header">
-        <tr>
-          <th pSortableColumn="codMar">
-            Código <p-sortIcon field="codMar"></p-sortIcon>
-          </th>
-          <th pSortableColumn="nomMar">
-            Nome <p-sortIcon field="nomMar"></p-sortIcon>
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-mar>
-        <tr [pSelectableRow]="mar">
-          <td>{{ mar.codMar }}</td>
-          <td>{{ mar.nomMar }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </p-dialog>
+    Apenas para inversores e módulos
+  </h6>
 </div>
+<p-dialog
+  header="Marcas"
+  [styleClass]="'w-6'"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [closable]="!vp.buscandoWS"
+  [(visible)]="mostrar_modal"
+>
+  <p-table
+    #tableMarca
+    selectionMode="single"
+    styleClass="p-datatable-sm"
+    [rows]="10"
+    [paginator]="true"
+    [loading]="vp.buscandoWS"
+    [value]="vp.t1_c1_marca_arr"
+    [(selection)]="vp.t1_c1_marca_obj"
+    (onRowSelect)="marcaSelect()"
+    dataKey="codMar"
+    [globalFilterFields]="['codMar', 'nomMar']"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="col-12"
+            pInputText
+            (input)="
+              tableMarca.filterGlobal($any($event.target).value, 'contains')
+            "
+            placeholder="Buscar"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="codMar">
+          Código <p-sortIcon field="codMar"></p-sortIcon>
+        </th>
+        <th pSortableColumn="nomMar">
+          Nome <p-sortIcon field="nomMar"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-mar>
+      <tr [pSelectableRow]="mar">
+        <td>{{ mar.codMar }}</td>
+        <td>{{ mar.nomMar }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

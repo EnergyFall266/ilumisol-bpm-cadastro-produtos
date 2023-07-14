@@ -19,12 +19,12 @@ export class T5C2Medida2Component {
 
   public async uni2Input() {
     this.mostrar_modal_2 = true;
-    if (this.vp.unidades_medida_arr.length == 0) {
-      this.vp.unidades_medida_arr = (await this.ap.exportaServico(
+    if (this.vp.unidades_arr.length == 0) {
+      this.vp.unidades_arr = (await this.ap.exportaServico(
         'ExportaUniMeds'
       )) as ExportaUniMeds[];
       if (this.vp.t5_c2_medida2_cod != '')
-        this.vp.t5_c2_medida2_obj = this.vp.unidades_medida_arr.find(
+        this.vp.t5_c2_medida2_obj = this.vp.unidades_arr.find(
           (x) => x.uniMed == this.vp.t5_c2_medida2_cod
         );
     }

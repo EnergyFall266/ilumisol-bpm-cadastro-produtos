@@ -40,10 +40,12 @@ export async function saveData(vp: VP_BPM) {
   if (STEP === environment.s6_fis_con && vp.t6_c14_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'f');
 
-  vp.unidades_medida_arr = [];
+  vp.unidades_arr = [];
+  vp.c1_empresa_arr = [];
   vp.t1_c5_familia_arr = [];
   vp.t1_c1_marca_arr = [];
   vp.t1_c3_clafiscal_arr = [];
+  vp.t1_c14_duplicado_arr = [];
   vp.t1_c7_mercadoria_arr = [];
   vp.t1_c1_marca_arr = [];
   vp.t1_c3_clafiscal_arr = [];

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { VP_BPM } from 'src/beans/VP_BPM';
-import { CadastroRoot, LigProDep, Produto } from 'src/beans/WS_Beans';
+import { LigProDep, Produto } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
 import { wsG5Exporta } from 'src/functions/WS_Axios';
 import * as ged from 'prisma_prismafunctions';
@@ -282,16 +282,16 @@ export class AppService {
       numOri: 55,
     };
 
-    const c: CadastroRoot = { produto: [proObj] };
+    const p: Produto[] = [proObj];
 
-    if (vp.c1_duplicado_cax != '' && vp.c1_duplicado_cax != '[]') {
-      vp.c1_duplicado_cod = JSON.parse(vp.c1_duplicado_cax);
-      for (const d of vp.c1_duplicado_cod) {
-        proObj.codEmp = d;
-        c.produto.push(proObj);
+    if (vp.t1_c14_duplicado_stx != '' && vp.t1_c14_duplicado_stx != '[]') {
+      vp.t1_c14_duplicado_sel = JSON.parse(vp.t1_c14_duplicado_stx);
+      for (const d of vp.t1_c14_duplicado_sel) {
+        proObj.codEmp = d.codEmp;
+        p.push(proObj);
       }
     }
 
-    return await wsG5Exporta('CadastroProduto', JSON.stringify(c));
+    return await wsG5Exporta('CadastroProduto', JSON.stringify({ produto: p }));
   }
 }

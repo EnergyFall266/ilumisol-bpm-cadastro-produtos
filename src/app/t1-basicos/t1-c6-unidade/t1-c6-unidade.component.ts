@@ -20,12 +20,12 @@ export class T1C6UnidadeComponent {
   public async unidadeInput() {
     if (!this.vp.t1_req_to_read) {
       this.mostrar_modal = true;
-      if (this.vp.unidades_medida_arr.length == 0) {
-        this.vp.unidades_medida_arr = (await this.ap.exportaServico(
+      if (this.vp.unidades_arr.length == 0) {
+        this.vp.unidades_arr = (await this.ap.exportaServico(
           'ExportaUniMeds'
         )) as ExportaUniMeds[];
         if (this.vp.t1_c6_medida_cod != '')
-          this.vp.t1_c6_medida_obj = this.vp.unidades_medida_arr.find(
+          this.vp.t1_c6_medida_obj = this.vp.unidades_arr.find(
             (x) => x.uniMed == this.vp.t1_c6_medida_cod
           );
       }

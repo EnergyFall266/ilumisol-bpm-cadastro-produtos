@@ -37,21 +37,13 @@ export class VP_BPM {
     { label: 'Não', value: 'Não' },
   ];
 
-  public unidades_medida_arr: wsb.ExportaUniMeds[] = [];
+  public unidades_arr: wsb.ExportaUniMeds[] = [];
 
-  public c1_empresa_rqd: boolean = false;
   public c1_empresa_arr: wsb.ExportaEmpresas[] = [];
+  public c1_empresa_rqd: boolean = false;
   public c1_empresa_obj?: wsb.ExportaEmpresas;
-  public c1_empresa_cod: number = 1;
-  public c1_empresa_nom: string = 'a';
-
-  public c1_duplicado_hide: boolean = true;
-  public c1_duplicado_rqd: boolean = false;
-  public c1_duplicado_sel: wsb.ExportaEmpresas[] = [];
-  public c1_duplicado_stx: string = '';
-  public c1_duplicado_cod: number[] = [];
-  public c1_duplicado_cax: string = '';
-  public c1_duplicado_nom: string = '';
+  public c1_empresa_cod: number = -1;
+  public c1_empresa_nom: string = '';
 
   /**
    * Dados básicos
@@ -100,6 +92,11 @@ export class VP_BPM {
 
   public t1_valor_aprox?: number;
 
+  public t1_c14_duplicado_arr: wsb.ExportaEmpresas[] = [];
+  public t1_c14_duplicado_sel: wsb.ExportaEmpresas[] = [];
+  public t1_c14_duplicado_stx: string = '';
+  public t1_c14_duplicado_nom: string = '';
+
   public t1_c5_familia_arr: wsb.ExportaFamilias[] = [];
   public t1_c5_familia_obj?: wsb.ExportaFamilias;
   public t1_c5_familia_cod: string = '';
@@ -123,7 +120,7 @@ export class VP_BPM {
   public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
   public t1_c12_destino_stx: string = '';
   public t1_c12_destino_cod: string = '';
-  public t1_c12_destino_des: string = '';
+  //public t1_c12_destino_des: string = '';
 
   public t1_aplicacao: string = '';
 

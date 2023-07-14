@@ -24,7 +24,7 @@
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t1_c12_destino_des"
+        [(ngModel)]="vp.t1_c12_destino_cod"
         (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : depositoInput()"
       />
       <button
@@ -42,7 +42,7 @@
 </div>
 <p-dialog
   header="Destinos"
-  [styleClass]="'w-6'"
+  [styleClass]="'w-8'"
   [modal]="true"
   [draggable]="false"
   [resizable]="false"
