@@ -12,10 +12,6 @@ export class T1C1MarcaComponent {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal: boolean = false;
-  public checkFamilia = () =>
-    this.vp.t1_c5_familia_cod != '1010' &&
-    this.vp.t1_c5_familia_cod != '2010' &&
-    this.vp.t1_c5_familia_cod != '2012';
 
   constructor(private ap: AppService) {}
 

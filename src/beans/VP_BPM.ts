@@ -130,7 +130,7 @@ export class VP_BPM {
     { label: 'mm.', value: 'mm' },
     { label: 'pol.', value: 'pol' },
   ];
-  public t1_tipo_arr: string[] = ['mm.', 'pol.'];
+  //public t1_tipo_arr: string[] = ['mm.', 'pol.'];
 
   public t1_altura?: number;
   public t1_altura_tipo: string = '';

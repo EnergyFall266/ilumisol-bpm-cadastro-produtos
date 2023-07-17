@@ -337,11 +337,22 @@
             >
             </p-inputNumber>
           </div>
-          <div class="col-12 pb-0">
+          <div class="col-fixed pb-0 pr-0">
             <p-selectButton
               [options]="vp.medida_options"
               [(ngModel)]="vp.t1_altura_tipo"
             ></p-selectButton>
+          </div>
+          <div
+            class="col-fixed pb-0 px-0"
+            [hidden]="vp.t1_req_to_read || vp.t1_altura_tipo != 'pol'"
+          >
+            <p-button
+              icon="pi pi-info-circle"
+              styleClass="p-button-info p-button-text px-0"
+              pTooltip="Exemplo de preenchimento: 1,32"
+              [disabled]="true"
+            ></p-button>
           </div>
           <!--<div class="col-4 py-0">
             <p-autoComplete
@@ -389,11 +400,22 @@
             >
             </p-inputNumber>
           </div>
-          <div class="col-12 pb-0">
+          <div class="col-fixed pb-0 pr-0">
             <p-selectButton
               [options]="vp.medida_options"
               [(ngModel)]="vp.t1_largura_tipo"
             ></p-selectButton>
+          </div>
+          <div
+            class="col-fixed pb-0 px-0"
+            [hidden]="vp.t1_req_to_read || vp.t1_largura_tipo != 'pol'"
+          >
+            <p-button
+              icon="pi pi-info-circle"
+              styleClass="p-button-info p-button-text px-0"
+              pTooltip="Exemplo de preenchimento: 1,32"
+              [disabled]="true"
+            ></p-button>
           </div>
           <!--<div class="col-4 py-0">
             <p-autoComplete
@@ -440,11 +462,22 @@
             >
             </p-inputNumber>
           </div>
-          <div class="col-12 pb-0">
+          <div class="col-fixed pb-0 pr-0">
             <p-selectButton
               [options]="vp.medida_options"
               [(ngModel)]="vp.t1_comprimento_tipo"
             ></p-selectButton>
+          </div>
+          <div
+            class="col-fixed pb-0 px-0"
+            [hidden]="vp.t1_req_to_read || vp.t1_comprimento_tipo != 'pol'"
+          >
+            <p-button
+              icon="pi pi-info-circle"
+              styleClass="p-button-info p-button-text px-0"
+              pTooltip="Exemplo de preenchimento: 1,32"
+              [disabled]="true"
+            ></p-button>
           </div>
           <!--<div class="col-4 py-0">
             <p-autoComplete
