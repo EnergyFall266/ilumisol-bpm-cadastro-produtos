@@ -1,11 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  MenuItem,
-  MessageService,
-  PrimeNGConfig,
-  Translation,
-} from 'primeng/api';
+import * as ngapi from 'primeng/api';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import * as fd from 'src/functions/Form_Design';
 import * as wc from 'src/functions/Workflow_Cockpit';
@@ -21,24 +16,24 @@ declare var workflowCockpit: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MessageService, FormValidate],
+  providers: [ngapi.MessageService, FormValidate],
 })
 export class AppComponent {
   @ViewChild(Messages) msg!: Messages;
 
   public title = 'cadastro_produto';
 
-  public menus: MenuItem[] = fd.menus;
-  public activeMenu: MenuItem = {};
+  public menus: ngapi.MenuItem[] = fd.menus;
+  public activeMenu: ngapi.MenuItem = {};
   public panel = fd.panels;
 
   public vp: VP_BPM = new VP_BPM();
 
   constructor(
     private ap: AppService,
-    private messageService: MessageService,
+    private messageService: ngapi.MessageService,
     private translate: TranslateService,
-    private primeNGConfig: PrimeNGConfig,
+    private primeNGConfig: ngapi.PrimeNGConfig,
     private formValidate: FormValidate
   ) {
     new workflowCockpit({
@@ -52,7 +47,7 @@ export class AppComponent {
     translate.use('pt');
     this.translate
       .stream('primeng')
-      .subscribe((data: Translation) =>
+      .subscribe((data: ngapi.Translation) =>
         this.primeNGConfig.setTranslation(data)
       );
   }
