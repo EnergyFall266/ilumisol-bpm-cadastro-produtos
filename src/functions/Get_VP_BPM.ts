@@ -40,11 +40,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   vp.t1_c3_clafiscal_cod = map.get('t1_c3_clafiscal_cod');
   vp.t1_c3_clafiscal_des = map.get('t1_c3_clafiscal_des');
 
-  /*if (map.get('t1_barras') !== undefined) vp.t1_barras = map.get('t1_barras');
-
-  if (map.get('t1_barras_just') !== undefined)
-    vp.t1_barras_just = map.get('t1_barras_just');*/
-
   if (map.get('t1_valor_aprox') !== undefined)
     vp.t1_valor_aprox = +map.get('t1_valor_aprox');
 
@@ -67,7 +62,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
   vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
-  //vp.t1_c12_destino_des = map.get('t1_c12_destino_des');
 
   vp.t1_aplicacao = map.get('t1_aplicacao');
 
@@ -96,10 +90,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    */
 
   //Coluna 1
-
-  /*if (map.get('t5_descricao') !== undefined)
-    vp.t5_descricao = map.get('t5_descricao');*/
-
   if (map.get('t5_c1_mascara_cod') !== undefined) {
     vp.t5_c1_mascara_cod = map.get('t5_c1_mascara_cod');
     vp.t5_c1_mascara_des = map.get('t5_c1_mascara_des');

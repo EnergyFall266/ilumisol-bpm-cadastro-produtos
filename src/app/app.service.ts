@@ -232,7 +232,6 @@ export class AppService {
        */
       derivacao: [
         {
-          //codBar: vp.t1_barras,
           tipCn2: vp.t5_c4_conversao2_cod,
           vlrCn2: vp.t5_valor2 ?? 0,
           tipCn3: vp.t5_c5_conversao3_cod,

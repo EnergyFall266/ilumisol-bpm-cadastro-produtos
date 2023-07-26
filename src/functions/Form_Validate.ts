@@ -50,14 +50,6 @@ export default class FormValidate {
           if (vp.t1_c3_clafiscal_cod == '')
             this.ms.add(getMsgS('Dados básicos - Classificação fiscal / NCM'));
 
-          /*if (vp.t1_barras == '')
-            this.ms.add(getMsgC('Dados básicos - Código de barras livre'));
-
-          if (vp.t1_barras_just_chk())
-            this.ms.add(
-              getMsgC('Dados básicos - Justificativa código de barras')
-            );*/
-
           if (vp.t1_valor_aprox === undefined)
             this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
 
@@ -112,9 +104,6 @@ export default class FormValidate {
         break;
 
       case environment.s2_dad_cad:
-        /*if (vp.t5_descricao == '')
-          this.ms.add(getMsgS('Dados de derivação - Descrição complementar da derivação'));*/
-
         if (vp.t5_c1_mascara_cod == '')
           this.ms.add(getMsgS('Dados de derivação - Máscara Derivação'));
         break;
@@ -133,6 +122,8 @@ export default class FormValidate {
   };
 
   public cadastrarProduto = (vp: VP_BPM) => {
+    this.ms.clear();
+
     if (vp.t6_c1_impostos_cod == -1)
       this.ms.add(
         getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')

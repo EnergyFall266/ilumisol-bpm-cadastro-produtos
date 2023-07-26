@@ -85,11 +85,6 @@ export class VP_BPM {
   public t1_c3_clafiscal_cod: string = '';
   public t1_c3_clafiscal_des: string = '';
 
-  /*public t1_barras: string = '';
-  public t1_barras_just: string = '';
-  public t1_barras_just_chk = () =>
-    this.t1_barras == '' || this.t1_c5_familia_cod == 'SEM GTIN';*/
-
   public t1_valor_aprox?: number;
 
   public t1_c14_duplicado_arr: wsb.ExportaEmpresas[] = [];
@@ -120,7 +115,6 @@ export class VP_BPM {
   public t1_c12_destino_sel: wsb.ExportaDepositos[] = [];
   public t1_c12_destino_stx: string = '';
   public t1_c12_destino_cod: string = '';
-  //public t1_c12_destino_des: string = '';
 
   public t1_aplicacao: string = '';
 
@@ -130,7 +124,6 @@ export class VP_BPM {
     { label: 'mm.', value: 'mm' },
     { label: 'pol.', value: 'pol' },
   ];
-  //public t1_tipo_arr: string[] = ['mm.', 'pol.'];
 
   public t1_altura?: number;
   public t1_altura_tipo: string = '';
@@ -157,8 +150,6 @@ export class VP_BPM {
   public t5_req_to_read: boolean = false;
 
   public t5_conversao_arr: wsb.ExportaValorLista[] = [];
-
-  //public t5_descricao: string = '';
 
   public t5_c1_mascara_arr: wsb.ExportaMascaraDerivacao[] = [];
   public t5_c1_mascara_obj?: wsb.ExportaMascaraDerivacao;
