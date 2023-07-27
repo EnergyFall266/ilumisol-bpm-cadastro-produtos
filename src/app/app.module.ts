@@ -36,8 +36,6 @@ import { ChipsModule } from 'primeng/chips';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { TooltipModule } from 'primeng/tooltip';
 import { T1BasicosComponent } from './t1-basicos/t1-basicos.component';
-import { T2FornecedorComponent } from './t2-fornecedor/t2-fornecedor.component';
-import { T3DepositoComponent } from './t3-deposito/t3-deposito.component';
 import { T5CadastroComponent } from './t5-cadastro/t5-cadastro.component';
 import { T6FisConComponent } from './t6-fis-con/t6-fis-con.component';
 import { T1C1MarcaComponent } from './t1-basicos/t1-c1-marca/t1-c1-marca.component';
@@ -71,9 +69,6 @@ import { T6C12EnquadramentoEspeComponent } from './t6-fis-con/t6-c12-enquadramen
 import { T6C13MotivoComponent } from './t6-fis-con/t6-c13-motivo/t6-c13-motivo.component';
 import { T6C14AnexoComponent } from './t6-fis-con/t6-c14-anexo/t6-c14-anexo.component';
 import { C1EmpresaComponent } from './c1-empresa/c1-empresa.component';
-import { T2C1FornecedorComponent } from './t2-fornecedor/t2-c1-fornecedor/t2-c1-fornecedor.component';
-import { T2C2UnidadeComponent } from './t2-fornecedor/t2-c2-unidade/t2-c2-unidade.component';
-import { T3C1DepositoComponent } from './t3-deposito/t3-c1-deposito/t3-c1-deposito.component';
 import { T1C12DepositoComponent } from './t1-basicos/t1-c12-deposito/t1-c12-deposito.component';
 import { T1C13AnexoComponent } from './t1-basicos/t1-c13-anexo/t1-c13-anexo.component';
 import { T1C14DuplicadoComponent } from './t1-basicos/t1-c14-duplicado/t1-c14-duplicado.component';
@@ -85,8 +80,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
   declarations: [
     AppComponent,
     T1BasicosComponent,
-    T2FornecedorComponent,
-    T3DepositoComponent,
     T5CadastroComponent,
     T6FisConComponent,
     T1C1MarcaComponent,
@@ -120,9 +113,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C13MotivoComponent,
     T6C14AnexoComponent,
     C1EmpresaComponent,
-    T2C1FornecedorComponent,
-    T2C2UnidadeComponent,
-    T3C1DepositoComponent,
     T1C12DepositoComponent,
     T1C13AnexoComponent,
     T1C14DuplicadoComponent,

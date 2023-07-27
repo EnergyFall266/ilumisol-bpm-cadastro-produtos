@@ -54,6 +54,7 @@ export class T1C5FamiliaComponent {
   public familiaSelect() {
     this.vp.t1_c5_familia_cod = this.vp.t1_c5_familia_obj!.codFam;
     this.vp.t1_c5_familia_des = this.vp.t1_c5_familia_obj!.desFam;
+    this.vp.t1_c5_familia_ori = this.vp.t1_c5_familia_obj!.codOri + '';
     this.mostrar_modal = false;
   }
 

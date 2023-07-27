@@ -96,6 +96,7 @@ export class VP_BPM {
   public t1_c5_familia_obj?: wsb.ExportaFamilias;
   public t1_c5_familia_cod: string = '';
   public t1_c5_familia_des: string = '';
+  public t1_c5_familia_ori: string = '';
 
   public t1_c6_medida_obj?: wsb.ExportaUniMeds;
   public t1_c6_medida_cod: string = '';

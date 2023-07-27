@@ -19,16 +19,18 @@ export class T6C7SituPisVendasComponent {
 
   public async situacaoInput() {
     this.mostrar_modal = true;
-    if (this.vp.t6_situacao_arr.length == 0) {
+    if (this.vp.t6_situacao_arr.length == 0)
       this.vp.t6_situacao_arr = (await this.ap.exportaServico(
         'ExportaValorLista',
         'LCstImp'
       )) as ExportaValorLista[];
-      if (this.vp.t6_c7_s_p_ven_cod != '')
-        this.vp.t6_c7_s_p_ven_obj = this.vp.t6_situacao_arr.find(
-          (x) => x.chvLis == this.vp.t6_c7_s_p_ven_cod
-        );
-    }
+    if (
+      this.vp.t6_c7_s_p_ven_obj === undefined &&
+      this.vp.t6_c7_s_p_ven_cod != ''
+    )
+      this.vp.t6_c7_s_p_ven_obj = this.vp.t6_situacao_arr.find(
+        (x) => x.chvLis == this.vp.t6_c7_s_p_ven_cod
+      );
   }
 
   public situacaoSelect() {

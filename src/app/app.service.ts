@@ -214,33 +214,15 @@ export class AppService {
        */
       desPro: vp.t1_descricao_prod,
       desNfv: vp.t1_descricao_fiscal,
-      codMar: vp.t1_c1_marca_cod,
-      indVen: vp.t1_vendido[0],
-      indCpr: vp.t1_comprado[0],
       codClf: vp.t1_c3_clafiscal_cod,
       codFam: vp.t1_c5_familia_cod,
+      codOri: vp.t1_c5_familia_ori,
       uniMed: vp.t1_c6_medida_cod,
       oriMer: vp.t1_c7_mercadoria_cod,
-      codAge: vp.t1_c9_agrestoque_cod,
       ligProDep: d,
       altPro: vp.t1_altura,
       larPro: vp.t1_largura,
       comPro: vp.t1_comprimento,
-
-      /**
-       * Dados da derivação
-       */
-      derivacao: [
-        {
-          tipCn2: vp.t5_c4_conversao2_cod,
-          vlrCn2: vp.t5_valor2 ?? 0,
-          tipCn3: vp.t5_c5_conversao3_cod,
-          vlrCn3: vp.t5_valor3 ?? 0,
-        },
-      ],
-      codMdp: vp.t5_c1_mascara_cod,
-      uniMe2: vp.t5_c2_medida2_cod,
-      uniMe3: vp.t5_c3_medida3_cod,
       pesBru: vp.t1_peso_bruto,
       pesLiq: vp.t1_peso_liquido,
 
@@ -248,38 +230,65 @@ export class AppService {
        * Dados fiscais e contábeis
        */
       proImp: vp.t6_c1_impostos_cod,
-      codTic: vp.t6_c2_icms_espe_cod,
-      codTrd: vp.t6_c3_redu_icms_cod,
-      codTst: vp.t6_c4_icms_subs_cod,
-      codStc: vp.t6_c5_cof_subs_cod,
-      codStp: vp.t6_c6_pis_subs_cod,
       recPis: vp.t6_recupera_pis[0],
       recCof: vp.t6_recupera_cof[0],
+
       triPis: vp.t6_tributa_pis[0],
       triCof: vp.t6_tributa_cof[0],
-
       cstPis: vp.t6_c7_s_p_ven_cod,
       natPis: vp.t6_natureza_pis ?? 0,
       cstCof: vp.t6_c8_s_c_ven_cod,
       natCof: vp.t6_natureza_cof ?? 0,
-      codEnq: vp.t6_c9_enqua_cod,
       cstPic: vp.t6_c10_s_p_com_cod,
       cstCoc: vp.t6_c11_s_c_com_cod,
+
       indFpr: vp.t6_produ_forne[0],
       perFun: vp.t6_funrural,
       perGil: vp.t6_gilrat,
-
       perSen: vp.t6_senart,
       proEpe: vp.t6_c12_enqua_esp_cod,
       motDes: vp.t6_c13_motivo_cod,
-      codCes: vp.t6_espe_subs_trub,
-      codAnp: vp.t6_anp_cod,
-      desAnp: vp.t6_anp_des,
 
       claPro: 1,
       tipPro: 'C',
       numOri: 55,
     };
+
+    if (vp.t1_c1_marca_cod != '') proObj.codMar = vp.t1_c1_marca_cod;
+    if (vp.t1_vendido != '') proObj.indVen = vp.t1_vendido[0];
+    if (vp.t1_comprado != '') proObj.indCpr = vp.t1_comprado[0];
+    if (vp.t1_c9_agrestoque_cod != '') proObj.codAge = vp.t1_c9_agrestoque_cod;
+
+    /**
+     * Dados da derivação
+     */
+    if (vp.t5_c1_mascara_cod != '') proObj.codMdp = vp.t5_c1_mascara_cod;
+    if (
+      vp.t5_c4_conversao2_cod != '' ||
+      vp.t5_valor2 ||
+      vp.t5_c5_conversao3_cod != '' ||
+      vp.t5_valor3
+    ) {
+      proObj.derivacao = [{}];
+      if (vp.t5_c4_conversao2_cod != '')
+        proObj.derivacao[0].tipCn2 = vp.t5_c4_conversao2_cod;
+      if (vp.t5_valor2) proObj.derivacao[0].vlrCn2 = vp.t5_valor2;
+      if (vp.t5_c5_conversao3_cod != '')
+        proObj.derivacao[0].tipCn3 = vp.t5_c5_conversao3_cod;
+      if (vp.t5_valor3) proObj.derivacao[0].vlrCn3 = vp.t5_valor3;
+    }
+    if (vp.t5_c2_medida2_cod != '') proObj.uniMe2 = vp.t5_c2_medida2_cod;
+    if (vp.t5_c3_medida3_cod != '') proObj.uniMe3 = vp.t5_c3_medida3_cod;
+
+    if (vp.t6_c2_icms_espe_cod != '') proObj.codTic = vp.t6_c2_icms_espe_cod;
+    if (vp.t6_c3_redu_icms_cod != '') proObj.codTrd = vp.t6_c3_redu_icms_cod;
+    if (vp.t6_c4_icms_subs_cod != '') proObj.codTst = vp.t6_c4_icms_subs_cod;
+    if (vp.t6_c5_cof_subs_cod != '') proObj.codStc = vp.t6_c5_cof_subs_cod;
+    if (vp.t6_c6_pis_subs_cod != '') proObj.codStp = vp.t6_c6_pis_subs_cod;
+    if (vp.t6_c9_enqua_cod) proObj.codEnq = vp.t6_c9_enqua_cod;
+    if (vp.t6_espe_subs_trub != '') proObj.codCes = vp.t6_espe_subs_trub;
+    if (vp.t6_anp_cod) proObj.codAnp = vp.t6_anp_cod;
+    if (vp.t6_anp_des != '') proObj.desAnp = vp.t6_anp_des;
 
     const p: Produto[] = [proObj];
 

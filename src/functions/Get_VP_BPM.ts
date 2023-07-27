@@ -24,9 +24,11 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c1_marca_des = map.get('t1_c1_marca_des');
   }
 
-  vp.t1_vendido = map.get('t1_vendido');
+  if (map.get('t1_vendido') !== undefined)
+    vp.t1_vendido = map.get('t1_vendido');
 
-  vp.t1_comprado = map.get('t1_comprado');
+  if (map.get('t1_comprado') !== undefined)
+    vp.t1_comprado = map.get('t1_comprado');
 
   vp.t1_c2_substituto_cad = map.get('t1_c2_substituto_cad');
 
@@ -43,11 +45,14 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t1_valor_aprox') !== undefined)
     vp.t1_valor_aprox = +map.get('t1_valor_aprox');
 
-  vp.t1_c14_duplicado_stx = map.get('t1_c14_duplicado_stx');
-  vp.t1_c14_duplicado_nom = map.get('t1_c14_duplicado_nom');
+  if (map.get('t1_c14_duplicado_stx') !== undefined)
+    vp.t1_c14_duplicado_stx = map.get('t1_c14_duplicado_stx');
+  if (map.get('t1_c14_duplicado_nom') !== undefined)
+    vp.t1_c14_duplicado_nom = map.get('t1_c14_duplicado_nom');
 
   vp.t1_c5_familia_cod = map.get('t1_c5_familia_cod');
   vp.t1_c5_familia_des = map.get('t1_c5_familia_des');
+  vp.t1_c5_familia_ori = map.get('t1_c5_familia_ori');
 
   vp.t1_c6_medida_cod = map.get('t1_c6_medida_cod');
   vp.t1_c6_medida_des = map.get('t1_c6_medida_des');

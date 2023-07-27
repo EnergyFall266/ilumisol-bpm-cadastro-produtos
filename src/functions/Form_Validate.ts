@@ -44,14 +44,14 @@ export default class FormValidate {
 
           if (vp.t1_controlado == '')
             this.ms.add(
-              getMsgS('Dados do básicos - Produto vai ter estoque controlado?')
+              getMsgS('Dados básicos - Produto vai ter estoque controlado?')
             );
 
           if (vp.t1_c3_clafiscal_cod == '')
             this.ms.add(getMsgS('Dados básicos - Classificação fiscal / NCM'));
 
           if (vp.t1_valor_aprox === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Valor aprox. do item'));
+            this.ms.add(getMsgS('Dados básicos - Valor aprox. do item'));
 
           if (vp.t1_c5_familia_cod == '')
             this.ms.add(getMsgS('Dados básicos - Família'));
@@ -66,46 +66,39 @@ export default class FormValidate {
             this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
 
           if (vp.t1_aplicacao === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Aplicação'));
+            this.ms.add(getMsgS('Dados básicos - Aplicação'));
 
           if (vp.t1_comp_trata === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Composição Tratamento'));
+            this.ms.add(getMsgS('Dados básicos - Composição Tratamento'));
 
           if (vp.t1_altura === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Altura / Espessura'));
+            this.ms.add(getMsgS('Dados básicos - Altura / Espessura'));
           else if (vp.t1_altura_tipo == '')
             this.ms.add(
-              getMsgS('Dados do básicos - Altura / Espessura tipo de medida')
+              getMsgS('Dados básicos - Altura / Espessura tipo de medida')
             );
 
           if (vp.t1_largura === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Largura'));
+            this.ms.add(getMsgS('Dados básicos - Largura'));
           else if (vp.t1_largura_tipo == '')
-            this.ms.add(getMsgS('Dados do básicos - Largura tipo de medida'));
+            this.ms.add(getMsgS('Dados básicos - Largura tipo de medida'));
 
           if (vp.t1_comprimento === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Comprimento'));
+            this.ms.add(getMsgS('Dados básicos - Comprimento'));
           else if (vp.t1_comprimento_tipo == '')
-            this.ms.add(
-              getMsgS('Dados do básicos - Comprimento tipo de medida')
-            );
+            this.ms.add(getMsgS('Dados básicos - Comprimento tipo de medida'));
 
           if (vp.t1_peso_bruto === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Peso Bruto'));
+            this.ms.add(getMsgS('Dados básicos - Peso Bruto'));
 
           if (vp.t1_peso_liquido === undefined)
-            this.ms.add(getMsgS('Dados do básicos - Peso Líquido'));
+            this.ms.add(getMsgS('Dados básicos - Peso Líquido'));
 
           if (vp.t1_c13_file_TS.length == 0)
             this.ms.add(
-              getMsgS('Dados do básicos - Deve inserir pelo menos um anexo')
+              getMsgS('Dados básicos - Deve inserir pelo menos um anexo')
             );
         }
-        break;
-
-      case environment.s2_dad_cad:
-        if (vp.t5_c1_mascara_cod == '')
-          this.ms.add(getMsgS('Dados de derivação - Máscara Derivação'));
         break;
 
       case environment.s6_fis_con:

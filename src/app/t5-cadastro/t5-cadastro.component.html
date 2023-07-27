@@ -112,71 +112,13 @@
     <div class="grid">
       <div class="col-12">
         <div class="grid">
-          <span class="col-12">Peso Bruto</span>
-          <div class="col-12 py-0">
-            <p-inputNumber
-              class="w-12"
-              [styleClass]="'w-12'"
-              [inputStyleClass]="'col-12'"
-              [min]="0"
-              [step]="1"
-              mode="decimal"
-              [minFractionDigits]="2"
-              [maxFractionDigits]="2"
-              [showButtons]="!vp.t5_req_to_read"
-              buttonLayout="horizontal"
-              spinnerMode="horizontal"
-              decrementButtonClass="p-0"
-              incrementButtonClass="p-0"
-              incrementButtonIcon="pi pi-plus"
-              decrementButtonIcon="pi pi-minus"
-              [readonly]="vp.t5_req_to_read"
-              placeholder="0,00"
-              [(ngModel)]="vp.t1_peso_bruto"
-            >
-            </p-inputNumber>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <div class="grid">
-          <span class="col-12">Peso Líquido</span>
-          <div class="col-12 py-0">
-            <p-inputNumber
-              class="w-12"
-              [styleClass]="'w-12'"
-              [inputStyleClass]="'col-12'"
-              [min]="0"
-              [step]="1"
-              mode="decimal"
-              [minFractionDigits]="2"
-              [maxFractionDigits]="2"
-              [showButtons]="!vp.t5_req_to_read"
-              buttonLayout="horizontal"
-              spinnerMode="horizontal"
-              decrementButtonClass="p-0"
-              incrementButtonClass="p-0"
-              incrementButtonIcon="pi pi-plus"
-              decrementButtonIcon="pi pi-minus"
-              [readonly]="vp.t5_req_to_read"
-              placeholder="0,00"
-              [(ngModel)]="vp.t1_peso_liquido"
-            >
-            </p-inputNumber>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <div class="grid">
           <span class="col-12">Observação cadastros</span>
           <div class="col-12 py-0">
             <textarea
               pInputTextarea
               class="col-12"
               style="resize: none"
-              rows="5"
+              rows="13"
               [readonly]="vp.t5_req_to_read"
               [(ngModel)]="vp.t5_observacao"
             ></textarea>
@@ -195,7 +137,7 @@
           pInputTextarea
           class="col-12"
           style="resize: none"
-          rows="17"
+          rows="13"
           [readonly]="vp.t5_req_to_read"
           [(ngModel)]="vp.t5_recusa"
         ></textarea>

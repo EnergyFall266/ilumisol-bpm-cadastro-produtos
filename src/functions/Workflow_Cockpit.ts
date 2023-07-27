@@ -13,7 +13,7 @@ declare var removeData: any;
 declare var rollbackData: any;
 
 export async function loadData(vp: VP_BPM, info: Info) {
-  var rld: ResponseLoadData = { initial: 1, tabs: [1, 2, 3], vp };
+  var rld: ResponseLoadData = { initial: 1, tabs: [1], vp };
 
   rld.vp.user_fullname = (await info.getUserData()).fullname;
 
@@ -35,7 +35,7 @@ export async function loadData(vp: VP_BPM, info: Info) {
 }
 
 export async function saveData(vp: VP_BPM) {
-  if (STEP === environment.s2_dad_cad && vp.t1_c13_file_TS.length > 0)
+  if (STEP === environment.s1_sol_cad && vp.t1_c13_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'c');
   if (STEP === environment.s6_fis_con && vp.t6_c14_file_TS.length > 0)
     vp = await ap.enviarDocs(vp, 'f');

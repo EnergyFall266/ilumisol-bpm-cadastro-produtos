@@ -19,16 +19,18 @@ export class T6C10SituPisComprasComponent {
 
   public async pisInput() {
     this.mostrar_modal_pis = true;
-    if (this.vp.t6_situacao_arr.length == 0) {
+    if (this.vp.t6_situacao_arr.length == 0)
       this.vp.t6_situacao_arr = (await this.ap.exportaServico(
         'ExportaValorLista',
         'LCstImp'
       )) as ExportaValorLista[];
-      if (this.vp.t6_c10_s_p_com_cod != '')
-        this.vp.t6_c10_s_p_com_obj = this.vp.t6_situacao_arr.find(
-          (x) => x.chvLis == this.vp.t6_c10_s_p_com_cod
-        );
-    }
+    if (
+      this.vp.t6_c10_s_p_com_obj === undefined &&
+      this.vp.t6_c10_s_p_com_cod != ''
+    )
+      this.vp.t6_c10_s_p_com_obj = this.vp.t6_situacao_arr.find(
+        (x) => x.chvLis == this.vp.t6_c10_s_p_com_cod
+      );
   }
 
   public pisSelect() {
