@@ -249,7 +249,7 @@ export interface Produto {
   ligProFor?: LigProFor[];
   ligProDep?: LigProDep[];
   msgRetorno?: string;
-  retorno?: Retorno;
+  retorno?: Retorno | Retorno[];
 }
 
 interface Derivacao {

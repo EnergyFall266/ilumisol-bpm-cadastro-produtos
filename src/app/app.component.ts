@@ -127,9 +127,12 @@ export class AppComponent {
       if (c.produto) {
         const p = Array.isArray(c.produto) ? c.produto[0] : c.produto;
         this.vp.c7_mensagem_retorno = p.msgRetorno + '';
-        if (p.msgRetorno != 'OK')
-          this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${p.retorno?.desRet}`;
-        this.vp.c7_codigo_produto = p.retorno?.codPro + '';
+        if (p.retorno) {
+          const r = Array.isArray(p.retorno) ? p.retorno[0] : p.retorno;
+          if (p.msgRetorno != 'OK')
+            this.vp.c7_mensagem_retorno += `\n\nDetalhe: ${r.desRet}`;
+          this.vp.c7_codigo_produto = r.codPro + '';
+        }
       }
     }
 
