@@ -139,17 +139,9 @@ export default class FormValidate {
         getMsgS('Dados fiscais e contábeis - Situação Tributária Pis Vendas')
       );
 
-    if (vp.t6_natureza_pis === undefined)
-      this.ms.add(getMsgS('Dados fiscais e contábeis - Natureza Receita Pis'));
-
     if (vp.t6_c8_s_c_ven_cod == '')
       this.ms.add(
         getMsgS('Dados fiscais e contábeis - Situação Tributária Cofins Vendas')
-      );
-
-    if (vp.t6_natureza_cof === undefined)
-      this.ms.add(
-        getMsgS('Dados fiscais e contábeis - Natureza Receita Cofins')
       );
 
     if (vp.t6_c10_s_p_com_cod == '')
