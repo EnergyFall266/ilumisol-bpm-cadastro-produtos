@@ -72,6 +72,9 @@ import { C1EmpresaComponent } from './c1-empresa/c1-empresa.component';
 import { T1C12DepositoComponent } from './t1-basicos/t1-c12-deposito/t1-c12-deposito.component';
 import { T1C13AnexoComponent } from './t1-basicos/t1-c13-anexo/t1-c13-anexo.component';
 import { T1C14DuplicadoComponent } from './t1-basicos/t1-c14-duplicado/t1-c14-duplicado.component';
+import { T6C15RegiTribComponent } from './t6-fis-con/t6-c15-regi-trib/t6-c15-regi-trib.component';
+import { T6C16SituTribComponent } from './t6-fis-con/t6-c16-situ-trib/t6-c16-situ-trib.component';
+import { T6C17SituIpiComprasComponent } from './t6-fis-con/t6-c17-situ-ipi-compras/t6-c17-situ-ipi-compras.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -116,6 +119,9 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T1C12DepositoComponent,
     T1C13AnexoComponent,
     T1C14DuplicadoComponent,
+    T6C15RegiTribComponent,
+    T6C16SituTribComponent,
+    T6C17SituIpiComprasComponent,
   ],
   imports: [
     BrowserModule,

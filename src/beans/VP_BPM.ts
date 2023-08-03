@@ -33,8 +33,8 @@ export class VP_BPM {
   public ged_pasta_processo_nome: string = '';
 
   public check_options: SelectItem[] = [
-    { label: 'Sim', value: 'Sim' },
-    { label: 'Não', value: 'Não' },
+    { label: 'Sim', value: 'S' },
+    { label: 'Não', value: 'N' },
   ];
 
   public unidades_arr: wsb.ExportaUniMeds[] = [];
@@ -66,9 +66,9 @@ export class VP_BPM {
     this.t1_c5_familia_cod == '2010' ||
     this.t1_c5_familia_cod == '2012';
 
-  public t1_vendido: string = 'Sim';
+  public t1_vendido: string = 'S';
 
-  public t1_comprado: string = 'Sim';
+  public t1_comprado: string = 'S';
 
   public t1_c2_substituto_cad: string = '';
 
@@ -193,6 +193,13 @@ export class VP_BPM {
   public t6_c1_impostos_cod: number = -1;
   public t6_c1_impostos_des: string = '';
 
+  public t6_c15_regi_trib_arr: wsb.ExportaValorLista[] = [];
+  public t6_c15_regi_trib_obj?: wsb.ExportaValorLista;
+  public t6_c15_regi_trib_cod: string = '';
+  public t6_c15_regi_trib_des: string = '';
+
+  public t6_tem_icms: string = '';
+
   public t6_c2_icms_espe_arr: wsb.ExportaICMSEsp[] = [];
   public t6_c2_icms_espe_obj?: wsb.ExportaICMSEsp;
   public t6_c2_icms_espe_cod: string = '';
@@ -200,6 +207,15 @@ export class VP_BPM {
   public t6_c3_redu_icms_arr: wsb.ExportaReducaoICMS[] = [];
   public t6_c3_redu_icms_obj?: wsb.ExportaReducaoICMS;
   public t6_c3_redu_icms_cod: string = '';
+
+  public t6_c13_motivo_arr: wsb.ExportaValorLista[] = [];
+  public t6_c13_motivo_obj?: wsb.ExportaValorLista;
+  public t6_c13_motivo_cod: number = 0;
+  public t6_c13_motivo_des: string = 'Nenhum';
+
+  public t6_calc_icms: string = '';
+
+  public t6_soma_icms: string = '';
 
   public t6_substituicao_arr: wsb.ExportaSubstituicao[] = [];
 
@@ -212,6 +228,9 @@ export class VP_BPM {
   public t6_c6_pis_subs_obj?: wsb.ExportaSubstituicao;
   public t6_c6_pis_subs_cod: string = '';
 
+  //
+  public t6_recupera_icms: string = '';
+
   public t6_recupera_pis: string = '';
 
   public t6_recupera_cof: string = '';
@@ -221,6 +240,12 @@ export class VP_BPM {
   public t6_tributa_cof: string = '';
 
   public t6_situacao_arr: wsb.ExportaValorLista[] = [];
+
+  public t6_c16_situ_trib_obj?: wsb.ExportaValorLista;
+  public t6_c16_situ_trib_cod: string = '';
+  public t6_c16_situ_trib_des: string = '';
+
+  public t6_espe_subs_trib: string = '';
 
   public t6_c7_s_p_ven_obj?: wsb.ExportaValorLista;
   public t6_c7_s_p_ven_cod: string = '';
@@ -234,10 +259,6 @@ export class VP_BPM {
 
   public t6_natureza_cof?: number;
 
-  public t6_c9_enqua_arr: wsb.ExportaEnquadramento[] = [];
-  public t6_c9_enqua_obj?: wsb.ExportaEnquadramento;
-  public t6_c9_enqua_cod?: number;
-
   public t6_c10_s_p_com_obj?: wsb.ExportaValorLista;
   public t6_c10_s_p_com_cod: string = '';
   public t6_c10_s_p_com_des: string = '';
@@ -245,6 +266,23 @@ export class VP_BPM {
   public t6_c11_s_c_com_obj?: wsb.ExportaValorLista;
   public t6_c11_s_c_com_cod: string = '';
   public t6_c11_s_c_com_des: string = '';
+
+  public t6_c17_s_i_com_obj?: wsb.ExportaValorLista;
+  public t6_c17_s_i_com_cod: string = '';
+  public t6_c17_s_i_com_des: string = '';
+
+  //
+  public t6_soma_pis: string = '';
+
+  public t6_soma_pis_liq: string = '';
+
+  public t6_soma_cof: string = '';
+
+  public t6_soma_cof_liq: string = '';
+
+  public t6_pis_dif?: number;
+
+  public t6_cof_dif?: number;
 
   public t6_produ_forne: string = '';
 
@@ -254,17 +292,19 @@ export class VP_BPM {
 
   public t6_senart?: number;
 
+  public t6_ipi?: number;
+
+  public t6_diferimento?: number;
+
+  //
+  public t6_c9_enqua_arr: wsb.ExportaEnquadramento[] = [];
+  public t6_c9_enqua_obj?: wsb.ExportaEnquadramento;
+  public t6_c9_enqua_cod?: number;
+
   public t6_c12_enqua_esp_arr: wsb.ExportaValorLista[] = [];
   public t6_c12_enqua_esp_obj?: wsb.ExportaValorLista;
   public t6_c12_enqua_esp_cod: number = -1;
   public t6_c12_enqua_esp_des: string = '';
-
-  public t6_c13_motivo_arr: wsb.ExportaValorLista[] = [];
-  public t6_c13_motivo_obj?: wsb.ExportaValorLista;
-  public t6_c13_motivo_cod: number = 0;
-  public t6_c13_motivo_des: string = 'Nenhum';
-
-  public t6_espe_subs_trub: string = '';
 
   public t6_anp_cod?: number;
   public t6_anp_des: string = '';

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaValorLista } from 'src/beans/WS_Beans';
@@ -20,10 +20,15 @@ export class T6C7SituPisVendasComponent {
   public async situacaoInput() {
     this.mostrar_modal = true;
     if (this.vp.t6_situacao_arr.length == 0)
-      this.vp.t6_situacao_arr = (await this.ap.exportaServico(
-        'ExportaValorLista',
-        'LCstImp'
-      )) as ExportaValorLista[];
+      this.vp.t6_situacao_arr = (
+        (await this.ap.exportaServico(
+          'ExportaValorLista',
+          'LCstImp'
+        )) as ExportaValorLista[]
+      ).map<ExportaValorLista>((l) => ({
+        chvLis: l.chvLis + '',
+        desLis: l.desLis,
+      }));
     if (
       this.vp.t6_c7_s_p_ven_obj === undefined &&
       this.vp.t6_c7_s_p_ven_cod != ''
@@ -34,8 +39,8 @@ export class T6C7SituPisVendasComponent {
   }
 
   public situacaoSelect() {
-    this.vp.t6_c7_s_p_ven_cod = this.vp.t6_c7_s_p_ven_obj!.chvLis;
-    this.vp.t6_c7_s_p_ven_des = this.vp.t6_c7_s_p_ven_obj!.desLis;
+    this.vp.t6_c7_s_p_ven_cod = this.vp.t6_c7_s_p_ven_obj?.chvLis + '';
+    this.vp.t6_c7_s_p_ven_des = this.vp.t6_c7_s_p_ven_obj?.desLis ?? '';
     this.mostrar_modal = false;
   }
 

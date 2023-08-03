@@ -122,6 +122,15 @@ export default class FormValidate {
         getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
       );
 
+    if (vp.t6_c15_regi_trib_cod == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Regime Tributário'));
+
+    if (vp.t6_tem_icms == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Tem ICMS'));
+
+    if (vp.t6_recupera_icms == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera ICMS'));
+
     if (vp.t6_recupera_pis == '')
       this.ms.add(getMsgS('Dados fiscais e contábeis - Recupera Pis'));
 
@@ -133,6 +142,9 @@ export default class FormValidate {
 
     if (vp.t6_tributa_cof == '')
       this.ms.add(getMsgS('Dados fiscais e contábeis - Tributa Cofins'));
+
+    if (vp.t6_c16_situ_trib_cod == '')
+      this.ms.add(getMsgS('Dados fiscais e contábeis - Situação Tributária'));
 
     if (vp.t6_c7_s_p_ven_cod == '')
       this.ms.add(
@@ -154,6 +166,11 @@ export default class FormValidate {
         getMsgS(
           'Dados fiscais e contábeis - Situação Tributária Cofins Compras'
         )
+      );
+
+    if (vp.t6_c17_s_i_com_cod == '')
+      this.ms.add(
+        getMsgS('Dados fiscais e contábeis - Situação Tributária Ipi Compras')
       );
 
     if (vp.t6_produ_forne == '')

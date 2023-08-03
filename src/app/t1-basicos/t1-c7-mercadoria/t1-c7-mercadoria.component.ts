@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaValorLista } from 'src/beans/WS_Beans';
@@ -31,17 +31,16 @@ export class T1C7MercadoriaComponent {
           desLis: l.desLis,
         }));
         if (this.vp.t1_c7_mercadoria_cod != '')
-          this.vp.t1_c7_mercadoria_obj =
-            this.vp.t1_c7_mercadoria_arr.find(
-              (x) => x.chvLis == this.vp.t1_c7_mercadoria_cod
-            );
+          this.vp.t1_c7_mercadoria_obj = this.vp.t1_c7_mercadoria_arr.find(
+            (x) => x.chvLis == this.vp.t1_c7_mercadoria_cod
+          );
       }
     }
   }
 
   public mercadoriaSelect() {
-    this.vp.t1_c7_mercadoria_cod = this.vp.t1_c7_mercadoria_obj!.chvLis;
-    this.vp.t1_c7_mercadoria_des = this.vp.t1_c7_mercadoria_obj!.desLis;
+    this.vp.t1_c7_mercadoria_cod = this.vp.t1_c7_mercadoria_obj?.chvLis + '';
+    this.vp.t1_c7_mercadoria_des = this.vp.t1_c7_mercadoria_obj?.desLis ?? '';
     this.mostrar_modal = false;
   }
 

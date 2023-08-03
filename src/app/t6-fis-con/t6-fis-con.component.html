@@ -7,11 +7,73 @@
       </div>
 
       <div class="col-12">
+        <app-t6-c15-regi-trib [vp]="vp"></app-t6-c15-regi-trib>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Tem ICMS
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_tem_icms"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
         <app-t6-c2-icms-especial [vp]="vp"></app-t6-c2-icms-especial>
       </div>
 
       <div class="col-12">
         <app-t6-c3-reducao-icms [vp]="vp"></app-t6-c3-reducao-icms>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Calcula ICMS Importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_calc_icms"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Soma ICMS ao Valor liq. importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_soma_icms"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c13-motivo [vp]="vp"></app-t6-c13-motivo>
       </div>
 
       <div class="col-12">
@@ -24,6 +86,31 @@
 
       <div class="col-12">
         <app-t6-c6-substituicao-pis [vp]="vp"></app-t6-c6-substituicao-pis>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna 2 -->
+  <div class="col-3" [hidden]="vp.t6_recusa_show_only">
+    <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">
+            Recupera ICMS
+            <span [hidden]="vp.t6_req_to_read" style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_recupera_icms"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
       </div>
 
       <div class="col-12">
@@ -65,12 +152,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 2 -->
-  <div class="col-3" [hidden]="vp.t6_recusa_show_only">
-    <div class="grid">
       <div class="col-12">
         <div class="grid">
           <span class="col-12">
@@ -107,6 +189,25 @@
               [(ngModel)]="vp.t6_tributa_cof"
               [readonly]="vp.t6_req_to_read"
             ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c16-situ-trib [vp]="vp"></app-t6-c16-situ-trib>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Especificador Substituição Tributária</span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [readonly]="vp.t6_req_to_read"
+              [(ngModel)]="vp.t6_espe_subs_trib"
+            />
           </div>
         </div>
       </div>
@@ -156,15 +257,15 @@
       </div>
 
       <div class="col-12">
-        <app-t6-c9-enquadramento [vp]="vp"></app-t6-c9-enquadramento>
-      </div>
-
-      <div class="col-12">
         <app-t6-c10-situ-pis-compras [vp]="vp"></app-t6-c10-situ-pis-compras>
       </div>
 
       <div class="col-12">
         <app-t6-c11-situ-cof-compras [vp]="vp"></app-t6-c11-situ-cof-compras>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c17-situ-ipi-compras [vp]="vp"></app-t6-c17-situ-ipi-compras>
       </div>
     </div>
   </div>
@@ -172,6 +273,134 @@
   <!-- Coluna 3 -->
   <div class="col-3" [hidden]="vp.t6_recusa_show_only">
     <div class="grid">
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Soma PIS Importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_soma_pis"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Soma PIS ao Valor liq. Importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_soma_pis_liq"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Soma Cofins Importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_soma_cof"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Soma Cofins ao Valor liq. Importação</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t6_soma_cof_liq"
+              [readonly]="vp.t6_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">% PIS Importação Diferenciado</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_pis_dif"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">% Cofin Importação Diferenciado</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_cof_dif"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
       <div class="col-12">
         <div class="grid">
           <span class="col-12">
@@ -286,27 +515,77 @@
       </div>
 
       <div class="col-12">
-        <app-t6-c12-enquadramento-espe [vp]="vp">
-        </app-t6-c12-enquadramento-espe>
-      </div>
-
-      <div class="col-12">
-        <app-t6-c13-motivo [vp]="vp"></app-t6-c13-motivo>
+        <div class="grid">
+          <span class="col-12">% IPI</span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              [readonly]="vp.t6_req_to_read"
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_ipi"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
       </div>
 
       <div class="col-12">
         <div class="grid">
-          <span class="col-12">Especificador Substituição Tributária</span>
+          <span class="col-12">% Diferimento</span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [step]="1"
+              mode="decimal"
+              suffix=" %"
+              [minFractionDigits]="2"
+              [maxFractionDigits]="2"
+              [showButtons]="!vp.t6_req_to_read"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              decrementButtonClass="p-0"
+              incrementButtonClass="p-0"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
               [readonly]="vp.t6_req_to_read"
-              [(ngModel)]="vp.t6_espe_subs_trub"
-            />
+              placeholder="0,00 %"
+              [(ngModel)]="vp.t6_diferimento"
+            >
+            </p-inputNumber>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna 4 -->
+  <div class="col-3">
+    <div class="grid">
+      <div class="col-12">
+        <app-t6-c9-enquadramento [vp]="vp"></app-t6-c9-enquadramento>
+      </div>
+
+      <div class="col-12">
+        <app-t6-c12-enquadramento-espe [vp]="vp">
+        </app-t6-c12-enquadramento-espe>
       </div>
 
       <div class="col-12" [hidden]="vp.t6_c12_enqua_esp_des != 'Combustível'">
@@ -378,12 +657,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Coluna 4 -->
-  <div class="col-3">
-    <div class="grid">
       <div class="col-12 pb-1" [hidden]="vp.t6_recusa_show_only">
         <div class="grid">
           <span class="col-12">Comentários e observações da área fiscal</span>

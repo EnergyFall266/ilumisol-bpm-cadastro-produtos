@@ -230,33 +230,40 @@ export class AppService {
        * Dados fiscais e contábeis
        */
       proImp: vp.t6_c1_impostos_cod,
-      recPis: vp.t6_recupera_pis[0],
-      recCof: vp.t6_recupera_cof[0],
+      regTri: vp.t6_c15_regi_trib_cod,
+      temIcm: vp.t6_tem_icms,
+      motDes: vp.t6_c13_motivo_cod,
+      recIcm: vp.t6_recupera_icms,
+      recPis: vp.t6_recupera_pis,
+      recCof: vp.t6_recupera_cof,
 
-      triPis: vp.t6_tributa_pis[0],
-      triCof: vp.t6_tributa_cof[0],
+      triPis: vp.t6_tributa_pis,
+      triCof: vp.t6_tributa_cof,
+      codStr: vp.t6_c16_situ_trib_cod,
       cstPis: vp.t6_c7_s_p_ven_cod,
       natPis: vp.t6_natureza_pis ?? 0,
       cstCof: vp.t6_c8_s_c_ven_cod,
       natCof: vp.t6_natureza_cof ?? 0,
       cstPic: vp.t6_c10_s_p_com_cod,
       cstCoc: vp.t6_c11_s_c_com_cod,
+      cstIpc: vp.t6_c17_s_i_com_cod,
 
-      indFpr: vp.t6_produ_forne[0],
+      indFpr: vp.t6_produ_forne,
       perFun: vp.t6_funrural,
-      perGil: vp.t6_gilrat,
-      perSen: vp.t6_senart,
+
       proEpe: vp.t6_c12_enqua_esp_cod,
-      motDes: vp.t6_c13_motivo_cod,
 
       claPro: 1,
       tipPro: 'C',
       numOri: 55,
     };
 
+    /**
+     * Dados básicos
+     */
     if (vp.t1_c1_marca_cod != '') proObj.codMar = vp.t1_c1_marca_cod;
-    if (vp.t1_vendido != '') proObj.indVen = vp.t1_vendido[0];
-    if (vp.t1_comprado != '') proObj.indCpr = vp.t1_comprado[0];
+    if (vp.t1_vendido != '') proObj.indVen = vp.t1_vendido;
+    if (vp.t1_comprado != '') proObj.indCpr = vp.t1_comprado;
     if (vp.t1_c9_agrestoque_cod != '') proObj.codAge = vp.t1_c9_agrestoque_cod;
 
     /**
@@ -280,13 +287,29 @@ export class AppService {
     if (vp.t5_c2_medida2_cod != '') proObj.uniMe2 = vp.t5_c2_medida2_cod;
     if (vp.t5_c3_medida3_cod != '') proObj.uniMe3 = vp.t5_c3_medida3_cod;
 
+    /**
+     * Dados fiscais e contábeis
+     */
     if (vp.t6_c2_icms_espe_cod != '') proObj.codTic = vp.t6_c2_icms_espe_cod;
     if (vp.t6_c3_redu_icms_cod != '') proObj.codTrd = vp.t6_c3_redu_icms_cod;
+    if (vp.t6_espe_subs_trib != '') proObj.codCes = vp.t6_espe_subs_trib;
     if (vp.t6_c4_icms_subs_cod != '') proObj.codTst = vp.t6_c4_icms_subs_cod;
     if (vp.t6_c5_cof_subs_cod != '') proObj.codStc = vp.t6_c5_cof_subs_cod;
     if (vp.t6_c6_pis_subs_cod != '') proObj.codStp = vp.t6_c6_pis_subs_cod;
+
+    if (vp.t6_calc_icms != '') proObj.somIim = vp.t6_calc_icms;
+    if (vp.t6_soma_icms != '') proObj.somIil = vp.t6_soma_icms;
+    if (vp.t6_soma_pis != '') proObj.somIps = vp.t6_soma_pis;
+    if (vp.t6_soma_pis_liq != '') proObj.somIpl = vp.t6_soma_pis_liq;
+    if (vp.t6_soma_cof != '') proObj.somIco = vp.t6_soma_cof;
+    if (vp.t6_soma_cof_liq != '') proObj.simIcl = vp.t6_soma_cof_liq;
+    if (vp.t6_pis_dif) proObj.perPim = vp.t6_pis_dif;
+    if (vp.t6_cof_dif) proObj.perCim = vp.t6_cof_dif;
+    if (vp.t6_gilrat) proObj.perGil = vp.t6_gilrat;
+    if (vp.t6_senart) proObj.perSen = vp.t6_senart;
+    if (vp.t6_ipi) proObj.perIpi = vp.t6_ipi;
+    if (vp.t6_diferimento) proObj.perDif = vp.t6_diferimento;
     if (vp.t6_c9_enqua_cod) proObj.codEnq = vp.t6_c9_enqua_cod;
-    if (vp.t6_espe_subs_trub != '') proObj.codCes = vp.t6_espe_subs_trub;
     if (vp.t6_anp_cod) proObj.codAnp = vp.t6_anp_cod;
     if (vp.t6_anp_des != '') proObj.desAnp = vp.t6_anp_des;
 

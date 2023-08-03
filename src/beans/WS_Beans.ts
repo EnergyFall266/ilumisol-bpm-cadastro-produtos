@@ -101,7 +101,7 @@ export interface ExportaAgrupamentos {
 }
 
 export interface ExportaValorLista {
-  chvLis: string;
+  chvLis: string | number;
   desLis: string;
 }
 
@@ -245,6 +245,21 @@ export interface Produto {
   larPro?: number;
   altPro?: number;
   comPro?: number;
+  regTri?: string;
+  temIcm?: string;
+  recIcm?: string;
+  perIpi?: number;
+  perDif?: number;
+  codStr?: string;
+  cstIpc?: string;
+  somIim?: string;
+  somIil?: string;
+  somIps?: string;
+  somIpl?: string;
+  somIco?: string;
+  simIcl?: string;
+  perPim?: number;
+  perCim?: number;
   derivacao?: Derivacao[];
   ligProFor?: LigProFor[];
   ligProDep?: LigProDep[];

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaValorLista } from 'src/beans/WS_Beans';
@@ -21,22 +21,26 @@ export class T5C5Conversao3Component {
     if (!this.vp.t5_req_to_read) {
       this.mostrar_modal = true;
       if (this.vp.t5_conversao_arr.length == 0) {
-        this.vp.t5_conversao_arr = (await this.ap.exportaServico(
-          'ExportaValorLista',
-          'LTipCnv'
-        )) as ExportaValorLista[];
+        this.vp.t5_conversao_arr = (
+          (await this.ap.exportaServico(
+            'ExportaValorLista',
+            'LTipCnv'
+          )) as ExportaValorLista[]
+        ).map<ExportaValorLista>((l) => ({
+          chvLis: l.chvLis + '',
+          desLis: l.desLis,
+        }));
         if (this.vp.t5_c5_conversao3_cod != '')
-          this.vp.t5_c5_conversao3_obj =
-            this.vp.t5_conversao_arr.find(
-              (x) => x.chvLis == this.vp.t5_c5_conversao3_cod
-            );
+          this.vp.t5_c5_conversao3_obj = this.vp.t5_conversao_arr.find(
+            (x) => x.chvLis == this.vp.t5_c5_conversao3_cod
+          );
       }
     }
   }
 
   public tcu3Select() {
-    this.vp.t5_c5_conversao3_cod = this.vp.t5_c5_conversao3_obj!.chvLis;
-    this.vp.t5_c5_conversao3_des = this.vp.t5_c5_conversao3_obj!.desLis;
+    this.vp.t5_c5_conversao3_cod = this.vp.t5_c5_conversao3_obj?.chvLis + '';
+    this.vp.t5_c5_conversao3_des = this.vp.t5_c5_conversao3_obj?.desLis ?? '';
     this.mostrar_modal = false;
   }
 

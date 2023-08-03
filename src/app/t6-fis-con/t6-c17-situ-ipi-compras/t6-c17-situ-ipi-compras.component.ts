@@ -4,11 +4,11 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 import { ExportaValorLista } from 'src/beans/WS_Beans';
 
 @Component({
-  selector: 'app-t6-c10-situ-pis-compras',
-  templateUrl: './t6-c10-situ-pis-compras.component.html',
-  styleUrls: ['./t6-c10-situ-pis-compras.component.scss'],
+  selector: 'app-t6-c17-situ-ipi-compras',
+  templateUrl: './t6-c17-situ-ipi-compras.component.html',
+  styleUrls: ['./t6-c17-situ-ipi-compras.component.scss']
 })
-export class T6C10SituPisComprasComponent {
+export class T6C17SituIpiComprasComponent {
   @Input() vp!: VP_BPM;
 
   public mostrar_modal_pis: boolean = false;
@@ -30,23 +30,23 @@ export class T6C10SituPisComprasComponent {
         desLis: l.desLis,
       }));
     if (
-      this.vp.t6_c10_s_p_com_obj === undefined &&
-      this.vp.t6_c10_s_p_com_cod != ''
+      this.vp.t6_c17_s_i_com_obj === undefined &&
+      this.vp.t6_c17_s_i_com_cod != ''
     )
-      this.vp.t6_c10_s_p_com_obj = this.vp.t6_situacao_arr.find(
-        (x) => x.chvLis == this.vp.t6_c10_s_p_com_cod
+      this.vp.t6_c17_s_i_com_obj = this.vp.t6_situacao_arr.find(
+        (x) => x.chvLis == this.vp.t6_c17_s_i_com_cod
       );
   }
 
   public pisSelect() {
-    this.vp.t6_c10_s_p_com_cod = this.vp.t6_c10_s_p_com_obj?.chvLis + '';
-    this.vp.t6_c10_s_p_com_des = this.vp.t6_c10_s_p_com_obj?.desLis ?? '';
+    this.vp.t6_c17_s_i_com_cod = this.vp.t6_c17_s_i_com_obj?.chvLis + '';
+    this.vp.t6_c17_s_i_com_des = this.vp.t6_c17_s_i_com_obj?.desLis ?? '';
     this.mostrar_modal_pis = false;
   }
 
   public pisClear() {
-    this.vp.t6_c10_s_p_com_obj = undefined;
-    this.vp.t6_c10_s_p_com_cod = '';
-    this.vp.t6_c10_s_p_com_des = '';
+    this.vp.t6_c17_s_i_com_obj = undefined;
+    this.vp.t6_c17_s_i_com_cod = '';
+    this.vp.t6_c17_s_i_com_des = '';
   }
 }

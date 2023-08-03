@@ -143,11 +143,30 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t6_c1_impostos_des = map.get('t6_c1_impostos_des');
   }
 
+  if (map.get('t6_c15_regi_trib_cod') !== undefined) {
+    vp.t6_c15_regi_trib_cod = map.get('t6_c15_regi_trib_cod');
+    vp.t6_c15_regi_trib_des = map.get('t6_c15_regi_trib_des');
+  }
+
+  if (map.get('t6_tem_icms') !== undefined)
+    vp.t6_tem_icms = map.get('t6_tem_icms');
+
   if (map.get('t6_c2_icms_espe_cod') !== undefined)
     vp.t6_c2_icms_espe_cod = map.get('t6_c2_icms_espe_cod');
 
   if (map.get('t6_c3_redu_icms_cod') !== undefined)
     vp.t6_c3_redu_icms_cod = map.get('t6_c3_redu_icms_cod');
+
+  if (map.get('t6_c13_motivo_cod') !== undefined) {
+    vp.t6_c13_motivo_cod = +map.get('t6_c13_motivo_cod');
+    vp.t6_c13_motivo_des = map.get('t6_c13_motivo_des');
+  }
+
+  if (map.get('t6_calc_icms') !== undefined)
+    vp.t6_calc_icms = map.get('t6_calc_icms');
+
+  if (map.get('t6_soma_icms') !== undefined)
+    vp.t6_soma_icms = map.get('t6_soma_icms');
 
   if (map.get('t6_c4_icms_subs_cod') !== undefined)
     vp.t6_c4_icms_subs_cod = map.get('t6_c4_icms_subs_cod');
@@ -157,6 +176,10 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   if (map.get('t6_c6_pis_subs_cod') !== undefined)
     vp.t6_c6_pis_subs_cod = map.get('t6_c6_pis_subs_cod');
+
+  //Coluna 2
+  if (map.get('t6_recupera_icms') !== undefined)
+    vp.t6_recupera_icms = map.get('t6_recupera_icms');
 
   if (map.get('t6_recupera_pis') !== undefined)
     vp.t6_recupera_pis = map.get('t6_recupera_pis');
@@ -170,7 +193,14 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_tributa_cof') !== undefined)
     vp.t6_tributa_cof = map.get('t6_tributa_cof');
 
-  //Coluna 2
+  if (map.get('t6_c16_situ_trib_cod') !== undefined) {
+    vp.t6_c16_situ_trib_cod = map.get('t6_c16_situ_trib_cod');
+    vp.t6_c16_situ_trib_des = map.get('t6_c16_situ_trib_des');
+  }
+
+  if (map.get('t6_espe_subs_trib') !== undefined)
+    vp.t6_espe_subs_trib = map.get('t6_espe_subs_trib');
+
   if (map.get('t6_c7_s_p_ven_cod') !== undefined) {
     vp.t6_c7_s_p_ven_cod = map.get('t6_c7_s_p_ven_cod');
     vp.t6_c7_s_p_ven_des = map.get('t6_c7_s_p_ven_des');
@@ -187,9 +217,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_natureza_cof') !== undefined)
     vp.t6_natureza_cof = map.get('t6_natureza_cof');
 
-  if (map.get('t6_c9_enqua_cod') !== undefined)
-    vp.t6_c9_enqua_cod = +map.get('t6_c9_enqua_cod');
-
   if (map.get('t6_c10_s_p_com_cod') !== undefined) {
     vp.t6_c10_s_p_com_cod = map.get('t6_c10_s_p_com_cod');
     vp.t6_c10_s_p_com_des = map.get('t6_c10_s_p_com_des');
@@ -200,6 +227,30 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t6_c11_s_c_com_des = map.get('t6_c11_s_c_com_des');
   }
 
+  if (map.get('t6_c17_s_i_com_cod') !== undefined) {
+    vp.t6_c17_s_i_com_cod = map.get('t6_c17_s_i_com_cod');
+    vp.t6_c17_s_i_com_des = map.get('t6_c17_s_i_com_des');
+  }
+
+  //Coluna 3
+  if (map.get('t6_soma_pis') !== undefined)
+    vp.t6_soma_pis = map.get('t6_soma_pis');
+
+  if (map.get('t6_soma_pis_liq') !== undefined)
+    vp.t6_soma_pis_liq = map.get('t6_soma_pis_liq');
+
+  if (map.get('t6_soma_cof') !== undefined)
+    vp.t6_soma_cof = map.get('t6_soma_cof');
+
+  if (map.get('t6_soma_cof_liq') !== undefined)
+    vp.t6_soma_cof_liq = map.get('t6_soma_cof_liq');
+
+  if (map.get('t6_pis_dif') !== undefined)
+    vp.t6_pis_dif = +map.get('t6_pis_dif');
+
+  if (map.get('t6_cof_dif') !== undefined)
+    vp.t6_cof_dif = +map.get('t6_cof_dif');
+
   if (map.get('t6_produ_forne') !== undefined)
     vp.t6_produ_forne = map.get('t6_produ_forne');
 
@@ -208,21 +259,21 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   if (map.get('t6_gilrat') !== undefined) vp.t6_gilrat = +map.get('t6_gilrat');
 
-  //Coluna 3
   if (map.get('t6_senart') !== undefined) vp.t6_senart = +map.get('t6_senart');
+
+  if (map.get('t6_ipi') !== undefined) vp.t6_ipi = +map.get('t6_ipi');
+
+  if (map.get('t6_diferimento') !== undefined)
+    vp.t6_diferimento = +map.get('t6_diferimento');
+
+  //Coluna 4
+  if (map.get('t6_c9_enqua_cod') !== undefined)
+    vp.t6_c9_enqua_cod = +map.get('t6_c9_enqua_cod');
 
   if (map.get('t6_c12_enqua_esp_cod') !== undefined) {
     vp.t6_c12_enqua_esp_cod = +map.get('t6_c12_enqua_esp_cod');
     vp.t6_c12_enqua_esp_des = map.get('t6_c12_enqua_esp_des');
   }
-
-  if (map.get('t6_c13_motivo_cod') !== undefined) {
-    vp.t6_c13_motivo_cod = +map.get('t6_c13_motivo_cod');
-    vp.t6_c13_motivo_des = map.get('t6_c13_motivo_des');
-  }
-
-  if (map.get('t6_espe_subs_trub') !== undefined)
-    vp.t6_espe_subs_trub = map.get('t6_espe_subs_trub');
 
   if (map.get('t6_anp_cod') !== undefined)
     vp.t6_anp_cod = +map.get('t6_anp_cod');
@@ -234,7 +285,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   if (map.get('t6_benef') !== undefined) vp.t6_benef = map.get('t6_benef');
 
-  //Coluna 4
   if (map.get('t6_observacoes') !== undefined)
     vp.t6_observacoes = map.get('t6_observacoes');
 
@@ -242,6 +292,16 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   if (map.get('t6_c14_pasta_id') !== undefined)
     vp.t6_c14_pasta_id = map.get('t6_c14_pasta_id');
+
+  /**
+   * Resposta do ws cadastro
+   */
+
+  if (map.get('c7_codigo_produto') !== undefined)
+    vp.c7_codigo_produto = map.get('c7_codigo_produto');
+
+  if (map.get('c7_mensagem_retorno') !== undefined)
+    vp.c7_mensagem_retorno = map.get('c7_mensagem_retorno');
 
   return vp;
 }
