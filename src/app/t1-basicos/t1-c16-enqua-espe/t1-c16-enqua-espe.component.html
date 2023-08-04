@@ -12,7 +12,7 @@
         icon="pi pi-times-circle"
         class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
         [style.display]="
-          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c12_enqua_esp_cod == -1 ? 'none' : ''
+          vp.t6_req_to_read || vp.buscandoWS || vp.t1_c16_enqua_esp_cod == -1 ? 'none' : ''
         "
         (click)="enquaClear()"
       ></button>
@@ -22,7 +22,7 @@
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t6_c12_enqua_esp_des"
+        [(ngModel)]="vp.t1_c16_enqua_esp_des"
         (click)="vp.t6_req_to_read || vp.buscandoWS ? '' : enquaInput()"
       />
       <button
@@ -55,8 +55,8 @@
     [rows]="10"
     [paginator]="true"
     [loading]="vp.buscandoWS"
-    [value]="vp.t6_c12_enqua_esp_arr"
-    [(selection)]="vp.t6_c12_enqua_esp_obj"
+    [value]="vp.t1_c16_enqua_esp_arr"
+    [(selection)]="vp.t1_c16_enqua_esp_obj"
     (onRowSelect)="enquaSelect()"
     dataKey="chvLis"
     [globalFilterFields]="['chvLis', 'desLis']"

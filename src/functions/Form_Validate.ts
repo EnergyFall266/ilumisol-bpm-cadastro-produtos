@@ -27,6 +27,11 @@ export default class FormValidate {
           if (vp.t1_c1_marca_chk() && vp.t1_c1_marca_cod == '')
             this.ms.add(getMsgS('Dados básicos - Origem'));
 
+          if (vp.t1_c15_impostos_cod == -1)
+            this.ms.add(
+              getMsgS('Dados básicos - Tipo de produto para impostos')
+            );
+
           if (vp.t1_c2_substituto_cad == '')
             this.ms.add(
               getMsgS('Dados básicos - Substituto de item já cadastrado?')
@@ -47,6 +52,9 @@ export default class FormValidate {
               getMsgS('Dados básicos - Produto vai ter estoque controlado?')
             );
 
+          if (vp.t1_aquisicao == '')
+            this.ms.add(getMsgS('Dados básicos - Origem da aquisição'));
+
           if (vp.t1_c3_clafiscal_cod == '')
             this.ms.add(getMsgS('Dados básicos - Classificação fiscal / NCM'));
 
@@ -63,7 +71,19 @@ export default class FormValidate {
             this.ms.add(getMsgS('Dados básicos - Origem fiscal mercadoria'));
 
           if (vp.t1_c12_destino_cod == '')
-            this.ms.add(getMsgS('Dados de depósito - Depósitos destino'));
+            this.ms.add(getMsgS('Dados básicos - Depósitos destino'));
+
+          if (vp.t1_c16_enqua_esp_cod == -1)
+            this.ms.add(
+              getMsgS('Dados básicos - Enquadramento de produto específico')
+            );
+          else if (vp.t1_c16_enqua_esp_des == 'Combustível') {
+            if (vp.t1_anp_cod === undefined)
+              this.ms.add(getMsgC('Dados básicos - Código produto ANP'));
+
+            if (vp.t1_anp_des == '')
+              this.ms.add(getMsgC('Dados básicos - Descrição produto na ANP'));
+          }
 
           if (vp.t1_aplicacao === undefined)
             this.ms.add(getMsgS('Dados básicos - Aplicação'));
@@ -117,11 +137,6 @@ export default class FormValidate {
   public cadastrarProduto = (vp: VP_BPM) => {
     this.ms.clear();
 
-    if (vp.t6_c1_impostos_cod == -1)
-      this.ms.add(
-        getMsgS('Dados fiscais e contábeis - Tipo de produto para impostos')
-      );
-
     if (vp.t6_c15_regi_trib_cod == '')
       this.ms.add(getMsgS('Dados fiscais e contábeis - Regime Tributário'));
 
@@ -172,27 +187,6 @@ export default class FormValidate {
       this.ms.add(
         getMsgS('Dados fiscais e contábeis - Situação Tributária Ipi Compras')
       );
-
-    if (vp.t6_produ_forne == '')
-      this.ms.add(
-        getMsgS('Dados fiscais e contábeis - Usa Produto x Fornecedor')
-      );
-
-    if (vp.t6_c12_enqua_esp_cod == -1)
-      this.ms.add(
-        getMsgS(
-          'Dados fiscais e contábeis - Enquadramento de produto específico'
-        )
-      );
-    else if (vp.t6_c12_enqua_esp_des == 'Combustível') {
-      if (vp.t6_anp_cod === undefined)
-        this.ms.add(getMsgC('Dados fiscais e contábeis - Código produto ANP'));
-
-      if (vp.t6_anp_des == '')
-        this.ms.add(
-          getMsgC('Dados fiscais e contábeis - Descrição produto na ANP')
-        );
-    }
   };
 }
 

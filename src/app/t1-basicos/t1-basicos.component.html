@@ -64,6 +64,10 @@
         <app-t1-c1-marca [vp]="vp"></app-t1-c1-marca>
       </div>
 
+      <div class="col-12" [hidden]="vp.hide_t1_show_t6">
+        <app-t1-c15-impostos [vp]="vp"></app-t1-c15-impostos>
+      </div>
+
       <div class="col-12">
         <div class="grid">
           <span class="col-12">Pode ser vendido?</span>
@@ -148,56 +152,28 @@
       </div>
 
       <div class="col-12">
-        <app-t1-c3-classificacao [vp]="vp"></app-t1-c3-classificacao>
-      </div>
-
-      <!--<div class="col-12">
         <div class="grid">
           <span class="col-12">
-            Código de barras livre
+            Origem da aquisição
             <span [hidden]="vp.t1_req_to_read" style="color: red">*</span>
           </span>
           <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.t1_aquisicao_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t1_aquisicao"
               [readonly]="vp.t1_req_to_read"
-              [(ngModel)]="vp.t1_barras"
-            />
+            ></p-dropdown>
           </div>
-          <h6
-            class="col-12 m-0 py-0"
-            style="font-weight: normal"
-            [hidden]="vp.t1_req_to_read"
-          >
-            Se não possuir código, deve preencher "SEM GTIN" e justificar no
-            campo abaixo
-          </h6>
         </div>
       </div>
 
       <div class="col-12">
-        <div class="grid">
-          <span class="col-12">
-            Justificativa código de barras
-            <span
-              [hidden]="vp.t1_req_to_read || !vp.t1_barras_just_chk()"
-              style="color: red"
-              >*</span
-            >
-          </span>
-          <div class="col-12 py-0">
-            <input
-              pInputText
-              type="text"
-              class="col-12"
-              [readonly]="vp.t1_req_to_read"
-              [(ngModel)]="vp.t1_barras_just"
-            />
-          </div>
-        </div>
-      </div>-->
+        <app-t1-c3-classificacao [vp]="vp"></app-t1-c3-classificacao>
+      </div>
 
       <div class="col-12">
         <div class="grid">
@@ -234,6 +210,23 @@
       <div class="col-12">
         <app-t1-c14-duplicado [vp]="vp"></app-t1-c14-duplicado>
       </div>
+
+      <div class="col-12">
+        <div class="grid">
+          <span class="col-12">Usa ligação Produto x Fornecedor</span>
+          <div class="col-12 py-0">
+            <p-dropdown
+              class="w-12"
+              [styleClass]="'w-12'"
+              [panelStyleClass]="'col-12'"
+              [options]="vp.check_options"
+              placeholder="Selecione"
+              [(ngModel)]="vp.t1_produ_forne"
+              [readonly]="vp.t1_req_to_read"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -258,6 +251,56 @@
 
       <div class="col-12">
         <app-t1-c12-deposito [vp]="vp"></app-t1-c12-deposito>
+      </div>
+
+      <div class="col-12" [hidden]="vp.hide_t1_show_t6">
+        <app-t1-c16-enqua-espe [vp]="vp"></app-t1-c16-enqua-espe>
+      </div>
+
+      <div
+        class="col-12"
+        [hidden]="
+          vp.hide_t1_show_t6 || vp.t1_c16_enqua_esp_des != 'Combustível'
+        "
+      >
+        <div class="grid">
+          <span class="col-12">
+            Código produto ANP <span style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <p-inputNumber
+              class="w-12"
+              [styleClass]="'w-12'"
+              [inputStyleClass]="'col-12'"
+              [min]="0"
+              [maxlength]="9"
+              [useGrouping]="false"
+              [(ngModel)]="vp.t1_anp_cod"
+            >
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-12"
+        [hidden]="
+          vp.hide_t1_show_t6 || vp.t1_c16_enqua_esp_des != 'Combustível'
+        "
+      >
+        <div class="grid">
+          <span class="col-12">
+            Descrição produto na ANP <span style="color: red">*</span>
+          </span>
+          <div class="col-12 py-0">
+            <input
+              pInputText
+              type="text"
+              class="col-12"
+              [(ngModel)]="vp.t1_anp_des"
+            />
+          </div>
+        </div>
       </div>
 
       <div class="col-12">

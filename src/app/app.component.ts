@@ -93,6 +93,10 @@ export class AppComponent {
     );
 
     this.primeNGConfig.ripple = true;
+    /*this.vp.overlay = false;
+    this.vp.c1_empresa_cod = 1;
+    this.vp.c1_empresa_nom = 'a';
+    this.activeMenu = fd.showMenus(1, [1, 2, 3]);*/
   }
 
   private _loadData = async (data: Data, info: Info) => {

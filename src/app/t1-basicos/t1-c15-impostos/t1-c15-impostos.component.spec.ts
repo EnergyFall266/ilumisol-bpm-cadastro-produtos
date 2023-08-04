@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { T6C1ImpostosComponent } from './t6-c1-impostos.component';
+import { T1C15ImpostosComponent } from './t1-c15-impostos.component';
 
-describe('T6C1ImpostosComponent', () => {
-  let component: T6C1ImpostosComponent;
-  let fixture: ComponentFixture<T6C1ImpostosComponent>;
+describe('T1C15ImpostosComponent', () => {
+  let component: T1C15ImpostosComponent;
+  let fixture: ComponentFixture<T1C15ImpostosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ T6C1ImpostosComponent ]
+      declarations: [ T1C15ImpostosComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(T6C1ImpostosComponent);
+    fixture = TestBed.createComponent(T1C15ImpostosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

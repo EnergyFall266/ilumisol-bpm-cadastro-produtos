@@ -165,10 +165,10 @@ export class AppService {
   }
 
   private processarDocsGED = async (vp: VP_BPM, pid: string) => {
-    var check_docs: number = 0;
+    let check_docs: number = 0;
 
     for (const i in this.anexos_ged_temp) {
-      var a = this.anexos_ged_temp[i];
+      let a = this.anexos_ged_temp[i];
       if (a.enviado) check_docs++;
       else
         await ged.sendDocument(pid, a, vp.user_fullname, vp.token).then((s) => {
@@ -229,7 +229,7 @@ export class AppService {
       /**
        * Dados fiscais e contábeis
        */
-      proImp: vp.t6_c1_impostos_cod,
+      proImp: vp.t1_c15_impostos_cod,
       regTri: vp.t6_c15_regi_trib_cod,
       temIcm: vp.t6_tem_icms,
       motDes: vp.t6_c13_motivo_cod,
@@ -241,17 +241,15 @@ export class AppService {
       triCof: vp.t6_tributa_cof,
       codStr: vp.t6_c16_situ_trib_cod,
       cstPis: vp.t6_c7_s_p_ven_cod,
-      natPis: vp.t6_natureza_pis ?? 0,
       cstCof: vp.t6_c8_s_c_ven_cod,
-      natCof: vp.t6_natureza_cof ?? 0,
       cstPic: vp.t6_c10_s_p_com_cod,
       cstCoc: vp.t6_c11_s_c_com_cod,
       cstIpc: vp.t6_c17_s_i_com_cod,
 
-      indFpr: vp.t6_produ_forne,
+      indFpr: vp.t1_produ_forne,
       perFun: vp.t6_funrural,
 
-      proEpe: vp.t6_c12_enqua_esp_cod,
+      proEpe: vp.t1_c16_enqua_esp_cod,
 
       claPro: 1,
       tipPro: 'C',
@@ -310,8 +308,8 @@ export class AppService {
     if (vp.t6_ipi) proObj.perIpi = vp.t6_ipi;
     if (vp.t6_diferimento) proObj.perDif = vp.t6_diferimento;
     if (vp.t6_c9_enqua_cod) proObj.codEnq = vp.t6_c9_enqua_cod;
-    if (vp.t6_anp_cod) proObj.codAnp = vp.t6_anp_cod;
-    if (vp.t6_anp_des != '') proObj.desAnp = vp.t6_anp_des;
+    if (vp.t1_anp_cod) proObj.codAnp = vp.t1_anp_cod;
+    if (vp.t1_anp_des != '') proObj.desAnp = vp.t1_anp_des;
 
     const p: Produto[] = [proObj];
 

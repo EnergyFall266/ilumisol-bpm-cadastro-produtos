@@ -1,7 +1,7 @@
 <div class="grid">
   <span class="col-12">
     Tipo de produto para impostos
-    <span style="color: red" [hidden]="vp.t6_req_to_read">*</span>
+    <span style="color: red" [hidden]="vp.t1_req_to_read">*</span>
   </span>
   <div class="col-12 py-0">
     <div class="p-inputgroup">
@@ -12,7 +12,7 @@
         icon="pi pi-times-circle"
         class="py-0 pl-0 pr-1 p-button-text p-button-secondary w-auto"
         [style.display]="
-          vp.t6_req_to_read || vp.buscandoWS || vp.t6_c1_impostos_cod == -1
+          vp.t1_req_to_read || vp.buscandoWS || vp.t1_c15_impostos_cod == -1
             ? 'none'
             : ''
         "
@@ -24,8 +24,8 @@
         class="col-12"
         placeholder="Selecione"
         [readonly]="true"
-        [(ngModel)]="vp.t6_c1_impostos_des"
-        (click)="vp.t6_req_to_read || vp.buscandoWS ? '' : tipoInput()"
+        [(ngModel)]="vp.t1_c15_impostos_des"
+        (click)="vp.t1_req_to_read || vp.buscandoWS ? '' : tipoInput()"
       />
       <button
         pButton
@@ -33,7 +33,7 @@
         type="button"
         icon="pi pi-search"
         class="p-0"
-        [style.display]="vp.t6_req_to_read ? 'none' : ''"
+        [style.display]="vp.t1_req_to_read ? 'none' : ''"
         (click)="tipoInput()"
         [disabled]="vp.buscandoWS"
       ></button>
@@ -56,8 +56,8 @@
       [rows]="10"
       [paginator]="true"
       [loading]="vp.buscandoWS"
-      [value]="vp.t6_c1_impostos_arr"
-      [(selection)]="vp.t6_c1_impostos_obj"
+      [value]="vp.t1_c15_impostos_arr"
+      [(selection)]="vp.t1_c15_impostos_obj"
       (onRowSelect)="tipoSelect()"
       dataKey="chvLis"
       [globalFilterFields]="['chvLis', 'desLis']"

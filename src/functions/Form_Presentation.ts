@@ -10,6 +10,7 @@ export default function getFormPresentation(rld: ResponseLoadData) {
   if (STEP === environment.s6_fis_con) rld.tabs.push(3);
 
   rld.vp.c1_empresa_rqd = true;
+  rld.vp.hide_t1_show_t6 = STEP === environment.s6_fis_con;
   rld.vp.t1_req_to_read = STEP !== environment.s3_rev_inf;
   rld.vp.t5_req_to_read = STEP !== environment.s2_dad_cad;
   rld.vp.t6_req_to_read = STEP !== environment.s6_fis_con;

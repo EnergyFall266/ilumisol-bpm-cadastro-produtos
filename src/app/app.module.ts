@@ -54,7 +54,6 @@ import { T5C2Medida2Component } from './t5-cadastro/t5-c2-medida2/t5-c2-medida2.
 import { T5C3Medida3Component } from './t5-cadastro/t5-c3-medida3/t5-c3-medida3.component';
 import { T5C4Conversao2Component } from './t5-cadastro/t5-c4-conversao2/t5-c4-conversao2.component';
 import { T5C5Conversao3Component } from './t5-cadastro/t5-c5-conversao3/t5-c5-conversao3.component';
-import { T6C1ImpostosComponent } from './t6-fis-con/t6-c1-impostos/t6-c1-impostos.component';
 import { T6C2IcmsEspecialComponent } from './t6-fis-con/t6-c2-icms-especial/t6-c2-icms-especial.component';
 import { T6C3ReducaoIcmsComponent } from './t6-fis-con/t6-c3-reducao-icms/t6-c3-reducao-icms.component';
 import { T6C4IcmsSubstituidoComponent } from './t6-fis-con/t6-c4-icms-substituido/t6-c4-icms-substituido.component';
@@ -65,7 +64,6 @@ import { T6C10SituPisComprasComponent } from './t6-fis-con/t6-c10-situ-pis-compr
 import { T6C11SituCofComprasComponent } from './t6-fis-con/t6-c11-situ-cof-compras/t6-c11-situ-cof-compras.component';
 import { T6C7SituPisVendasComponent } from './t6-fis-con/t6-c7-situ-pis-vendas/t6-c7-situ-pis-vendas.component';
 import { T6C8SituCofVendasComponent } from './t6-fis-con/t6-c8-situ-cof-vendas/t6-c8-situ-cof-vendas.component';
-import { T6C12EnquadramentoEspeComponent } from './t6-fis-con/t6-c12-enquadramento-espe/t6-c12-enquadramento-espe.component';
 import { T6C13MotivoComponent } from './t6-fis-con/t6-c13-motivo/t6-c13-motivo.component';
 import { T6C14AnexoComponent } from './t6-fis-con/t6-c14-anexo/t6-c14-anexo.component';
 import { C1EmpresaComponent } from './c1-empresa/c1-empresa.component';
@@ -75,6 +73,8 @@ import { T1C14DuplicadoComponent } from './t1-basicos/t1-c14-duplicado/t1-c14-du
 import { T6C15RegiTribComponent } from './t6-fis-con/t6-c15-regi-trib/t6-c15-regi-trib.component';
 import { T6C16SituTribComponent } from './t6-fis-con/t6-c16-situ-trib/t6-c16-situ-trib.component';
 import { T6C17SituIpiComprasComponent } from './t6-fis-con/t6-c17-situ-ipi-compras/t6-c17-situ-ipi-compras.component';
+import { T1C15ImpostosComponent } from './t1-basicos/t1-c15-impostos/t1-c15-impostos.component';
+import { T1C16EnquaEspeComponent } from './t1-basicos/t1-c16-enqua-espe/t1-c16-enqua-espe.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -101,7 +101,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T5C3Medida3Component,
     T5C4Conversao2Component,
     T5C5Conversao3Component,
-    T6C1ImpostosComponent,
     T6C2IcmsEspecialComponent,
     T6C3ReducaoIcmsComponent,
     T6C4IcmsSubstituidoComponent,
@@ -112,7 +111,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C11SituCofComprasComponent,
     T6C7SituPisVendasComponent,
     T6C8SituCofVendasComponent,
-    T6C12EnquadramentoEspeComponent,
     T6C13MotivoComponent,
     T6C14AnexoComponent,
     C1EmpresaComponent,
@@ -122,6 +120,8 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     T6C15RegiTribComponent,
     T6C16SituTribComponent,
     T6C17SituIpiComprasComponent,
+    T1C15ImpostosComponent,
+    T1C16EnquaEspeComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,11 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c1_marca_des = map.get('t1_c1_marca_des');
   }
 
+  if (map.get('t1_c15_impostos_cod') !== undefined) {
+    vp.t1_c15_impostos_cod = +map.get('t1_c15_impostos_cod');
+    vp.t1_c15_impostos_des = map.get('t1_c15_impostos_des');
+  }
+
   if (map.get('t1_vendido') !== undefined)
     vp.t1_vendido = map.get('t1_vendido');
 
@@ -39,6 +44,8 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t1_controlado = map.get('t1_controlado');
 
+  vp.t1_controlado = map.get('t1_controlado');
+
   vp.t1_c3_clafiscal_cod = map.get('t1_c3_clafiscal_cod');
   vp.t1_c3_clafiscal_des = map.get('t1_c3_clafiscal_des');
 
@@ -49,6 +56,9 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t1_c14_duplicado_stx = map.get('t1_c14_duplicado_stx');
   if (map.get('t1_c14_duplicado_nom') !== undefined)
     vp.t1_c14_duplicado_nom = map.get('t1_c14_duplicado_nom');
+
+  if (map.get('t1_produ_forne') !== undefined)
+    vp.t1_produ_forne = map.get('t1_produ_forne');
 
   vp.t1_c5_familia_cod = map.get('t1_c5_familia_cod');
   vp.t1_c5_familia_des = map.get('t1_c5_familia_des');
@@ -67,6 +77,17 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
 
   vp.t1_c12_destino_stx = map.get('t1_c12_destino_stx');
   vp.t1_c12_destino_cod = map.get('t1_c12_destino_cod');
+
+  if (map.get('t1_c16_enqua_esp_cod') !== undefined) {
+    vp.t1_c16_enqua_esp_cod = +map.get('t1_c16_enqua_esp_cod');
+    vp.t1_c16_enqua_esp_des = map.get('t1_c16_enqua_esp_des');
+  }
+
+  if (map.get('t1_anp_cod') !== undefined)
+    vp.t1_anp_cod = +map.get('t1_anp_cod');
+
+  if (map.get('t1_anp_des') !== undefined)
+    vp.t1_anp_des = map.get('t1_anp_des');
 
   vp.t1_aplicacao = map.get('t1_aplicacao');
 
@@ -126,7 +147,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t5_valor3') !== undefined) vp.t5_valor3 = +map.get('t5_valor3');
 
   //Coluna 3
-
   if (map.get('t5_observacao') !== undefined)
     vp.t5_observacao = map.get('t5_observacao');
 
@@ -138,11 +158,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
    */
 
   //Coluna 1
-  if (map.get('t6_c1_impostos_cod') !== undefined) {
-    vp.t6_c1_impostos_cod = +map.get('t6_c1_impostos_cod');
-    vp.t6_c1_impostos_des = map.get('t6_c1_impostos_des');
-  }
-
   if (map.get('t6_c15_regi_trib_cod') !== undefined) {
     vp.t6_c15_regi_trib_cod = map.get('t6_c15_regi_trib_cod');
     vp.t6_c15_regi_trib_des = map.get('t6_c15_regi_trib_des');
@@ -206,16 +221,10 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
     vp.t6_c7_s_p_ven_des = map.get('t6_c7_s_p_ven_des');
   }
 
-  if (map.get('t6_natureza_pis') !== undefined)
-    vp.t6_natureza_pis = map.get('t6_natureza_pis');
-
   if (map.get('t6_c8_s_c_ven_cod') !== undefined) {
     vp.t6_c8_s_c_ven_cod = map.get('t6_c8_s_c_ven_cod');
     vp.t6_c8_s_c_ven_des = map.get('t6_c8_s_c_ven_des');
   }
-
-  if (map.get('t6_natureza_cof') !== undefined)
-    vp.t6_natureza_cof = map.get('t6_natureza_cof');
 
   if (map.get('t6_c10_s_p_com_cod') !== undefined) {
     vp.t6_c10_s_p_com_cod = map.get('t6_c10_s_p_com_cod');
@@ -251,9 +260,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   if (map.get('t6_cof_dif') !== undefined)
     vp.t6_cof_dif = +map.get('t6_cof_dif');
 
-  if (map.get('t6_produ_forne') !== undefined)
-    vp.t6_produ_forne = map.get('t6_produ_forne');
-
   if (map.get('t6_funrural') !== undefined)
     vp.t6_funrural = +map.get('t6_funrural');
 
@@ -269,17 +275,6 @@ export default function getVP(vp: VP_BPM, map: Map<any, any>): VP_BPM {
   //Coluna 4
   if (map.get('t6_c9_enqua_cod') !== undefined)
     vp.t6_c9_enqua_cod = +map.get('t6_c9_enqua_cod');
-
-  if (map.get('t6_c12_enqua_esp_cod') !== undefined) {
-    vp.t6_c12_enqua_esp_cod = +map.get('t6_c12_enqua_esp_cod');
-    vp.t6_c12_enqua_esp_des = map.get('t6_c12_enqua_esp_des');
-  }
-
-  if (map.get('t6_anp_cod') !== undefined)
-    vp.t6_anp_cod = +map.get('t6_anp_cod');
-
-  if (map.get('t6_anp_des') !== undefined)
-    vp.t6_anp_des = map.get('t6_anp_des');
 
   if (map.get('t6_pauta') !== undefined) vp.t6_pauta = map.get('t6_pauta');
 

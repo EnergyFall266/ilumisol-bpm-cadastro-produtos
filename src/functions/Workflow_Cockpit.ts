@@ -52,11 +52,11 @@ export async function saveData(vp: VP_BPM) {
   vp.t5_c1_mascara_arr = [];
   vp.t6_substituicao_arr = [];
   vp.t6_situacao_arr = [];
-  vp.t6_c1_impostos_arr = [];
+  vp.t1_c15_impostos_arr = [];
   vp.t6_c2_icms_espe_arr = [];
   vp.t6_c3_redu_icms_arr = [];
   vp.t6_c9_enqua_arr = [];
-  vp.t6_c12_enqua_esp_arr = [];
+  vp.t1_c16_enqua_esp_arr = [];
   vp.t6_c13_motivo_arr = [];
 
   return { formData: vp };
