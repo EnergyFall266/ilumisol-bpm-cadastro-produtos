@@ -18,4 +18,5 @@ export const environment = {
   s2_dad_cad: 's2_dad_cad',
   s3_rev_inf: 's3_rev_inf',
   s6_fis_con: 's6_fis_con',
+  version: '0.0.0',
 };

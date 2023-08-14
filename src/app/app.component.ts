@@ -9,6 +9,7 @@ import axios from 'axios';
 import { AppService } from './app.service';
 import FormValidate from 'src/functions/Form_Validate';
 import { Messages } from 'primeng/messages';
+import { environment } from 'src/environments/environment';
 
 declare var workflowCockpit: any;
 
@@ -22,6 +23,7 @@ export class AppComponent {
   @ViewChild(Messages) msg!: Messages;
 
   public title = 'cadastro_produto';
+  public version = environment.version;
 
   public menus: ngapi.MenuItem[] = fd.menus;
   public activeMenu: ngapi.MenuItem = {};
